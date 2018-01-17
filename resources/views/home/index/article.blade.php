@@ -56,21 +56,21 @@
             margin-left: 30px;
         }
 
-        /*.glyphicon-user {*/
-            /*color: #ff6e03;*/
-        /*}*/
+        .glyphicon-user {
+            color: #ff6e03;
+        }
 
-        /*.glyphicon-dashboard {*/
-            /*color: green;*/
-        /*}*/
+        .glyphicon-dashboard {
+            color: green;
+        }
 
-        /*.glyphicon-fire {*/
-            /*color: #f00*/
-        /*}*/
+        .glyphicon-fire {
+            color: #f00
+        }
 
-        /*.fa-tags {*/
-            /*color: #21d3ff*/
-        /*}*/
+        .fa-tags {
+            color: #21d3ff
+        }
         .col-lg-3 {
             width: 16%;
         }
@@ -94,35 +94,25 @@
     <div class="col-xs-12 col-md-12 col-lg-8">
         <div class="row b-article">
             <h1 class="col-xs-12 col-md-12 col-lg-12 b-title">{{ $data->title }}</h1>
-            <div class="col-md-12" style="margin-bottom: 5px;">
+            <div class="col-md-12" style="text-align:center;">
                 <ul class="row b-metadata">
                     <li class="col-md-2">
-                        <label class="label label-success">
-                            <i class="glyphicon glyphicon-user"></i> {{ $data->author }}
-                        </label>
+                        <i class="glyphicon glyphicon-user"></i> {{ $data->author }}
                     </li>
                     <li class="col-md-2" style="">
-                        <label class="label label-success" style="background-color: #f00">
-                            <i class="glyphicon glyphicon-fire"></i> {{ $data->click }}
-                        </label>
+                        <i class="glyphicon glyphicon-fire"></i> {{ $data->click }}
                     </li>
                     <li class="col-md-2">
-                        <label class="label label-success" style="background-color: green;">
-                            <i class="glyphicon glyphicon-calendar"></i> {{ $data->created_at->diffForHumans() }}
-                        </label>
+                        <i class="glyphicon glyphicon-calendar"></i> {{ $data->created_at->diffForHumans() }}
                     </li>
                     <li class="col-md-2">
-                        <label class="label set-category" style="background-color: #311f16;">
-                            <i class="fa fa-list-alt"></i> <a href="{{ url('category', [$data->category_id]) }}" target="_blank">{{ $data->category_name }}</a>
-                        </label>
+                        <i class="fa fa-list-alt"></i> <a href="{{ url('category', [$data->category_id]) }}" target="_blank">{{ $data->category_name }}</a>
                     </li>
                     <li class="col-md-4">
-                        <label class="label set-label" style="background-color: #21d3ff">
-                            <i class="fa fa-tags"></i>
-                            @foreach($data->tag as $v)
-                                <a class="b-tag-name" href="{{ url('tag', [$v->tag_id]) }}" target="_blank">{{ $v->name }}</a>
-                            @endforeach
-                        </label>
+                        <i class="fa fa-tags"></i>
+                        @foreach($data->tag as $v)
+                            <a class="b-tag-name" href="{{ url('tag', [$v->tag_id]) }}" target="_blank">{{ $v->name }}</a>
+                        @endforeach
                     </li>
                 </ul>
             </div>

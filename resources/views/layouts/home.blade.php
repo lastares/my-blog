@@ -18,6 +18,30 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('statics/animate/animate.min.css') }}">
     <link rel="stylesheet" type="text/css" href="/statics/bootstrap-alert/css/component.css">
     <style>
+        body {
+            background: #efefee;
+        }
+        #b-public-nav {
+            /*background-color: #ffffff;*/
+            position: fixed;
+            width: 100%;
+            min-height: 3.75rem;
+            background-color: hsla(0,0%,100%,.9);
+            box-shadow: 0 0.0625rem 0.3125rem rgba(0,0,0,.09);
+            z-index: 1000;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            top: 0;
+            left: 0;
+        }
+        .navbar-inverse {
+            color: #0a001f;
+        }
+        .container {
+            width: 1252px;
+        }
         .set-font {
             font-size: 16px;
         }
@@ -64,22 +88,6 @@
         /*body {*/
             /*cursor: url(/images/home/cursor.cur), auto !important;*/
         /*}*/
-        body:after {
-
-            content: '';
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            background: url(/images/home/skyblue.jpg);
-            z-index: -2;
-            background-size: 100% 100%;
-            /*filter: blur(3px);*/
-            /*-webkit-filter: blur(3px);*/
-            /*-o-filter: blur(3px);*/
-            /*-ms-filter: blur(3px);*/
-        }
 
         a:-webkit-any-link {
             cursor: url(/images/home/cursor.cur), auto;
@@ -106,11 +114,19 @@
             text-shadow: 0 1px 0 hsla(0,0%,100%,.5);
             font-family: SourceCodeProRegular,Menlo,Monaco,Consolas,Courier New,monospace;
         }
+        .from {
+            color: #fff;
+            padding: 1px 3px;
+            background-color: #5CB85C;
+            border-radius: 5px;
+            font-size: 12px;
+        }
     </style>
     @yield('css')
 </head>
 <body style="cursor: url(/images/home/cursor.cur), auto !important;">
     <!-- 顶部导航开始 -->
+
     <header id="b-public-nav" class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -131,7 +147,7 @@
                     {{--<p class="b-logo-end">;</p>--}}
                 </a>
             </div>
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="margin-left: 20px;">
+            <div class="collapse navbar-collapse pull-right" id="bs-example-navbar-collapse-1" style="margin-left: 20px;">
                 <ul class="nav navbar-nav b-nav-parent">
                     <li class="hidden-xs b-nav-mobile"></li>
                     <li class="b-nav-cname set-font @if($category_id == 'index') b-nav-active @endif">
@@ -153,21 +169,21 @@
                         <a href="{{ url('other') }}">其他杂项</a>
                     </li>
                 </ul>
-                {{--<ul id="b-login-word" class="nav navbar-nav navbar-right">--}}
-                {{--@if(empty(session('user.name')))--}}
-                {{--<li class="b-nav-cname b-nav-login">--}}
-                {{--<div class="hidden-xs b-login-mobile"></div>--}}
-                {{--<a href="javascript:;" onclick="login()">登录</a>--}}
-                {{--</li>--}}
-                {{--@else--}}
-                {{--<li class="b-user-info">--}}
-                {{--<span><img class="b-head_img" src="{{ session('user.avatar') }}"--}}
-                {{--alt="{{ session('user.name') }}" title="{{ session('user.name') }}"/></span>--}}
-                {{--<span class="b-nickname">{{ session('user.name') }}</span>--}}
-                {{--<span><a href="{{ url('auth/oauth/logout') }}">退出</a></span>--}}
-                {{--</li>--}}
-                {{--@endif--}}
-                {{--</ul>--}}
+                <ul id="b-login-word" class="nav navbar-nav navbar-right">
+                @if(empty(session('user.name')))
+                <li class="b-nav-cname b-nav-login">
+                <div class="hidden-xs b-login-mobile"></div>
+                <a href="javascript:;" onclick="login()">登录</a>
+                </li>
+                @else
+                <li class="b-user-info">
+                <span><img class="b-head_img" src="{{ session('user.avatar') }}"
+                alt="{{ session('user.name') }}" title="{{ session('user.name') }}"/></span>
+                <span class="b-nickname">{{ session('user.name') }}</span>
+                <span><a href="{{ url('auth/oauth/logout') }}">退出</a></span>
+                </li>
+                @endif
+                </ul>
             </div>
         </div>
     </header>
