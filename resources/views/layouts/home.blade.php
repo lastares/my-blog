@@ -121,6 +121,45 @@
             border-radius: 5px;
             font-size: 12px;
         }
+        .list-li {
+            font-size: 14px;
+            width: 1.375rem;
+            height: 1.375rem;
+            line-height: 1.375rem;
+            text-align: center;
+            content: counter(a,decimal);
+            position: absolute;
+            left: 0;
+            top: .3125rem;
+            /*border-radius: 10px;*/
+            background-color: #efefee;
+            text-shadow: 0 1px 0 hsla(0,0%,100%,.5);
+            font-family: SourceCodeProRegular,Menlo,Monaco,Consolas,Courier New,monospace;
+        }
+        .a-append {
+            counter-increment: a;
+            padding: .3125rem 0 .3125rem 1.875rem;
+            line-height: 1.5rem;
+            position: relative;
+        }
+        .a-append:hover {
+            color:#fe4365 !important;
+        }
+        .list-li-zero {
+            background-color: #d9534f;
+            color: #fff;
+            text-shadow: none;
+        }
+        .list-li-one {
+            background-color: #0366d6;
+            color: #fff;
+            text-shadow: none;
+        }
+        .list-li-two {
+            background-color: #6bc30d;
+            color: #fff;
+            text-shadow: none;
+        }
     </style>
     @yield('css')
 </head>
@@ -169,21 +208,21 @@
                         <a href="{{ url('other') }}">其他杂项</a>
                     </li>
                 </ul>
-                <ul id="b-login-word" class="nav navbar-nav navbar-right">
-                @if(empty(session('user.name')))
-                <li class="b-nav-cname b-nav-login">
-                <div class="hidden-xs b-login-mobile"></div>
-                <a href="javascript:;" onclick="login()">登录</a>
-                </li>
-                @else
-                <li class="b-user-info">
-                <span><img class="b-head_img" src="{{ session('user.avatar') }}"
-                alt="{{ session('user.name') }}" title="{{ session('user.name') }}"/></span>
-                <span class="b-nickname">{{ session('user.name') }}</span>
-                <span><a href="{{ url('auth/oauth/logout') }}">退出</a></span>
-                </li>
-                @endif
-                </ul>
+                {{--<ul id="b-login-word" class="nav navbar-nav navbar-right">--}}
+                {{--@if(empty(session('user.name')))--}}
+                {{--<li class="b-nav-cname b-nav-login">--}}
+                {{--<div class="hidden-xs b-login-mobile"></div>--}}
+                {{--<a href="javascript:;" onclick="login()">登录</a>--}}
+                {{--</li>--}}
+                {{--@else--}}
+                {{--<li class="b-user-info">--}}
+                {{--<span><img class="b-head_img" src="{{ session('user.avatar') }}"--}}
+                {{--alt="{{ session('user.name') }}" title="{{ session('user.name') }}"/></span>--}}
+                {{--<span class="b-nickname">{{ session('user.name') }}</span>--}}
+                {{--<span><a href="{{ url('auth/oauth/logout') }}">退出</a></span>--}}
+                {{--</li>--}}
+                {{--@endif--}}
+                {{--</ul>--}}
             </div>
         </div>
     </header>
@@ -323,9 +362,14 @@
                 <div class="b-recommend">
                     <h4 class="b-title header-border">置顶 <span id="hot-label">文章</span></h4>
                     <p class="b-recommend-p">
-                        @foreach($topArticle as $v)
-                            <a class="b-recommend-a" href="{{ url('article', [$v->id]) }}" target="_blank"><span
-                                        class="fa fa-th-list b-black"></span> {{ $v->title }}</a>
+                        @foreach($topArticle as $k => $v)
+                            <a class="b-recommend-a a-append" href="{{ url('article', [$v->id]) }}" target="_blank">
+                                <span class="list-li @if($k == 0) list-li-zero
+                                @elseif($k == 1) list-li-one
+                                @elseif($k == 2) list-li-two
+                                @endif"
+
+                                >{{ $k + 1 }}</span>&nbsp;&nbsp;{{ $v->title }}</a>
                         @endforeach
                     </p>
                 </div>
@@ -409,9 +453,7 @@
                                         src="{{ asset('images/home/sina-login.png') }}" alt="微博登录" title="微博登录"></a>
                         </li>
                         <li class="col-xs-6 col-md-4 col-lg-4 b-login-img">
-                            <a href="{{ url('auth/oauth/redirectToProvider/github') }}"><img
-                                        src="{{ asset('images/home/github-login.jpg') }}" alt="github登录"
-                                        title="github登录"></a>
+                           <a href="{{ url('auth/oauth/redirectToProvider/github') }}"><img src="{{ asset('images/home/github-login.jpg') }}" alt="github登录" title="github登录"></a>
                         </li>
                     </ul>
                 </div>

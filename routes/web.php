@@ -58,11 +58,11 @@ Route::group(['namespace' => 'Home', 'prefix' => 'home'], function () {
 Route::group(['namespace' => 'Auth', 'prefix' => 'auth'], function () {
     // 第三方登录
     Route::group(['prefix' => 'oauth'], function () {
-        // 重定向
+//        // 重定向
         Route::get('redirectToProvider/{service}', 'OAuthController@redirectToProvider');
-        // 获取用户资料并登录
+//        // 获取用户资料并登录
         Route::get('handleProviderCallback/{service}', 'OAuthController@handleProviderCallback');
-        // 退出登录
+//        // 退出登录
         Route::get('logout', 'OAuthController@logout');
     });
 
