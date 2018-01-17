@@ -18,7 +18,7 @@ class Article extends Base
         // 如果没有描述;则截取文章内容的前200字作为描述
         if (empty($data['description'])) {
             $description = preg_replace(array('/[~*>#-]*/', '/!?\[.*\]\(.*\)/', '/\[.*\]/'), '', $data['markdown']);
-            $data['description'] = re_substr($description, 0, 250, true);
+            $data['description'] = re_substr($description, 0, 350, true);
         }
 
         // 给文章的插图添加水印;并取第一张图片作为封面图
