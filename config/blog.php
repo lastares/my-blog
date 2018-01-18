@@ -17,7 +17,7 @@ return [
     '_file_upload_path' => './uploads/file/',
 
     // 每页显示的条数
-    'pageSize' => 15,
+    'pageSize' => 6,
 
     // 水印文字
     'text_water' => 'http://www.songyaofeng.com'

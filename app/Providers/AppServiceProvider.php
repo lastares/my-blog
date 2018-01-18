@@ -52,6 +52,7 @@ class AppServiceProvider extends ServiceProvider
                 return Article::select('id', 'title')
                     ->where('is_top', 1)
                     ->orderBy('created_at', 'desc')
+                    ->limit(8)
                     ->get();
             });
 

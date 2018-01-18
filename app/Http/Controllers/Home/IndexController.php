@@ -102,7 +102,7 @@ class IndexController extends BaseController
             'tagName' => '',
             'title' => $categoryName
         ];
-        return view('home.index.index', $assign);
+        return view('home.index.category', $assign);
     }
 
     /**

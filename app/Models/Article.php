@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use function request;
+use Carbon\Carbon;
 
 class Article extends Base
 {
@@ -125,10 +126,10 @@ class Article extends Base
         // 获取文章分页
         $data = $this
             ->whereMap($map)
-            ->select('articles.id', 'articles.title', 'articles.click', 'articles.cover', 'articles.author', 'articles.description', 'articles.category_id', 'articles.created_at', 'c.name as category_name')
+            ->select('articles.id', 'articles.type', 'articles.title', 'articles.click', 'articles.cover', 'articles.author', 'articles.description', 'articles.category_id', 'articles.created_at', 'c.name as category_name')
             ->join('categories as c', 'articles.category_id', 'c.id')
             ->orderBy('articles.created_at', 'desc')
-            ->paginate(10);
+            ->paginate(config('blog.pageSize'));
         // 提取文章id组成一个数组
         $dataArray = $data->toArray();
         $article_id = array_column($dataArray['data'], 'id');
@@ -137,6 +138,9 @@ class Article extends Base
         $tag = $articleTagModel->getTagNameByArticleIds($article_id);
         foreach ($data as $k => $v) {
             $data[$k]->tag = isset($tag[$v->id]) ? $tag[$v->id] : [];
+            $dt = Carbon::parse($v->created_at);
+            $data[$k]->month = $dt->month;
+            $data[$k]->day = $dt->day;
         }
         return $data;
     }

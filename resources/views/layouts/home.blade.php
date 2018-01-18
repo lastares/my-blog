@@ -1,603 +1,178 @@
-<!doctype html>
-<html lang="en">
+
+<!--
+*文件名：前台
+*时间：20170715
+-->
+<!--
+文件名：首页模型
+时间：20170815 更新
+-->
+
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <title>@yield('title')@if(request()->path() !== '/') - {{ $config['WEB_TITLE'] }} @endif</title>
-    <meta name="keywords" content="@yield('keywords')"/>
-    <meta name="description" content="@yield('description')"/>
-    <meta http-equiv="Cache-Control" content="no-siteapp"/>
-    <meta name="author" content="songyaofeng,{{ htmlspecialchars_decode($config['ADMIN_EMAIL']) }}">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="shortcut icon" href="/favicon.ico" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('statics/bootstrap-3.3.5/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('statics/bootstrap-3.3.5/css/bootstrap-theme.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('statics/font-awesome-4.7.0/css/font-awesome.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('statics/css/blog.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/home/index.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('statics/animate/animate.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="/statics/bootstrap-alert/css/component.css">
-    <style>
-        body {
-            background: #efefee;
-        }
-        #b-public-nav {
-            /*background-color: #ffffff;*/
-            position: fixed;
-            width: 100%;
-            min-height: 3.75rem;
-            background-color: hsla(0,0%,100%,.9);
-            box-shadow: 0 0.0625rem 0.3125rem rgba(0,0,0,.09);
-            z-index: 1000;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-            top: 0;
-            left: 0;
-        }
-        .navbar-inverse {
-            color: #0a001f;
-        }
-        .container {
-            width: 1252px;
-        }
-        .set-font {
-            font-size: 16px;
-        }
-        .portrait {
-            width: 100px;
-        }
-
-        .widget-tabs {
-            height: 284px;
-        }
-
-        .person-info {
-            padding: 8% 0;
-            height: 102px;
-        }
-
-        .info {
-            text-align: center;
-            vertical-align: middle;
-        }
-
-        .created {
-            font-size: 16px;
-            color: #788087;
-        }
-
-        #notice a {
-            font-size: 16px;
-        }
-
-        .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
-            cursor: url(/images/home/cursor.cur), auto !important;
-            color: white;
-            background-color: #14c327;
-            border: none;
-            border-bottom-color: transparent;
-        }
-
-        /*body {*/
-            /*!*cursor: url(/images/home/cursor.cur), auto !important;*!*/
-            /*background-image: url("/images/home/skyblue.jpg");*/
-            /*background-repeat: repeat-x;*/
-        /*}*/
-        /*body {*/
-            /*cursor: url(/images/home/cursor.cur), auto !important;*/
-        /*}*/
-
-        a:-webkit-any-link {
-            cursor: url(/images/home/cursor.cur), auto;
-        }
-
-        .header-border {
-            border-bottom: 1px solid #0B7DF2;
-        }
-
-        #hot-label {
-           color: #ee3333;
-            font-weight: bolder;
-        }
-
-        .list-icon {
-            line-height: 1.375rem;
-            text-align: center;
-            content: counter(a,decimal);
-            position: absolute;
-            left: 0;
-            top: .3125rem;
-            border-radius: 100%;
-            background-color: #efefee;
-            text-shadow: 0 1px 0 hsla(0,0%,100%,.5);
-            font-family: SourceCodeProRegular,Menlo,Monaco,Consolas,Courier New,monospace;
-        }
-        .from {
-            color: #fff;
-            padding: 1px 3px;
-            background-color: #5CB85C;
-            border-radius: 5px;
-            font-size: 12px;
-        }
-        .list-li {
-            font-size: 14px;
-            width: 1.375rem;
-            height: 1.375rem;
-            line-height: 1.375rem;
-            text-align: center;
-            content: counter(a,decimal);
-            position: absolute;
-            left: 0;
-            top: .3125rem;
-            /*border-radius: 10px;*/
-            background-color: #efefee;
-            text-shadow: 0 1px 0 hsla(0,0%,100%,.5);
-            font-family: SourceCodeProRegular,Menlo,Monaco,Consolas,Courier New,monospace;
-        }
-        .a-append {
-            counter-increment: a;
-            padding: .3125rem 0 .3125rem 1.875rem;
-            line-height: 1.5rem;
-            position: relative;
-        }
-        .a-append:hover {
-            color:#fe4365 !important;
-        }
-        .list-li-zero {
-            background-color: #d9534f;
-            color: #fff;
-            text-shadow: none;
-        }
-        .list-li-one {
-            background-color: #0366d6;
-            color: #fff;
-            text-shadow: none;
-        }
-        .list-li-two {
-            background-color: #6bc30d;
-            color: #fff;
-            text-shadow: none;
-        }
-        .person-info2 {
-            float: left;
-            width: 100%;
-        }
-        .person-detail {
-            overflow: hidden;
-            font-size: 14px;
-            color: #333;
-            margin-top: 10px;
-        }
-        .person-nick-name span {
-            display: block;
-            /*float: left;*/
-            font-size: 24px;
-            color: #333;
-            font-weight: normal;
-        }
-        .person-detail span {
-            font-size: 14px;
-            color: #999;
-            padding: 0 10px;
-        }
-        .person-sign {
-            overflow: hidden;
-            font-size: 14px;
-            color: #999;
-            border-top: 1px solid #f0f0f0;
-            padding-top: 8px;
-            margin-top: 10px;
-            line-height: 22px;
-            word-wrap: break-word;
-            word-break: break-all;
-        }
-    </style>
-    @yield('css')
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="宋耀锋,个人博客,SYF,web前端,宋耀锋个人博客,web技术博文,javascript,html5,css3,layui,layui框架,前端工具导航,web框架大全,前端工具大全,前端目录,vue,node,jq"/>
+    <meta name="description" content="SYF宋耀锋个人博客记录生活，关注web前端。SYF v1.0 主要基于Codeigniter + layui开发 版本：SYF v1.0 简要版，时间：2017年8月，博客托管于阿里云 服务器环境为：ECS centos 6.8 + Apache + Mysql "/>
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>@yield('title')-SYF-宋耀锋个人博客</title>
+    <link href="/home/css/animate.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="/home/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/home/css/style.css" rel="stylesheet">
+    <link href="/home/css/banner.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="/home/js/html5shiv.min.js"></script>
+    <script src="/home/js/respond.min.js"></script>
+    <![endif]-->
 </head>
-<body style="cursor: url(/images/home/cursor.cur), auto !important;">
-    <!-- 顶部导航开始 -->
 
-    <header id="b-public-nav" class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/" onclick="recordId('/',0)">
-                    <div class="hidden-xs b-nav-background"></div>
-                    <p class="b-logo-word">{{ $config['WEB_NAME'] }}</p>
-                </a>
-            </div>
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav b-nav-parent">
-                    <li class="hidden-xs b-nav-mobile"></li>
-                    <li class="b-nav-cname set-font @if($category_id == 'index') b-nav-active @endif">
-                        <a href="/" onclick="recordId('/',0)">首页</a>
-                    </li>
-                    @foreach($category as $v)
-                        <li class="b-nav-cname set-font @if($v->id == $category_id) b-nav-active @endif">
-                            <a href="{{ url('category/'.$v->id) }}"
-                               onclick="return recordId('cid', '{{ $v->id }}')">{{ $v->name }}</a>
-                        </li>
-                    @endforeach
-                    <li class="b-nav-cname set-font @if($category_id == 'chat') b-nav-active @endif">
-                        <a href="{{ url('chat') }}">程序人生</a>
-                    </li>
-                    <li class="b-nav-cname hidden-sm set-font  @if($category_id == 'git') b-nav-active @endif">
-                        <a href="{{ url('git') }}">开源项目</a>
-                    </li>
-                    <li class="b-nav-cname hidden-sm set-font  @if($category_id == 'other') b-nav-active @endif">
-                        <a href="{{ url('other') }}">其他杂项</a>
-                    </li>
-                </ul>
-                {{--<ul id="b-login-word" class="nav navbar-nav navbar-right">--}}
-                {{--@if(empty(session('user.name')))--}}
-                {{--<li class="b-nav-cname b-nav-login">--}}
-                {{--<div class="hidden-xs b-login-mobile"></div>--}}
-                {{--<a href="javascript:;" onclick="login()">登录</a>--}}
-                {{--</li>--}}
-                {{--@else--}}
-                {{--<li class="b-user-info">--}}
-                {{--<span><img class="b-head_img" src="{{ session('user.avatar') }}"--}}
-                {{--alt="{{ session('user.name') }}" title="{{ session('user.name') }}"/></span>--}}
-                {{--<span class="b-nickname">{{ session('user.name') }}</span>--}}
-                {{--<span><a href="{{ url('auth/oauth/logout') }}">退出</a></span>--}}
-                {{--</li>--}}
-                {{--@endif--}}
-                {{--</ul>--}}
-            </div>
-        </div>
-    </header>
-    <!-- 顶部导航结束 -->
-    <div class="b-h-70"></div>
-    <div id="b-content" class="container">
-        <div class="row">
-        @yield('content')
-        <!-- 通用右部区域开始 -->
-            <div id="b-public-right" class="col-lg-4 hidden-xs hidden-sm hidden-md">
-                <div class="fixed">
-                    <div class="widget widget-tabs">
-                        <ul class="nav nav-tabs" role="tablist">
-                            <li role="presentation" class="active">
-                                <a href="#about" aria-controls="contact" role="tab" data-toggle="tab">关于站长</a>
-                            </li>
-                            <li role="presentation">
-                            <a href="#notice" aria-controls="notice" role="tab" data-toggle="tab">网站公告</a>
-                            </li>
-                            <li role="presentation">
-                            <a href="#contact" aria-controls="contact" role="tab" data-toggle="tab">联系站长</a>
-                            </li>
-                        </ul>
-                        <div class="tab-content">
-                            <div role="tabpanel" class="tab-pane notice active" id="about">
-                                <div class="row" style="border-bottom: 1px solid #e3e3e3; padding-bottom: 15px;" >
-                                    <div class="col-sm-4">
-                                        <img src="/images/home/head-potrait.jpg"  class="img-circle img-responsive portrait" alt="head-potrait.jpg">
-                                    </div>
-                                    <div  class="col-sm-8" style="padding-left: 0px;">
-                                        <dl class="person-info2">
-                                            <dt class="person-nick-name">
-                                                <span>灵 晨</span>
-                                            </dt>
-                                            <dd class="person-detail">
-                                                互联网<span>|</span>PHPer<span>|</span>宋耀锋<span>|</span>杭州市
-                                            </dd>
-                                            <dd class="person-sign">个人简介</dd>
-                                        </dl>
-                                    {{--<span>--}}
-                                        {{--<h4><strong>蓝 笑 灵 晨</strong></h4><br>--}}
-                                        {{--<h5><strong>PHPer</strong></h5>--}}
-                                    {{--</span>--}}
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top: 25px;">
-                                    <div class="col-md-3 info">
-                                        <span class="created">原创 <br /><br> <span class="label label-default">{{ $articleCreateCount }}</span></span>
-                                        {{--<span class="created">原创 <br /><br> <span class="count">{{ $articleCreateCount }}</span></span>--}}
-                                    </div>
-                                    <div class="col-md-3 info">
-                                        <span class="created">转载 <br /> <br> <span class="label label-default">{{ $articleTransferCount }}</span></span>
-                                    </div>
-                                    <div class="col-md-3 info">
-                                        <span class="created">访问量 <br /><br> <span class="label label-default">{{ $articleClickCount }}</span></span>
-                                    </div>
-                                    <div class="col-md-3 info">
-                                        <span class="created">喜欢 <br /> <br><span class="label label-default">{{ $articleLikeCount }}</span></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div role="tabpanel" class="tab-pane notice" id="notice">
-                                <ul>
-                                    @foreach($notices as $k => $notice)
-                                        <li>
-                                            <time datetime="{{ $notice->created_at }}">{{ $notice->created_at->diffForHumans() }}</time>
-                                            <a href="javascript:void(0);" onclick="noticeDisplay({{ $notice->id }});" class="md-trigger" data-modal="noticeOpen">{{ $notice->notice_title }}</a>
-                                        </li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                            <div role="tabpanel" class="tab-pane contact" id="contact">
-                                <h3>
-                                    <a href="mailto:{{ $config['ADMIN_EMAIL'] }}" style="vertical-align: middle" data-toggle="tooltip" data-placement="bottom" title="{{ $config['ADMIN_EMAIL'] }}">{{ $config['ADMIN_EMAIL'] }}</a>
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="well md-modal md-effect-11" id="noticeOpen">
-                        <div class="md-content">
-                            <h3></h3>
-                            <div>
-                                <p style="margin-bottom: 10px;"></p>
-                                <button class="md-close btn-sm btn-success"> 关 闭</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="md-overlay"></div>
-                    <div class="b-search">
-                        <form class="form-inline" role="form" action="{{ url('search') }}" method="get">
-                            <input class="b-search-text" type="text" name="wd">
-                            <input class="b-search-submit" type="submit" value="全站搜索">
-                        </form>
-                    </div>
-                    {{--<div class="widget widget_search">--}}
-                        {{--<form class="navbar-form" action="/search" id="search" method="get">--}}
-                            {{--<div class="input-group">--}}
-                                {{--<input type="text" name="wd" value="{{ request('wd', '') }}" class="form-control" size="35" placeholder="请输入关键字" maxlength="15" autocomplete="off">--}}
-                                {{--<span class="input-group-btn">--}}
-                                    {{--<button type="button" class="btn btn-success btn-search" onclick="search();">搜索</button>--}}
-                                {{--</span>--}}
-                            {{--</div>--}}
-                        {{--</form>--}}
-                    {{--</div>--}}
-                </div>
-                {{--@if(!empty($config['QQ_QUN_NUMBER']))--}}
-                {{--<div class="b-tags">--}}
-                {{--<h4 class="b-title">加入组织</h4>--}}
-                {{--<ul class="b-all-tname">--}}
-                {{--<li class="b-qun-or-code">--}}
-                {{--<img src="{{ asset($config['QQ_QUN_OR_CODE']) }}" alt="QQ">--}}
-                {{--</li>--}}
-                {{--<li class="b-qun-word">--}}
-                {{--<p class="b-qun-nuber">--}}
-                {{--1. 手Q扫左侧二维码--}}
-                {{--</p>--}}
-                {{--<p class="b-qun-nuber">--}}
-                {{--2. 搜群：{{ $config['QQ_QUN_NUMBER'] }}--}}
-                {{--</p>--}}
-                {{--<p class="b-qun-code">--}}
-                {{--3. 点击{!! $config['QQ_QUN_CODE'] !!}--}}
-                {{--</p>--}}
-                {{--<p class="b-qun-article">--}}
-                {{--@if(!empty($qqQunArticle['id']))--}}
-                {{--<a href="{{ url('article', [$qqQunArticle['id']]) }}" target="_blank">{{ $qqQunArticle['title'] }}</a>--}}
-                {{--@endif--}}
-                {{--</p>--}}
-                {{--</li>--}}
-                {{--</ul>--}}
-                {{--</div>--}}
-                {{--@endif--}}
-                <div class="b-tags">
-                    <h4 class="b-title header-border">热门 <span id="hot-label">标签</span></h4>
-                    <ul class="b-all-tname">
-                        <?php $tag_i = 0; ?>
-                        @foreach($tag as $v)
-                            <?php $tag_i++; ?>
-                            <?php $tag_i = $tag_i == 10 ? 1 : $tag_i; ?>
-                            <li class="b-tname" style="padding: 5px 3px;font-size: 14px;">
-                                <a data-toggle="tooltip" data-placement="top" title="{{ $v->article_count }} 篇文章"  class="tstyle-{{ $tag_i }}" href="{{ url('tag', [$v->id]) }}"
-                                   onclick="return recordId('tid','{{ $v->id }}')">{{ $v->name }}</a>
-                            </li>
-                        @endforeach
-                    </ul>
-                </div>
-                <div class="b-recommend">
-                    <h4 class="b-title header-border">置顶 <span id="hot-label">文章</span></h4>
-                    <p class="b-recommend-p">
-                        @foreach($topArticle as $k => $v)
-                            <a class="b-recommend-a a-append" href="{{ url('article', [$v->id]) }}" target="_blank">
-                                <span class="list-li @if($k == 0) list-li-zero
-                                @elseif($k == 1) list-li-one
-                                @elseif($k == 2) list-li-two
-                                @endif"
+<body>
+<!--主体部分开始-->
 
-                                >{{ $k + 1 }}</span>&nbsp;&nbsp;{{ $v->title }}</a>
-                        @endforeach
-                    </p>
-                </div>
-                <div class="b-link">
-                    <h4 class="b-title header-border">最新 <span id="hot-label">评论</span></h4>
-                    <div>
-                        @foreach($newComment as $v)
-                            <ul class="b-new-comment @if($loop->first) b-new-commit-first @endif">
-                                <img class="b-head-img js-head-img" src="{{ asset('uploads/avatar/default.jpg') }}"
-                                     _src="{{ asset($v->avatar) }}" alt="{{ $v->name }}">
-                                <li class="b-nickname">
-                                    {{ $v->name }}<span>{{ word_time($v->created_at) }}</span>
-                                </li>
-                                <li class="b-nc-article">
-                                    在<a href="{{ url('article', [$v->article_id]) }}" target="_blank">{{ $v->title }}</a>中评论
-                                </li>
-                                <li class="b-content">
-                                    {!! $v->content !!}
-                                </li>
-                            </ul>
-                        @endforeach
-                    </div>
-                </div>
-                <eq name="show_link" value="1">
-                    <div class="b-link">
-                        <h4 class="b-title header-border">友情 <span id="hot-label">链接</span></h4>
-                        <p>
-                            @foreach($friendshipLink as $v)
-                                <a class="b-link-a" href="{{ $v->url }}" target="_blank"><span
-                                            class="fa fa-link b-black"></span> {{ $v->name }}</a>
-                            @endforeach
-                        </p>
-                    </div>
-                </eq>
-            </div>
-            <!-- 通用右部区域结束 -->
+<!--导航开始-->
+@include('home.common.navigate')
+<!--导航结束-->
+
+
+﻿<!--首页banner开始-->
+<div id="banner" >
+    <div id="animate-layer">
+        <s class="clouds cloud-01"></s>
+        <s class="clouds cloud-02"></s>
+        <s class="clouds cloud-03"></s>
+        <s class="balloon balloon-01"></s>
+        <s class="bg"></s>
+    </div>
+</div>
+<!--首页banner结束-->
+
+<!--logo开始-->
+<div class="logo">
+    <div id="logo_img"><img src="/home/images/index_logo.jpg"></div>
+    <div class="logo_title" >SYF博客欢迎你</div>
+    <div class="logo_mo" >如痴如醉，乱七八糟都想整的小站</div>
+    <div class="logo_btnbox" >
+        <div class="btn btn_gradient" >
+            <a style="color:#fff;" href="#">
+                <span class="glyphicon glyphicon-certificate"></span>&nbsp;关于我
+            </a>
         </div>
-        <div class="row">
-            <!-- 通用底部文件开始 -->
-            <footer id="b-foot" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <ul>
-                    <li class="text-center">
-                        Powered by <a rel="nofollow" href="#" target="_blank">laravel-songyaofeng</a> ©
-                        2014-2017 {{ parse_url(config('app.url'))['host'] }} 版权所有 @if(!empty($config['WEB_ICP_NUMBER']))
-                            ICP证：{{ $config['WEB_ICP_NUMBER'] }} @endif
-                    </li>
-                    <li class="text-center">
-                        @if(!empty($config['ADMIN_EMAIL']))
-                            联系邮箱：{!! $config['ADMIN_EMAIL'] !!}
-                        @endif
-                    </li>
-                </ul>
-                <div class="b-h-20"></div>
-                <a class="go-top fa fa-angle-up animated jello" href="javascript:;" onclick="goTop()"></a>
-            </footer>
-            <!-- 通用底部文件结束 -->
+        <div class="btn btn_gradient2" >
+            <a style="color:#fff;" href="#">
+                <span class="glyphicon glyphicon-heart" ></span>&nbsp;左邻右舍
+            </a>
+        </div>
+        <div class="btn btn_gradient3">
+            <a style="color:#fff;" href="#">
+                <span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span>&nbsp;吐槽啦!
+            </a>
+        </div>
+
+    </div>
+</div>
+<!--logo结束-->
+
+<!--主体内容框开始-->
+<div class="content" >
+    <!--特殊导航条开始-->
+    <div class="senav" >
+        <div class="nav_ul">
+            <a href="/">
+                <li class="nav_ul_first">首页</li>
+            </a>
+            <!--其他栏目开始-->
+            @foreach($category as $k => $v)
+                <a href="{{ url('category', ['id' => $v->id]) }}"><li>{{ $v->name }}</li></a>
+            @endforeach
         </div>
     </div>
-    <!-- 主体部分结束 -->
+    <!--特殊导航条结束-->
 
-    <!-- 登录模态框开始 -->
-    <div class="modal fade" id="b-modal-login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-         aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content row">
-                <div class="col-xs-12 col-md-12 col-lg-12">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                    aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title b-ta-center" id="myModalLabel">无需注册，用以下帐号即可直接登录</h4>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-md-12 col-lg-12 b-login-row">
-                    <ul class="row">
-                        <li class="col-xs-6 col-md-4 col-lg-4 b-login-img">
-                            <a href="{{ url('auth/oauth/redirectToProvider/qq') }}"><img
-                                        src="{{ asset('images/home/qq-login.png') }}" alt="QQ登录" title="QQ登录"></a>
-                        </li>
-                        <li class="col-xs-6 col-md-4 col-lg-4 b-login-img">
-                            <a href="{{ url('auth/oauth/redirectToProvider/weibo') }}"><img
-                                        src="{{ asset('images/home/sina-login.png') }}" alt="微博登录" title="微博登录"></a>
-                        </li>
-                        <li class="col-xs-6 col-md-4 col-lg-4 b-login-img">
-                           <a href="{{ url('auth/oauth/redirectToProvider/github') }}"><img src="{{ asset('images/home/github-login.jpg') }}" alt="github登录" title="github登录"></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- 登录模态框结束 -->
 
+    <!--左侧边栏框开始-->
+@include('home.common.left')
+<!--左侧边栏框结束-->
+
+
+    <!--右侧框开始-->
+    @yield('content')
+    <!--右侧框结束-->
+</div>
+<!--主体内容框结束-->
+
+﻿<!--脚部开始-->
+@include('home.common.footer')
+<!--脚部结束-->
+
+<!--主体部分结束-->
 </body>
 </html>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
 
-<script src="{{ asset('statics/js/jquery-2.0.0.min.js') }}"></script>
-
-<script src="{{ asset('statics/bootstrap-3.3.5/js/bootstrap.min.js') }}"></script>
-<!--[if lt IE 9]>
-<script src="{{ asset('statics/js/html5shiv.min.js') }}"></script>
-<script src="{{ asset('statics/js/respond.min.js') }}"></script>
-<![endif]-->
-<script src="{{ asset('statics/pace/pace.min.js') }}"></script>
-<script src="{{ asset('js/home/index.js') }}"></script>
-<script src="{{ asset('statics/layer-2.4/layer.js') }}"></script>
-<script src="{{ asset('statics/bootstrap-alert/js/classie.js') }}"></script>
-<script src="{{ asset('statics/bootstrap-alert/js/modalEffects.js') }}"></script>
-{{--<script src="{{ asset('statics/snowy/snowy.js') }}"></script>--}}
-<!-- 百度页面自动提交开始 -->
-<script>
-    (function () {
-        $('[data-toggle="tooltip"]').tooltip()
-        /* 鼠标特效 */
-        var a_idx = 0;
-        jQuery(document).ready(function($) {
-            $("body").click(function(e) {
-                var a = ["欢迎您", "么么哒", "你真好", "棒棒哒", "真可爱", "你最美", "喜欢你" ,"真聪明", "爱你哦", "好厉害", "你真帅", "祝福你"];
-                var $i = $("<span/>").text(a[a_idx]);
-                a_idx = (a_idx + 1) % a.length;
-                var x = e.pageX,
-                    y = e.pageY;
-                $i.css({
-                    "z-index": 999999999999999999999999999999999999999999999999999999999999999999999,
-                    "top": y - 20,
-                    "left": x,
-                    "position": "absolute",
-                    "font-weight": "bold",
-                    "color": "#ff6651"
-                });
-                $("body").append($i);
-                $i.animate({
-                        "top": y - 180,
-                        "opacity": 0
-                    },
-                    1500,
-                    function() {
-                        $i.remove();
-                    });
-            });
+<script type="text/javascript">
+    //logo触发动画
+    $(document).ready(function(){
+        $('#logo_img').mouseover(function(){
+            $('#logo_img').addClass('animated  rubberBand');
+            //监听执行一次
+            $('#logo_img').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){$('#logo_img').removeClass('animated  rubberBand');});
         });
-        /**
-         * 网站公告
-         */
-        $('.nav-tabs a').hover(function (e) {
-            e.preventDefault()
-            $(this).tab('show')
-        })
-        var bp = document.createElement('script');
-        var curProtocol = window.location.protocol.split(':')[0];
-        if (curProtocol === 'https') {
-            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-        }
-        else {
-            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-        }
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(bp, s);
-    })();
-
-    logoutUrl = "{:U('Home/User/logout')}";
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
     });
 
-    function noticeDisplay(id) {
-        layer.load(layer.open, {shade: 0.3});
-        setTimeout(function () {
-            layer.closeAll('loading');
-        }, 1000);
-        $.ajax({
-            type: 'get',
-            url: '/getNotice?id=' + id,
-            dataType: 'json',
-            cache: false,
-            success: function (data) {
-                if (data.code === 0) {
-                    $('.md-content h3').html(data.data.notice_title);
-                    $('.md-content p').html(data.data.notice_content);
-                } else {
-                    layer.msg(data.msg);
-                }
-            }
+    //新浪微博触发动画
+    $(document).ready(function(){
+        $('#sinasite').mouseover(function(){
+            $('#sinasite').addClass('animated  tada');
+            //监听执行一次
+            $('#sinasite').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){$('#sinasite').removeClass('animated  tada');});
         });
-    }
+    });
 
+    //博主邮箱触发动画
+    $(document).ready(function(){
+        $('#emailsite').mouseover(function(){
+            $('#emailsite').addClass('animated  tada');
+            //监听执行一次
+            $('#emailsite').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){$('#emailsite').removeClass('animated  tada');});
+        });
+    });
+
+    //新浪微博触发动画
+    $(document).ready(function(){
+        $('#appsite').mouseover(function(){
+            $('#appsite').addClass('animated  tada');
+            //监听执行一次
+            $('#appsite').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){$('#appsite').removeClass('animated  tada');});
+        });
+    });
+
+    //新浪微博触发动画
+    $(document).ready(function(){
+        $('#githubsite').mouseover(function(){
+            $('#githubsite').addClass('animated  tada');
+            //监听执行一次
+            $('#githubsite').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){$('#githubsite').removeClass('animated  tada');});
+        });
+    });
 </script>
-<!-- 百度页面自动提交结束 -->
 
-<!-- 百度统计开始 -->
-{!! htmlspecialchars_decode($config['WEB_STATISTICS']) !!}
-<!-- 百度统计结束 -->
-@yield('js')
+
+
+<script type = "text/javascript">
+    $(function(){
+        $("#art_title").click(function(){
+            var aid = $(this).attr('name');
+            $.post("http://www.huxinchun.com/Home/viewnum",
+                {
+                    id:aid
+                });
+        });
+    });
+</script>
+@yield('my-js')
