@@ -160,6 +160,39 @@
             color: #fff;
             text-shadow: none;
         }
+        .person-info2 {
+            float: left;
+            width: 100%;
+        }
+        .person-detail {
+            overflow: hidden;
+            font-size: 14px;
+            color: #333;
+            margin-top: 10px;
+        }
+        .person-nick-name span {
+            display: block;
+            /*float: left;*/
+            font-size: 24px;
+            color: #333;
+            font-weight: normal;
+        }
+        .person-detail span {
+            font-size: 14px;
+            color: #999;
+            padding: 0 10px;
+        }
+        .person-sign {
+            overflow: hidden;
+            font-size: 14px;
+            color: #999;
+            border-top: 1px solid #f0f0f0;
+            padding-top: 8px;
+            margin-top: 10px;
+            line-height: 22px;
+            word-wrap: break-word;
+            word-break: break-all;
+        }
     </style>
     @yield('css')
 </head>
@@ -178,15 +211,10 @@
                 </button>
                 <a class="navbar-brand" href="/" onclick="recordId('/',0)">
                     <div class="hidden-xs b-nav-background"></div>
-                    {{--<ul class="b-logo-code">--}}
-                        {{--<li class="b-lc-start">&lt;?php</li>--}}
-                        {{--<li class="b-lc-echo">echo</li>--}}
-                    {{--</ul>--}}
                     <p class="b-logo-word">{{ $config['WEB_NAME'] }}</p>
-                    {{--<p class="b-logo-end">;</p>--}}
                 </a>
             </div>
-            <div class="collapse navbar-collapse pull-right" id="bs-example-navbar-collapse-1" style="margin-left: 20px;">
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav b-nav-parent">
                     <li class="hidden-xs b-nav-mobile"></li>
                     <li class="b-nav-cname set-font @if($category_id == 'index') b-nav-active @endif">
@@ -249,14 +277,23 @@
                         <div class="tab-content">
                             <div role="tabpanel" class="tab-pane notice active" id="about">
                                 <div class="row" style="border-bottom: 1px solid #e3e3e3; padding-bottom: 15px;" >
-                                    <div class="col-sm-5">
+                                    <div class="col-sm-4">
                                         <img src="/images/home/head-potrait.jpg"  class="img-circle img-responsive portrait" alt="head-potrait.jpg">
                                     </div>
-                                    <div  class="col-sm-5 person-info">
-                                    <span class="info">
-                                        <h4><strong>蓝 笑 灵 晨</strong></h4><br>
-                                        <h5><strong>PHPer</strong></h5>
-                                    </span>
+                                    <div  class="col-sm-8" style="padding-left: 0px;">
+                                        <dl class="person-info2">
+                                            <dt class="person-nick-name">
+                                                <span>灵 晨</span>
+                                            </dt>
+                                            <dd class="person-detail">
+                                                互联网<span>|</span>PHPer<span>|</span>宋耀锋<span>|</span>杭州市
+                                            </dd>
+                                            <dd class="person-sign">个人简介</dd>
+                                        </dl>
+                                    {{--<span>--}}
+                                        {{--<h4><strong>蓝 笑 灵 晨</strong></h4><br>--}}
+                                        {{--<h5><strong>PHPer</strong></h5>--}}
+                                    {{--</span>--}}
                                     </div>
                                 </div>
                                 <div class="row" style="margin-top: 25px;">
