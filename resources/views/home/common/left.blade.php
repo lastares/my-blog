@@ -16,19 +16,19 @@
             </div>
 
             <div class="card_img">
-                <a title="博主邮箱:songyaofeng@aliyun.com" onclick="funem();" href="http://www.huxinchun.com/Home/index">
+                <a title="博主邮箱:songyaofeng@aliyun.com" onclick="funem();" href="/">
                     <img id="emailsite" src="/home/images/emailp.png">
                     <p>博主邮箱</p>
                 </a>
             </div>
             <script>
                 function funem(){
-                    alert("博主邮箱:hi@huxinchun.com");
+                    alert("博主邮箱:songyaofeng@aliyun.com");
                 }
             </script>
 
             <div class="card_img">
-                <a href="http://www.huxinchun.com/Home/content/71">
+                <a href="#">
                     <img id="appsite" src="/home/images/app.png">
                     <p>本站APP</p>
                 </a>
@@ -194,7 +194,7 @@
         </div>
         <!--更多友联-->
         <div class="left_link">
-            <button style="ma" type="button" onclick="javascript:window.location.href=&#39;http://www.huxinchun.com/Home/neigh&#39; " class="btn btn-info">
+            <button style="" type="button" onclick="" class="btn btn-info">
                 <span class="glyphicon glyphicon-heart" aria-hidden="true" style="color: #c14442"></span>&nbsp;更多邻居</button>
         </div>
     </div>
@@ -231,8 +231,5 @@
 
     </div>
     <!--本站结束-->
-
-
-
 </div>
 <!--左侧边栏框结束-->

@@ -1,0 +1,161 @@
+#container, body {
+    margin: 0 auto;
+    
+    width: 1200px;
+}
+a {
+    
+-decoration: none;
+    color:#15867B;
+}
+.under-line {
+    text-decoration: underline;
+}
+h1, .diary-time, #chose-date {
+    font-family: 'Constantia';
+}
+li {
+    list-style-type: none;
+}
+#header {
+    text-align: left;
+    margin-left: 35px;
+    margin-top: 25px;
+    color: #F57327;
+    width: 100%;
+}
+#header>img {
+    width: 100px;
+    width: 100px;
+    border-radius: 50px;
+}
+#years {
+    padding: 1% 1% 0 3%;
+    height: 100%;
+    float: left;
+    color: #2AAB9F;
+}
+#circle_line {
+    height: 100%;
+    float: left;
+}
+.circle {
+    width: 16px;
+    height: 16px;
+    display: block;
+    margin-left: -6.3px;
+    background-color: #089481;
+    border-radius: 8px;
+}
+.circle:hover {
+    background-color: #15867B;
+    cursor: pointer;
+}
+.line {
+    border-left: 3px solid #D4D4D4;
+}
+#text {
+    float: left;
+    width: 700px;
+    height: 100%;
+}
+.content {
+    width: 600px;
+    padding: 10px 10px;
+    margin: 15px 0;
+    float: left;
+    cursor: pointer;
+    line-height: 1.5em;
+    background-color: #fbf4ff;
+     border-radius:3px;
+}
+.content-id {
+    display: none;
+}
+.content-font {
+    font-family: 方正清刻本悦宋简体;
+}
+.content-color {
+    color: #444;
+}
+.content-line {
+    line-height: 1.5em;
+}
+.diary-by-text {
+    font-size: 0.8em;
+}
+.content:hover {
+    box-shadow: 1px 2px 2px rgba(8, 148, 129,0.4);
+}
+.diary-time {
+    padding: 0;
+    margin: 0;
+    color: #069494;
+}
+.modal-addition {
+    line-height: 1.5
+}
+.modal-by-text {
+    padding: 20px 0;
+}
+.modal-content {
+    /*float:left;*/
+    padding-bottom:10px;
+    clear:left;
+}
+.modal-emotion, .diary-emotion {
+    width: 16px;
+    height: 16px;
+    margin-top: -5px;
+    vertical-align: middle;
+}
+.division-line {
+    width: 100%;
+    height: 5px;
+    background-color: #D4D4D4;
+}
+.comments {
+
+}
+.comment-content {
+    font-size: 0.8em;
+}
+#chose-date {
+    font-size: 1.2em;
+    border-left: 3px solid #ccc;
+    width: 160px;
+    /*height: 600px;*/
+    margin-left: 900px;
+    margin-top: 1.8%;
+    position: fixed;
+    cursor:pointer;
+}
+#chose-date ul li {
+    line-height: 2em;
+    border-left: 5px solid #eee;
+    padding-left: 7%;
+    margin-left: -20px;
+}
+.saa {
+    font-size: 1.3em;
+}
+.aas {
+    width: 100px;
+    display: none;
+}
+.active, #chose-date ul li:hover {
+    border-left: 5px solid #F95B0F !important;
+}
+#lean_overlay {
+    position: fixed;
+    z-index:100;
+    top: 0px;
+    left: 0px;
+    height:100%;
+    width:100%;
+    background: #eee;
+    display: none;
+}
+.wi {
+    color: #000;
+}

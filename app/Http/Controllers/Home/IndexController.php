@@ -32,6 +32,7 @@ class IndexController extends BaseController
             'category_id' => 'index',
             'article' => $article,
             'tagName' => '',
+            'title' => '首页'
         ];
         return view('home.index.index', $assign);
     }
@@ -78,7 +79,8 @@ class IndexController extends BaseController
         // 获取评论
         $comment = $commentModel->getDataByArticleId($id);
         $category_id = $data->category_id;
-        $assign = compact('category_id', 'data', 'prev', 'next', 'comment');
+        $title = '';
+        $assign = compact('category_id', 'data', 'prev', 'next', 'comment', 'title');
         return view('home.index.article', $assign);
     }
 
@@ -299,6 +301,27 @@ class IndexController extends BaseController
             $article->increment('like');
             return $this->success(['like' => $article->like]);
         }
+    }
+
+
+    public function message()
+    {
+        $assign = [
+            'title' => '留言板'
+        ];
+        return view('home.index.message', $assign);
+    }
+
+
+    public function timeAxis()
+    {
+        return view('home.index.timeAxis');
+    }
+
+
+    public function Axis()
+    {
+        return view('home.index.axis');
     }
 
 

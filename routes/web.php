@@ -37,6 +37,12 @@ Route::group(['namespace' => 'Home'], function () {
     Route::get('checkLogin', 'IndexController@checkLogin');
     // 搜索文章
     Route::get('search', 'IndexController@search');
+    // 留言板视图
+    Route::get('message', 'IndexController@message');
+    // 时间轴视图
+    Route::get('timeAxis', 'IndexController@timeAxis');
+    // 时间轴内容
+    Route::get('axis', 'IndexController@Axis');
     // 用于测试
     Route::get('test', 'IndexController@test');
 
