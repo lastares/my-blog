@@ -34,8 +34,8 @@
                         <span style="margin-left:30px;"><span class="glyphicon glyphicon-dashboard" style="color: #02b73b"></span>&nbsp;发布时间：{{ $v->created_at }}</span>
                     </div>
                     <div class="left_box tag_block">
-                        <span class="label label-primary tag_weiguan"><span class="glyphicon glyphicon-eye-open" style="color: #fff"></span>&nbsp;围观{{ $v->click }}</span>
-                        <span class="label label-success tag_tag"><span class="glyphicon glyphicon-folder-open" style="color: #fff"></span>&nbsp;{{ $v->category_name }}</span>
+                        <span class="label label-primary tag_weiguan"><span class="glyphicon glyphicon-eye-open" style="color: #fff"></span>&nbsp;围观 {{ $v->click }}</span>
+                        <span class="label label-success tag_tag"><span class="glyphicon glyphicon-folder-open" style="color: #fff"></span>&nbsp; {{ $v->category_name }}</span>
                         <span class="label label-danger tag_moy"><span class="glyphicon glyphicon-gift" style="color: #fff"></span>&nbsp;赏一个</span>
                     </div>
                 </div>

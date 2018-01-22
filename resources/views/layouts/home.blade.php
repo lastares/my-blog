@@ -14,10 +14,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keywords" content="宋耀锋,个人博客,SYF,web前端,宋耀锋个人博客,web技术博文,javascript,html5,css3,layui,layui框架,前端工具导航,web框架大全,前端工具大全,前端目录,vue,node,jq"/>
-    <meta name="description" content="SYF宋耀锋个人博客记录生活，关注web前端。SYF v1.0 主要基于Codeigniter + layui开发 版本：SYF v1.0 简要版，时间：2017年8月，博客托管于阿里云 服务器环境为：ECS centos 6.8 + Apache + Mysql "/>
+    <meta name="keywords" content="胡新春,个人博客,SYF,web前端,胡新春个人博客,web技术博文,javascript,html5,css3,layui,layui框架,前端工具导航,web框架大全,前端工具大全,前端目录,vue,node,jq"/>
+    <meta name="description" content="SYF胡新春个人博客记录生活，关注web前端。SYF v1.0 主要基于Codeigniter + layui开发 版本：SYF v1.0 简要版，时间：2017年8月，博客托管于阿里云 服务器环境为：ECS centos 6.8 + Apache + Mysql "/>
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <title>@yield('title')-宋耀锋个人博客</title>
+    <title>SYF-胡新春个人博客</title>
     <link href="/home/css/animate.css" rel="stylesheet">
     <!-- Bootstrap -->
     <link href="/home/css/bootstrap.min.css" rel="stylesheet">
@@ -59,7 +59,7 @@
 ﻿<!--
 文件名：博客栏目页
 时间：201707015
-作者：HXC
+作者：SYF
 -->
 @if($url == $host)
 ﻿<!--首页banner开始-->
@@ -89,17 +89,17 @@
     <div class="logo_mo" >如痴如醉，乱七八糟都想整的小站</div>
     <div class="logo_btnbox" >
         <div class="btn btn_gradient" >
-            <a style="color:#fff;" href="#">
+            <a style="color:#fff;" href="#/35">
                 <span class="glyphicon glyphicon-certificate"></span>&nbsp;关于我
             </a>
         </div>
         <div class="btn btn_gradient2" >
-            <a style="color:#fff;" href="#">
+            <a style="color:#fff;" href="http://www.huxinchun.com/Home/neigh">
                 <span class="glyphicon glyphicon-heart" ></span>&nbsp;左邻右舍
             </a>
         </div>
         <div class="btn btn_gradient3">
-            <a style="color:#fff;" href="#">
+            <a style="color:#fff;" href="http://www.huxinchun.com/Liuyan">
                 <span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span>&nbsp;吐槽啦!
             </a>
         </div>
@@ -108,48 +108,49 @@
 </div>
 <!--logo结束-->
 @else
-<!--banner开始-->
-<div class="banner" style="text-align:center;overflow:hidden;">
-    @if(preg_match("/$host\/category\/*/", $url))
-    <img  src="/home/images/listbg.jpg" />
-    @elseif(preg_match("/$host\/timeAxis/", $url) || preg_match("/$host\/article\/*/", $url))
-    <img  src="/home/images/listbg2.jpg" />
-    @elseif(preg_match("/$host\/message/", $url))
-        <img  src="/home/images/listbg3.jpg" />
-    @endif
-</div>
-<!--banner结束-->
+    <!--banner开始-->
+    <div class="banner" style="text-align:center;overflow:hidden;">
+        @if(preg_match("/$host\/category\/*/", $url))
+            <img  src="/home/images/listbg.jpg">
+        @elseif(preg_match("/$host\/timeAxis/", $url) || preg_match("/$host\/article\/*/", $url))
+            <img  src="/home/images/listbg2.jpg">
+        @else
+            <img  src="/home/images/listbg3.jpg">
+        @endif
+    </div>
+    <!--banner结束-->
 
-<!--banner背景-->
-<div class="logo" style="height:120px;" >
-    <div class="logo_mo" style="height:20px;"></div>
-    <div class="logo_btnbox">
-        <div class="btn btn_gradient" >
-            <a style="color:#fff;" href="http://www.huxinchun.com/Home/content/35">
-                <span class="glyphicon glyphicon-certificate" ></span>&nbsp;关于我
-            </a>
-        </div>
+    <!--logo开始-->
+    <div class="logo" style="height:120px;" >
+        <div class="logo_mo" style="height:20px;"></div>
+        <div class="logo_btnbox">
+            <div class="btn btn_gradient" >
+                <a style="color:#fff;" href="#">
+                    <span class="glyphicon glyphicon-certificate" ></span>&nbsp;关于我
+                </a>
+            </div>
 
-        <div class="btn btn_gradient2" >
-            <a style="color:#fff;" href="http://www.huxinchun.com/Home/neigh">
-                <span class="glyphicon glyphicon-heart" ></span>&nbsp;左邻右舍
-            </a>
-        </div>
+            <div class="btn btn_gradient2" >
+                <a style="color:#fff;" href="#">
+                    <span class="glyphicon glyphicon-heart" ></span>&nbsp;左邻右舍
+                </a>
+            </div>
 
-        <div class="btn btn_gradient3">
-            <a style="color:#fff;" href="http://www.huxinchun.com/Liuyan">
-                <span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span>&nbsp;吐槽啦!
-            </a>
+            <div class="btn btn_gradient3">
+                <a style="color:#fff;" href="#">
+                    <span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span>&nbsp;吐槽啦!
+                </a>
+            </div>
         </div>
     </div>
-</div>
-<!--logo结束-->
+    <!--logo结束-->
 @endif
 
 
 
+
 <!--主体内容框开始-->
-<div class="content" >
+<div class="content" @if(preg_match("/$host\/timeAxis/", $url) || preg_match("/$host\/article\/*/", $url) || preg_match("/$host\/message/", $url)) style="min-height: 0px" @endif>
     <!--特殊导航条开始-->
     <div class="senav" >
         <div class="nav_ul">
@@ -195,7 +196,7 @@
                 </script>
 
                 <div class="card_img">
-                    <a href="#">
+                    <a href="#/71">
                         <img id="appsite" src="/home/images/app.png">
                         <p>本站APP</p>
                     </a>
@@ -218,11 +219,30 @@
             </div>
             <!--列表-->
             <div class="left_list_box">
-                @foreach($topArticle as $k => $vv)
-                    <a style="text-decoration: none" href="/article/{{ $vv->id }}">
-                        <div class="left_list">{{ $vv->title }}</div>
-                    </a>
-                @endforeach
+                <a style="text-decoration: none" href = "#">
+                    <div class="left_list">
+                        没有好的工作，只有好的职业生涯			</div></a>
+                <a style="text-decoration: none" href = "#">
+                    <div class="left_list">
+                        关于博主与博客			</div></a>
+                <a style="text-decoration: none" href = "#">
+                    <div class="left_list">
+                        js事件监听器用法及小例子解析			</div></a>
+                <a style="text-decoration: none" href = "#">
+                    <div class="left_list">
+                        35岁程序员的感想			</div></a>
+                <a style="text-decoration: none" href = "#">
+                    <div class="left_list">
+                        RTMP、RTSP、HTTP在线直播流地址及测试软件			</div></a>
+                <a style="text-decoration: none" href = "#">
+                    <div class="left_list">
+                        留言板-欢迎与我交流			</div></a>
+                <a style="text-decoration: none" href = "#">
+                    <div class="left_list">
+                        SYF帮助文档			</div></a>
+                <a style="text-decoration: none" href = "#">
+                    <div class="left_list">
+                        让iframe在iOS设备手机浏览器上支持滑动滚动			</div></a>
             </div>
             <!--数字-->
             <div class="left_num_box">
@@ -248,112 +268,112 @@
             <div class="left_narbox" style="height: 325px;width:310px;">
                 <div class="left_narcard">
                     <a title="技术宅男子" href = "http://itruke.com/">
-                        <div class="narcard_img"><img width="53" height="50" src="/home/images/ji.jpg"></div>
+                        <div class="narcard_img"><img width="53" height="50" src="/home/images/link_img/ji.jpg"></div>
                         <div class="narcard_name">技术宅..</div>
                     </a>
                 </div>
 
                 <div class="left_narcard">
                     <a title="柒爱博客" href = "http://www.chen101.cn/">
-                        <div class="narcard_img"><img width="53" height="50" src="/home/images/qi.jpg"></div>
+                        <div class="narcard_img"><img width="53" height="50" src="/home/images/link_img/qi.jpg"></div>
                         <div class="narcard_name">柒爱博客</div>
                     </a>
                 </div>
 
                 <div class="left_narcard">
                     <a title="破晓博客" href = "http://www.dawnfly.cn/">
-                        <div class="narcard_img"><img width="53" height="50" src="/home/images/po.jpg"></div>
+                        <div class="narcard_img"><img width="53" height="50" src="/home/images/link_img/po.jpg"></div>
                         <div class="narcard_name">破晓博客</div>
                     </a>
                 </div>
 
                 <div class="left_narcard">
                     <a title="toilove博客" href = "http://toilove.com/">
-                        <div class="narcard_img"><img width="53" height="50" src="/home/images/to.jpg"></div>
+                        <div class="narcard_img"><img width="53" height="50" src="/home/images/link_img/to.jpg"></div>
                         <div class="narcard_name">toilove</div>
                     </a>
                 </div>
 
                 <div class="left_narcard">
                     <a title="青春博客" href = "http://loveteemo.com">
-                        <div class="narcard_img"><img width="53" height="50" src="/home/images/qin.jpg"></div>
+                        <div class="narcard_img"><img width="53" height="50" src="/home/images/link_img/qin.jpg"></div>
                         <div class="narcard_name">青春博客</div>
                     </a>
                 </div>
 
                 <div class="left_narcard">
                     <a title="连仕彤博客" href = "http://www.lianst.com/">
-                        <div class="narcard_img"><img width="53" height="50" src="/home/images/lian.jpg"></div>
+                        <div class="narcard_img"><img width="53" height="50" src="/home/images/link_img/lian.jpg"></div>
                         <div class="narcard_name">连仕彤</div>
                     </a>
                 </div>
 
                 <div class="left_narcard">
                     <a title="一意孤行" href = "http://noote.cn/">
-                        <div class="narcard_img"><img width="53" height="50" src="/home/images/yiyi.jpg"></div>
+                        <div class="narcard_img"><img width="53" height="50" src="/home/images/link_img/yiyi.jpg"></div>
                         <div class="narcard_name">一意孤行</div>
                     </a>
                 </div>
 
                 <div class="left_narcard">
                     <a title="fofo博客" href = "https://www.fofo.me/">
-                        <div class="narcard_img"><img width="53" height="50" src="/home/images/fofo.jpg"></div>
+                        <div class="narcard_img"><img width="53" height="50" src="/home/images/link_img/fofo.jpg"></div>
                         <div class="narcard_name">fofo</div>
                     </a>
                 </div>
 
                 <div class="left_narcard">
                     <a title="Adamfei博客" href = "https://www.adamfei.com/">
-                        <div class="narcard_img"><img width="53" height="50" src="/home/images/ada.jpg"></div>
+                        <div class="narcard_img"><img width="53" height="50" src="/home/images/link_img/ada.jpg"></div>
                         <div class="narcard_name">Adamfei</div>
                     </a>
                 </div>
 
                 <div class="left_narcard">
                     <a title="不忘初心" href = "http://www.allenlan.com/">
-                        <div class="narcard_img"><img width="53" height="50" src="/home/images/bu.jpg"></div>
+                        <div class="narcard_img"><img width="53" height="50" src="/home/images/link_img/bu.jpg"></div>
                         <div class="narcard_name">不忘初心</div>
                     </a>
                 </div>
 
                 <div class="left_narcard">
                     <a title="小忆博客" href = "http://blog.iiwo.vip/">
-                        <div class="narcard_img"><img width="53" height="50" src="/home/images/xiao.jpg"></div>
+                        <div class="narcard_img"><img width="53" height="50" src="/home/images/link_img/xiao.jpg"></div>
                         <div class="narcard_name">小忆博客</div>
                     </a>
                 </div>
 
                 <div class="left_narcard">
                     <a title="Bob`S博客" href = "https://www.bobcoder.cc/">
-                        <div class="narcard_img"><img width="53" height="50" src="/home/images/bob.jpg"></div>
+                        <div class="narcard_img"><img width="53" height="50" src="/home/images/link_img/bob.jpg"></div>
                         <div class="narcard_name">Bob`S</div>
                     </a>
                 </div>
 
                 <div class="left_narcard">
                     <a title="VVKE博客" href = "http://www.vvke.cn/">
-                        <div class="narcard_img"><img width="53" height="50" src="/home/images/vvke.jpg"></div>
+                        <div class="narcard_img"><img width="53" height="50" src="/home/images/link_img/vvke.jpg"></div>
                         <div class="narcard_name">VVKE</div>
                     </a>
                 </div>
 
                 <div class="left_narcard">
                     <a title="小影志" href = "http://c7sky.com/">
-                        <div class="narcard_img"><img width="53" height="50" src="/home/images/xiaoyin.jpg"></div>
+                        <div class="narcard_img"><img width="53" height="50" src="/home/images/link_img/xiaoyin.jpg"></div>
                         <div class="narcard_name">小影志</div>
                     </a>
                 </div>
 
                 <div class="left_narcard">
                     <a title="nitrohe" href = "http://www.nitrohe.xin">
-                        <div class="narcard_img"><img width="53" height="50" src="/home/images/nit.jpg"></div>
+                        <div class="narcard_img"><img width="53" height="50" src="/home/images/link_img/nit.jpg"></div>
                         <div class="narcard_name">nitrohe</div>
                     </a>
                 </div>
 
                 <div class="left_narcard">
                     <a title="贤心博客" href = "http://sentsin.com/">
-                        <div class="narcard_img"><img width="53" height="50" src="/home/images/xian.jpg"></div>
+                        <div class="narcard_img"><img width="53" height="50" src="/home/images/link_img/xian.jpg"></div>
                         <div class="narcard_name">贤心</div>
                     </a>
                 </div>
@@ -381,10 +401,10 @@
             </div>
             <!--列表-->
             <div class="left_list_box" style="height:200px;">
-                <div class="left_list"><a href="#">SYF博客前端funs主题文档</a></div>
-                <div class="left_list"><a href="#">本站开放API接口级测试说明</a></div>
-                <div class="left_list"><a href="#">SYF博客APP手机客户端说明</a></div>
-                <div class="left_list"><a href="#">SYF博客系统V1.0说明文档</a></div>
+                <div class="left_list"><a href="#/82">SYF博客前端funs主题文档</a></div>
+                <div class="left_list"><a href="#/65">本站开放API接口级测试说明</a></div>
+                <div class="left_list"><a href="#/65">SYF博客APP手机客户端说明</a></div>
+                <div class="left_list"><a href="#/40">SYF博客系统V1.0说明文档</a></div>
                 <div class="left_list">SYF博客v1.0默认主题文档</div>
             </div>
             <!--数字-->
@@ -422,15 +442,18 @@
         Copyright © 2015-2017 huxinchun.com All Rights Reserved. 备案号:鄂ICP备15020375号-1
     </div>
     <div class="foot_time">
-        程序:SYF博客v1.0+ 主题:SYF博客前端Funs主题&nbsp; &nbsp; 环境：lamp  <a href="http://www.huxinchun.com/Login/index">&nbsp;后台</a>
+        程序:SYF博客v1.0+ 主题:宋耀锋博客前端Funs主题&nbsp; &nbsp; 环境：lamp  <a href="http://www.huxinchun.com/Login/index">&nbsp;后台</a>
     </div>
-    <div class="foot_time">博客平稳运行2年+</div>
+    <div class="foot_time">博客平稳运行2年+
+        <!-- <span onclick="clear_barrage()" style="background:#a7fd48;border-radius:3px;cursor: pointer;padding:3px;">清除弹幕</span> -->
+        <!--cnzz 统计开始-->
+        {{--<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1263918807'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263918807%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>--}}
+        <!--cnzz统计结束-->
+    </div>
 </div>
 <!--脚部结束-->
 
-
 <!--主体部分结束-->
-
 
 </body>
 </html>
@@ -498,7 +521,6 @@
     });
 </script>
 
-@yield('my-js')
 <!--弹幕插件
 <link rel="stylesheet" type="text/css" href="http://www.huxinchun.com//public/tanmu/dist/css/barrager.css">
 <script type="text/javascript" src="http://www.huxinchun.com//public/tanmu/dist/js/jquery-1.9.1.min.js"></script>
@@ -546,5 +568,3 @@ this.mm=function(){
 
 </script>
 -->
-
-
