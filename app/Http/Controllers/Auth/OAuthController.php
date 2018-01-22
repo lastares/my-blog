@@ -94,7 +94,7 @@ class OAuthController extends Controller
             // 新增数据
             $userId = $oauthUserModel->storeData($data);
             // 组合头像地址
-            $avatarPath = '/uploads/avatar/'.$userId.'.jpg';
+            $avatarPath = '/uploads/avatar/'.$userId->id.'.jpg';
             // 更新头像
             $editMap = [
                 'id' => $userId
