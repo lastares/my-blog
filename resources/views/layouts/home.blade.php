@@ -28,8 +28,18 @@
     <!--[if lt IE 9]>
     <script src="/home/js/html5shiv.min.js"></script>
     <script src="/home/js/respond.min.js"></script>
+
     <![endif]-->
     @yield('my-css')
+        <style>
+        .from {
+            color: #fff;
+            padding: 8px 12px;
+            background-color: #5CB85C;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+    </style>
 </head>
 
 <body>
@@ -52,8 +62,12 @@
         <a href="{{ url('message') }}">
             <li><span class="glyphicon glyphicon-comment" aria-hidden="true"></span>&nbsp;留言板</li>
         </a>
+        {{--<a href="#" data-toggle="modal" data-target="#login" class="col-md-offset-8 pull-left">--}}
+            {{--<span class="from">登录</span>--}}
+        {{--</a>--}}
     </div>
 </div>
+
 <!--导航结束-->
 
 ﻿<!--
@@ -402,8 +416,6 @@
         </div>
         <!--本站结束-->
 
-
-
     </div>
     <!--左侧边栏框结束-->
     @endif
@@ -430,11 +442,45 @@
 
 <!--主体部分结束-->
 
+{{--<!-- 登录模态框开始 -->--}}
+<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content row">
+            <div class="col-xs-12 col-md-12 col-lg-12">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title b-ta-center" id="myModalLabel">无需注册，用以下帐号即可直接登录</h4>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-12 col-lg-12 b-login-row">
+                <ul class="row">
+                    <li class="col-xs-6 col-md-4 col-lg-4 b-login-img">
+                        <a href="{{ url('auth/oauth/redirectToProvider/qq') }}"><img
+                                    src="{{ asset('/home/images/qq-login.png') }}" alt="QQ登录" title="QQ登录"></a>
+                    </li>
+                    <li class="col-xs-6 col-md-4 col-lg-4 b-login-img">
+                        <a href="{{ url('auth/oauth/redirectToProvider/weibo') }}"><img
+                                    src="{{ asset('images/home/sina-login.png') }}" alt="微博登录" title="微博登录"></a>
+                    </li>
+                    <li class="col-xs-6 col-md-4 col-lg-4 b-login-img">
+                        <a href="{{ url('auth/oauth/redirectToProvider/github') }}"><img
+                                    src="{{ asset('images/home/github-login.jpg') }}" alt="github登录"
+                                    title="github登录"></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{{--<!-- 登录模态框结束 -->--}}
+
 </body>
 </html>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
-
+<script src="{{ asset('statics/gentelella/vendors/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 <script type="text/javascript">
     //logo触发动画
     $(document).ready(function(){

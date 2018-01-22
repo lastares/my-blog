@@ -37,13 +37,16 @@ return [
     'weibo' => [
         'client_id' => env('WEIBO_KEY'),
         'client_secret' => env('WEIBO_SECRET'),
-        'redirect' => env('APP_URL').'/auth/oauth/handleProviderCallback/weibo'
+        'redirect' => 'http://www.songyaofeng/auth/oauth/handleProviderCallback/weibo'
     ],
 
     'qq' => [
-        'client_id' => env('QQ_KEY'),
-        'client_secret' => env('QQ_SECRET'),
-        'redirect' => env('APP_URL').'/auth/oauth/handleProviderCallback/qq'
+//        'client_id' => env('QQ_KEY'),
+//        'client_secret' => env('QQ_SECRET'),
+//        'redirect' => env('APP_URL').'/auth/oauth/handleProviderCallback/qq'
+        'client_id' => 1106696274,
+        'client_secret' => '3cFqWtbmYIEhbQgB',
+        'redirect' => 'http://www.songyaofeng/auth/oauth/handleProviderCallback/qq'
     ],
 
     'github' => [
