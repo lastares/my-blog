@@ -38,6 +38,7 @@
             background-color: #5CB85C;
             border-radius: 5px;
             font-size: 14px;
+            vertical-align: middle;
         }
     </style>
 </head>
@@ -62,9 +63,9 @@
         <a href="{{ url('message') }}">
             <li><span class="glyphicon glyphicon-comment" aria-hidden="true"></span>&nbsp;留言板</li>
         </a>
-        {{--<a href="#" data-toggle="modal" data-target="#login" class="col-md-offset-8 pull-left">--}}
-            {{--<span class="from">登录</span>--}}
-        {{--</a>--}}
+        <a href="#" data-toggle="modal" data-target="#login" class="col-md-offset-8 pull-left">
+            <li><span aria-hidden="true"></span>&nbsp;<span class="from">登录</span></li>
+        </a>
     </div>
 </div>
 
@@ -378,7 +379,7 @@
             </div>
             <!--更多友联-->
             <div class="left_link">
-                <button style="ma" type="button" onclick="javascript:window.location.href='http://www.songyaofeng.com/Home/neigh' " class="btn btn-info">
+                <button style="" type="button" onclick="javascript:window.location.href='http://www.songyaofeng.com/Home/neigh' " class="btn btn-info">
                     <span class="glyphicon glyphicon-heart" aria-hidden="true" style="color: #c14442"></span>&nbsp;更多邻居</button>
             </div>
         </div>
@@ -431,7 +432,7 @@
 ﻿<!--脚部开始-->
 <div class="foot_box">
     <div class="copyright">
-        Copyright &copy; 2017-2018 songyaofeng.com All Rights Reserved. 备案号:鄂ICP备15020375号-1
+        Copyright &copy; 2017-2018 songyaofeng.com All Rights Reserved. <a style="color: white;" href="http://www.miitbeian.gov.cn">{{ $config['WEB_ICP_NUMBER'] }}</a>
     </div>
     <div class="foot_time">
         程序:宋耀锋博客v1.0+ 环境：LNMP
@@ -455,18 +456,18 @@
                 </div>
             </div>
             <div class="col-xs-12 col-md-12 col-lg-12 b-login-row">
-                <ul class="row">
+                <ul class="row" style="list-style: none;">
                     <li class="col-xs-6 col-md-4 col-lg-4 b-login-img">
                         <a href="{{ url('auth/oauth/redirectToProvider/qq') }}"><img
                                     src="{{ asset('/home/images/qq-login.png') }}" alt="QQ登录" title="QQ登录"></a>
                     </li>
-                    <li class="col-xs-6 col-md-4 col-lg-4 b-login-img">
-                        <a href="{{ url('auth/oauth/redirectToProvider/weibo') }}"><img
-                                    src="{{ asset('images/home/sina-login.png') }}" alt="微博登录" title="微博登录"></a>
-                    </li>
+                    {{--<li class="col-xs-6 col-md-4 col-lg-4 b-login-img">--}}
+                        {{--<a href="{{ url('auth/oauth/redirectToProvider/weibo') }}"><img--}}
+                                    {{--src="{{ asset('images/home/sina-login.png') }}" alt="微博登录" title="微博登录"></a>--}}
+                    {{--</li>--}}
                     <li class="col-xs-6 col-md-4 col-lg-4 b-login-img">
                         <a href="{{ url('auth/oauth/redirectToProvider/github') }}"><img
-                                    src="{{ asset('images/home/github-login.jpg') }}" alt="github登录"
+                                    src="{{ asset('/home/images/github-login.jpg') }}" alt="github登录"
                                     title="github登录"></a>
                     </li>
                 </ul>
