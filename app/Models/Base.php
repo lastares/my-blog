@@ -27,16 +27,15 @@ class Base extends Model
     public function storeData($data)
     {
         //添加数据
-        return $this->create($data);
-//        $result=$this
-//            ->create($data)
-//            ->id;
-//        if ($result) {
-//            flash_message('添加成功');
-//            return $result;
-//        }else{
-//            return false;
-//        }
+        $result=$this
+            ->create($data)
+            ->id;
+        if ($result) {
+            flash_message('添加成功');
+            return $result;
+        }else{
+            return false;
+        }
     }
 
     /**

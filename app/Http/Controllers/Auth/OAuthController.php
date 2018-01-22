@@ -94,30 +94,30 @@ class OAuthController extends Controller
             // 新增数据
             $userId = $oauthUserModel->storeData($data);
             // 组合头像地址
-            $avatarPath = '/uploads/avatar/'.$userId->id.'.jpg';
+            $avatarPath = '/uploads/avatar/'.$userId.'.jpg';
             // 更新头像
             $editMap = [
-                'id' => $userId->id
+                'id' => $userId
             ];
             $editData = [
                 'avatar' => $avatarPath
             ];
             $oauthUserModel->updateData($editMap, $editData);
             // 组合session中要用到的数据
-            $sessionData['user']['id'] = $userId->id;
+            $sessionData['user']['id'] = $userId;
             $sessionData['user']['email'] = '';
             $sessionData['user']['is_admin'] = 0;
         }
         // 下载最新的头像到本地
         $avatarContent = curl_get_contents($user->avatar);
-        $avatarPath = public_path('uploads/avatar/'.$userId->id.'.jpg');
+        $avatarPath = public_path('uploads/avatar/'.$userId.'.jpg');
         // 如果下载失败；则使用默认图片
         if (empty($avatarContent)) {
             copy(public_path('uploads/avatar/default.jpg'), $avatarPath);
         } else {
             file_put_contents($avatarPath, $avatarContent);
         }
-        $sessionData['user']['avatar'] = url('uploads/avatar/'.$userId->id.'.jpg');
+        $sessionData['user']['avatar'] = url('uploads/avatar/'.$userId.'.jpg');
         // 将数据存入session
         session($sessionData);
         // 如果session没有存储登录前的页面;则直接返回到首页
