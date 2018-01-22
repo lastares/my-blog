@@ -14,10 +14,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keywords" content="胡新春,个人博客,SYF,web前端,胡新春个人博客,web技术博文,javascript,html5,css3,layui,layui框架,前端工具导航,web框架大全,前端工具大全,前端目录,vue,node,jq"/>
-    <meta name="description" content="SYF胡新春个人博客记录生活，关注web前端。SYF v1.0 主要基于Codeigniter + layui开发 版本：SYF v1.0 简要版，时间：2017年8月，博客托管于阿里云 服务器环境为：ECS centos 6.8 + Apache + Mysql "/>
+    <meta name="keywords" content="宋耀锋,个人博客,SYF,web前端,宋耀锋个人博客,web技术博文,javascript,html5,css3,layui,layui框架,前端工具导航,web框架大全,前端工具大全,前端目录,vue,node,jq"/>
+    <meta name="description" content="SYF宋耀锋个人博客记录生活，关注web前端。SYF v1.0 主要基于Codeigniter + layui开发 版本：SYF v1.0 简要版，时间：2017年8月，博客托管于阿里云 服务器环境为：ECS centos 6.8 + Apache + Mysql "/>
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <title>SYF-胡新春个人博客</title>
+    <title>@yield('title')-宋耀锋个人博客</title>
     <link href="/home/css/animate.css" rel="stylesheet">
     <!-- Bootstrap -->
     <link href="/home/css/bootstrap.min.css" rel="stylesheet">
@@ -94,12 +94,12 @@
             </a>
         </div>
         <div class="btn btn_gradient2" >
-            <a style="color:#fff;" href="http://www.huxinchun.com/Home/neigh">
+            <a style="color:#fff;" href="http://www.songyaofeng.com/Home/neigh">
                 <span class="glyphicon glyphicon-heart" ></span>&nbsp;左邻右舍
             </a>
         </div>
         <div class="btn btn_gradient3">
-            <a style="color:#fff;" href="http://www.huxinchun.com/Liuyan">
+            <a style="color:#fff;" href="http://www.songyaofeng.com/Liuyan">
                 <span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span>&nbsp;吐槽啦!
             </a>
         </div>
@@ -268,112 +268,112 @@
             <div class="left_narbox" style="height: 325px;width:310px;">
                 <div class="left_narcard">
                     <a title="技术宅男子" href = "http://itruke.com/">
-                        <div class="narcard_img"><img width="53" height="50" src="/home/images/link_img/ji.jpg"></div>
+                        <div class="narcard_img"><img width="53" height="50" src="/home/images/ji.jpg"></div>
                         <div class="narcard_name">技术宅..</div>
                     </a>
                 </div>
 
                 <div class="left_narcard">
                     <a title="柒爱博客" href = "http://www.chen101.cn/">
-                        <div class="narcard_img"><img width="53" height="50" src="/home/images/link_img/qi.jpg"></div>
+                        <div class="narcard_img"><img width="53" height="50" src="/home/images/qi.jpg"></div>
                         <div class="narcard_name">柒爱博客</div>
                     </a>
                 </div>
 
                 <div class="left_narcard">
                     <a title="破晓博客" href = "http://www.dawnfly.cn/">
-                        <div class="narcard_img"><img width="53" height="50" src="/home/images/link_img/po.jpg"></div>
+                        <div class="narcard_img"><img width="53" height="50" src="/home/images/po.jpg"></div>
                         <div class="narcard_name">破晓博客</div>
                     </a>
                 </div>
 
                 <div class="left_narcard">
                     <a title="toilove博客" href = "http://toilove.com/">
-                        <div class="narcard_img"><img width="53" height="50" src="/home/images/link_img/to.jpg"></div>
+                        <div class="narcard_img"><img width="53" height="50" src="/home/images/to.jpg"></div>
                         <div class="narcard_name">toilove</div>
                     </a>
                 </div>
 
                 <div class="left_narcard">
                     <a title="青春博客" href = "http://loveteemo.com">
-                        <div class="narcard_img"><img width="53" height="50" src="/home/images/link_img/qin.jpg"></div>
+                        <div class="narcard_img"><img width="53" height="50" src="/home/images/qin.jpg"></div>
                         <div class="narcard_name">青春博客</div>
                     </a>
                 </div>
 
                 <div class="left_narcard">
                     <a title="连仕彤博客" href = "http://www.lianst.com/">
-                        <div class="narcard_img"><img width="53" height="50" src="/home/images/link_img/lian.jpg"></div>
+                        <div class="narcard_img"><img width="53" height="50" src="/home/images/lian.jpg"></div>
                         <div class="narcard_name">连仕彤</div>
                     </a>
                 </div>
 
                 <div class="left_narcard">
                     <a title="一意孤行" href = "http://noote.cn/">
-                        <div class="narcard_img"><img width="53" height="50" src="/home/images/link_img/yiyi.jpg"></div>
+                        <div class="narcard_img"><img width="53" height="50" src="/home/images/yiyi.jpg"></div>
                         <div class="narcard_name">一意孤行</div>
                     </a>
                 </div>
 
                 <div class="left_narcard">
                     <a title="fofo博客" href = "https://www.fofo.me/">
-                        <div class="narcard_img"><img width="53" height="50" src="/home/images/link_img/fofo.jpg"></div>
+                        <div class="narcard_img"><img width="53" height="50" src="/home/images/fofo.jpg"></div>
                         <div class="narcard_name">fofo</div>
                     </a>
                 </div>
 
                 <div class="left_narcard">
                     <a title="Adamfei博客" href = "https://www.adamfei.com/">
-                        <div class="narcard_img"><img width="53" height="50" src="/home/images/link_img/ada.jpg"></div>
+                        <div class="narcard_img"><img width="53" height="50" src="/home/images/ada.jpg"></div>
                         <div class="narcard_name">Adamfei</div>
                     </a>
                 </div>
 
                 <div class="left_narcard">
                     <a title="不忘初心" href = "http://www.allenlan.com/">
-                        <div class="narcard_img"><img width="53" height="50" src="/home/images/link_img/bu.jpg"></div>
+                        <div class="narcard_img"><img width="53" height="50" src="/home/images/bu.jpg"></div>
                         <div class="narcard_name">不忘初心</div>
                     </a>
                 </div>
 
                 <div class="left_narcard">
                     <a title="小忆博客" href = "http://blog.iiwo.vip/">
-                        <div class="narcard_img"><img width="53" height="50" src="/home/images/link_img/xiao.jpg"></div>
+                        <div class="narcard_img"><img width="53" height="50" src="/home/images/xiao.jpg"></div>
                         <div class="narcard_name">小忆博客</div>
                     </a>
                 </div>
 
                 <div class="left_narcard">
                     <a title="Bob`S博客" href = "https://www.bobcoder.cc/">
-                        <div class="narcard_img"><img width="53" height="50" src="/home/images/link_img/bob.jpg"></div>
+                        <div class="narcard_img"><img width="53" height="50" src="/home/images/bob.jpg"></div>
                         <div class="narcard_name">Bob`S</div>
                     </a>
                 </div>
 
                 <div class="left_narcard">
                     <a title="VVKE博客" href = "http://www.vvke.cn/">
-                        <div class="narcard_img"><img width="53" height="50" src="/home/images/link_img/vvke.jpg"></div>
+                        <div class="narcard_img"><img width="53" height="50" src="/home/images/vvke.jpg"></div>
                         <div class="narcard_name">VVKE</div>
                     </a>
                 </div>
 
                 <div class="left_narcard">
                     <a title="小影志" href = "http://c7sky.com/">
-                        <div class="narcard_img"><img width="53" height="50" src="/home/images/link_img/xiaoyin.jpg"></div>
+                        <div class="narcard_img"><img width="53" height="50" src="/home/images/xiaoyin.jpg"></div>
                         <div class="narcard_name">小影志</div>
                     </a>
                 </div>
 
                 <div class="left_narcard">
                     <a title="nitrohe" href = "http://www.nitrohe.xin">
-                        <div class="narcard_img"><img width="53" height="50" src="/home/images/link_img/nit.jpg"></div>
+                        <div class="narcard_img"><img width="53" height="50" src="/home/images/nit.jpg"></div>
                         <div class="narcard_name">nitrohe</div>
                     </a>
                 </div>
 
                 <div class="left_narcard">
                     <a title="贤心博客" href = "http://sentsin.com/">
-                        <div class="narcard_img"><img width="53" height="50" src="/home/images/link_img/xian.jpg"></div>
+                        <div class="narcard_img"><img width="53" height="50" src="/home/images/xian.jpg"></div>
                         <div class="narcard_name">贤心</div>
                     </a>
                 </div>
@@ -381,7 +381,7 @@
             </div>
             <!--更多友联-->
             <div class="left_link">
-                <button style="ma" type="button" onclick="javascript:window.location.href='http://www.huxinchun.com/Home/neigh' " class="btn btn-info">
+                <button style="ma" type="button" onclick="javascript:window.location.href='http://www.songyaofeng.com/Home/neigh' " class="btn btn-info">
                     <span class="glyphicon glyphicon-heart" aria-hidden="true" style="color: #c14442"></span>&nbsp;更多邻居</button>
             </div>
         </div>
@@ -433,23 +433,15 @@
 <!--主体内容框结束-->
 
 
-
-
-
 ﻿<!--脚部开始-->
 <div class="foot_box">
     <div class="copyright">
-        Copyright © 2015-2017 huxinchun.com All Rights Reserved. 备案号:鄂ICP备15020375号-1
+        Copyright &copy; 2017-2018 songyaofeng.com All Rights Reserved. 备案号:鄂ICP备15020375号-1
     </div>
     <div class="foot_time">
-        程序:SYF博客v1.0+ 主题:宋耀锋博客前端Funs主题&nbsp; &nbsp; 环境：lamp  <a href="http://www.huxinchun.com/Login/index">&nbsp;后台</a>
+        程序:宋耀锋博客v1.0+ 环境：LNMP
     </div>
-    <div class="foot_time">博客平稳运行2年+
-        <!-- <span onclick="clear_barrage()" style="background:#a7fd48;border-radius:3px;cursor: pointer;padding:3px;">清除弹幕</span> -->
-        <!--cnzz 统计开始-->
-        {{--<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1263918807'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263918807%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>--}}
-        <!--cnzz统计结束-->
-    </div>
+    <div class="foot_time">博客平稳运行2年</div>
 </div>
 <!--脚部结束-->
 
@@ -513,58 +505,10 @@
     $(function(){
         $("#art_title").click(function(){
             var aid = $(this).attr('name');
-            $.post("http://www.huxinchun.com/Home/viewnum",
+            $.post("http://www.songyaofeng.com/Home/viewnum",
                 {
                     id:aid
                 });
         });
     });
 </script>
-
-<!--弹幕插件
-<link rel="stylesheet" type="text/css" href="http://www.huxinchun.com//public/tanmu/dist/css/barrager.css">
-<script type="text/javascript" src="http://www.huxinchun.com//public/tanmu/dist/js/jquery-1.9.1.min.js"></script>
-<script type="text/javascript" src="http://www.huxinchun.com//public/tanmu/dist/js/jquery.barrager.min.js"></script>
-<script type="text/javascript">
-$.ajaxSettings.async = false;
-$.getJSON('http://www.huxinchun.com/api/liuyan',function(data){
-
-//每条弹幕发送间隔
-var looper_time=15*1000;
-var items=data;
-//弹幕总数
-var total=data.length;
-//是否首次执行
-var run_once=true;
-//弹幕索引
-var index=0;
-//先执行一次
-barrager();
-function  barrager(){
-
-  if(run_once){
-      //如果是首次执行,则设置一个定时器,并且把首次执行置为false
-      looper=setInterval(barrager,looper_time);
-      run_once=false;
-  }
-  //发布一个弹幕
-  $('body').barrager(items[index]);
-  //索引自增
-  index++;
-  //所有弹幕发布完毕，清除计时器。
-  if(index == total){
-      clearInterval(looper);
-      return false;
-  }
-
-this.mm=function(){
-		 clearInterval(looper);
-     		 return false;
- 	}
-
-}
-
-});
-
-</script>
--->
