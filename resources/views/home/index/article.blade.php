@@ -22,10 +22,10 @@
             {!! $data->html !!}
         </div>
         <!--评论-->
-        <div class="article_comment">
-            <!--留言-->
-            <div class="col-md-12 message_box">
-                <div class="message_style" style="height:auto;padding:35px;" >
+        {{--<div class="article_comment">--}}
+            {{--<!--留言-->--}}
+            {{--<div class="col-md-12 message_box">--}}
+                {{--<div class="message_style" style="height:auto;padding:35px;" >--}}
                     {{--<h4>点评一下</h4>--}}
                     {{--<!--PC版-->--}}
                     {{--<div id="SOHUCS" sid="2018-01-12 08:51:51" > </div>--}}
@@ -36,10 +36,10 @@
                     {{--conf: 'prod_02cf7f8f4f6d36f0496fff918632c674'--}}
                     {{--});--}}
                     {{--</script>--}}
-                </div>
+                {{--</div>--}}
 
-            </div>
-        </div>
+            {{--</div>--}}
+        {{--</div>--}}
 
     </div>
 @endsection
