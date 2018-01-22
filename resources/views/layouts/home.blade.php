@@ -219,30 +219,13 @@
             </div>
             <!--列表-->
             <div class="left_list_box">
-                <a style="text-decoration: none" href = "#">
+                @foreach($topArticle as $k => $v2)
+                <a style="text-decoration: none" href = "{{ url('article', ['id' => $v2->id]) }}">
                     <div class="left_list">
-                        没有好的工作，只有好的职业生涯			</div></a>
-                <a style="text-decoration: none" href = "#">
-                    <div class="left_list">
-                        关于博主与博客			</div></a>
-                <a style="text-decoration: none" href = "#">
-                    <div class="left_list">
-                        js事件监听器用法及小例子解析			</div></a>
-                <a style="text-decoration: none" href = "#">
-                    <div class="left_list">
-                        35岁程序员的感想			</div></a>
-                <a style="text-decoration: none" href = "#">
-                    <div class="left_list">
-                        RTMP、RTSP、HTTP在线直播流地址及测试软件			</div></a>
-                <a style="text-decoration: none" href = "#">
-                    <div class="left_list">
-                        留言板-欢迎与我交流			</div></a>
-                <a style="text-decoration: none" href = "#">
-                    <div class="left_list">
-                        SYF帮助文档			</div></a>
-                <a style="text-decoration: none" href = "#">
-                    <div class="left_list">
-                        让iframe在iOS设备手机浏览器上支持滑动滚动			</div></a>
+                        {{ $v2->title }}
+                    </div>
+                </a>
+                @endforeach
             </div>
             <!--数字-->
             <div class="left_num_box">
