@@ -32,7 +32,7 @@ class LoginStoreSession
             'user' => [
                 'id' => $user->id,
                 'name' => $user->name,
-                'avatar' => asset('statics/gentelella/production/images/img.jpg'),
+                'avatar' => asset('/admin/plugins/production/images/img.jpg'),
                 'type' => 0,
                 'is_admin' => 1,
                 'email' => $user->email

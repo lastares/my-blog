@@ -503,7 +503,7 @@
 </html>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
-<script src="{{ asset('statics/gentelella/vendors/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+<script src="/admin/plugins/bootstrap/dist/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 
     //logo触发动画
