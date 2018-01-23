@@ -3,9 +3,9 @@
 @section('title', '发布文章')
 
 @section('my-css')
-    <link rel="stylesheet" href="{{ asset('statics/editormd/css/editormd.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('statics/iCheck-1.0.2/skins/all.css') }}">
-    <link rel="stylesheet" href="{{ asset('statics/gentelella/vendors/switchery/dist/switchery.min.css') }}">
+    <link rel="stylesheet" href="/admin/plugins/editormd/css/editormd.min.css">
+    <link rel="stylesheet" href="/admin/plugins/iCheck-1.0.2/skins/all.css">
+    <link rel="stylesheet" href="/admin/plugins/switchery/dist/switchery.min.css">
 @endsection
 
 @section('content')
@@ -98,10 +98,10 @@
 @endsection
 
 @section('my-js')
-    <script src="{{ asset('statics/gentelella/vendors/switchery/dist/switchery.min.js') }}"></script>
-    <script src="{{ asset('statics/editormd/editormd.min.js') }}"></script>
-    <script src="{{ asset('statics/iCheck-1.0.2/icheck.min.js') }}"></script>
-    <script src="{{ asset('statics/layer-2.4/layer.js') }}"></script>
+    <script src="/admin/plugins/switchery/dist/switchery.min.js"></script>
+    <script src="/admin/plugins/editormd/editormd.min.js"></script>
+    <script src="/admin/plugins/iCheck-1.0.2/icheck.min.js"></script>
+    <script src="/admin/plugins/layer-2.4/layer.js"></script>
     <script>
         var testEditor;
         $(function() {

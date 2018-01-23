@@ -2,18 +2,18 @@
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <title>@yield('title') - 宋耀锋BLOG</title>
+    <title>@yield('title') - {{ $config['WEB_NAME'] }}</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap -->
-    <link href="{{ asset('statics/gentelella/vendors/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="/admin/plugins/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="{{ asset('statics/font-awesome-4.7.0/css/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="/admin/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- NProgress -->
-    <link href="{{ asset('statics/gentelella/vendors/nprogress/nprogress.css') }}" rel="stylesheet">
+    <link href="/admin/plugins/nprogress/nprogress.css" rel="stylesheet">
 
     <!-- Custom Theme Style -->
-    <link href="{{ asset('statics/gentelella/build/css/custom.min.css') }}" rel="stylesheet">
+    <link href="/admin/plugins/build/css/custom.min.css" rel="stylesheet">
     @yield('my-css')
 </head>
 <body class="nav-md">
@@ -229,19 +229,19 @@
 
 
 <!-- jQuery -->
-<script src="{{ asset('statics/gentelella/vendors/jquery/dist/jquery.min.js') }}"></script>
+<script src="/admin/plugins/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap -->
-<script src="{{ asset('statics/gentelella/vendors/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+<script src="/admin/plugins/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- FastClick -->
-<script src="{{ asset('statics/gentelella/vendors/fastclick/lib/fastclick.js') }}"></script>
+<script src="/admin/plugins/fastclick/lib/fastclick.js"></script>
 <!-- NProgress -->
-<script src="{{ asset('statics/gentelella/vendors/nprogress/nprogress.js') }}"></script>
+<script src="/admin/plugins/nprogress/nprogress.js"></script>
 <!--sweetAlert2-->
-<script src="{{ asset('statics/sweetalert2/sweetalert2.js') }}"></script>
+<script src="/admin/plugins/sweetalert2/sweetalert2.js"></script>
 <!-- Custom Theme Scripts -->
-<script src="{{ asset('statics/gentelella/build/js/custom.min.js') }}"></script>
+<script src="/admin/plugins/build/js/custom.min.js"></script>
 <!-- Layer -->
-<script src="{{ asset('statics/layer-2.4/layer.js') }}"></script>
+<script src="/admin/plugins/layer-2.4/layer.js"></script>
 @yield('my-js')
 </body>
 </html>

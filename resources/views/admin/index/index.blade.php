@@ -7,7 +7,7 @@
 @section('description', '后台管理首页')
 
 @section('css')
-    <link href="{{ asset('statics/gentelella/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css') }}" rel="stylesheet">
+    <link href="/admin/plugins/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
     <style>
         .bjy-img{
             width: 52px;

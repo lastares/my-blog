@@ -3,7 +3,7 @@
 @section('title', 'banner列表')
 
 @section('my-css')
-    <link rel="stylesheet" href="/statics/datetimepicker/css/bootstrap-datetimepicker.css">
+    <link rel="stylesheet" href="/admin/plugins/datetimepicker/css/bootstrap-datetimepicker.min.css">
 @endsection
 @section('content')
     <ul class="breadcrumb" style="font-size: 16px;">
@@ -104,8 +104,8 @@
     </div>
 @endsection
 @section('my-js')
-    <script type="text/javascript" src="/statics/datetimepicker/js/bootstrap-datetimepicker.js"></script>
-    <script type="text/javascript" src="/statics/datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+    <script type="text/javascript" src="/admin/plugins/datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="/admin/plugins/datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
     <script>
         $(function () {
             layer.load(layer.open, {shade: 0.3});

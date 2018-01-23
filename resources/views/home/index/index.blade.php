@@ -2,8 +2,23 @@
 @section('title', $title)
 @section('content')
     <div class="right_box">
+        @if(!empty($tagName))
+            <div class="row b-tag-title">
+                <div class="col-xs-12 col-md-12 col-lg-12">
+                    <h2>拥有<span class="b-highlight">{{ $tagName }}</span>标签的文章</h2>
+                </div>
+            </div>
+        @endif
 
-        <!--文章列表开始-->
+    @if(request()->has('wd'))
+            <div class="row b-tag-title">
+                <div class="col-xs-12 col-md-12 col-lg-12">
+                    <h2>搜索到的与<span class="b-highlight"> &nbsp;{{ request()->input('wd') }} &nbsp;</span>相关的文章</h2>
+                </div>
+            </div>
+        @endif
+
+    <!--文章列表开始-->
         @foreach($article as $k => $v)
         <a name="{{ $v->id }}" href="{{ url('article', ['id' => $v->id]) }}" id="art_title">
             <div class="right_cell">

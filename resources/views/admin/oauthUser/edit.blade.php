@@ -2,9 +2,9 @@
 
 @section('title', '编辑第三方用户')
 
-@section('css')
+@section('my-css')
     <!-- Switchery -->
-    <link href="{{ asset('statics/gentelella/vendors/switchery/dist/switchery.min.css') }}" rel="stylesheet">
+    <link href="/admin/plugins/switchery/dist/switchery.min.css" rel="stylesheet">
 @endsection
 
 @section('nav', '编辑第三方用户')
@@ -52,7 +52,7 @@
     </form>
 @endsection
 
-@section('js')
+@section('my-js')
     <!-- Switchery -->
-    <script src="{{ asset('statics/gentelella/vendors/switchery/dist/switchery.min.js') }}"></script>
+    <script src="/admin/plugins/switchery/dist/switchery.min.js"></script>
 @endsection

@@ -113,7 +113,7 @@ class AppServiceProvider extends ServiceProvider
             if ($config->isEmpty()) {
                 Artisan::call('cache:clear');
             } else {
-                // 用 config 表中的配置项替换 /config/ 目录下文件中的配置项
+                // 用 config 表中的配置项替换 /config/services.php 文件中的配置项
                 $serviceConfig = [
                     'services.github.client_id' => $config['GITHUB_CLIENT_ID'],
                     'services.github.client_secret' => $config['GITHUB_CLIENT_SECRET'],

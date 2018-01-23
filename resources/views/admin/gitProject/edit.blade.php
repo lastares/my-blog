@@ -3,7 +3,7 @@
 @section('title', '编辑开源项目')
 
 @section('css')
-    <link href="{{ asset('statics/gentelella/vendors/iCheck/skins/square/blue.css') }}" rel="stylesheet">
+    <link href="/admin/plugins/iCheck/skins/square/blue.css" rel="stylesheet">
 @endsection
 
 @section('nav', '编辑开源项目')
@@ -57,7 +57,7 @@
 @endsection
 
 @section('js')
-    <script src="{{ asset('statics/gentelella/vendors/iCheck/icheck.min.js') }}"></script>
+    <script src="/admin/plugins/iCheck/icheck.min.js"></script>
     <script>
         $(document).ready(function(){
             $('.bjy-icheck').iCheck({
