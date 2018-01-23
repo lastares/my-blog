@@ -40,6 +40,11 @@
             font-size: 14px;
             vertical-align: middle;
         }
+        .head-img {
+            margin: 5px;
+            width: 30px;
+            height: 30px
+        }
     </style>
 </head>
 
@@ -69,7 +74,7 @@
         </a>
         @else
         <li>
-            <img class="b-head_img" src="{{ session('user.avatar') }}" title="{{ session('user.name') }}" alt="{{ session('user.name') }}"/>&nbsp;&nbsp;
+            <img class="head-img" src="{{ session('user.avatar') }}" title="{{ session('user.name') }}" alt="{{ session('user.name') }}"/>&nbsp;&nbsp;
             <a href="{{ url('auth/oauth/logout') }}" class="col-md-offset-8 pull-left">
                 <span aria-hidden="true"></span><span class="from">退出</span>
             </a>
