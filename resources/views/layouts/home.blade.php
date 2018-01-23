@@ -489,7 +489,7 @@
                     {{--</li>--}}
                     <li class="col-xs-6 col-md-4 col-lg-4 b-login-img">
                         <a href="{{ url('auth/oauth/redirectToProvider/github') }}"><img
-                                    src="{{ asset('/home/images/github-login.jpg') }}" alt="github登录"
+                                    src="{{ asset('/home/images/github-login.png') }}" alt="github登录"
                                     title="github登录"></a>
                     </li>
                 </ul>
