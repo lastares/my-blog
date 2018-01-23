@@ -468,7 +468,7 @@
 {{--<!-- 登录模态框开始 -->--}}
 <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
      aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog" style="width: 385px;">
         <div class="modal-content row">
             <div class="col-xs-12 col-md-12 col-lg-12">
                 <div class="modal-header">
@@ -479,15 +479,15 @@
             </div>
             <div class="col-xs-12 col-md-12 col-lg-12 b-login-row">
                 <ul class="row" style="list-style: none;">
-                    <li class="col-xs-6 col-md-4 col-lg-4 b-login-img">
+                    <li class="col-xs-3 col-md-3 col-lg-3 b-login-img">
                         <a href="{{ url('auth/oauth/redirectToProvider/qq') }}"><img
                                     src="{{ asset('/home/images/qq-login.png') }}" alt="QQ登录" title="QQ登录"></a>
                     </li>
-                    {{--<li class="col-xs-6 col-md-4 col-lg-4 b-login-img">--}}
+                    {{--<li class="col-xs-3 col-md-3 col-lg-3 b-login-img">--}}
                         {{--<a href="{{ url('auth/oauth/redirectToProvider/weibo') }}"><img--}}
-                                    {{--src="{{ asset('images/home/sina-login.png') }}" alt="微博登录" title="微博登录"></a>--}}
+                                    {{--src="{{ asset('/home/images/weibo-login.png') }}" alt="微博登录" title="微博登录"></a>--}}
                     {{--</li>--}}
-                    <li class="col-xs-6 col-md-4 col-lg-4 b-login-img">
+                    <li class="col-xs-3 col-md-3 col-lg-3 b-login-img">
                         <a href="{{ url('auth/oauth/redirectToProvider/github') }}"><img
                                     src="{{ asset('/home/images/github-login.png') }}" alt="github登录"
                                     title="github登录"></a>
