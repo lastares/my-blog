@@ -39,7 +39,7 @@
             border-radius: 5px;
             font-size: 12px;
             vertical-align: middle;
-            margin-left:8px;
+            margin-left:0px;
         }
         .head-img {
             margin: -4px auto;
