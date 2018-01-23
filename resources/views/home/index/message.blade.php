@@ -70,7 +70,7 @@
         <div class="article_sebox">
             <!--留言块开始-->
             <div id="msgBox">
-                <form method = "post" action = "http://www.huxinchun.com/Liuyan/check" onsubmit="return check()">
+                <form method = "post" action = "" onsubmit="return check()">
                     <h2>啊啊啊！！！不要问我在干什么。。 我已经疯了！！！</h2>
 
                     <!--选择头像-->

@@ -64,13 +64,16 @@
             <li><span class="glyphicon glyphicon-comment" aria-hidden="true"></span>&nbsp;留言板</li>
         </a>
         @if(empty(session('user.name')))
-        <a href="#" data-toggle="modal" data-target="#login" class="col-md-offset-8 pull-left">
+        <a href="#" data-toggle="modal" data-target="#login" class="col-md-offset-7 pull-left">
             <li><span aria-hidden="true"></span>&nbsp;<span class="from">登录</span></li>
         </a>
         @else
-        <a href="{{ url('auth/oauth/logout') }}" class="col-md-offset-8 pull-left">
-            <li><span aria-hidden="true"></span>&nbsp;{{ session('user.name') }}&nbsp;<span class="from">退出</span></li>
-        </a>
+        <li>
+            <img class="b-head_img" src="{{ session('user.avatar') }}" title="{{ session('user.name') }}" alt="{{ session('user.name') }}"/>&nbsp;&nbsp;
+            <a href="{{ url('auth/oauth/logout') }}" class="col-md-offset-8 pull-left">
+                <span aria-hidden="true"></span><span class="from">退出</span>
+            </a>
+        </li>
         @endif
     </div>
 </div>
