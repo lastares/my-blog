@@ -1,5 +1,5 @@
 ﻿@extends('layouts.home')
-@section('title', $title)
+@section('title', '文章详情')
 @section('content')
     <div class="article_box">
         <div class="article_sebox">
