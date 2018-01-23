@@ -73,12 +73,11 @@
             <li><span aria-hidden="true"></span>&nbsp;<span class="from">登录</span></li>
         </a>
         @else
-        <li>
-            <img class="head-img" src="{{ session('user.avatar') }}" title="{{ session('user.name') }}" alt="{{ session('user.name') }}"/>&nbsp;&nbsp;
-            <a href="{{ url('auth/oauth/logout') }}" class="col-md-offset-8 pull-left">
-                <span aria-hidden="true"></span><span class="from">退出</span>
-            </a>
-        </li>
+        <a href="{{ url('auth/oauth/logout') }}" class="col-md-offset-8 pull-left">
+            <li>
+                <img class="head-img" src="{{ session('user.avatar') }}" title="{{ session('user.name') }}" alt="{{ session('user.name') }}"/>&nbsp;&nbsp;<span aria-hidden="true"></span><span class="from">退出</span>
+            </li>
+        </a>
         @endif
     </div>
 </div>
