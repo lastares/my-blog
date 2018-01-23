@@ -34,14 +34,15 @@
         <style>
         .from {
             color: #fff;
-            padding: 8px 12px;
+            padding: 5px 8px;
             background-color: #5CB85C;
             border-radius: 5px;
-            font-size: 14px;
+            font-size: 12px;
             vertical-align: middle;
+            margin-left:8px;
         }
         .head-img {
-            margin: 5px;
+            margin: -4px auto;
             width: 30px;
             height: 30px
         }
