@@ -9,13 +9,14 @@
 -->
 
 ﻿<!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" xmlns:wb="http://open.weibo.com/wb">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="宋耀锋,灵晨的个人博客,SYF,web前端,宋耀锋个人博客,web技术博文,javascript,html5,css3,layui,layui框架,前端工具导航,web框架大全,前端工具大全,前端目录,vue,node,jq"/>
     <meta name="description" content="{{ $config['WEB_DESCRIPTION'] }}"/>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
     <title>@yield('title') - {{ $config['WEB_NAME'] }}</title>
     <link href="/home/css/animate.css" rel="stylesheet">
@@ -23,12 +24,15 @@
     <link href="/home/css/bootstrap.min.css" rel="stylesheet">
     <link href="/home/css/style.css" rel="stylesheet">
     <link href="/home/css/banner.css" rel="stylesheet">
-    <link href="/admin/plugins/alert-js/alert/alert.css" rel="stylesheet">
+    <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=YOUR APPKEY" type="text/javascript" charset="utf-8"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="/home/js/html5shiv.min.js"></script>
     <script src="/home/js/respond.min.js"></script>
+
+    </head>
+
     <![endif]-->
     @yield('my-css')
         <style>
@@ -455,7 +459,13 @@
     <div class="foot_time">
         程序:{{ $config['WEB_NAME'] }} v1.0+ 环境：{{ $_SERVER['SERVER_SOFTWARE'] }} &nbsp;&nbsp;<a href="/admin/index/index" target="_blank">后台</a>
     </div>
-    <div class="foot_time">博客平稳运行2年<a href="http://new.cnzz.com/v1/login.php?siteid=1272825053"><img src="/home/images/icon.gif" alt="CNZZ数据统计" title="CNZZ数据统计"></a></div>
+    <div class="foot_time">博客平稳运行2年
+    <!--CNZZ统计开始-->
+    <script type="text/javascript">
+        var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1272825053'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s13.cnzz.com/z_stat.php%3Fid%3D1272825053%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <!--CNZZ统计结束-->
+    </div>
 </div>
 <!--脚部结束-->
 
@@ -476,17 +486,18 @@
             <div class="col-xs-12 col-md-12 col-lg-12 b-login-row">
                 <ul class="row" style="list-style: none;">
                     <li class="col-xs-3 col-md-3 col-lg-3 b-login-img">
-                        <a href="{{ url('auth/oauth/redirectToProvider/qq') }}"><img
-                                    src="{{ asset('/home/images/qq-login.png') }}" alt="QQ登录" title="QQ登录"></a>
+                        <a href="{{ url('auth/oauth/redirectToProvider/qq') }}">
+                            <img src="{{ asset('/home/images/qq-login.png') }}" alt="QQ登录" title="QQ登录">
+                        </a>
                     </li>
-                    {{--<li class="col-xs-3 col-md-3 col-lg-3 b-login-img">--}}
-                        {{--<a href="{{ url('auth/oauth/redirectToProvider/weibo') }}"><img--}}
-                                    {{--src="{{ asset('/home/images/weibo-login.png') }}" alt="微博登录" title="微博登录"></a>--}}
-                    {{--</li>--}}
                     <li class="col-xs-3 col-md-3 col-lg-3 b-login-img">
-                        <a href="{{ url('auth/oauth/redirectToProvider/github') }}"><img
-                                    src="{{ asset('/home/images/github-login.png') }}" alt="github登录"
-                                    title="github登录"></a>
+                        <a href="{{ url('auth/oauth/redirectToProvider/github') }}">
+                            <img src="{{ asset('/home/images/github-login.png') }}" alt="github登录" title="github登录"></a>
+                    </li>
+                    <li class="col-xs-3 col-md-3 col-lg-3 b-login-img">
+                        <a href="{{ url('auth/oauth/redirectToProvider/weibo') }}">
+                            <wb:login-button type="3,2" onlogin="login" onlogout="logout">登录按钮</wb:login-button></a>
+                        {{--<img src="{{ asset('/home/images/weibo-login.png') }}" alt="微博登录" title="微博登录"></a>--}}
                     </li>
                 </ul>
             </div>
@@ -495,16 +506,15 @@
 </div>
 <!-- 登录模态框结束 -->
 
-<!--CNZZ统计开始-->
-<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1272825053'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s13.cnzz.com/z_stat.php%3Fid%3D1272825053%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
-<!--CNZZ统计结束-->
+
 
 </body>
 </html>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script src="/home/plugins/layer-v3.1.1/layer/layer.js"></script>
 <script src="/admin/plugins/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="/admin/plugins/alert-js/alert/alert.js"></script>
+@yield('my-js')
 <script type="text/javascript">
     function funem() {
         alert('songyaofeng@aliyun.com');
@@ -585,11 +595,8 @@
             $('#githubsite').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){$('#githubsite').removeClass('animated  tada');});
         });
     });
-</script>
 
 
-
-<script type = "text/javascript">
     $(function(){
         $("#art_title").click(function(){
             var aid = $(this).attr('name');

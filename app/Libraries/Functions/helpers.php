@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 if (!function_exists('unlinkImage')) {
     function unlinkImage($imagePath): void
     {
-        unlink(config('blog._common_upload_path') . $imagePath);
+        unlink(config('blog._picture_upload_path') . $imagePath);
     }
 }
 if (!function_exists('p')) {

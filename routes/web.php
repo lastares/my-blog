@@ -39,6 +39,10 @@ Route::group(['namespace' => 'Home'], function () {
     Route::get('search', 'IndexController@search');
     // 留言板视图
     Route::get('message', 'IndexController@message');
+    Route::post('message/insert', 'IndexController@messageInsert');
+    // 验证码
+    Route::get('captcha', 'IndexController@captcha');
+
     // 时间轴视图
     Route::get('timeAxis', 'IndexController@timeAxis');
     // 时间轴内容

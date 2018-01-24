@@ -56,7 +56,7 @@ class BaseController extends Controller
      */
     public function uploadImg()
     {
-        $targetDir = config('blog._banner_upload_path') . date('Y-m-d');
+        $targetDir = config('blog._picture_upload_path') . date('Y-m-d');
         $file = Request::file('file');
         if (!is_dir($targetDir)) {
             @mkdir($targetDir, 0777, true);
@@ -81,7 +81,7 @@ class BaseController extends Controller
             return response()->json(['code' => 1, 'msg' => '上传失败']);
         }
         $data = date('Y-m-d') . '/' . $fileName;
-        $message = ['code' => 0, 'msg' => '上传成功', 'data' => $data, 'prefix_route' => config('blog._banner_upload_path')];
+        $message = ['code' => 0, 'msg' => '上传成功', 'data' => $data, 'prefix_route' => config('blog.picture_upload_path')];
         return response()->json($message);
     }
 

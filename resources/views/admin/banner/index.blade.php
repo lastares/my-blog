@@ -62,8 +62,9 @@
     </form>
     <table class="table table-striped table-bordered table-hover">
         <tr>
-            <th>Banner ID</th>
-            <th>Banner名称</th>
+            <th>图片ID</th>
+            <th>图片名称</th>
+            <th>图片类型</th>
             <th>缩略图</th>
             <th>状态</th>
             <th>发布时间</th>
@@ -73,6 +74,11 @@
             <tr>
                 <td>{{ $banner->id }}</td>
                 <td>{{ $banner->banner_title }}</td>
+                <td>
+                    @if($banner->type == 1) 留言板
+                    @else 文章分类
+                    @endif
+                </td>
                 <td><img width="100" src="{{$prefix_route . $banner->banner_path }}" title="{{$banner->banner_title}}"/></td>
                 <td>
                     @if(is_null($banner->deleted_at))

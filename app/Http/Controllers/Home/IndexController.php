@@ -6,15 +6,18 @@ use App\Http\Controllers\Admin\BaseController;
 use App\Http\Requests\Comment\Store;
 use App\Models\Article;
 use App\Models\ArticleTag;
+use App\Models\Banner;
 use App\Models\Category;
 use App\Models\Chat;
 use App\Models\Comment;
 use App\Models\Notice;
 use App\Models\OauthUser;
 use App\Models\Tag;
-use Cache;
+use Cache, Captcha;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use App\Models\Message;
+use Illuminate\Support\Facades\Input;
 
 class IndexController extends BaseController
 {
@@ -246,7 +249,7 @@ class IndexController extends BaseController
             'title' => ['like', '%' . $wd . '%']
         ];
         $article = $articleModel->getHomeList($map);
-            Cache::put('article', $article, Carbon::now()->addSeconds(1));
+        Cache::put('article', $article, Carbon::now()->addSeconds(1));
         $assign = [
             'category_id' => 'index',
             'article' => $article,
@@ -289,7 +292,7 @@ class IndexController extends BaseController
 
     public function zan(int $id, Article $article)
     {
-        if(empty($id)) {
+        if (empty($id)) {
             return $this->error('参数错误');
         }
 
@@ -304,12 +307,34 @@ class IndexController extends BaseController
     }
 
 
-    public function message()
+    public function message(Banner $banner)
     {
+        $pictures = $banner->getMsgPicture();
         $assign = [
-            'title' => '留言板'
+            'title' => '留言板',
+            'pictures' => $pictures,
+            'prefix_route' => config('blog.picture_upload_path')
         ];
         return view('home.index.message', $assign);
+    }
+
+    public function messageInsert(Request $request, Message $message)
+    {
+        echo '<pre>';
+        print_r(request()->input('msg_title'));
+        echo '</pre>';die;
+        if (!Captcha::check($request->input('verify'))) {
+            return response()->json(['code' => 1, 'msg' => '请输入正确的验证码']);
+        }
+
+        $data = $request->except(['_token', 'verify']);
+
+        if ($message->messageInsert($data)) {
+            return response()->json(['code' => 0, 'msg' => '留言成功']);
+        }
+
+        return response()->json(['code' => 1, 'msg' => '留言成功']);
+
     }
 
 
@@ -322,6 +347,13 @@ class IndexController extends BaseController
     public function Axis()
     {
         return view('home.index.axis');
+    }
+
+
+    public function captcha()
+    {
+        /*创建验证码*/
+        return Captcha::create('mini');
     }
 
 

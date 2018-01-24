@@ -393,11 +393,11 @@ p img{max-width:100%; }
         width: 100%;height: 70px;text-align: center;font-size:16px;padding: 10px 0px;color: #666;
       }
       .article_tagimg{
-        width: 68px;height:68px;background:url(style/img/tag-star.png);float: right;margin-top: -220px;margin-right: -55px;
+        width: 68px;height:68px;background:url(/home/images/tag-star.png);float: right;margin-top: -220px;margin-right: -55px;
       }
       
       .article_comment{
-        width: 100%; background: #fff;padding: 50px;margin-top: 50px;border-radius: 0px 0px 5px 5px;display: inline-block;}
+        width: 100%; background: #fff;padding: 50px;/*margin-top: 50px;*/border-radius: 0px 0px 5px 5px;display: inline-block;}
 
     /**
     * 搜索

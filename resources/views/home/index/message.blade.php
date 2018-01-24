@@ -1,5 +1,5 @@
 @extends('layouts.home')
-@section('title', '留言板')
+@section('title', $title)
 @section('my-css')
     <style>
         #msgBox{width:100%;background:#fff;border-radius:4px;margin:10px auto;padding-top:10px;margin-top: -50px;}
@@ -42,8 +42,8 @@
             margin-right:10px;
             display: inline-block;
         }
-        button{
-            color: #fff;
+        button {
+            color: #fff !important;
             font-size: 16px;
             padding: 4px 25px;
             background: #009688;
@@ -51,7 +51,7 @@
             border:1px solid #ddd;
             cursor: pointer;
         }
-        button:hover{
+        button:hover {
             background: #038478;
         }
         /*头像*/
@@ -70,87 +70,43 @@
         <div class="article_sebox">
             <!--留言块开始-->
             <div id="msgBox">
-                <form method = "post" action = "" onsubmit="return check()">
+                <form id="frm">
                     <h2>啊啊啊！！！不要问我在干什么。。 我已经疯了！！！</h2>
 
                     <!--选择头像-->
                     <div style="height: 80px;width: 100%; text-align: left;float: left;">
-
+                        @foreach($pictures as $k => $picture)
                         <div class="touxiang">
-                            <img src="http://www.huxinchun.com//public/tanmu/tanimg/1.jpg" class="current" />
-                            <label><input name="imgul" type="radio" value="http://www.huxinchun.com//public/tanmu/tanimg/1.jpg" checked /></label>
+                            <img src="{{ $prefix_route . $picture->banner_path }}" class="current" />
+                            <label><input name="image_id" type="radio" value="{{ $picture->id }}" @if($k == 0) checked @endif /></label>
                         </div>
-
-                        <div class="touxiang">
-                            <img src="http://www.huxinchun.com//public/tanmu/tanimg/2.jpg" class="current" />
-                            <label><input name="imgul" type="radio" value="http://www.huxinchun.com//public/tanmu/tanimg/2.jpg" /></label>
-                        </div>
-
-                        <div class="touxiang">
-                            <img src="http://www.huxinchun.com//public/tanmu/tanimg/3.jpg" class="current" />
-                            <label><input name="imgul" type="radio" value="http://www.huxinchun.com//public/tanmu/tanimg/3.jpg" /></label>
-                        </div>
-
-                        <div class="touxiang">
-                            <img src="http://www.huxinchun.com//public/tanmu/tanimg/4.jpg" class="current" />
-                            <label><input name="imgul" type="radio" value="http://www.huxinchun.com//public/tanmu/tanimg/4.jpg" /></label>
-                        </div>
-
-                        <div class="touxiang">
-                            <img src="http://www.huxinchun.com//public/tanmu/tanimg/5.jpg" class="current" />
-                            <label><input name="imgul" type="radio" value="http://www.huxinchun.com//public/tanmu/tanimg/5.jpg" /></label>
-                        </div>
-
-                        <div class="touxiang">
-                            <img src="http://www.huxinchun.com//public/tanmu/tanimg/6.jpg" class="current" />
-                            <label><input name="imgul" type="radio" value="http://www.huxinchun.com//public/tanmu/tanimg/6.jpg" /></label>
-                        </div>
-
-                        <div class="touxiang">
-                            <img src="http://www.huxinchun.com//public/tanmu/tanimg/7.jpg" class="current" />
-                            <label><input name="imgul" type="radio" value="http://www.huxinchun.com//public/tanmu/tanimg/7.jpg" /></label>
-                        </div>
-
-                        <div class="touxiang">
-                            <img src="http://www.huxinchun.com//public/tanmu/tanimg/8.jpg" class="current" />
-                            <label><input name="imgul" type="radio" value="http://www.huxinchun.com//public/tanmu/tanimg/8.jpg" /></label>
-                        </div>
-
-
+                        @endforeach
                     </div>
 
                     <!--验证吗框-->
                     <div style="height: 60px;width: 100%; float: left;">
 
                         <div class="inputbox" style="width: 215px;">
-                            <input id="userName" placeholder="昵称或站名(必填)" autocomplete="off"  type="text" class="f-text" name="name" />
+                            <input id="userName" name="msg_title" placeholder="昵称或站名(必填)"  type="text" class="f-text" />
                         </div>
                         <div class="inputbox" style="width: 140px;">
                             <!--显示验证码-->
-                            <img id="Imageid" src="http://www.huxinchun.com/captcha/1516345121.9918.jpg" style="width: 140; height: 38; border: 0;" alt=" " />                </div>
+                            <img title="点击刷新验证码" src="{{url('captcha')}}" style="cursor: pointer;" onclick="this.src='{{ url('captcha') }}?r=' + Math.random();" />
+                        </div>
 
                         <div class="inputbox" style="width: 200px;">
                             <!--验证码输入框 -->
-                            <input id="checknum" placeholder="验证码(必填)" autocomplete="off"  type="text" class="yan-text" name="checknum"/>
+                            <input id="verify" placeholder="验证码(必填)" autocomplete="off"  type="text" class="yan-text" name="verify"/>
                         </div>
-
-                        <div class="inputbox">
-                            <!--错误提示框-->
-
-                        </div>
-
                     </div>
 
-
-
                     <!--留言内容-->
-                    <textarea placeholder="留言内容不为空" id="conBox" class="f-text" name="content" type="text" ></textarea>
-
+                    <textarea placeholder="留言内容不为空" id="conBox" class="f-text" name="msg_content" type="text" ></textarea>
                     <!--提交按钮-->
                     <div class="tr">
                         <p>
                             <span class="countTxt">啊啊啊啊！请勿打广告，谢谢，谢谢！&nbsp;&nbsp;</span>
-                            <button type = "submit" >弹幕发射！</button>
+                            <button type="button" href="javascript: void(0);" onclick="messageInsert();" >弹幕发射！</button>
                         </p>
                     </div>
                 </form>
@@ -545,4 +501,45 @@
         </div>
 
     </div>
+
+
+@endsection
+@section('my-js')
+    <script>
+        $.ajaxSetup({headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}});
+        function messageInsert() {
+            const msg_title = $('#userName').val();
+            const verify = $('#verify').val();
+            alert(verify);
+            const msg_content = $('textarea[name=msg_content]').val();
+            const _token = $('meta[name="csrf-token"]').attr('content');
+            if(msg_title === '') {
+                alert('昵称或站名不能为空');
+            }
+            if(verify === '') {
+                alert('验证码不能为空');
+            }
+            if(msg_content === '') {
+                alert('留言内容不能为空');
+            }
+
+            const data = {msg_title: msg_title, msg_content: msg_content, verify: verify, _token: _token};
+            $.ajax({
+                type: "post",
+                url: "/message/insert",
+                dataType: 'json',
+                data: {msg_title: msg_title},
+                processData: false,
+                contentType: false,
+                cache: false,
+                success: function (data) {
+                    if(data.code === 0) {
+                        alert(data.msg);
+                    }else {
+                        alert(data.msg);
+                    }
+                }
+            })
+        }
+    </script>
 @endsection

@@ -18,9 +18,18 @@
         {{csrf_field()}}
         <input type="hidden" name="id" value="{{$banner->id}}" />
         <div class="form-group">
-            <label for="banner_title" class="col-sm-2 control-label">banner标题</label>
+            <label for="banner_title" class="col-sm-2 control-label">图片标题</label>
             <div class="col-sm-6">
                 <input type="text" value="{{$banner->banner_title}}" name="banner_title" class="form-control" id="banner_title" placeholder="请输入banner标题">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="banner_title" class="col-sm-2 control-label">所属分类</label>
+            <div class="col-sm-6">
+                <select name="type">
+                    <option value="1" @if($banner->type == 1)selected="selected" @endif>留言板</option>
+                    <option value="2" @if($banner->type == 2)selected="selected" @endif>文章分类</option>
+                </select>
             </div>
         </div>
         <div class="form-group">

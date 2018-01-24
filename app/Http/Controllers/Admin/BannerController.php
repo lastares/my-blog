@@ -20,7 +20,7 @@ class BannerController extends BaseController
         $title = trim($request->input('banner_title', ''));
         $banners = $banner->bannerList($title);
         $pageString = $banners->links();
-        $prefix_route = config('blog.banner_upload_path');
+        $prefix_route = config('blog.picture_upload_path');
         return view('admin/banner/index', compact('banners', 'pageString', 'prefix_route'));
     }
 
@@ -50,7 +50,7 @@ class BannerController extends BaseController
         if ($id == 0) {
             return $this->error('缺少id参数');
         }
-        $route_prefix = config('blog.banner_upload_path');
+        $route_prefix = config('blog.picture_upload_path');
         $banner = $bannerModel->getBannerById($id);
         return view('admin/banner/update', compact('banner', 'route_prefix'));
     }
@@ -63,6 +63,7 @@ class BannerController extends BaseController
         }
 
         $data = $request->except(['_token']);
+
         $_banner_path = $request->input('banner_path', '');
         $result = $bannerModel->updateBanner($id, $data, $_banner_path);
         if ($result !== false) {

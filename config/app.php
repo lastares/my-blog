@@ -167,11 +167,6 @@ return [
         Illuminate\View\ViewServiceProvider::class,
 
         /*
-         * Package Service Providers...
-         */
-        // Laravel\Socialite\SocialiteServiceProvider::class,
-        \SocialiteProviders\Manager\ServiceProvider::class,
-        /*
          * Application Service Providers...
          */
         App\Providers\AppServiceProvider::class,
@@ -180,6 +175,16 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         // 'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
+        /*
+         * Package Service Providers...
+         */
+
+        // 社会化登录
+        // Laravel\Socialite\SocialiteServiceProvider::class,
+        \SocialiteProviders\Manager\ServiceProvider::class,
+
+        // 验证码
+        Mews\Captcha\CaptchaServiceProvider::class,
 
     ],
 
@@ -230,7 +235,12 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Image' => Intervention\Image\Facades\Image::class,
+
+        // 社会化登录
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+
+        // 验证码
+        'Captcha' => Mews\Captcha\Facades\Captcha::class,
     ],
 
 ];

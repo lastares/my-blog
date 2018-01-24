@@ -23,6 +23,15 @@
                 </div>
             </div>
             <div class="form-group">
+                <label for="banner_title" class="col-sm-2 control-label">所属分类</label>
+                <div class="col-sm-6">
+                    <select name="type">
+                        <option value="1">留言板</option>
+                        <option value="2">文章分类</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
                 <label for="banner_path" class="col-sm-2 control-label">banner缩略图</label>
                 <input class="form-conrol col-sm-6 uploadImg" type="file" id="banner_path">
                 <div class="col-sm-6" style="margin-top: 10px;">

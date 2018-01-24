@@ -2,13 +2,11 @@
 
 namespace App\Models;
 
-use function unlinkImage;
-
 class Banner extends Base
 {
     protected $table = 'banners';
     protected $guarded = ['id'];
-    protected $fillable = ['banner_title', 'banner_path', 'status'];
+    protected $fillable = ['banner_title', 'banner_path', 'status', 'type'];
 
     public function bannerList(string $banner_title = '')
     {
@@ -16,7 +14,7 @@ class Banner extends Base
         if (!empty($banner_title)) {
             $where[] = ['banner_title', 'like', '%' . $banner_title . '%'];
         }
-        $data = $this->where($where)->orderBy('id', 'desc')->paginate(config('blog.pageSize'));
+        $data = $this->where($where)->orderBy('id', 'desc')->paginate(10);
         return $data ?? [];
     }
 
@@ -87,5 +85,15 @@ class Banner extends Base
     public function getImagePathById(int $id)
     {
         return $this->where('id', intval($id))->value('banner_path');
+    }
+
+
+    /**
+     * 前台留言板留言图片
+     */
+
+    public function getMsgPicture()
+    {
+        return $this->select('id', 'banner_path', 'banner_title', 'type', 'created_at')->where('type', 1)->orderBy('id', 'desc')->get();
     }
 }
