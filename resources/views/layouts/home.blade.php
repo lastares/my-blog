@@ -459,7 +459,7 @@
     <div class="foot_time">
         程序:{{ $config['WEB_NAME'] }} v1.0+ 环境：{{ $_SERVER['SERVER_SOFTWARE'] }} &nbsp;&nbsp;<a href="/admin/index/index" target="_blank">后台</a>
     </div>
-    <div class="foot_time">博客平稳运行2年
+    <div class="foot_time">博客<span id="sitetime"></span><br /><br>
     <!--CNZZ统计开始-->
     <script type="text/javascript">
         var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1272825053'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s13.cnzz.com/z_stat.php%3Fid%3D1272825053%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));
@@ -514,104 +514,6 @@
 <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
 <script src="/home/plugins/layer-v3.1.1/layer/layer.js"></script>
 <script src="/admin/plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/home/plugins/countdown/jquery.countdown.min.js"></script>
+<script src="/home/js/home.js"></script>
 @yield('my-js')
-<script type="text/javascript">
-    function myEmail() {
-        layer.open({
-            type: 1,
-            shade: false,
-            title: false, //不显示标题
-            content: $('.layer_notice'), //捕获的元素，注意：最好该指定的元素要存放在body最外层，否则可能被其它的相对元素所影响
-            cancel: function(){
-                layer.msg('捕获就是从页面已经存在的元素上，包裹layer的结构', {time: 5000, icon:6});
-            }
-        });
-    }
-    //logo触发动画
-    $(document).ready(function(){
-        // 标签提示文章数
-        $('[data-toggle="tooltip"]').tooltip();
-
-        /* 鼠标特效 */
-        var a_idx = 0;
-
-        $("body").click(function(e) {
-            var a = ["欢迎您", "么么哒", "你真好", "棒棒哒", "真可爱", "你最美", "喜欢你" ,"真聪明", "爱你哦", "好厉害", "你真帅", "祝福你"];
-            var $i = $("<span/>").text(a[a_idx]);
-            a_idx = (a_idx + 1) % a.length;
-            var x = e.pageX,
-                y = e.pageY;
-            $i.css({
-                "z-index": 999999999999999999999999999999999999999999999999999999999999999999999,
-                "top": y - 20,
-                "left": x,
-                "position": "absolute",
-                "font-weight": "bold",
-                "color": "#ff6651"
-            });
-            $("body").append($i);
-            $i.animate({
-                    "top": y - 180,
-                    "opacity": 0
-                },
-                1500,
-                function() {
-                    $i.remove();
-                });
-        });
-
-
-        $('#logo_img').mouseover(function(){
-            $('#logo_img').addClass('animated  rubberBand');
-            //监听执行一次
-            $('#logo_img').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){$('#logo_img').removeClass('animated  rubberBand');});
-        });
-    });
-
-    //新浪微博触发动画
-    $(document).ready(function(){
-        $('#sinasite').mouseover(function(){
-            $('#sinasite').addClass('animated  tada');
-            //监听执行一次
-            $('#sinasite').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){$('#sinasite').removeClass('animated  tada');});
-        });
-    });
-
-    //博主邮箱触发动画
-    $(document).ready(function(){
-        $('#emailsite').mouseover(function(){
-            $('#emailsite').addClass('animated  tada');
-            //监听执行一次
-            $('#emailsite').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){$('#emailsite').removeClass('animated  tada');});
-        });
-    });
-
-    //新浪微博触发动画
-    $(document).ready(function(){
-        $('#appsite').mouseover(function(){
-            $('#appsite').addClass('animated  tada');
-            //监听执行一次
-            $('#appsite').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){$('#appsite').removeClass('animated  tada');});
-        });
-    });
-
-    //新浪微博触发动画
-    $(document).ready(function(){
-        $('#githubsite').mouseover(function(){
-            $('#githubsite').addClass('animated  tada');
-            //监听执行一次
-            $('#githubsite').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){$('#githubsite').removeClass('animated  tada');});
-        });
-    });
-
-
-    $(function(){
-        $("#art_title").click(function(){
-            var aid = $(this).attr('name');
-            $.post("http://www.songyaofeng.com/Home/viewnum",
-                {
-                    id:aid
-                });
-        });
-    });
-</script>
