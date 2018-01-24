@@ -23,6 +23,7 @@
     <link href="/home/css/bootstrap.min.css" rel="stylesheet">
     <link href="/home/css/style.css" rel="stylesheet">
     <link href="/home/css/banner.css" rel="stylesheet">
+    <link href="/admin/plugins/alert-js/alert/alert.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -235,7 +236,7 @@
                 </div>
 
                 <div class="card_img">
-                    <a href="https://github.com/songyaofeng">
+                    <a href="https://github.com/songyaofeng" target="_blank">
                         <img id="githubsite" src="/home/images/gitp.png">
                         <p>&nbsp;GitHub</p>
                     </a>
@@ -503,19 +504,10 @@
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
 <script src="/admin/plugins/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="/admin/plugins/layer-2.4/layer.js"></script>
+<script src="/admin/plugins/alert-js/alert/alert.js"></script>
 <script type="text/javascript">
     function funem() {
-        layer.msg(66666);
-        // layer.open({
-        //     type: 1,
-        //     // title: '灵晨BLOG Email',
-        //     skin: 'layui-layer-demo', //样式类名
-        //     closeBtn: 0, //不显示关闭按钮
-        //     anim: 2,
-        //     shadeClose: true, //开启遮罩关闭
-        //     content: 'songyaofeng@aliyun.com'
-        // });
+        alert('songyaofeng@aliyun.com');
     }
     //logo触发动画
     $(document).ready(function(){

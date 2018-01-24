@@ -22,24 +22,26 @@
             {!! $data->html !!}
         </div>
         <!--评论-->
-        {{--<div class="article_comment">--}}
-            {{--<!--留言-->--}}
-            {{--<div class="col-md-12 message_box">--}}
-                {{--<div class="message_style" style="height:auto;padding:35px;" >--}}
-                    {{--<h4>点评一下</h4>--}}
-                    {{--<!--PC版-->--}}
-                    {{--<div id="SOHUCS" sid="2018-01-12 08:51:51" > </div>--}}
-                    {{--<script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js" ></script>--}}
-                    {{--<script type="text/javascript">--}}
-                    {{--window.changyan.api.config({--}}
-                    {{--appid: 'cyt05y4uR',--}}
-                    {{--conf: 'prod_02cf7f8f4f6d36f0496fff918632c674'--}}
-                    {{--});--}}
-                    {{--</script>--}}
-                {{--</div>--}}
 
-            {{--</div>--}}
-        {{--</div>--}}
+        <div class="article_comment">
+            <!--留言-->
+            <div class="col-md-12 message_box">
+                <div class="message_style" style="height:auto;padding:35px;" >
+                    <h4>点评一下</h4>
+                    <!--高速版-->
+                    <div id="SOHUCS" sid="{{ $data->id }}"></div>
+                    <script charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/changyan.js" ></script>
+                    <script type="text/javascript">
+                        window.changyan.api.config({
+                            appid: 'cytqQ3UCY',
+                            conf: 'prod_b1a7b17a8e6609fc3d17569fbe0b7cf0'
+                        });
+                    </script>
+                </div>
+
+            </div>
+        </div>
 
     </div>
+
 @endsection
