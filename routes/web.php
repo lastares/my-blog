@@ -39,6 +39,9 @@ Route::group(['namespace' => 'Home'], function () {
     Route::get('search', 'IndexController@search');
     // 留言板视图
     Route::get('message', 'IndexController@message');
+    // 留言列表
+    Route::get('message/list', 'IndexController@messageList');
+    // 写入留言
     Route::post('message/insert', 'IndexController@messageInsert');
     // 验证码
     Route::get('captcha', 'IndexController@captcha');

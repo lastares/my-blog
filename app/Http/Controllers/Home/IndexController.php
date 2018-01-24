@@ -18,6 +18,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\Message;
 use Illuminate\Support\Facades\Input;
+use function response;
 
 class IndexController extends BaseController
 {
@@ -307,29 +308,34 @@ class IndexController extends BaseController
     }
 
 
-    public function message(Banner $banner)
+    public function message(Banner $banner, Message $message)
     {
         $pictures = $banner->getMsgPicture();
         $assign = [
             'title' => '留言板',
             'pictures' => $pictures,
-            'prefix_route' => config('blog.picture_upload_path')
+            'prefix_route' => config('blog.picture_upload_path'),
         ];
         return view('home.index.message', $assign);
     }
 
+    public function messageList(Message $message)
+    {
+        $data = $messages = $message->messageList();
+        return response()->json(['code' => 0, 'msg' => 'ok', 'data' => $data]);
+    }
+
     public function messageInsert(Request $request, Message $message)
     {
-        echo '<pre>';
-        print_r(request()->input('msg_title'));
-        echo '</pre>';die;
         if (!Captcha::check($request->input('verify'))) {
             return response()->json(['code' => 1, 'msg' => '请输入正确的验证码']);
         }
 
-        $data = $request->except(['_token', 'verify']);
+        $data = $request->except(['verify']);
+
 
         if ($message->messageInsert($data)) {
+            $data = $messages = $message->messageList();
             return response()->json(['code' => 0, 'msg' => '留言成功']);
         }
 

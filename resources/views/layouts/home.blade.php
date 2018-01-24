@@ -226,7 +226,7 @@
                 </div>
 
                 <div class="card_img">
-                    <a title="博主邮箱:songyaofeng@aliyun.com" onclick="funem();" href="javascript: void(0);">
+                    <a title="博主邮箱:songyaofeng@aliyun.com" onclick="myEmail();" href="javascript: void(0);">
                         <img id="emailsite" src="/home/images/emailp.png">
                         <p>博主邮箱</p>
                     </a>
@@ -516,8 +516,16 @@
 <script src="/admin/plugins/bootstrap/dist/js/bootstrap.min.js"></script>
 @yield('my-js')
 <script type="text/javascript">
-    function funem() {
-        alert('songyaofeng@aliyun.com');
+    function myEmail() {
+        layer.open({
+            type: 1,
+            shade: false,
+            title: false, //不显示标题
+            content: $('.layer_notice'), //捕获的元素，注意：最好该指定的元素要存放在body最外层，否则可能被其它的相对元素所影响
+            cancel: function(){
+                layer.msg('捕获就是从页面已经存在的元素上，包裹layer的结构', {time: 5000, icon:6});
+            }
+        });
     }
     //logo触发动画
     $(document).ready(function(){
