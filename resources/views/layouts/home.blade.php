@@ -73,7 +73,7 @@
             <li><span aria-hidden="true"></span>&nbsp;<span class="from">登录</span></li>
         </a>
         @else
-        <a href="{{ url('auth/oauth/logout') }}" class="col-md-offset-8 pull-left">
+        <a href="{{ url('auth/oauth/logout') }}" class="col-md-offset-7 pull-left">
             <li>
                 <img class="head-img" src="{{ session('user.avatar') }}" title="{{ session('user.name') }}" alt="{{ session('user.name') }}"/>&nbsp;&nbsp;<span aria-hidden="true"></span><span class="from">退出</span>
             </li>
@@ -497,7 +497,11 @@
         </div>
     </div>
 </div>
-{{--<!-- 登录模态框结束 -->--}}
+<!-- 登录模态框结束 -->
+
+<!--CNZZ统计开始-->
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1272825053'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s13.cnzz.com/z_stat.php%3Fid%3D1272825053%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+<!--CNZZ统计结束-->
 
 </body>
 </html>

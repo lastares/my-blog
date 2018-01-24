@@ -61,16 +61,13 @@
                         </span>
                     </div>
                     <div style="display: inline-block;margin-left: 10px;">
-                        <span class="label label-primary tag_weiguan">
+                        <span class="label label-danger tag_moy">
                             <span class="glyphicon glyphicon-eye-open" style="color: #fff"></span>
                             &nbsp;围观&nbsp;&nbsp;{{ $v->click }}
                         </span>
                         <span class="label label-success tag_tag">
                             <span class="glyphicon glyphicon-folder-open" style="color: #fff"></span>
-                            &nbsp;&nbsp;{{ $v->category_name }}</span>
-                        <span class="label label-danger tag_moy">
-                            <span class="glyphicon glyphicon-gift" style="color: #fff"></span>
-                            &nbsp;赏一个
+                            &nbsp;&nbsp;{{ $v->category_name }}
                         </span>
                     </div>
                 </div>
