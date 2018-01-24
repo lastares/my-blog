@@ -105,7 +105,7 @@ class Article extends Base
         $articles = $query
             ->select('articles.*', 'c.name as category_name')
             ->join('categories as c', 'articles.category_id', 'c.id')
-            ->orderBy('created_at', 'desc')
+            ->orderBy('id', 'desc')
             ->withTrashed()
             ->paginate(config('blog.pageSize'));
         return $articles;

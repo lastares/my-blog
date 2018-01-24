@@ -214,23 +214,18 @@
 
             <div style="width: 300px;height: 100px;">
                 <div  class="card_img">
-                    <a href="http://qdgu.cn">
+                    <a href="http://qdgu.cn" target="_blank">
                         <img id="sinasite" src="/home/images/sinap.png">
                         <p>前端工具</p>
                     </a>
                 </div>
 
                 <div class="card_img">
-                    <a title="博主邮箱:songyaofeng@aliyun.com" onclick="funem();" href="">
+                    <a title="博主邮箱:songyaofeng@aliyun.com" onclick="funem();" href="javascript: void(0);">
                         <img id="emailsite" src="/home/images/emailp.png">
                         <p>博主邮箱</p>
                     </a>
                 </div>
-                <script>
-                    function funem(){
-                        alert("博主邮箱:songyaofeng@aliyun.com");
-                    }
-                </script>
 
                 <div class="card_img">
                     <a href="#/71">
@@ -459,7 +454,7 @@
     <div class="foot_time">
         程序:{{ $config['WEB_NAME'] }} v1.0+ 环境：{{ $_SERVER['SERVER_SOFTWARE'] }} &nbsp;&nbsp;<a href="/admin/index/index" target="_blank">后台</a>
     </div>
-    <div class="foot_time">博客平稳运行2年</div>
+    <div class="foot_time">博客平稳运行2年<a href="http://new.cnzz.com/v1/login.php?siteid=1272825053"><img src="/home/images/icon.gif" alt="CNZZ数据统计" title="CNZZ数据统计"></a></div>
 </div>
 <!--脚部结束-->
 
@@ -508,8 +503,20 @@
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
 <script src="/admin/plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/admin/plugins/layer-2.4/layer.js"></script>
 <script type="text/javascript">
-
+    function funem() {
+        layer.msg(66666);
+        // layer.open({
+        //     type: 1,
+        //     // title: '灵晨BLOG Email',
+        //     skin: 'layui-layer-demo', //样式类名
+        //     closeBtn: 0, //不显示关闭按钮
+        //     anim: 2,
+        //     shadeClose: true, //开启遮罩关闭
+        //     content: 'songyaofeng@aliyun.com'
+        // });
+    }
     //logo触发动画
     $(document).ready(function(){
         // 标签提示文章数

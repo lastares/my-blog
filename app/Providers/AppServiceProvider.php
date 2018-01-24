@@ -50,8 +50,7 @@ class AppServiceProvider extends ServiceProvider
             $topArticle = Cache::remember('common:topArticle', 10080, function () {
                 // 获取置顶推荐文章
                 return Article::select('id', 'title')
-                    ->where('is_top', 1)
-                    ->orderBy('created_at', 'desc')
+                    ->orderBy('click', 'desc')
                     ->limit(8)
                     ->get();
             });

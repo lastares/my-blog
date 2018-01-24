@@ -37,7 +37,7 @@ return [
     'weibo' => [
         'client_id' => env('WEIBO_KEY'),
         'client_secret' => env('WEIBO_SECRET'),
-        'redirect' => 'http://www.songyaofeng/auth/oauth/handleProviderCallback/weibo'
+        'redirect' => env('APP_URL') . '/auth/oauth/handleProviderCallback/weibo'
     ],
 
     'qq' => [
