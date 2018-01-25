@@ -313,11 +313,13 @@ class IndexController extends BaseController
     {
         $pictures = $banner->getMsgPicture();
         $isLogin = session('user')?  1 : 0;
+        $messageWelcome = config('blog.messageWelcome');
         $assign = [
             'title' => '留言板',
             'pictures' => $pictures,
             'prefix_route' => config('blog.picture_upload_path'),
-            'isLogin' => $isLogin
+            'isLogin' => $isLogin,
+            'messageWelcome' => $messageWelcome
         ];
         return view('home.index.message', $assign);
     }

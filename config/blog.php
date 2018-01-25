@@ -20,5 +20,8 @@ return [
     'pageSize' => 6,
 
     // 水印文字
-    'text_water' => 'http://www.songyaofeng.com'
+    'text_water' => 'http://www.songyaofeng.com',
+
+    // 留言板欢迎词
+    'messageWelcome' => '亲，欢迎光临本小站，留言记得先登录呦，祝您生活愉快！'
 ];

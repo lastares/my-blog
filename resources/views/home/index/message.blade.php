@@ -2,6 +2,14 @@
 @section('title', $title)
 @section('my-css')
     <link rel="stylesheet" href="/home/css/message.css">
+    <style>
+        .layui-layer-lan .layui-layer-title {
+            background: #fd4067 !important;
+            color: #fff;
+            border: none;
+            font-size: 24px;
+        }
+    </style>
 @endsection
 @section('content')
     <div class="article_box">
@@ -45,7 +53,7 @@
                     <div class="tr">
                         <p>
                             <span class="countTxt">啊啊啊啊！请勿打广告，谢谢，谢谢！&nbsp;&nbsp;</span>
-                            <button type="button" href="javascript: void(0);" onclick="messageInsert();">弹幕发射！</button>
+                            <button type="button" href="javascript: void(0);" onclick="messageInsert();"> 留&nbsp;&nbsp;&nbsp;言 </button>
                         </p>
                     </div>
                 </form>
@@ -88,6 +96,13 @@
             });
         }
         $(function () {
+            layer.alert("{{ $messageWelcome }}", {
+                title: 'Notice',
+                skin: 'layui-layer-lan'
+                ,closeBtn: 0
+                ,anim: 4 , //动画类型
+                offset: '200px'
+            });
             initMessageList();
         });
 
