@@ -372,4 +372,11 @@ class IndexController extends BaseController
         $friendLinks = FriendshipLink::friendLink();
         return view('home.index.friendLink', ['title' => '左邻右舍', 'friendLinks' => $friendLinks]);
     }
+
+
+    public function about(Article $article)
+    {
+        $data = $article->aboutMe();
+        return view('home.index.article', ['data' => $data, 'title' => '关于我']);
+    }
 }

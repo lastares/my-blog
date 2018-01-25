@@ -123,7 +123,7 @@
     <div class="logo_mo" >如痴如醉，乱七八糟都想整的小站</div>
     <div class="logo_btnbox" >
         <div class="btn btn_gradient" >
-            <a style="color:#fff;" href="{{ url('about') }}">
+            <a style="color:#fff;" href="{{ url('about/me') }}">
                 <span class="glyphicon glyphicon-certificate"></span>&nbsp;关于我
             </a>
         </div>
@@ -161,7 +161,7 @@
         <div class="logo_mo" style="height:20px;"></div>
         <div class="logo_btnbox">
             <div class="btn btn_gradient" >
-                <a style="color:#fff;" href="{{ url('about') }}">
+                <a style="color:#fff;" href="{{ url('about/me') }}">
                     <span class="glyphicon glyphicon-certificate" ></span>&nbsp;关于我
                 </a>
             </div>

@@ -29,7 +29,7 @@
             <div class="article_setitle" style="min-height: 600px;text-align: left;">
                 <!--单链-->
                 @foreach($friendLinks as $k => $friendLink)
-                <a href="{{ $friendLink->url }}">
+                <a href="{{ $friendLink->url }}" target="_blank">
                     <div class="fr_link_box" >
                         <div class="fr_link_img">
                             <img width="90" height="90" style="border-radius: 50px;" src="{{ $friendLink->linkImage }}">

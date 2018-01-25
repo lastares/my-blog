@@ -165,4 +165,11 @@ class Article extends Base
         return $data;
     }
 
+
+
+    public function aboutMe()
+    {
+        return $this->select('title', 'click', 'author', 'html', 'created_at')->where('title', '关于我')->first();
+    }
+
 }
