@@ -10,6 +10,7 @@ use App\Models\Banner;
 use App\Models\Category;
 use App\Models\Chat;
 use App\Models\Comment;
+use App\Models\FriendshipLink;
 use App\Models\Notice;
 use App\Models\OauthUser;
 use App\Models\Tag;
@@ -311,10 +312,12 @@ class IndexController extends BaseController
     public function message(Banner $banner, Message $message)
     {
         $pictures = $banner->getMsgPicture();
+        $isLogin = session('user')?  1 : 0;
         $assign = [
             'title' => '留言板',
             'pictures' => $pictures,
             'prefix_route' => config('blog.picture_upload_path'),
+            'isLogin' => $isLogin
         ];
         return view('home.index.message', $assign);
     }
@@ -335,7 +338,6 @@ class IndexController extends BaseController
 
 
         if ($message->messageInsert($data)) {
-            $data = $messages = $message->messageList();
             return response()->json(['code' => 0, 'msg' => '留言成功']);
         }
 
@@ -363,4 +365,9 @@ class IndexController extends BaseController
     }
 
 
+    public function friendLink()
+    {
+        $friendLinks = FriendshipLink::friendLink();
+        return view('home.index.friendLink', ['title' => '左邻右舍', 'friendLinks' => $friendLinks]);
+    }
 }

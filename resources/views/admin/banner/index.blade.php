@@ -76,7 +76,8 @@
                 <td>{{ $banner->banner_title }}</td>
                 <td>
                     @if($banner->type == 1) 留言板
-                    @else 文章分类
+                    @elseif($banner->type == 2) 文章分类
+                    @else 左邻右舍
                     @endif
                 </td>
                 <td><img width="100" src="{{$prefix_route . $banner->banner_path }}" title="{{$banner->banner_title}}"/></td>

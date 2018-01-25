@@ -96,4 +96,13 @@ class Banner extends Base
     {
         return $this->select('id', 'banner_path', 'banner_title', 'type', 'created_at')->where('type', 1)->orderBy('id', 'desc')->get();
     }
+
+    /**
+     * 前台留言板留言图片
+     */
+
+    public static function getLinkPicture()
+    {
+        return self::select('id', 'banner_path', 'banner_title')->where('type', 3)->orderBy('id', 'desc')->pluck('banner_path')->toArray();
+    }
 }

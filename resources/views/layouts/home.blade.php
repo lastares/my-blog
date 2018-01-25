@@ -123,17 +123,17 @@
     <div class="logo_mo" >如痴如醉，乱七八糟都想整的小站</div>
     <div class="logo_btnbox" >
         <div class="btn btn_gradient" >
-            <a style="color:#fff;" href="#/35">
+            <a style="color:#fff;" href="{{ url('about') }}">
                 <span class="glyphicon glyphicon-certificate"></span>&nbsp;关于我
             </a>
         </div>
         <div class="btn btn_gradient2" >
-            <a style="color:#fff;" href="http://www.songyaofeng.com/Home/neigh">
+            <a style="color:#fff;" href="{{ url('friendLink') }}">
                 <span class="glyphicon glyphicon-heart" ></span>&nbsp;左邻右舍
             </a>
         </div>
         <div class="btn btn_gradient3">
-            <a style="color:#fff;" href="http://www.songyaofeng.com/Liuyan">
+            <a style="color:#fff;" href="{{ url('message') }}">
                 <span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span>&nbsp;吐槽啦!
             </a>
         </div>
@@ -148,6 +148,8 @@
             <img  src="/home/images/listbg.jpg">
         @elseif(preg_match("/$host\/timeAxis/", $url) || preg_match("/$host\/article\/*/", $url))
             <img  src="/home/images/listbg2.jpg">
+        @elseif(preg_match("/$host\/friendLink/", $url))
+            <img  src="/home/images/listbg4.jpg">
         @else
             <img  src="/home/images/listbg3.jpg">
         @endif
@@ -159,19 +161,19 @@
         <div class="logo_mo" style="height:20px;"></div>
         <div class="logo_btnbox">
             <div class="btn btn_gradient" >
-                <a style="color:#fff;" href="#">
+                <a style="color:#fff;" href="{{ url('about') }}">
                     <span class="glyphicon glyphicon-certificate" ></span>&nbsp;关于我
                 </a>
             </div>
 
             <div class="btn btn_gradient2" >
-                <a style="color:#fff;" href="#">
+                <a style="color:#fff;" href="{{ url('friendLink') }}">
                     <span class="glyphicon glyphicon-heart" ></span>&nbsp;左邻右舍
                 </a>
             </div>
 
             <div class="btn btn_gradient3">
-                <a style="color:#fff;" href="#">
+                <a style="color:#fff;" href="{{ url('message') }}">
                     <span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span>&nbsp;吐槽啦!
                 </a>
             </div>
@@ -310,122 +312,18 @@
             </div>
 
             <div class="left_narbox" style="height: 325px;width:310px;">
+                @foreach($friendshipLink as $k => $link)
                 <div class="left_narcard">
-                    <a title="技术宅男子" href = "http://itruke.com/" target="_blank">
-                        <div class="narcard_img"><img width="53" height="50" src="/home/images/ji.jpg"></div>
-                        <div class="narcard_name">技术宅..</div>
+                    <a title="{{ $link->name }}" href = "{{ $link->url }}" target="_blank">
+                        <div class="narcard_img"><img width="53" height="50" src="{{ $link->linkImage }}"></div>
+                        <div class="narcard_name">{{ $link->name }}</div>
                     </a>
                 </div>
-
-                <div class="left_narcard">
-                    <a title="柒爱博客" href = "http://www.chen101.cn/"  target="_blank">
-                        <div class="narcard_img"><img width="53" height="50" src="/home/images/qi.jpg"></div>
-                        <div class="narcard_name">柒爱博客</div>
-                    </a>
-                </div>
-
-                <div class="left_narcard">
-                    <a title="破晓博客" href = "http://www.dawnfly.cn/" target="_blank">
-                        <div class="narcard_img"><img width="53" height="50" src="/home/images/po.jpg"></div>
-                        <div class="narcard_name">破晓博客</div>
-                    </a>
-                </div>
-
-                <div class="left_narcard">
-                    <a title="toilove博客" href = "http://toilove.com/" target="_blank">
-                        <div class="narcard_img"><img width="53" height="50" src="/home/images/to.jpg"></div>
-                        <div class="narcard_name">toilove</div>
-                    </a>
-                </div>
-
-                <div class="left_narcard">
-                    <a title="青春博客" href = "http://loveteemo.com" target="_blank">
-                        <div class="narcard_img"><img width="53" height="50" src="/home/images/qin.jpg"></div>
-                        <div class="narcard_name">青春博客</div>
-                    </a>
-                </div>
-
-                <div class="left_narcard">
-                    <a title="连仕彤博客" href = "http://www.lianst.com/" target="_blank">
-                        <div class="narcard_img"><img width="53" height="50" src="/home/images/lian.jpg"></div>
-                        <div class="narcard_name">连仕彤</div>
-                    </a>
-                </div>
-
-                <div class="left_narcard">
-                    <a title="一意孤行" href = "http://noote.cn/" target="_blank">
-                        <div class="narcard_img"><img width="53" height="50" src="/home/images/yiyi.jpg"></div>
-                        <div class="narcard_name">一意孤行</div>
-                    </a>
-                </div>
-
-                <div class="left_narcard">
-                    <a title="fofo博客" href = "https://www.fofo.me/" target="_blank">
-                        <div class="narcard_img"><img width="53" height="50" src="/home/images/fofo.jpg"></div>
-                        <div class="narcard_name">fofo</div>
-                    </a>
-                </div>
-
-                <div class="left_narcard">
-                    <a title="Adamfei博客" href = "https://www.adamfei.com/" target="_blank">
-                        <div class="narcard_img"><img width="53" height="50" src="/home/images/ada.jpg"></div>
-                        <div class="narcard_name">Adamfei</div>
-                    </a>
-                </div>
-
-                <div class="left_narcard">
-                    <a title="不忘初心" href = "http://www.allenlan.com/" target="_blank">
-                        <div class="narcard_img"><img width="53" height="50" src="/home/images/bu.jpg"></div>
-                        <div class="narcard_name">不忘初心</div>
-                    </a>
-                </div>
-
-                <div class="left_narcard">
-                    <a title="小忆博客" href = "http://blog.iiwo.vip/" target="_blank">
-                        <div class="narcard_img"><img width="53" height="50" src="/home/images/xiao.jpg"></div>
-                        <div class="narcard_name">小忆博客</div>
-                    </a>
-                </div>
-
-                <div class="left_narcard">
-                    <a title="Bob`S博客" href = "https://www.bobcoder.cc/" target="_blank">
-                        <div class="narcard_img"><img width="53" height="50" src="/home/images/bob.jpg"></div>
-                        <div class="narcard_name">Bob`S</div>
-                    </a>
-                </div>
-
-                <div class="left_narcard">
-                    <a title="VVKE博客" href = "http://www.vvke.cn/" target="_blank">
-                        <div class="narcard_img"><img width="53" height="50" src="/home/images/vvke.jpg"></div>
-                        <div class="narcard_name">VVKE</div>
-                    </a>
-                </div>
-
-                <div class="left_narcard">
-                    <a title="小影志" href = "http://c7sky.com/" target="_blank">
-                        <div class="narcard_img"><img width="53" height="50" src="/home/images/xiaoyin.jpg"></div>
-                        <div class="narcard_name">小影志</div>
-                    </a>
-                </div>
-
-                <div class="left_narcard">
-                    <a title="nitrohe" href = "http://www.nitrohe.xin" target="_blank">
-                        <div class="narcard_img"><img width="53" height="50" src="/home/images/nit.jpg"></div>
-                        <div class="narcard_name">nitrohe</div>
-                    </a>
-                </div>
-
-                <div class="left_narcard">
-                    <a title="贤心博客" href = "http://sentsin.com/" target="_blank">
-                        <div class="narcard_img"><img width="53" height="50" src="/home/images/xian.jpg"></div>
-                        <div class="narcard_name">贤心</div>
-                    </a>
-                </div>
-
+                @endforeach
             </div>
             <!--更多友联-->
             <div class="left_link">
-                <button style="" type="button" onclick="javascript:window.location.href='http://www.songyaofeng.com/Home/neigh' " class="btn btn-info">
+                <button style="" type="button" onclick="javascript:window.location.href='/friendLink' " class="btn btn-info">
                     <span class="glyphicon glyphicon-heart" aria-hidden="true" style="color: #c14442"></span>&nbsp;更多邻居</button>
             </div>
         </div>

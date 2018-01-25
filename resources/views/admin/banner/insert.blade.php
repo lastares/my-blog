@@ -28,6 +28,7 @@
                     <select name="type">
                         <option value="1">留言板</option>
                         <option value="2">文章分类</option>
+                        <option value="3">左邻右舍</option>
                     </select>
                 </div>
             </div>

@@ -4,6 +4,8 @@ namespace App\Models;
 
 class FriendshipLink extends Base
 {
+    protected $table = 'friendship_links';
+    protected $fillable = ['name', 'url', 'sort'];
 
     /**
      * 添加数据
@@ -49,5 +51,31 @@ class FriendshipLink extends Base
         // 删除右侧的/
         $value = rtrim($value, '/');
         $this->attributes['first_name'] = strtolower($value);
+    }
+
+    /**前台首页左侧左邻右舍**/
+    public static function linkList()
+    {
+        $data = self::select('name', 'url')->orderBy('id', 'desc')->limit(16)->get();
+        $bannerList = Banner::getLinkPicture();
+        $bannerCount = count($bannerList) - 1;
+        foreach($data as $k => &$v)
+        {
+            $v->linkImage = config('blog.picture_upload_path') . $bannerList[mt_rand(0, $bannerCount)];
+        }
+        return $data;
+    }
+
+    /** 前台更多左邻右舍 **/
+    public static function friendLink()
+    {
+        $data = self::select('name', 'url')->orderBy('id', 'desc')->get();
+        $bannerList = Banner::getLinkPicture();
+        $bannerCount = count($bannerList) - 1;
+        foreach($data as $k => &$v)
+        {
+            $v->linkImage = config('blog.picture_upload_path') . $bannerList[mt_rand(0, $bannerCount)];
+        }
+        return $data;
     }
 }

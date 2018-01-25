@@ -29,6 +29,7 @@
                 <select name="type">
                     <option value="1" @if($banner->type == 1)selected="selected" @endif>留言板</option>
                     <option value="2" @if($banner->type == 2)selected="selected" @endif>文章分类</option>
+                    <option value="3" @if($banner->type == 3)selected="selected" @endif>左邻右舍</option>
                 </select>
             </div>
         </div>

@@ -43,6 +43,8 @@ Route::group(['namespace' => 'Home'], function () {
     Route::get('message/list', 'IndexController@messageList');
     // 写入留言
     Route::post('message/insert', 'IndexController@messageInsert');
+    // 左邻右舍
+    Route::get('friendLink', 'IndexController@friendLink');
     // 验证码
     Route::get('captcha', 'IndexController@captcha');
 

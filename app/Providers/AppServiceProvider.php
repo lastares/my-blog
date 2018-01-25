@@ -68,10 +68,9 @@ class AppServiceProvider extends ServiceProvider
 
             $friendshipLink = Cache::remember('common:friendshipLink', 10080, function () {
                 // 获取友情链接
-                return FriendshipLink::select('name', 'url')
-                    ->orderBy('sort')
-                    ->get();
+                return FriendshipLink::linkList();
             });
+
 
             $gitProject = Cache::remember('common:gitProject', 10080, function () {
                 // 获取开源项目

@@ -1,261 +1,7 @@
 @extends('layouts.home')
 @section('title', $title)
 @section('my-css')
-    <style>
-        #msgBox {
-            width: 100%;
-            background: #fff;
-            border-radius: 4px;
-            margin: 10px auto;
-            padding-top: 10px;
-            margin-top: -50px;
-        }
-
-        #msgBox form h2 {
-            font-weight: 400;
-            font: 400 18px/1.5 \5fae\8f6f\96c5\9ed1;
-        }
-
-        #msgBox form {
-            background: url(/home/images/boxBG.jpg) repeat-x 0 bottom;
-            padding: 20px 30px;
-        }
-
-        #userName, #conBox {
-            color: #777;
-            border: 1px solid #d0d0d0;
-            border-radius: 4px;
-            background: #fff url(/home/images/inputBG.png) repeat-x;
-            padding: 3px 5px;
-            font: 14px/1.5 arial;
-        }
-
-        #userName.active, #conBox.active {
-            border: 1px solid #7abb2c;
-        }
-
-        #userName {
-            height: 38px;
-        }
-
-        #conBox {
-            width: 100%;
-            resize: none;
-            min-height: 140px;
-            overflow: auto;
-        }
-
-        #msgBox form div {
-            position: relative;
-            color: #999;
-            margin-top: 10px;
-        }
-
-        #msgBox img {
-            border-radius: 3px;
-        }
-
-        #face {
-            position: absolute;
-            top: 0;
-            left: 172px;
-        }
-
-        #face img {
-            width: 38px;
-            height: 38px;
-            margin-left: 15px;
-            cursor: pointer;
-            margin-right: 6px;
-            opacity: 0.5;
-            filter: alpha(opacity=50);
-        }
-
-        #face img.hover, #face img.current {
-            width: 38px;
-            height: 38px;
-            border: 1px solid #028074;
-            opacity: 1;
-            filter: alpha(opacity=100);
-        }
-
-        #sendBtn {
-            border: 0;
-            width: 112px;
-            height: 30px;
-            cursor: pointer;
-            margin-left: 10px;
-            background: url(/home/images/btn.png) no-repeat;
-        }
-
-        #sendBtn.hover {
-            background-position: 0 -30px;
-        }
-
-        #msgBox form .maxNum {
-            font: 26px/30px Georgia, Tahoma, Arial;
-            padding: 0 5px;
-        }
-
-        #msgBox .list {
-            padding: 30px;
-        }
-
-        #msgBox .list h3 {
-            position: relative;
-            height: 33px;
-            font-size: 14px;
-            font-weight: 400;
-            background: #e3eaec;
-            border: 1px solid #dee4e7;
-        }
-
-        #msgBox .list h3 span {
-            position: absolute;
-            left: 6px;
-            top: 6px;
-            background: #fff;
-            line-height: 38px;
-            display: inline-block;
-            padding: 0 15px;
-        }
-
-        #msgBox .list ul {
-            overflow: hidden;
-            zoom: 1;
-        }
-
-        #msgBox .list ul li {
-            float: left;
-            clear: both;
-            width: 100%;
-            border-bottom: 1px dashed #d8d8d8;
-            padding: 10px 0;
-            background: #fff;
-            overflow: hidden;
-        }
-
-        #msgBox .list ul li.hover {
-            background: #f5f5f5;
-        }
-
-        #msgBox .list .userPic {
-            float: left;
-            width: 50px;
-            height: 50px;
-            display: inline;
-            margin-left: 10px;
-            border: 1px solid #ccc;
-            border-radius: 3px;
-        }
-
-        #msgBox .list .content_box {
-            float: left;
-            width: 600px;
-            font-size: 14px;
-            margin-left: 10px;
-            font-family: arial;
-            word-wrap: break-word;
-        }
-
-        #msgBox .list .userName {
-            display: inline;
-            padding-right: 5px;
-        }
-
-        #msgBox .list .userName a {
-            color: #2b4a78;
-        }
-
-        #msgBox .list .msgInfo {
-            display: inline;
-            word-wrap: break-word;
-        }
-
-        #msgBox .list .times {
-            color: #889db6;
-            font: 12px/18px arial;
-            margin-top: 5px;
-            overflow: hidden;
-            zoom: 1;
-        }
-
-        #msgBox .list .times span {
-            float: left;
-        }
-
-        #msgBox .list .times a {
-            float: right;
-            color: #889db6;
-            display: none;
-        }
-
-        .tr {
-            overflow: hidden;
-            zoom: 1;
-        }
-
-        .tr p {
-            float: right;
-            line-height: 30px;
-        }
-
-        .tr * {
-            float: left;
-        }
-
-        .inputbox {
-            width: 230px;
-            height: 62px;
-            margin: 0px;
-            float: left;
-            margin-right: 10px;
-            display: inline-block;
-        }
-
-        button {
-            color: #fff !important;
-            font-size: 16px;
-            padding: 4px 25px;
-            background: #009688;
-            border-radius: 3px;
-            border: 1px solid #ddd;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background: #038478;
-        }
-
-        /*头像*/
-        .touxiang {
-            width: 50px;
-            height: 50px;
-            background: #fff;
-            display: inline-block;
-            text-align: center;
-            float: left;
-            margin: 0px 10px;
-        }
-
-        .touxiang img {
-            width: 50px;
-            height: 50px;
-        }
-
-        .yan-text {
-            height: 38px;
-            border: 1px solid #d0d0d0;
-            border-radius: 4px;
-            font-size: 14px;
-            padding: 3px 5px;
-        }
-
-        .userPic img {
-            width: 50px;
-            height: 50px;
-        }
-    </style>
+    <link rel="stylesheet" href="/home/css/message.css">
 @endsection
 @section('content')
     <div class="article_box">
@@ -263,6 +9,7 @@
             <!--留言块开始-->
             <div id="msgBox">
                 <form id="frm">
+                    <input type="hidden" name="isLogin" value="{{ $isLogin }}" />
                     <h2>啊啊啊！！！不要问我在干什么。。 我已经疯了！！！</h2>
                     <!--选择头像-->
                     <div style="height: 80px;width: 100%; text-align: left;float: left;">
@@ -349,6 +96,12 @@
         }
 
         function messageInsert() {
+            var isLogin = $('input[name=isLogin]').val();
+            if(parseInt(isLogin) === 0) {
+                alert('亲，登陆后在留言呦！！！');
+                // layer.msg('亲，登陆后在留言呦！！！');
+                return;
+            }
             var msg_title = $('#userName').val();
             var verify = $('#verify').val();
             var msg_content = $('textarea[name=msg_content]').val();
