@@ -90,7 +90,7 @@
                     @foreach($commentData as $k => $v)
                         <article class="media event">
                             <a class="pull-left">
-                                <img class="bjy-img" src="{{ url($v->avatar) }}" alt="">
+                                <img class="bjy-img" width="50" src="{{ url($v->avatar) }}" alt="">
                             </a>
                             <div class="media-body">
                                 {{ $v->name }}
