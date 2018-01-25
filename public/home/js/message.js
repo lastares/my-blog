@@ -18,7 +18,7 @@ function initMessageList() {
     });
 }
 $(function () {
-    layer.alert("{{ $messageWelcome }}", {
+    layer.alert("亲，欢迎光临本小站，留言记得先登录呦，祝您生活愉快！", {
         title: 'Notice',
         skin: 'layui-layer-lan'
         ,closeBtn: 0
