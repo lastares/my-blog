@@ -98,8 +98,7 @@
         function messageInsert() {
             var isLogin = $('input[name=isLogin]').val();
             if(parseInt(isLogin) === 0) {
-                alert('亲，登陆后在留言呦！！！');
-                // layer.msg('亲，登陆后在留言呦！！！');
+                layer.msg('亲，登陆后在留言呦！！！');
                 return;
             }
             var msg_title = $('#userName').val();

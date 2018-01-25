@@ -334,7 +334,7 @@ class IndexController extends BaseController
             return response()->json(['code' => 1, 'msg' => '请输入正确的验证码']);
         }
 
-        $data = $request->except(['verify']);
+        $data = $request->except(['verify', 'isLogin']);
 
 
         if ($message->messageInsert($data)) {
