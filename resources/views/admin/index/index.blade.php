@@ -10,7 +10,7 @@
     <link href="/admin/plugins/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
     <style>
         .bjy-img{
-            width: 52px;
+            width: 52px !important;
         }
         .bjy-content{
             height: 352px;
@@ -65,7 +65,7 @@
                     @foreach($oauthUserData as $k => $v)
                         <article class="media event">
                             <a class="pull-left">
-                                <img class="bjy-img img-responsive" src="{{ url($v->avatar) }}" alt="">
+                                <img class="bjy-img" src="{{ url($v->avatar) }}" alt="">
                             </a>
                             <div class="media-body">
                                 {{ $v->name }}
