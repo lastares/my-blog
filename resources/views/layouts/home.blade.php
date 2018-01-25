@@ -11,8 +11,8 @@
 ﻿<!DOCTYPE html>
 <html lang="zh-CN" xmlns:wb="http://open.weibo.com/wb">
 <head>
-    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="宋耀锋,灵晨的个人博客,SYF,web前端,宋耀锋个人博客,web技术博文,javascript,html5,css3,layui,layui框架,前端工具导航,web框架大全,前端工具大全,前端目录,vue,node,jq"/>
     <meta name="description" content="{{ $config['WEB_DESCRIPTION'] }}"/>
@@ -184,7 +184,7 @@
 
 
 <!--主体内容框开始-->
-<div class="content" @if(preg_match("/$host\/timeAxis/", $url) || preg_match("/$host\/article\/*/", $url) || preg_match("/$host\/message/", $url)) style="min-height: 0px" @endif>
+<div class="content" @if(preg_match("/$host\/article\/*/", $url) || preg_match("/$host\/message/", $url)) style="min-height: 0px" @endif>
     <!--特殊导航条开始-->
     <div class="senav" >
         <div class="nav_ul">
@@ -496,8 +496,7 @@
                     </li>
                     <li class="col-xs-3 col-md-3 col-lg-3 b-login-img">
                         <a href="{{ url('auth/oauth/redirectToProvider/weibo') }}">
-                            <wb:login-button type="3,2" onlogin="login" onlogout="logout">登录按钮</wb:login-button></a>
-                        {{--<img src="{{ asset('/home/images/weibo-login.png') }}" alt="微博登录" title="微博登录"></a>--}}
+                        <img src="{{ asset('/home/images/weibo-login.png') }}" alt="微博登录" title="微博登录"></a>
                     </li>
                 </ul>
             </div>

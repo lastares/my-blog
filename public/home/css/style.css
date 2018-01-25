@@ -323,7 +323,7 @@ p img{max-width:100%; }
       }
       .page_content_left{width: 180px;height: 120px;display: inline-block;float: left;padding: 5px;border-radius: 4px;border:1px solid#ddd;}
       .page_content_left img{width: 168px;height: 108px;}
-      .page_content_right{  background: #fafafa;display: inline-block;padding: 5px; text-align: left;min-height: 120px;margin-left: 10px;border-left: 5px solid#0ba6e6;border-radius: 4px;}
+      .page_content_right{  background: #fafafa;display: inline-block;padding: 5px; text-align: left;min-height: 120px;margin-left: 10px;border-left: 5px solid#0ba6e6;border-radius: 4px;word-break: break-all;word-wrap:break-word;}
       /*工具导航*/
       .card_img{
         margin:10px 0px 0px 10px; 

@@ -43,7 +43,7 @@
 </head>
 <body>
 <div id="box">
-    <img src="{{ asset('images/home/404.jpg') }}" alt="404">
+    <img src="/home/images/404.jpg" alt="404">
     <p>将在 <span id="mes">5</span> 秒钟后返回<a href="/">{{ $config['WEB_NAME'] }}</a>首页</p>
     <p class="hint">非常抱歉 - 您可能输入了错误的网址，或者该网页已删除或移动</p>
 </div>
