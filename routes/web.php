@@ -45,6 +45,8 @@ Route::group(['namespace' => 'Home'], function () {
     Route::post('message/insert', 'IndexController@messageInsert');
     // 关于我
     Route::get('about/me', 'IndexController@about');
+    // 攻城略地
+    Route::get('tools', 'ToolsController@index');
     // 左邻右舍
     Route::get('friendLink', 'IndexController@friendLink');
     // 验证码
@@ -227,6 +229,28 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'admi
 
     });
 
+
+    // 工具分类管理
+    Route::group(['prefix' => 'toolsCategory'], function () {
+        // 工具分类列表
+        Route::get('index', 'ToolsCategoryController@index');
+        // 添加工具分类
+        Route::get('create', 'ToolsCategoryController@create');
+        Route::post('store', 'ToolsCategoryController@store');
+        // 编辑分类
+        Route::get('edit/{id}', 'ToolsCategoryController@edit');
+        Route::post('update/{id}', 'ToolsCategoryController@update');
+        // 排序
+        Route::post('sort', 'ToolsCategoryController@sort');
+        // 删除分类
+        Route::get('destroy/{id}', 'ToolsCategoryController@destroy');
+        // 恢复删除的分类
+        Route::get('restore/{id}', 'ToolsCategoryController@restore');
+        // 彻底删除分类
+        Route::get('forceDelete/{id}', 'ToolsCategoryController@forceDelete');
+    });
+
+
     // 文件管理
     Route::group(['prefix' => 'file'], function () {
         // 文件列表
@@ -292,6 +316,26 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'admi
         Route::get('restore/{id}', 'FriendshipLinkController@restore');
         // 彻底删除友情链接
         Route::get('forceDelete/{id}', 'FriendshipLinkController@forceDelete');
+    });
+
+    // 网站工具管理
+    Route::group(['prefix' => 'tools'], function () {
+        // 工具列表
+        Route::get('index', 'ToolsController@index');
+        // 添加工具
+        Route::get('create', 'ToolsController@create');
+        Route::post('store', 'ToolsController@store');
+        // 编辑工具
+        Route::get('edit/{id}', 'ToolsController@edit');
+        Route::post('update', 'ToolsController@update');
+        // 排序
+        Route::post('sort', 'ToolsController@sort');
+        // 删除工具
+        Route::get('destroy/{id}', 'ToolsController@destroy');
+        // 恢复删除的工具
+        Route::get('restore/{id}', 'ToolsController@restore');
+        // 彻底删除工具
+        Route::get('forceDelete/{id}', 'ToolsController@forceDelete');
     });
 
     // 随言碎语管理

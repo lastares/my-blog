@@ -107,7 +107,7 @@ class Article extends Base
             ->join('categories as c', 'articles.category_id', 'c.id')
             ->orderBy('id', 'desc')
             ->withTrashed()
-            ->paginate(config('blog.pageSize'));
+            ->paginate(config(15));
         return $articles;
     }
 

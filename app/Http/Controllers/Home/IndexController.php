@@ -379,4 +379,5 @@ class IndexController extends BaseController
         $data = $article->aboutMe();
         return view('home.index.article', ['data' => $data, 'title' => '关于我']);
     }
+
 }

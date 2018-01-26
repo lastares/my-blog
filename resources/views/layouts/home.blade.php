@@ -221,9 +221,9 @@
 
             <div style="width: 300px;height: 100px;">
                 <div  class="card_img">
-                    <a href="http://qdgu.cn" target="_blank">
+                    <a href="/tools" target="_blank">
                         <img id="sinasite" src="/home/images/sinap.png">
-                        <p>前端工具</p>
+                        <p>攻城掠地</p>
                     </a>
                 </div>
 
