@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FriendshipLink\Store;
+use App\Models\Category;
 use App\Models\FriendshipLink;
 use App\Models\Tools;
 use App\Models\ToolsCategory;
@@ -31,8 +32,9 @@ class ToolsController extends Controller
      */
     public function create(ToolsCategory $toolsCategory)
     {
-        $categories = $toolsCategory->getTree();
-        $assign = compact('categories');
+        $category = Category::all();
+        $toolsCategories = $toolsCategory->getTree();
+        $assign = compact('toolsCategories', 'category');
         return view('admin.tools.create', $assign);
     }
 
@@ -62,9 +64,10 @@ class ToolsController extends Controller
      */
     public function edit($id, ToolsCategory $toolsCategory)
     {
+        $category = Category::all();
         $data = Tools::find($id);
-        $categories = $toolsCategory->getTree();
-        $assign = compact('data', 'categories');
+        $toolsCategories = $toolsCategory->getTree();
+        $assign = compact('data', 'toolsCategories', 'category');
         return view('admin.tools.edit', $assign);
     }
 

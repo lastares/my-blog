@@ -11,15 +11,11 @@ use App\Models\FriendshipLink;
 use App\Models\GitProject;
 use App\Models\Notice;
 use App\Models\Tag;
-use File;
-use Cache;
 use App\Observers\CacheClearObserver;
-use function foo\func;
-use Illuminate\Support\ServiceProvider;
-use DB;
-use Illuminate\Database\QueryException;
 use Artisan;
-use Request;
+use Cache;
+use Illuminate\Database\QueryException;
+use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {

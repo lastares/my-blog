@@ -5,14 +5,15 @@ namespace App\Models;
 class Tools extends Base
 {
     protected $table = 'tools';
-    protected $fillable = ['tools_url', 'tools_name', 'category_id'];
+    protected $fillable = ['tools_url', 'tools_name', 'category_id', 'tools_category_id'];
 
 
     public function toolsList()
     {
-        $data = $this->select('id', 'tools_url', 'tools_name', 'category_id')->orderBy('id', 'desc')->get();
+        $data = $this->select('id', 'tools_url', 'tools_name', 'category_id', 'tools_category_id')->orderBy('id', 'desc')->get();
         foreach($data as $k => &$v) {
-            $v->category_name = app('db')->table('tools_category')->where('id', $v->category_id)->value('category_name');
+            $v->category_name = app('db')->table('categories')->where('id', $v->category_id)->value('name');
+            $v->tools_category_name = app('db')->table('tools_category')->where('id', $v->tools_category_id)->value('category_name');
         }
         return $data;
     }
@@ -39,6 +40,15 @@ class Tools extends Base
         return $this->where('id', $id)->update($data);
     }
 
+
+    public function getUrls(int $id)
+    {
+        return $this->select('id', 'tools_url', 'tools_name')->where('tools_category_id', $id)->get();
+    }
+
+
+
+
     /**
      * 给url添加http 或者删除/
      *
@@ -56,9 +66,9 @@ class Tools extends Base
 //        $this->attributes['first_name'] = strtolower($value);
 //    }
 
-    /******** 攻城略地导航 ****************/
-    public function topCategory()
-    {
-        return $this->select('id', 'tools_url', 'tools_name')->where('parent_id', 0)->order('id', 'desc')->get();
-    }
+    /******** 攻城略地分类下url ****************/
+//    public function urls()
+//    {
+//
+//    }
 }

@@ -266,7 +266,7 @@ class IndexController extends BaseController
      */
     public function test()
     {
-
+        echo 3333;
     }
 
 

@@ -17,6 +17,7 @@
                 {{--<th width="5%">排序</th>--}}
                 <th>网站名称</th>
                 <th>网站URL</th>
+                <th>导航栏目</th>
                 <th>所属分类</th>
                 <th>状态</th>
                 <th>操作</th>
@@ -30,6 +31,7 @@
                     <td>{{ $v->tools_name }}</td>
                     <td><a href="{{ $v->tools_urls }}" target="_blank">{{ $v->tools_url }}</a></td>
                     <td>{{ $v->category_name }}</td>
+                    <td>{{ $v->tools_category_name }}</td>
                     <td>
                         @if(is_null($v->deleted_at))
                             √

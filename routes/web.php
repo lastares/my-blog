@@ -19,6 +19,8 @@ Route::group(['namespace' => 'Home'], function () {
     Route::get('/', 'IndexController@index');
     // 分类
     Route::get('category/{id}', 'IndexController@category');
+    Route::get('toolsCategory/{id}/catename/{catename}', 'ToolsController@tools_category');
+    Route::get('tools_category/{id}', 'ToolsController@navigateUrls');
     // 标签
     Route::get('tag/{id}', 'IndexController@tag');
     // 随言碎语

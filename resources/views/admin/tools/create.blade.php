@@ -35,11 +35,23 @@
         {{ csrf_field() }}
         <table class="table table-striped table-bordered table-hover">
             <tr>
-                <th>上级分类</th>
+                <th>导航栏目</th>
                 <td>
                     <select name="category_id" id="category_id">
-                        @foreach($categories as $k => $category)
-                            <option value="{{ $category->id }}">{{ str_repeat('-', 8*$category->level) . $category->category_name }}</option>
+                        @foreach($category as $k => $v)
+                            @if($v->id >= 7)
+                            <option value="{{ $v->id }}">{{ $v->name }}</option>
+                            @endif
+                        @endforeach
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>工具分类</th>
+                <td>
+                    <select name="tools_category_id" id="tools_category_id">
+                        @foreach($toolsCategories as $k => $toolsCategory)
+                            <option value="{{ $toolsCategory->id }}">{{ str_repeat('-', 8*$toolsCategory->level) . $toolsCategory->category_name }}</option>
                         @endforeach
                     </select>
                 </td>

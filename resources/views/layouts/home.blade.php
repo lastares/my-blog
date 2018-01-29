@@ -195,7 +195,9 @@
             </a>
             <!--其他栏目开始-->
             @foreach($category as $k => $v)
+                @if($v->id < 7)
                 <a href="{{ url('category', ['id' => $v->id]) }}"><li>{{ $v->name }}</li></a>
+                @endif
             @endforeach
         </div>
     </div>

@@ -2,9 +2,6 @@
 
 @section('title', '编辑网站URL')
 
-@section('nav', '编辑网站URL')
-
-@section('description', '编辑新的网站URL')
 @section('my-css')
     <style>
         select {
@@ -34,11 +31,23 @@
         <input type="hidden" name="id" value="{{ $data->id }}" />
         <table class="table table-striped table-bordered table-hover">
             <tr>
-                <th>上级分类</th>
+                <th>导航栏目</th>
                 <td>
                     <select name="category_id" id="category_id">
-                        @foreach($categories as $k => $category)
-                            <option @if($data->category_id == $category->id) selected="selected" @endif value="{{ $category->id }}">{{ str_repeat('-', 8*$category->level) . $category->category_name }}</option>
+                        @foreach($category as $k => $v)
+                            @if($v->id >= 7)
+                            <option @if($data->category_id == $v->id) selected="selected" @endif value="{{ $v->id }}">{{ $v->name }}</option>
+                            @endif
+                        @endforeach
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>上级分类</th>
+                <td>
+                    <select name="tools_category_id" id="tools_category_id">
+                        @foreach($toolsCategories as $k => $toolsCategory)
+                            <option @if($data->tools_category_id == $toolsCategory->id) selected="selected" @endif value="{{ $toolsCategory->id }}">{{ str_repeat('-', 8*$toolsCategory->level) . $toolsCategory->category_name }}</option>
                         @endforeach
                     </select>
                 </td>
