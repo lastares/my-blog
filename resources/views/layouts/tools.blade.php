@@ -22,14 +22,14 @@
         <div class="logo left">
             <a href="http://qdgu.cn/index.php?"><img src="/home/images/tools-logo.png" alt="前端谷-前端工具导航大全"></a>
         </div>
-        <div class="search">
-            <form id="search" action="http://qdgu.cn/" target="_self">
+        {{--<div class="search">--}}
+            {{--<form id="search" action="http://qdgu.cn/" target="_self">--}}
                 {{--<input type="text" id="search-kw" class="search-input" name="kw" placeholder="搜索" autocomplete="off" value="">--}}
-                <input name="ie" type="hidden" value="utf-8">
-                <input name="a" type="hidden" value="search">
-                <input type="submit" class="search-button" value="">
-            </form>
-        </div>
+                {{--<input name="ie" type="hidden" value="utf-8">--}}
+                {{--<input name="a" type="hidden" value="search">--}}
+                {{--<input type="submit" class="search-button" value="">--}}
+            {{--</form>--}}
+        {{--</div>--}}
     </div>
 </div><!--#topmain-->
 
