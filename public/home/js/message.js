@@ -1,7 +1,7 @@
 function initMessageList() {
     $.ajax({
         type: "get",
-        url: "{{ url('message/list') }}",
+        url: "/message/list",
         dataType: 'json',
         cache: false,
         success: function (data) {
@@ -29,7 +29,7 @@ $(function () {
 });
 
 var reloadCaptcha = function () {
-    $('img#verifyCode').attr('src', '{{ url("captcha/mews") }}?r=' + Math.random())
+    $('img#verifyCode').attr('src', '/captcha/mews?r=' + Math.random())
 }
 
 function messageInsert() {
@@ -59,7 +59,7 @@ function messageInsert() {
 
     $.ajax({
         type: "post",
-        url: "{{ url('message/insert') }}",
+        url: "message/insert",
         dataType: 'json',
         data: $('#frm').serialize(),
         cache: false,
