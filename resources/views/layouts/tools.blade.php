@@ -24,7 +24,7 @@
         </div>
         <div class="search">
             <form id="search" action="http://qdgu.cn/" target="_self">
-                <input type="text" id="search-kw" class="search-input" name="kw" placeholder="搜索" autocomplete="off" value="">
+                {{--<input type="text" id="search-kw" class="search-input" name="kw" placeholder="搜索" autocomplete="off" value="">--}}
                 <input name="ie" type="hidden" value="utf-8">
                 <input name="a" type="hidden" value="search">
                 <input type="submit" class="search-button" value="">
