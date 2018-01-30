@@ -43,7 +43,7 @@
             vertical-align: middle;
             margin-left:0px;
         }
-        .head-img {
+        .b-head_img {
             margin: -4px auto;
             width: 30px;
             height: 30px
@@ -78,7 +78,7 @@
         @else
         <a href="{{ url('auth/oauth/logout') }}" class="col-md-offset-7 pull-left">
             <li>
-                <img class="b-head_img" src="{{ session('user.avatar') }}" title="{{ session('user.name') }}" alt="{{ session('user.name') }}"/>&nbsp;&nbsp;<span class="b-nickname">{{ session('user.name') }}</span><span class="from">退出</span>
+                <img class="b-head_img" src="{{ session('user.avatar') }}" title="{{ session('user.name') }}" alt="{{ session('user.name') }}"/>&nbsp;&nbsp;<span class="b-nickname">{{ session('user.name') }}</span> <span class="from">退出</span>
             </li>
         </a>
         @endif
