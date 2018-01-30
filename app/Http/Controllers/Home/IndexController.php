@@ -83,6 +83,7 @@ class IndexController extends BaseController
 
         // 获取评论
         $comment = $commentModel->getDataByArticleId($id);
+//        dd($comment);
         $category_id = $data->category_id;
         $title = '';
         $assign = compact('category_id', 'data', 'prev', 'next', 'comment', 'title');

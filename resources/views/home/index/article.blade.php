@@ -47,8 +47,7 @@
             <div class="row b-comment">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 b-comment-box">
                     <img class="b-head-img"
-                         src="@if(empty(session('user.avatar'))){{ asset('/home/images/default_head_img.gif') }}@else{{ session('user.avatar') }}@endif"
-                         alt="{{ $config['WEB_NAME'] }}" title="{{ $config['WEB_NAME'] }}">
+                         src="@if(empty(session('user.avatar'))){{ asset('/home/images/default_head_img.gif') }}@else{{ session('user.avatar') }}@endif" alt="{{ $config['WEB_NAME'] }}" title="{{ $config['WEB_NAME'] }}">
                     <div class="b-box-textarea">
                         <div class="b-box-content" contenteditable="true" onfocus="delete_hint(this)">请先登录后发表评论</div>
                         <ul class="b-emote-submit">
@@ -80,8 +79,7 @@
                     @foreach($comment as $k => $v)
                         <div id="comment-{{ $v['id'] }}" class="row b-user b-parent">
                             <div class="col-xs-2 col-sm-1 col-md-1 col-lg-1 b-pic-col">
-                                <img class="b-user-pic js-head-img" src="{{ asset('uploads/avatar/default.jpg') }}"
-                                     _src="{{ asset($v['avatar']) }}" alt="{{ $config['WEB_NAME'] }}" title="{{ $config['WEB_NAME'] }}">
+                                <img class="b-user-pic js-head-img" src="{{ asset($v['avatar']) }}" alt="{{ $config['WEB_NAME'] }}" title="{{ $config['WEB_NAME'] }}">
                             </div>
                             <div class="col-xs-10 col-sm-11 col-md-11 col-lg-11 b-content-col b-cc-first">
                                 <p class="b-content">
