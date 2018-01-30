@@ -61,6 +61,7 @@
                                 </div>
                             </li>
                             <li class="b-submit-button">
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}" id="csrf" />
                                 <input type="button" value="评 论" aid="{{ request()->id }}" pid="0" onclick="comment(this)">
                             </li>
                             <li class="b-clear-float"></li>
