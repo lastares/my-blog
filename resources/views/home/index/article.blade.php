@@ -1,6 +1,7 @@
 ﻿@extends('layouts.home')
 @section('title', '文章详情')
 @section('my-css')
+    <link rel="stylesheet" href="/admin/plugins/font-awesome-4.7.0/css/font-awesome.css">
     <link rel="stylesheet" href="/home/css/article.css">
     <style>
 
@@ -79,17 +80,14 @@
                         <div id="comment-{{ $v['id'] }}" class="row b-user b-parent">
                             <div class="col-xs-2 col-sm-1 col-md-1 col-lg-1 b-pic-col">
                                 <img class="b-user-pic js-head-img" src="{{ asset('uploads/avatar/default.jpg') }}"
-                                     _src="{{ asset($v['avatar']) }}" alt="{{ $config['WEB_NAME'] }}"
-                                     title="{{ $config['WEB_NAME'] }}">
+                                     _src="{{ asset($v['avatar']) }}" alt="{{ $config['WEB_NAME'] }}" title="{{ $config['WEB_NAME'] }}">
                             </div>
                             <div class="col-xs-10 col-sm-11 col-md-11 col-lg-11 b-content-col b-cc-first">
                                 <p class="b-content">
                                     <span class="b-user-name">{{ $v['name'] }}</span>：{!! $v['content'] !!}
                                 </p>
                                 <p class="b-date">
-                                    {{ $v['created_at'] }} <a href="javascript:;" aid="{{ request()->id }}"
-                                                              pid="{{ $v['id'] }}" username="{{ $v['name'] }}"
-                                                              onclick="reply(this)">回复</a>
+                                    {{ $v['created_at'] }} <a href="javascript:void(0);" aid="{{ request()->id }}" pid="{{ $v['id'] }}" username="{{ $v['name'] }}" onclick="reply(this)">回复</a>
                                 </p>
                                 {{--<foreach name="v['child']" item="n">--}}
                                 @foreach($v['child'] as $m => $n)
@@ -104,10 +102,7 @@
                                                 <span class="b-user-name">{{ $n['reply_name'] }}</span>：{!! $n['content'] !!}
                                             </li>
                                             <li class="b-date">
-                                                {{ $n['created_at'] }} <a href="javascript:;" aid="{{ request()->id }}"
-                                                                          pid="{{ $n['id'] }}"
-                                                                          username="{{ $n['reply_name'] }}"
-                                                                          onclick="reply(this)">回复</a>
+                                                {{ $n['created_at'] }} <a href="javascript:;" aid="{{ request()->id }}" pid="{{ $n['id'] }}" username="{{ $n['reply_name'] }}" onclick="reply(this)">回复</a>
                                             </li>
                                             <li class="b-clear-float"></li>
                                         </ul>
