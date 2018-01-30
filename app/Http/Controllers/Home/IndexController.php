@@ -180,7 +180,7 @@ class IndexController extends BaseController
     {
         $data = $request->all();
         if (ctype_alnum($data['content']) || in_array($data['content'], ['test', '测试'])) {
-            return ajax_return(1, '禁止无意义评论');
+            return ajax_return(200, '禁止无意义评论');
         }
         // 获取用户id
         $userId = session('user.id');
