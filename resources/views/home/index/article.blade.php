@@ -4,6 +4,11 @@
     <link rel="stylesheet" href="/admin/plugins/font-awesome-4.7.0/css/font-awesome.css">
     <link rel="stylesheet" href="/home/css/article.css">
     <style>
+        @media (min-width: 768px) {
+            .col-sm-1 {
+                width: 4.333333%;
+            }
+        }
 
     </style>
 @endsection
