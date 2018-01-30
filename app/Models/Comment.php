@@ -42,7 +42,7 @@ class Comment extends Base
         $image = [];
         // 循环生成img标签
         for ($i = 1; $i <= $count; $i++) {
-            $image[] = '<img src="'.asset('statics/emote/tuzki/'.$i.'.gif').'" title="'.str_replace(['[', ']'], '', $ubb[$i-1]).'" alt="'.$config->get('WEB_NAME').'">';
+            $image[] = '<img src="'.asset('/home/plugins/emote/tuzki/'.$i.'.gif').'" title="'.str_replace(['[', ']'], '', $ubb[$i-1]).'" alt="'.$config->get('WEB_NAME').'">';
         }
         return str_replace($ubb, $image, $content);
     }

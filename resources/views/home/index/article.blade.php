@@ -108,11 +108,11 @@
                                             <li class="b-date">
                                                 {{ $n['created_at'] }} <a href="javascript:;" aid="{{ request()->id }}" pid="{{ $n['id'] }}" username="{{ $n['reply_name'] }}" onclick="reply(this)">回复</a>
                                             </li>
-                                            <li class="b-clear-float"></li>
+                                            {{--<li class="b-clear-float"></li>--}}
                                         </ul>
                                     </div>
                                 @endforeach
-                                <div class="b-clear-float"></div>
+                                {{--<div class="b-clear-float"></div>--}}
                             </div>
                         </div>
                         <div class="row">
