@@ -179,6 +179,7 @@ class IndexController extends BaseController
     public function comment(Store $request, Comment $commentModel, OauthUser $oauthUserModel)
     {
         $data = $request->all();
+        dd($data);
         if (ctype_alnum($data['content']) || in_array($data['content'], ['test', '测试'])) {
             return ajax_return(200, '禁止无意义评论');
         }
