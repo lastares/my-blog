@@ -81,8 +81,8 @@ function comment(obj){
                     var now = new Date();
                     // 获取当前时间
                     var date=now.getFullYear()+"-"+((now.getMonth()+1)<10?"0":"")+(now.getMonth()+1)+"-"+(now.getDate()<10?"0":"")+now.getDate()+'&emsp;'+(now.getHours()<10?"0":"")+now.getHours()+':'+(now.getMinutes()<10?"0":"")+now.getMinutes()+':'+(now.getSeconds()<10?"0":"")+now.getSeconds();
-                    var headImg=$('#b-login-word .b-head_img').attr('src');
-                    var nickName=$('#b-login-word .b-nickname').text();
+                    var headImg=$('.b-head_img').attr('src');
+                    var nickName=$('.b-nickname').text();
                     if(pid==0){
                         // pid为0表示新增评论
                         var str='<div class="row b-user b-parent"><div class="col-xs-2 col-sm-1 col-md-1 col-lg-1 b-pic-col"><img title="'+titleName+'" alt="'+titleName+'" src="'+headImg+'" class="b-user-pic"></div><div class="col-xs-10 col-sm-11 col-md-11 col-lg-11 b-content-col"><p class="b-content"><span class="b-user-name">'+nickName+'</span>：'+content+'</p><p class="b-date">'+date+' <a onclick="reply(this)" username="'+nickName+'" pid="'+newPid+'" aid="'+aid+'" href="javascript:;">回复</a></p><div class="b-clear-float"></div></div></div>';
