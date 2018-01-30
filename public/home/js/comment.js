@@ -79,7 +79,7 @@ function comment(obj){
                     console.log(data.code);
                     console.log(data.message);
                     if(data.code !== 200) {
-                        layer.msg(data.message);
+                        layer.msg(data.message.message);
                     }
                     var newPid=data.id;
                     var replyName=$(obj).attr('username');
