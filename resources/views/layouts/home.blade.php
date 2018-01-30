@@ -186,18 +186,20 @@
 
 
 <!--主体内容框开始-->
-<div class="content" @if(preg_match("/$host\/article\/*/", $url) || preg_match("/$host\/message/", $url)) style="min-height: 0px" @endif>
+<div class="content" @if(preg_match("/$host\/article\/*/", $url) || preg_match("/$host\/message/", $url) || preg_match("/$host\/friendLink/", $url)) style="min-height: 0px" @endif>
     <!--特殊导航条开始-->
     <div class="senav" >
         <div class="nav_ul">
-            <a href="/">
-                <li class="nav_ul_first">首页</li>
-            </a>
+            {{--<a href="/">--}}
+                {{--<li class="nav_ul_first">首页</li>--}}
+            {{--</a>--}}
             <!--其他栏目开始-->
             @foreach($category as $k => $v)
-                @if($v->id < 7)
-                <a href="{{ url('category', ['id' => $v->id]) }}"><li>{{ $v->name }}</li></a>
-                @endif
+
+                    <a id="category_item" @if($v->name == '首页') href="/" @else href="{{ url('category', ['id' => $v->id]) }}" @endif>
+                    <li @if($k == 0) class="nav_ul_first" @endif>{{ $v->name }}</li>
+                    </a>
+
             @endforeach
         </div>
     </div>
@@ -415,4 +417,11 @@
 <script src="/admin/plugins/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="/home/plugins/countdown/jquery.countdown.min.js"></script>
 <script src="/home/js/home.js"></script>
+<script>
+    $('#category_item').onclick = function () {
+        if(this.getAttribute("isVisited")) {
+            this.css('background-color', '#0690ce');
+        }
+    }
+</script>
 @yield('my-js')
