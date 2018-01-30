@@ -67,9 +67,9 @@
         <a href="/">
             <li><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;首页</li>
         </a>
-        <a href="{{ url('timeAxis') }}">
-            <li><span class="glyphicon glyphicon-time" aria-hidden="true"></span>&nbsp;时间轴</li>
-        </a>
+        {{--<a href="{{ url('timeAxis') }}">--}}
+            {{--<li><span class="glyphicon glyphicon-time" aria-hidden="true"></span>&nbsp;时间轴</li>--}}
+        {{--</a>--}}
         <a href="{{ url('message') }}">
             <li><span class="glyphicon glyphicon-comment" aria-hidden="true"></span>&nbsp;留言板</li>
         </a>

@@ -347,7 +347,7 @@ p img{max-width:100%; }
 
       /*page*/
       .page_title{
-        padding:10px 30px;text-align: center;border-bottom:1px dotted #eee;
+        padding:2px 30px;text-align: center;border-bottom:1px dotted #eee;
       }
       .page_sedbox{
         padding:0px 30px;text-align: center;font-size: 15px;color: #656565;
