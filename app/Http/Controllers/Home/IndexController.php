@@ -179,7 +179,7 @@ class IndexController extends BaseController
     public function comment(Store $request, Comment $commentModel, OauthUser $oauthUserModel)
     {
         $data = $request->all();
-        dd($data);
+//        dd($data);
         if (ctype_alnum($data['content']) || in_array($data['content'], ['test', '测试'])) {
             return ajax_return(200, '禁止无意义评论');
         }
@@ -222,7 +222,9 @@ class IndexController extends BaseController
             unset($data['email']);
         }
         // 存储评论
+
         $id = $commentModel->storeData($data);
+        dd($id);
         // 更新缓存
         Cache::forget('common:newComment');
         return ajax_return(200, ['id' => $id]);
