@@ -1,7 +1,7 @@
 @extends('layouts.home')
 @section('title', $title)
 @section('content')
-    <div class="right_box">
+    <div class="right_box animated slideInRight">
         @if(!empty($tagName))
             <div class="row b-tag-title">
                 <div class="col-xs-12 col-md-12 col-lg-12">
@@ -85,4 +85,9 @@
 
         </div>
     </div>
+@endsection
+@section('my-js')
+    <script>
+        // $('#art_title').addClass('animated bounceOutLeft');
+    </script>
 @endsection

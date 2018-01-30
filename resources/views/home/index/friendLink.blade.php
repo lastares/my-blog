@@ -1,16 +1,19 @@
 @extends('layouts.home')
 @section('title', $title)
 @section('my-css')
+    <link rel="stylesheet" href="/home/plugins/friendlyLink/css/grids-min.css">
+    <link rel="stylesheet" href="/home/plugins/friendlyLink/css/imghover.css">
+    <link rel="stylesheet" href="/home/plugins/friendlyLink/css/normalize.css">
     <style>
         .fr_link_box{
             width: 150px;height: 150px;display: inline-block;margin:10px;padding: 10px;
-            background: #a6e4c2;border-radius: 4px;text-align:center;
+            background: #a0debc;border-radius: 4px;text-align:center;
         }
         .fr_link_name{
             width: 125px;height:35px;line-height: 35px; background: #f8f8f8;margin:0 auto;margin-top: 5px;border-radius: 3px;
         }
         .fr_link_box:hover{
-            background: #a0debc;
+            background: #14c327;
             color: #f00;
             cursor: pointer;
             box-shadow: 0px 0px 4px #888;
@@ -26,7 +29,7 @@
             <span style="font-size: 40px;">左邻右舍</span><br>
             <span style="font-size: 18px;line-height: 40px;">有朋自远方来....呃.....不亦说乎~!</span>
         </div>
-            <div class="article_setitle" style="min-height: 600px;text-align: left;">
+            <div class="article_setitle animated zoomIn" style="min-height: 600px;text-align: left;">
                 <!--单链-->
                 @foreach($friendLinks as $k => $friendLink)
                 <a href="{{ $friendLink->url }}" target="_blank">

@@ -2,7 +2,7 @@
 @section('title', $title)
 @section('content')
     <!--右侧框开始-->
-    <div class="right_box" >
+    <div class="right_box animated slideInRight" >
 
         <!--文章列表开始-->
         @foreach($article as $k => $v)

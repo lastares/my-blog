@@ -24,15 +24,13 @@
     <link href="/home/css/bootstrap.min.css" rel="stylesheet">
     <link href="/home/css/style.css" rel="stylesheet">
     <link href="/home/css/banner.css" rel="stylesheet">
+    <link rel="stylesheet" href="/home/css/animate.css">
     <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=YOUR APPKEY" type="text/javascript" charset="utf-8"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="/home/js/html5shiv.min.js"></script>
     <script src="/home/js/respond.min.js"></script>
-
-    </head>
-
     <![endif]-->
     @yield('my-css')
         <style>
@@ -61,7 +59,7 @@
     <div class="top_nav">
         <a href="/">
         <span class="top_nav_first">
-          <img src="/home/images/logo.png">
+          <img id="logoAnimate" src="/home/images/logo.png">
         </span>
         </a>
         <a href="/">
@@ -121,7 +119,7 @@
     <div id="logo_img"><img src="/home/images/index_logo.jpg"></div>
     <div class="logo_title" >{{ $config['WEB_NAME'] }}欢迎你</div>
     <div class="logo_mo" >如痴如醉，乱七八糟都想整的小站</div>
-    <div class="logo_btnbox" >
+    <div class="logo_btnbox">
         <div class="btn btn_gradient" >
             <a style="color:#fff;" href="{{ url('about/me') }}">
                 <span class="glyphicon glyphicon-certificate"></span>&nbsp;关于我
@@ -145,13 +143,13 @@
     <!--banner开始-->
     <div class="banner" style="text-align:center;overflow:hidden;">
         @if(preg_match("/$host\/category\/*/", $url))
-            <img  src="/home/images/listbg.jpg">
+            <img src="/home/images/listbg.jpg">
         @elseif(preg_match("/$host\/timeAxis/", $url) || preg_match("/$host\/article\/*/", $url))
-            <img  src="/home/images/listbg2.jpg">
+            <img src="/home/images/listbg2.jpg">
         @elseif(preg_match("/$host\/friendLink/", $url))
-            <img  src="/home/images/listbg4.jpg">
+            <img id="listbg4" src="/home/images/listbg4.jpg">
         @else
-            <img  src="/home/images/listbg3.jpg">
+            <img src="/home/images/listbg3.jpg">
         @endif
     </div>
     <!--banner结束-->
@@ -418,10 +416,7 @@
 <script src="/home/plugins/countdown/jquery.countdown.min.js"></script>
 <script src="/home/js/home.js"></script>
 <script>
-    $('#category_item').onclick = function () {
-        if(this.getAttribute("isVisited")) {
-            this.css('background-color', '#0690ce');
-        }
-    }
+    $('#logoAnimate').addClass('animated rubberBand');
+    $('#listbg4').addClass('animated zoomIn');
 </script>
 @yield('my-js')
