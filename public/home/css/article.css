@@ -639,8 +639,8 @@ ul {
 }
 
 .b-comment .b-user-comment .b-user .b-content-col .b-date {
-    height: 30px;
-    line-height: 30px
+    height: 15px;
+    line-height: 24px
 }
 
 .b-comment .b-user-comment .b-child {
