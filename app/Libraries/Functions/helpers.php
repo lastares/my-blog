@@ -68,7 +68,7 @@ if (!function_exists('ajax_return')) {
         if ($status_code != 200) {
             //增加status_code
             $data = ['status_code' => $status_code, 'message' => $data,];
-            return response()->json($data, $status_code);
+            return response()->json(['code' => $status_code, 'message' => $data]);
         }
         //如果是对象 先转成数组
         if (is_object($data)) {
