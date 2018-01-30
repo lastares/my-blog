@@ -76,7 +76,8 @@ function comment(obj){
                 layer.load(1);
                 // ajax评论
                 $.post(ajaxCommentUrl, postData, function(data) {
-                    console.log(data.code);
+                    console.log(data.status_code);
+                    console.log(data.message);
                     var newPid=data.id;
                     var replyName=$(obj).attr('username');
                     var now = new Date();
