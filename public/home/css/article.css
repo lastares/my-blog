@@ -618,7 +618,7 @@ ul {
 
 .b-comment .b-user-comment .b-user {
     padding-top: 10px;
-    height: 34%
+    min-height: 10%
 }
 
 .b-comment .b-user-comment .b-user .b-pic-col .b-user-pic {
