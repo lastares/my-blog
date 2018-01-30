@@ -233,7 +233,6 @@ class IndexController extends BaseController
      */
     public function checkLogin()
     {
-        return 1;die;
         if (empty(session('user.id'))) {
             return 0;
         } else {
