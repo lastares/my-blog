@@ -236,12 +236,12 @@
                     </a>
                 </div>
 
-                <div class="card_img">
-                    <a href="#/71">
-                        <img id="appsite" src="/home/images/app.png">
-                        <p>本站APP</p>
-                    </a>
-                </div>
+                {{--<div class="card_img">--}}
+                    {{--<a href="#/71">--}}
+                        {{--<img id="appsite" src="/home/images/app.png">--}}
+                        {{--<p>本站APP</p>--}}
+                    {{--</a>--}}
+                {{--</div>--}}
 
                 <div class="card_img">
                     <a href="https://github.com/songyaofeng" target="_blank">
@@ -418,5 +418,8 @@
 <script>
     $('#logoAnimate').addClass('animated rubberBand');
     $('#listbg4').addClass('animated zoomIn');
+    function myEmail() {
+        alert('songyaofeng@aliyun.com');
+    }
 </script>
 @yield('my-js')
