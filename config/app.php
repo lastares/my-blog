@@ -186,6 +186,8 @@ return [
         // 验证码
         Mews\Captcha\CaptchaServiceProvider::class,
 
+        // 七牛云
+        itbdw\QiniuStorage\QiniuFilesystemServiceProvider::class,
     ],
 
     /*
