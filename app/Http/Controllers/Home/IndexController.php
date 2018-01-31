@@ -51,7 +51,7 @@ class IndexController extends BaseController
      *
      * @return $this
      */
-    public function article($id, Request $request, Article $articleModel, Comment $commentModel)
+    public function article(int $id, Request $request, Article $articleModel, Comment $commentModel)
     {
         // 获取文章数据
         $data = $articleModel->getDataById($id);
@@ -82,7 +82,7 @@ class IndexController extends BaseController
             ->first();
 
         // 获取评论
-        $comment = $commentModel->getDataByArticleId(75);
+        $comment = $commentModel->getDataByArticleId($id);
         $category_id = $data->category_id;
         $title = '';
         $assign = compact('category_id', 'data', 'prev', 'next', 'comment', 'title');
