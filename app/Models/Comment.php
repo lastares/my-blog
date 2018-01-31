@@ -186,7 +186,7 @@ class Comment extends Base
      */
     public function getDataByArticleId($article_id){
         $map = [
-            'comments.article_id' => $article_id,
+            'comments.article_id' => 75,
             'comments.pid' => 0
         ];
         // 关联第三方用户表获取一级评论

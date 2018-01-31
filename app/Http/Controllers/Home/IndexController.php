@@ -82,8 +82,7 @@ class IndexController extends BaseController
             ->first();
 
         // 获取评论
-        $comment = $commentModel->getDataByArticleId($id);
-//        dd($comment);
+        $comment = $commentModel->getDataByArticleId(75);
         $category_id = $data->category_id;
         $title = '';
         $assign = compact('category_id', 'data', 'prev', 'next', 'comment', 'title');

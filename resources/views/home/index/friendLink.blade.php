@@ -1,9 +1,6 @@
 @extends('layouts.home')
 @section('title', $title)
 @section('my-css')
-    <link rel="stylesheet" href="/home/plugins/friendlyLink/css/grids-min.css">
-    <link rel="stylesheet" href="/home/plugins/friendlyLink/css/imghover.css">
-    <link rel="stylesheet" href="/home/plugins/friendlyLink/css/normalize.css">
     <style>
         .fr_link_box{
             width: 150px;height: 150px;display: inline-block;margin:10px;padding: 10px;
