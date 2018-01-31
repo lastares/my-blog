@@ -353,7 +353,7 @@ p img{max-width:100%; }
         padding:0px 30px;text-align: center;font-size: 15px;color: #656565;
       }
       .page_content{
-        padding:10px 10px 0px 15px;margin:0px 0px 30px 5px; font-family:arial,verdana,Microsoft YaHei,Tahoma,Simsun,sans-serif;font-size:17px;border-radius: 5px;color: #222;
+        padding:8px 10px 0px 15px;margin:0px 0px 30px 5px; font-family:arial,verdana,Microsoft YaHei,Tahoma,Simsun,sans-serif;font-size:17px;border-radius: 5px;color: #222;
       }
      
       .page_fla{
@@ -362,7 +362,7 @@ p img{max-width:100%; }
 
       /*tag*/
       .tag_box{
-       margin:30px;text-align: left;height: 40px;
+       margin:30px;text-align: left;height: 8px;
       }
 
       .tag_weiguan{
