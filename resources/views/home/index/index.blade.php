@@ -28,7 +28,7 @@
                     <span class="day">{{ $v->day }}</span>
                 </div>
                 <!--圆圈日期结束-->
-                <div class="page_title"><h2>{{ $v->title }}</h2></div>
+                <div class="page_title"><h2>{{ str_limit($v->title, 50) }}</h2></div>
 
 
                 <!--描述-->
