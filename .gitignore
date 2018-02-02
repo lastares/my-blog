@@ -14,5 +14,6 @@ yarn-error.log
 _ide_helper.php
 .user.ini
 /public/Demo/*
+/public/uploads/*
 storage/debugbar/
 /composer.lock
