@@ -58,12 +58,12 @@
                                     <li><a href="{{ url('admin/category/index') }}">分类列表</a></li>
                                 </ul>
                             </li>
-                            <li>
-                                <a><i class="fa fa-th"></i> 工具分类 <span class="fa fa-chevron-down"></span></a>
-                                <ul class="nav child_menu">
-                                    <li><a href="{{ url('admin/toolsCategory/index') }}">工具分类列表</a></li>
-                                </ul>
-                            </li>
+                            {{--<li>--}}
+                                {{--<a><i class="fa fa-th"></i> 工具分类 <span class="fa fa-chevron-down"></span></a>--}}
+                                {{--<ul class="nav child_menu">--}}
+                                    {{--<li><a href="{{ url('admin/toolsCategory/index') }}">工具分类列表</a></li>--}}
+                                {{--</ul>--}}
+                            {{--</li>--}}
                             <li>
                                 <a><i class="fa fa-th"></i> 网站导航 <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">

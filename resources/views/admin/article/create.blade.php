@@ -33,7 +33,7 @@
                 <td>
                     <select class="form-control" name="category_id">
                         @foreach($category as $v)
-                            <option value="{{ $v->id }}" @if(old('category_id')) selected="selected" @endif>{{ $v->name }}</option>
+                            <option value="{{ $v->id }}">{{ str_repeat('-', 8*$v->level) . $v->category_name }}</option>
                         @endforeach
                     </select>
                 </td>

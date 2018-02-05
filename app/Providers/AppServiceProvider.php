@@ -34,7 +34,8 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('home/*', function ($view) {
             $category = Cache::remember('common:category', 10080, function () {
                 // 获取分类导航
-                return Category::orderBy('sort', 'asc')->select('id', 'name')->get();
+//                dd(Category::categories());
+                return Category::categories();
             });
 
             $tag = Cache::remember('common:tag', 10080, function () {
@@ -45,9 +46,9 @@ class AppServiceProvider extends ServiceProvider
 
             $topArticle = Cache::remember('common:topArticle', 10080, function () {
                 // 获取置顶推荐文章
-                return Article::select('id', 'title')
+                return Article::select('id', 'title', 'click', 'cover', 'description', 'created_at')
                     ->orderBy('click', 'desc')
-                    ->limit(8)
+                    ->limit(5)
                     ->get();
             });
 

@@ -56,14 +56,7 @@ class FriendshipLink extends Base
     /**前台首页左侧左邻右舍**/
     public static function linkList()
     {
-        $data = self::select('name', 'url')->orderBy('id', 'desc')->limit(16)->get();
-        $bannerList = Banner::getLinkPicture();
-        $bannerCount = count($bannerList) - 1;
-        foreach($data as $k => &$v)
-        {
-            $v->linkImage = config('blog.picture_upload_path') . $bannerList[mt_rand(0, $bannerCount)];
-        }
-        return $data;
+        return self::select('name', 'url')->orderBy('id', 'desc')->get();
     }
 
     /** 前台更多左邻右舍 **/

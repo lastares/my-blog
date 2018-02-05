@@ -40,9 +40,9 @@ class ArticleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Category $category)
     {
-        $category = Category::all();
+        $category = $category->getTree();
         $tag = Tag::all();
         $author = Config::where('name', 'AUTHOR')->value('value');
         $assign = compact('category', 'tag', 'author');
@@ -101,11 +101,11 @@ class ArticleController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(int $id, Category $category)
     {
         $article = Article::withTrashed()->find($id);
         $article->tag_ids = ArticleTag::where('article_id', $id)->pluck('tag_id')->toArray();
-        $category = Category::all();
+        $category = $category->getTree();
         $tag = Tag::all();
         $assign = compact('article', 'category', 'tag');
         return view('admin.article.edit', $assign);

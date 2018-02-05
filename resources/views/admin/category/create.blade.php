@@ -2,39 +2,45 @@
 
 @section('title', '添加分类')
 
+@section('my-css')
+    <style>
+        select {
+            display:block;
+            float:left;margin:-2px;
+            font-family:Verdana,Arial;
+            font-size: 11pt;
+            color: #FF0000;
+            width: 400px;
+            height: 30px;
+        }
+    </style>
+@endsection
 @section('content')
 
     <!-- 导航栏结束 -->
     <ul class="breadcrumb" style="font-size: 16px;">
         <li><a href="#">首页</a></li>
-        <li><a href="{{ url('admin/category/index') }}">分类管理</a></li>
+        <li><a href="{{ url('admin/toolsCategory/index') }}">分类管理</a></li>
         <li class="active">添加分类</li>
     </ul>
     <form class="form-horizontal">
         {{ csrf_field() }}
         <table class="table table-striped table-bordered table-hover">
             <tr>
+                <th>上级分类</th>
+                <td>
+                    <select name="parent_id" id="parent_id">
+                        <option value="0">顶级分类</option>
+                        @foreach($categories as $k => $category)
+                            <option value="{{ $category->id }}">{{ str_repeat('-', 8*$category->level) . $category->category_name }}</option>
+                        @endforeach
+                    </select>
+                </td>
+            </tr>
+            <tr>
                 <th>分类名</th>
                 <td>
-                    <input class="form-control" type="text" name="name" value="{{ old('name') }}">
-                </td>
-            </tr>
-            <tr>
-                <th>关键字</th>
-                <td>
-                    <input class="form-control" type="text" name="keywords" value="{{ old('keywords') }}">
-                </td>
-            </tr>
-            <tr>
-                <th>描述</th>
-                <td>
-                    <input class="form-control" type="text" name="description" value="{{ old('description') }}">
-                </td>
-            </tr>
-            <tr>
-                <th>排序</th>
-                <td>
-                    <input class="form-control" type="text" name="sort" value="{{ old('sort') }}">
+                    <input class="form-control" type="text" name="category_name" value="{{ old('category_name') }}">
                 </td>
             </tr>
             <tr>
@@ -52,14 +58,9 @@
 @section('my-js')
     <script>
         function submitBtn() {
-            var name = $('input[name=name]').val();
-            var keywords = $('input[name=keywords]').val();
-            if (name === '') {
+            var category_name = $('input[name=category_name]').val();
+            if (category_name === '') {
                 layer.msg('分类名称不能为空');
-                return;
-            }
-            if (keywords === '') {
-                layer.msg('关键词不能为空');
                 return;
             }
             var data = $('.form-horizontal').serialize();

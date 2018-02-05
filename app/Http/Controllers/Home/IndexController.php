@@ -33,13 +33,19 @@ class IndexController extends BaseController
     {
         // 获取文章列表数据
         $article = $articleModel->getHomeList();
+//        dd($article->toArray());
         $assign = [
-            'category_id' => 'index',
             'article' => $article,
-            'tagName' => '',
+            'pageString' => $article->links(),
             'title' => '首页'
         ];
         return view('home.index.index', $assign);
+    }
+
+    public function newArticle(Article $article)
+    {
+        $data = $article->newArticle();
+        return response()->json(['code' => 0, 'data' => $data]);
     }
 
     /**
