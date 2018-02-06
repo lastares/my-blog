@@ -143,6 +143,7 @@ class IndexController extends BaseController
         ];
         $article = $articleModel->getHomeList($map);
         $assign = [
+            'pageString' => $article->links(),
             'category_id' => 'index',
             'article' => $article,
             'tagName' => $tagName,
@@ -264,6 +265,7 @@ class IndexController extends BaseController
         $article = $articleModel->getHomeList($map);
         Cache::put('article', $article, Carbon::now()->addSeconds(1));
         $assign = [
+            'pageString' => $article,
             'category_id' => 'index',
             'article' => $article,
             'tagName' => '',

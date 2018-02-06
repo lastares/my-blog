@@ -1,145 +1,145 @@
 <footer>
-    <div class="footer-area">
-        <!--博客相关-->
-        <div class="about-blog">
-            <h4>素材排行</h4>
-            <div class="ft-part1">
-                <!--素材排行-->
-                <ul class="paihang-ul" style="display:block;width:100%;">
-                    <li><span></span><a href="/Home/Index/downdetail/id/3.html" title="杨青个人博客模板分享"> 杨青个人博客模板分享<b>(5691)</b></a></li><li><span></span><a href="/Home/Index/downdetail/id/6.html" title="个人博客模板下载（emlog系统）"> 个人博客模板下载（emlog系统）<b>(4089)</b></a></li><li><span></span><a href="/Home/Index/downdetail/id/2.html" title="柠檬绿兔小白个人博客模板下载"> 柠檬绿兔小白个人博客模板下载<b>(2974)</b></a></li><li><span></span><a href="/Home/Index/downdetail/id/5.html" title="jQuery俄罗斯方块小游戏下载"> jQuery俄罗斯方块小游戏下载<b>(1784)</b></a></li><li><span></span><a href="/Home/Index/downdetail/id/4.html" title="juqery图片特效轮播图插件（转动）"> juqery图片特效轮播图插件（转动）<b>(1711)</b></a></li>				</ul>
-            </div>
-        </div>
+    {{--<div class="footer-area">--}}
+        {{--<!--博客相关-->--}}
+        {{--<div class="about-blog">--}}
+            {{--<h4>素材排行</h4>--}}
+            {{--<div class="ft-part1">--}}
+                {{--<!--素材排行-->--}}
+                {{--<ul class="paihang-ul" style="display:block;width:100%;">--}}
+                    {{--<li><span></span><a href="/Home/Index/downdetail/id/3.html" title="杨青个人博客模板分享"> 杨青个人博客模板分享<b>(5691)</b></a></li><li><span></span><a href="/Home/Index/downdetail/id/6.html" title="个人博客模板下载（emlog系统）"> 个人博客模板下载（emlog系统）<b>(4089)</b></a></li><li><span></span><a href="/Home/Index/downdetail/id/2.html" title="柠檬绿兔小白个人博客模板下载"> 柠檬绿兔小白个人博客模板下载<b>(2974)</b></a></li><li><span></span><a href="/Home/Index/downdetail/id/5.html" title="jQuery俄罗斯方块小游戏下载"> jQuery俄罗斯方块小游戏下载<b>(1784)</b></a></li><li><span></span><a href="/Home/Index/downdetail/id/4.html" title="juqery图片特效轮播图插件（转动）"> juqery图片特效轮播图插件（转动）<b>(1711)</b></a></li>				</ul>--}}
+            {{--</div>--}}
+        {{--</div>--}}
 
-        <!--最新留言-->
-        <div class="close-fd mob-hidden">
-            <h4>留言频道</h4>
-            <ul >
-                <li>
-                    <div class="sd-tx">
-                        <a href="/Home/Index/feedback.html/#Comment-262"  target="_blank" rel="nofollow" title="去留言板看看?">
+        {{--<!--最新留言-->--}}
+        {{--<div class="close-fd mob-hidden">--}}
+            {{--<h4>留言频道</h4>--}}
+            {{--<ul >--}}
+                {{--<li>--}}
+                    {{--<div class="sd-tx">--}}
+                        {{--<a href="/Home/Index/feedback.html/#Comment-262"  target="_blank" rel="nofollow" title="去留言板看看?">--}}
 
-                            <img src="/home/images/portrait/95.jpg" alt="宋耀锋" class="img-circle"/>
-                        </a>
-                    </div>
-                    <div class="sd-name">
-                        <span>宋耀锋</span>
-                        <a class="blue-text" href="/Home/Index/feedback.html/#Comment-262" title="留言频道重新开通了！" >留言频道重新开通了！</a>
-                    </div>
-                </li><li>
-                    <div class="sd-tx">
-                        <a href="/Home/Index/feedback.html/#Comment-261"  target="_blank" rel="nofollow" title="去留言板看看?">
+                            {{--<img src="/hom/home/images/portrait/95.jpg" alt="宋耀锋" class="img-circle"/>--}}
+                        {{--</a>--}}
+                    {{--</div>--}}
+                    {{--<div class="sd-name">--}}
+                        {{--<span>宋耀锋</span>--}}
+                        {{--<a class="blue-text" href="/Home/Index/feedback.html/#Comment-262" title="留言频道重新开通了！" >留言频道重新开通了！</a>--}}
+                    {{--</div>--}}
+                {{--</li><li>--}}
+                    {{--<div class="sd-tx">--}}
+                        {{--<a href="/Home/Index/feedback.html/#Comment-261"  target="_blank" rel="nofollow" title="去留言板看看?">--}}
 
-                            <img src="/home/images/portrait/86.jpg" alt="xjian" class="img-circle"/>
-                        </a>
-                    </div>
-                    <div class="sd-name">
-                        <span>xjian</span>
-                        <a class="blue-text" href="/Home/Index/feedback.html/#Comment-261" title="不知道该说啥好" >不知道该说啥好</a>
-                    </div>
-                </li><li>
-                    <div class="sd-tx">
-                        <a href="/Home/Index/feedback.html/#Comment-260"  target="_blank" rel="nofollow" title="去留言板看看?">
+                            {{--<img src="/hom/home/images/portrait/86.jpg" alt="xjian" class="img-circle"/>--}}
+                        {{--</a>--}}
+                    {{--</div>--}}
+                    {{--<div class="sd-name">--}}
+                        {{--<span>xjian</span>--}}
+                        {{--<a class="blue-text" href="/Home/Index/feedback.html/#Comment-261" title="不知道该说啥好" >不知道该说啥好</a>--}}
+                    {{--</div>--}}
+                {{--</li><li>--}}
+                    {{--<div class="sd-tx">--}}
+                        {{--<a href="/Home/Index/feedback.html/#Comment-260"  target="_blank" rel="nofollow" title="去留言板看看?">--}}
 
-                            <img src="/home/images/portrait/73.jpg" alt="town" class="img-circle"/>
-                        </a>
-                    </div>
-                    <div class="sd-name">
-                        <span>town</span>
-                        <a class="blue-text" href="/Home/Index/feedback.html/#Comment-260" title="https://townwang.com   交换友链  可以的话去我博客留言 帮我增点人气" >https://townwang.com   交换友链  可以的话去我博客留言 帮我增点人气</a>
-                    </div>
-                </li>    </ul>
-        </div>
-
-
-
-        <!--图文频道-->
-
-        <div class="tuwen-pd mob-hidden">
-            <h4>博主相册</h4>
-            <ul >
-                <li>
-                    <a  class="orange-text" href="/Home/Index/picture/id/1.html" title="杨青个人博客">
-                        <img class="img-circle" alt="杨青个人博客" src="/home/images/2016411192233455.jpg" title="杨青个人博客"/>
-                    </a>
-                </li><li>
-                    <a  class="orange-text" href="/Home/Index/picture/id/2.html" title="卢松松博客">
-                        <img class="img-circle" alt="卢松松博客" src="/home/images/2016418225948574.jpg" title="卢松松博客"/>
-                    </a>
-                </li><li>
-                    <a  class="orange-text" href="/Home/Index/picture/id/3.html" title="个人博客主页欣赏">
-                        <img class="img-circle" alt="个人博客主页欣赏" src="/home/images/20161225585ea5215cfc2.jpg" title="个人博客主页欣赏"/>
-                    </a>
-                </li><li>
-                    <a  class="orange-text" href="/Home/Index/picture/id/4.html" title="月光博客">
-                        <img class="img-circle" alt="月光博客" src="/home/images/201701095872e61ed4a98.jpg" title="月光博客"/>
-                    </a>
-                </li><li>
-                    <a  class="orange-text" href="/Home/Index/picture/id/5.html" title="全球中文网站前5排行榜">
-                        <img class="img-circle" alt="全球中文网站前5排行榜" src="/home/images/201705085872e61ed4a98.jpg" title="全球中文网站前5排行榜"/>
-                    </a>
-                </li><li>
-                    <a  class="orange-text" href="/Home/Index/picture/id/6.html" title="laravel框架个人博客系统">
-                        <img class="img-circle" alt="laravel框架个人博客系统" src="/home/images/2017061559425a3e45e41.jpg" title="laravel框架个人博客系统"/>
-                    </a>
-                </li><li>
-                    <a  class="orange-text" href="/Home/Index/picture/id/7.html" title="企业招聘前端工程师面试题">
-                        <img class="img-circle" alt="企业招聘前端工程师面试题" src="/home/images/201708155992a4329eefe.jpg" title="企业招聘前端工程师面试题"/>
-                    </a>
-                </li><li>
-                    <a  class="orange-text" href="/Home/Index/picture/id/8.html" title="优秀的网站设计欣赏">
-                        <img class="img-circle" alt="优秀的网站设计欣赏" src="/home/images/201801265a6aa5325b5b4.jpg" title="优秀的网站设计欣赏"/>
-                    </a>
-                </li>			</ul>
-        </div>
-        <!--数据统计-->
-
-        <div class="data-count ">
-
-            <h4>数据统计</h4>
-
-            <ul>
-
-
-                <li><span><i class="el-picture"></i>图片数量：</span><a title="共有 21 张图片">21</a> 张</li>
-
-                <li><span><i class="el-headphones"></i>说说数量：</span><a title="共有 62 条说说">62</a> 条</li>
-
-                <li><span><i class="el-pencil"></i>文章数量：</span><a title="共有 108 篇文章">108</a> 篇</li>
-
-                <li><span><i class="el-comment"></i>留言数量：</span><a title="共有 95 条留言">95</a> 条</li>
-
-                <li><span><i class="el-comment-alt"></i>评论数量：</span><a title="共有 25 条评论">25</a> 条</li>
-
-                <li><span><i class="el-paper-clip"></i>素材个数：</span><a title="共有 24 个">24</a> 个</li>
-
-                <li><span><i class="el-cog"></i>运行天数：</span><a title="宋耀锋博客 已正常运行 776 天">776</a> 天</li>
+                            {{--<img src="/hom/home/images/portrait/73.jpg" alt="town" class="img-circle"/>--}}
+                        {{--</a>--}}
+                    {{--</div>--}}
+                    {{--<div class="sd-name">--}}
+                        {{--<span>town</span>--}}
+                        {{--<a class="blue-text" href="/Home/Index/feedback.html/#Comment-260" title="https://townwang.com   交换友链  可以的话去我博客留言 帮我增点人气" >https://townwang.com   交换友链  可以的话去我博客留言 帮我增点人气</a>--}}
+                    {{--</div>--}}
+                {{--</li>    </ul>--}}
+        {{--</div>--}}
 
 
 
-                <li><span><i class="el-adjust-alt"></i>访问统计：</span><a title="累计访问48285">48285</a> 次</li>
+        {{--<!--图文频道-->--}}
+
+        {{--<div class="tuwen-pd mob-hidden">--}}
+            {{--<h4>博主相册</h4>--}}
+            {{--<ul >--}}
+                {{--<li>--}}
+                    {{--<a  class="orange-text" href="/Home/Index/picture/id/1.html" title="杨青个人博客">--}}
+                        {{--<img class="img-circle" alt="杨青个人博客" src="/hom/home/images/2016411192233455.jpg" title="杨青个人博客"/>--}}
+                    {{--</a>--}}
+                {{--</li><li>--}}
+                    {{--<a  class="orange-text" href="/Home/Index/picture/id/2.html" title="卢松松博客">--}}
+                        {{--<img class="img-circle" alt="卢松松博客" src="/hom/home/images/2016418225948574.jpg" title="卢松松博客"/>--}}
+                    {{--</a>--}}
+                {{--</li><li>--}}
+                    {{--<a  class="orange-text" href="/Home/Index/picture/id/3.html" title="个人博客主页欣赏">--}}
+                        {{--<img class="img-circle" alt="个人博客主页欣赏" src="/hom/home/images/20161225585ea5215cfc2.jpg" title="个人博客主页欣赏"/>--}}
+                    {{--</a>--}}
+                {{--</li><li>--}}
+                    {{--<a  class="orange-text" href="/Home/Index/picture/id/4.html" title="月光博客">--}}
+                        {{--<img class="img-circle" alt="月光博客" src="/hom/home/images/201701095872e61ed4a98.jpg" title="月光博客"/>--}}
+                    {{--</a>--}}
+                {{--</li><li>--}}
+                    {{--<a  class="orange-text" href="/Home/Index/picture/id/5.html" title="全球中文网站前5排行榜">--}}
+                        {{--<img class="img-circle" alt="全球中文网站前5排行榜" src="/hom/home/images/201705085872e61ed4a98.jpg" title="全球中文网站前5排行榜"/>--}}
+                    {{--</a>--}}
+                {{--</li><li>--}}
+                    {{--<a  class="orange-text" href="/Home/Index/picture/id/6.html" title="laravel框架个人博客系统">--}}
+                        {{--<img class="img-circle" alt="laravel框架个人博客系统" src="/hom/home/images/2017061559425a3e45e41.jpg" title="laravel框架个人博客系统"/>--}}
+                    {{--</a>--}}
+                {{--</li><li>--}}
+                    {{--<a  class="orange-text" href="/Home/Index/picture/id/7.html" title="企业招聘前端工程师面试题">--}}
+                        {{--<img class="img-circle" alt="企业招聘前端工程师面试题" src="/hom/home/images/201708155992a4329eefe.jpg" title="企业招聘前端工程师面试题"/>--}}
+                    {{--</a>--}}
+                {{--</li><li>--}}
+                    {{--<a  class="orange-text" href="/Home/Index/picture/id/8.html" title="优秀的网站设计欣赏">--}}
+                        {{--<img class="img-circle" alt="优秀的网站设计欣赏" src="/hom/home/images/201801265a6aa5325b5b4.jpg" title="优秀的网站设计欣赏"/>--}}
+                    {{--</a>--}}
+                {{--</li>			</ul>--}}
+        {{--</div>--}}
+        {{--<!--数据统计-->--}}
+
+        {{--<div class="data-count ">--}}
+
+            {{--<h4>数据统计</h4>--}}
+
+            {{--<ul>--}}
+
+
+                {{--<li><span><i class="el-picture"></i>图片数量：</span><a title="共有 21 张图片">21</a> 张</li>--}}
+
+                {{--<li><span><i class="el-headphones"></i>说说数量：</span><a title="共有 62 条说说">62</a> 条</li>--}}
+
+                {{--<li><span><i class="el-pencil"></i>文章数量：</span><a title="共有 108 篇文章">108</a> 篇</li>--}}
+
+                {{--<li><span><i class="el-comment"></i>留言数量：</span><a title="共有 95 条留言">95</a> 条</li>--}}
+
+                {{--<li><span><i class="el-comment-alt"></i>评论数量：</span><a title="共有 25 条评论">25</a> 条</li>--}}
+
+                {{--<li><span><i class="el-paper-clip"></i>素材个数：</span><a title="共有 24 个">24</a> 个</li>--}}
+
+                {{--<li><span><i class="el-cog"></i>运行天数：</span><a title="宋耀锋博客 已正常运行 776 天">776</a> 天</li>--}}
 
 
 
-                <!--<li><span><i class="el-arrow-up"></i>4天前 12:15</span><a title="晓晓 最后更新了文章" >更新了<b class="lable">文章</b></a></li>-->
+                {{--<li><span><i class="el-adjust-alt"></i>访问统计：</span><a title="累计访问48285">48285</a> 次</li>--}}
 
 
 
-            </ul>
-
-        </div>
+                {{--<!--<li><span><i class="el-arrow-up"></i>4天前 12:15</span><a title="晓晓 最后更新了文章" >更新了<b class="lable">文章</b></a></li>-->--}}
 
 
 
-    </div>
+            {{--</ul>--}}
+
+        {{--</div>--}}
+
+
+
+    {{--</div>--}}
 
     <!--底部导航-->
 
     <div class="foot-nav">
 
-        <div class="copy-right"><span >CopyRight &#169; 2017-2018 宋耀锋博客 &#160;www.songyaofeng.com</span></div>
-        <div class="bottom-nav">
-            <span id="sitetime"></span>
-        </div>
+        <div class="copy-right"><span >CopyRight &#169; 2017-2018 宋耀锋博客 &#160;<span id="sitetime"></span></span></div>
+        {{--<div class="bottom-nav">--}}
+            {{----}}
+        {{--</div>--}}
         <div class="bottom-nav">
 
             <span><a href="http://www.miitbeian.gov.cn/state/outPortal/loginPortal.action"> {{ $config['WEB_ICP_NUMBER'] }}</a>
@@ -149,9 +149,7 @@
         </script>
         <!--CNZZ统计结束-->
             </span>
-
         </div>
-
     </div>
 
     <div  id="toTop">Back to Top</div>
@@ -168,11 +166,11 @@
 
         // 替换
 
-        document.body.innerHTML = document.body.innerHTML.replace(/\[Q([0-9]*)\]/g, "<img src='/home/images/face/mr/$1.gif'/>");
+        document.body.innerHTML = document.body.innerHTML.replace(/\[Q([0-9]*)\]/g, "<img src='/hom/home/images/face/mr/$1.gif'/>");
 
-        document.body.innerHTML = document.body.innerHTML.replace(/\[yc_([0-9]*)\]/g,"<img src='/home/images/face/yc/$1.gif'/>");
+        document.body.innerHTML = document.body.innerHTML.replace(/\[yc_([0-9]*)\]/g,"<img src='/hom/home/images/face/yc/$1.gif'/>");
 
-        document.body.innerHTML = document.body.innerHTML.replace(/\[ali_([0-9]*)\]/g,"<img src='/home/images/face/ali/$1.gif'/>");
+        document.body.innerHTML = document.body.innerHTML.replace(/\[ali_([0-9]*)\]/g,"<img src='/hom/home/images/face/ali/$1.gif'/>");
 
     </script>
 
@@ -255,7 +253,7 @@
     }
     .loginWin-tab-list li span {
         padding-left:16px;
-        /*background:url(resources/images/loginWin_icons.png?_v=20170104) no-repeat;*/
+        /*background:url(resource/home/images/loginWin_icons.png?_v=20170104) no-repeat;*/
         cursor:pointer;
     }
     .loginWin-tab-list .normal-login-tab span {
@@ -371,7 +369,7 @@
         line-height:0;
         left:12px;
         top:6px;
-        background:url(./images/icon/loginWin_icons.png?_v=20170104) no-repeat;
+        background:url(/home/images/icon/loginWin_icons.png?_v=20170104) no-repeat;
     }
     .fr {
         float: right;
@@ -392,7 +390,7 @@
     .switch-login-toggle,.normal-login-toggle {
         color:#f9a30f;
         padding-left:15px;
-        /*background:url(resources/images/loginWin_icons.png?_v=20170104) no-repeat;*/
+        /*background:url(resource/home/images/loginWin_icons.png?_v=20170104) no-repeat;*/
         cursor:pointer;
     }
     .normal-login-toggle {
@@ -410,7 +408,7 @@
         padding-left:216px;
         margin:0 auto;
         text-align:center;
-        /*background:url(resources/images/loginWin_qrcode_bg.png?_v=20170104) no-repeat;*/
+        /*background:url(resource/home/images/loginWin_qrcode_bg.png?_v=20170104) no-repeat;*/
         position:relative;
         *zoom:1;
     }
@@ -455,7 +453,7 @@
         display:block;
         width:60px;
         height:60px;
-        background:url(./images/icon/loginWin_third.png?_v=20170104) no-repeat;
+        background:url(/home/images/icon/loginWin_third.png?_v=20170104) no-repeat;
     }
     .loginWin-third-list .weixin-login {
         background-position:0 0;
@@ -479,7 +477,7 @@
         width:40px;
         height:40px;
         margin-left: 34.76%;
-        background:url(./images/icon/loginwap_third.png?_v=20170104) no-repeat;
+        background:url(/home/images/icon/loginwap_third.png?_v=20170104) no-repeat;
     }
     .loginwap-third-list .weixin-login {
         background-position:0 0;
@@ -555,8 +553,8 @@
                 <div class="loginWin-third"><p class="loginWin-third-title"><span>使用第三方账号登录</span></p>
                     <ul class="loginWin-third-list cf">
                         <li><a class="weixin-login" title="微信账号登录" href="/Home/User/oauth_login/type/wechat.html"></a></li>
-                        <li><a class="qq-login" title="QQ账号登录" href="/Home/User/oauth_login/type/qq.html"></a></li>
-                        <li><a class="weibo-login" title="新浪微博账号登录" href="/Home/User/oauth_login/type/sina.html"></a></li>
+                        <li><a class="qq-login" title="QQ账号登录" href="{{ url('auth/oauth/redirectToProvider/qq') }}"></a></li>
+                        <li><a class="weibo-login" title="新浪微博账号登录" href="{{ url('auth/oauth/redirectToProvider/weibo') }}"></a></li>
                     </ul>
                 </div>
 
@@ -567,19 +565,19 @@
 
     <!-- <ul class="row">
         <li class="col-xs-6 col-md-4 col-lg-4 b-login-img">
-            <a href="/Home/User/oauth_login/type/qq.html"><img src="/home/images/icon/qq-login.png" alt="QQ登录" title="QQ登录"></a>
+            <a href="/Home/User/oauth_login/type/qq.html"><img src="/hom/home/images/icon/qq-login.png" alt="QQ登录" title="QQ登录"></a>
         </li>
         <li class="col-xs-6 col-md-4 col-lg-4 b-login-img">
-            <a href="/Home/User/oauth_login/type/sina.html"><img src="/home/images/icon/sina-login.png" alt="微博登录" title="微博登录"></a>
+            <a href="/Home/User/oauth_login/type/sina.html"><img src="/hom/home/images/icon/sina-login.png" alt="微博登录" title="微博登录"></a>
         </li>
         <li class="col-xs-6 col-md-4 col-lg-4 b-login-img">
-            <a href="/Home/User/oauth_login/type/douban.html"><img src="/home/images/icon/douban-login.png" alt="豆瓣登录" title="豆瓣登录"></a>
+            <a href="/Home/User/oauth_login/type/douban.html"><img src="/hom/home/images/icon/douban-login.png" alt="豆瓣登录" title="豆瓣登录"></a>
         </li>
         <li class="col-xs-6 col-md-4 col-lg-4 b-login-img">
-            <a href="/Home/User/oauth_login/type/renren.html"><img src="/home/images/icon/renren-login.png" alt="人人登录" title="人人登录"></a>
+            <a href="/Home/User/oauth_login/type/renren.html"><img src="/hom/home/images/icon/renren-login.png" alt="人人登录" title="人人登录"></a>
         </li>
         <li class="col-xs-6 col-md-4 col-lg-4 b-login-img">
-            <a href="/Home/User/oauth_login/type/kaixin.html"><img src="/home/images/icon/kaixin-login.png" alt="开心网登录" title="开心网登录"></a>
+            <a href="/Home/User/oauth_login/type/kaixin.html"><img src="/hom/home/images/icon/kaixin-login.png" alt="开心网登录" title="开心网登录"></a>
         </li>
         <li class="col-xs-6 col-md-4 col-lg-4 b-login-img">
             <a href="/Home/User/oauth_login.html"><img src="" alt="待定" title="待定"></a>
@@ -596,17 +594,9 @@
 
 
 <script type="text/javascript">
-
-    function personMail() {
-        layer.alert('songyaofeng@aliyun.com', {
-            title: '个人邮箱',
-            skin: 'layui-layer-molv' //样式类名
-            ,closeBtn: 0
-        });
-
-    }
-
     $(function(){
+        // 博客运行计时查件
+        siteTime();
         var swiper = new Swiper('.swiper-container', {
 
             nextButton: '.swiper-button-next',
@@ -628,6 +618,50 @@
         $('.su').jaliswall({ item: '.su-li' });
 
     });
+    function personMail() {
+        layer.alert('songyaofeng@aliyun.com', {
+            title: '个人邮箱',
+            skin: 'layui-layer-molv' //样式类名
+            ,closeBtn: 0
+        });
+
+    }
+    function siteTime(){
+        window.setTimeout("siteTime()", 1000);
+        var seconds = 1000
+        var minutes = seconds * 60
+        var hours = minutes * 60
+        var days = hours * 24
+        var years = days * 365
+        var today = new Date()
+        var todayYear = today.getFullYear()
+        var todayMonth = today.getMonth()
+        var todayDate = today.getDate()
+        var todayHour = today.getHours()
+        var todayMinute = today.getMinutes()
+        var todaySecond = today.getSeconds()
+
+        /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+        year - 作为date对象的年份，为4位年份值
+        month - 0-11之间的整数，做为date对象的月份
+        day - 1-31之间的整数，做为date对象的天数
+        hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+        minutes - 0-59之间的整数，做为date对象的分钟数
+        seconds - 0-59之间的整数，做为date对象的秒数
+        microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+        var t1 = Date.UTC(2018,0,1,00,00,00)
+        var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond)
+        var diff = t2-t1
+
+        var diffYears = Math.floor(diff/years)
+        var diffDays = Math.floor((diff/days)-diffYears*365)
+        var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours)
+        var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes)
+        var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds)
+        document.getElementById("sitetime").innerHTML="已平稳运行 "+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒"
+    }
+
+
 
 </script>
 

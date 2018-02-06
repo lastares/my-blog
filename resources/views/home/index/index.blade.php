@@ -2,12 +2,12 @@
 @section('content')
     <section class="mysection">
         @if(request()->has('wd'))
-            <h4 class="search-title bg-color"><i class="el-search-alt"></i>您查询的关键字： <font color="#DC4900">{{ request()->has('wd') }}</font></h4>
+            <h4 class="search-title bg-color"><i class="el-search-alt"></i>您查询的关键字： <span style="color:#DC4900">{{ $title }}</span></h4>
         @endif
         @if(!empty($tagName))
             <h4 class="search-title bg-color"><i class="el-search-alt"></i>您查询的标签： <span style="color:#DC4900;">{{ $tagName }}</span></h4>
         @endif
-
+        @if($url == $host)
         <div class="swiper-container">
             <ul class="slides swiper-wrapper">
 
@@ -42,6 +42,7 @@
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
         </div>
+        @endif
         <div class="arclist">
             <h4 class="index-title homeh4"><a href=""><i class="el-certificate"></i>最新文章<small>New Article</small></a></h4>
             <!--列表开始-->

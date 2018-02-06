@@ -52,7 +52,7 @@
 
         ajaxCommentUrl="http://www.100txy.com/Home/Index/ajax_comment";
 
-        check_login="http://www.100txy.com/Home/User/check_login";
+        check_login="/checkLogin";
 
         logoutUrl="http://www.100txy.com/Home/User/logout";
 
@@ -93,7 +93,7 @@
             <!--END 消息 -->
 
             <!--手机菜单按钮-->
-            <div class="mobile-nav"><i class="el-lines"></i><i class="el-remove"></i></div>
+            <div class="mobile-nav"><i class="el-lines"></i><i class="el-remove" style="cursor:pointer;"></i></div>
         </div>
         <!--电脑导航开始-->
         <nav class="mynav">
@@ -147,7 +147,7 @@
                             <a href="javascrip:;">{{ $v3['category_name'] }}<i></i></a>
                             <ul class="mob-dropmenu">
                                 @foreach($v3['childs'] as $k4 => $v5)
-                                    <li><a href="/category/{{ $v5['id'] }}">PHP</a></li>
+                                    <li><a href="/category/{{ $v5['id'] }}">{{ $v5['category_name'] }}</a></li>
                                 @endforeach
                             </ul>
                         </li>
