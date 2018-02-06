@@ -111,10 +111,10 @@ class Article extends Base
         return $articles;
     }
 
-    public function getCategoryNameById(int $id)
-    {
-        return app('db')->table('categories')->where('id', intval($id))->value('name');
-    }
+//    public function getCategoryNameById(int $id)
+//    {
+//        return app('db')->table('categories')->where('id', intval($id))->value('name');
+//    }
 
     /**
      * 获取前台文章列表

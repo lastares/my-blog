@@ -11,10 +11,6 @@ class Tools extends Base
     public function toolsList()
     {
         $data = $this->select('id', 'tools_url', 'tools_name', 'category_id', 'tools_category_id')->orderBy('id', 'desc')->get();
-        foreach($data as $k => &$v) {
-            $v->category_name = app('db')->table('categories')->where('id', $v->category_id)->value('name');
-            $v->tools_category_name = app('db')->table('tools_category')->where('id', $v->tools_category_id)->value('category_name');
-        }
         return $data;
     }
     /**
