@@ -4,7 +4,7 @@ namespace App\Models;
 
 class Category extends Base
 {
-    protected $table = 'categories';
+    protected $table = 'category';
     /**
      * 删除数据
      *
