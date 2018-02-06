@@ -103,8 +103,8 @@ class Article extends Base
             $query = $query->whereBetween('articles.created_at', [$where['start_time'], $where['stop_time']]);
         }
         $articles = $query
-            ->select('articles.*', 'c.name as category_name')
-            ->join('categories as c', 'articles.category_id', 'c.id')
+            ->select('articles.*', 'c.name')
+            ->join('category as c', 'articles.category_id', 'c.id')
             ->orderBy('id', 'desc')
             ->withTrashed()
             ->paginate(config(15));
@@ -126,10 +126,10 @@ class Article extends Base
         // 获取文章分页
         $data = $this
             ->whereMap($map)
-            ->select('articles.id', 'articles.type', 'articles.title', 'articles.click', 'articles.cover', 'articles.author', 'articles.description', 'articles.category_id', 'articles.created_at', 'c.name as category_name')
+            ->select('articles.id', 'articles.type', 'articles.title', 'articles.click', 'articles.cover', 'articles.author', 'articles.description', 'articles.category_id', 'articles.created_at', 'c.name')
             ->join('categories as c', 'articles.category_id', 'c.id')
             ->orderBy('articles.created_at', 'desc')
-            ->paginate(config('blog.pageSize'));
+            ->paginate(6);
         // 提取文章id组成一个数组
         $dataArray = $data->toArray();
         $article_id = array_column($dataArray['data'], 'id');
@@ -145,6 +145,39 @@ class Article extends Base
         return $data;
     }
 
+    public function newArticle()
+    {
+        $page = intval(request('page', 1));
+        $perPage = 9;
+        $offset = ($page-1)*$perPage;
+        $data = $this
+            ->select('articles.id', 'articles.type', 'articles.title', 'articles.click', 'articles.cover', 'articles.author', 'articles.description', 'articles.category_id', 'articles.created_at', 'c.name')
+            ->join('categories as c', 'articles.category_id', 'c.id')
+            ->orderBy('articles.created_at', 'desc')
+            ->offset($offset)
+            ->limit($perPage)
+            ->get();
+        $total = $this
+            ->select('articles.id', 'articles.type', 'articles.title', 'articles.click', 'articles.cover', 'articles.author', 'articles.description', 'articles.category_id', 'articles.created_at', 'c.name')
+            ->join('categories as c', 'articles.category_id', 'c.id')
+            ->count();
+        $dataArray = $data->toArray();
+        // 提取文章id组成一个数组
+        $article_id = array_column($dataArray, 'id');
+        // 传递文章id数组获取标签数据
+        $articleTagModel = new ArticleTag();
+        $tag = $articleTagModel->getTagNameByArticleIds($article_id);
+        // 传递文章id数组获取标签数据
+        foreach ($data as $k => &$v) {
+            $v->tag = isset($tag[$v->id]) ? $tag[$v->id] : [];
+            $dt = Carbon::parse($v->created_at);
+            $v->month = $dt->month;
+            $v->day = $dt->day;
+        }
+        $totalList = ['data' => $data, 'total' => $total];
+        return $totalList;
+    }
+
     /**
      * 通过文章id获取数据
      *
@@ -153,7 +186,7 @@ class Article extends Base
      */
     public function getDataById($id)
     {
-        $data = $this->select('articles.*', 'c.name as category_name')
+        $data = $this->select('articles.*', 'c.name')
             ->join('categories as c', 'articles.category_id', 'c.id')
             ->where('articles.id', $id)
             ->withTrashed()

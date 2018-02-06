@@ -421,5 +421,8 @@
     function myEmail() {
         alert('songyaofeng@aliyun.com');
     }
+    ajaxCommentUrl = "{{ url('comment') }}";
+    checkLogin = "{{ url('checkLogin') }}";
+    titleName = '{{ $config['WEB_NAME'] }}';
 </script>
 @yield('my-js')
