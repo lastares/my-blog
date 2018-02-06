@@ -78,7 +78,7 @@ class Category extends Base
         return $data;
     }
 
-    public static function categories()
+    public function categories()
     {
         $result = [];
         $data = self::select('id', 'category_name', 'parent_id')->get()->toArray();

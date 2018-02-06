@@ -34,8 +34,8 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('home/*', function ($view) {
             $category = Cache::remember('common:category', 10080, function () {
                 // 获取分类导航
-//                dd(Category::categories());
-                return Category::categories();
+               $categoryModel = new Category();
+                return $categoryModel->categories();
             });
 
             $tag = Cache::remember('common:tag', 10080, function () {
