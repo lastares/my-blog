@@ -4,7 +4,7 @@ namespace App\Models;
 
 class Category extends Base
 {
-    protected $table = 'category';
+    protected $table = 'categories';
 
     public function showlist()
     {

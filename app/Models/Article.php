@@ -104,7 +104,7 @@ class Article extends Base
         }
         $articles = $query
             ->select('articles.*', 'c.category_name')
-            ->join('category as c', 'articles.category_id', 'c.id')
+            ->join('categories as c', 'articles.category_id', 'c.id')
             ->orderBy('id', 'desc')
             ->withTrashed()
             ->paginate(config(15));
@@ -127,7 +127,7 @@ class Article extends Base
         $data = $this
             ->whereMap($map)
             ->select('articles.id', 'articles.type', 'articles.title', 'articles.click', 'articles.cover', 'articles.author', 'articles.description', 'articles.category_id', 'articles.created_at', 'c.category_name')
-            ->join('category as c', 'articles.category_id', 'c.id')
+            ->join('categories as c', 'articles.category_id', 'c.id')
             ->orderBy('articles.created_at', 'desc')
             ->paginate(11);
         // 提取文章id组成一个数组
@@ -152,14 +152,14 @@ class Article extends Base
         $offset = ($page-1)*$perPage;
         $data = $this
             ->select('articles.id', 'articles.type', 'articles.title', 'articles.click', 'articles.cover', 'articles.author', 'articles.description', 'articles.category_id', 'articles.created_at', 'c.category_name')
-            ->join('category as c', 'articles.category_id', 'c.id')
+            ->join('categories as c', 'articles.category_id', 'c.id')
             ->orderBy('articles.created_at', 'desc')
             ->offset($offset)
             ->limit($perPage)
             ->get();
         $total = $this
             ->select('articles.id', 'articles.type', 'articles.title', 'articles.click', 'articles.cover', 'articles.author', 'articles.description', 'articles.category_id', 'articles.created_at', 'c.category_name')
-            ->join('category as c', 'articles.category_id', 'c.id')
+            ->join('categories as c', 'articles.category_id', 'c.id')
             ->count();
         $dataArray = $data->toArray();
         // 提取文章id组成一个数组
@@ -187,7 +187,7 @@ class Article extends Base
     public function getDataById($id)
     {
         $data = $this->select('articles.*', 'c.category_name')
-            ->join('category as c', 'articles.category_id', 'c.id')
+            ->join('categories as c', 'articles.category_id', 'c.id')
             ->where('articles.id', $id)
             ->withTrashed()
             ->first();
