@@ -33,10 +33,10 @@ class IndexController extends BaseController
     {
         // 获取文章列表数据
         $article = $articleModel->getHomeList();
-//        dd($article->toArray());
         $assign = [
             'article' => $article,
             'pageString' => $article->links(),
+            'tagName' => '',
             'title' => '首页'
         ];
         return view('home.index.index', $assign);
@@ -90,7 +90,7 @@ class IndexController extends BaseController
         // 获取评论
         $comment = $commentModel->getDataByArticleId($id);
         $category_id = $data->category_id;
-        $title = '';
+        $title = '文章详情';
         $assign = compact('category_id', 'data', 'prev', 'next', 'comment', 'title');
         return view('home.index.article', $assign);
     }
@@ -108,8 +108,12 @@ class IndexController extends BaseController
             'articles.category_id' => $id
         ];
         $article = $articleModel->getHomeList($map);
-        $categoryName = Category::where('id', $id)->value('name');
+        $total = count($article);
+        $pageString = $article->links();
+        $categoryName = Category::where('id', $id)->value('category_name');
         $assign = [
+            'total' => $total,
+            'pageString' => $pageString,
             'category_id' => $id,
             'article' => $article,
             'tagName' => '',

@@ -1,4 +1,7 @@
 @extends('layouts.home')
+@section('title', '首页')
+@section('keywords', $config['WEB_KEYWORDS'])
+@section('description', $config['WEB_DESCRIPTION'])
 @section('content')
     <section class="mysection">
         @if(request()->has('wd'))
