@@ -35,7 +35,6 @@ class AppServiceProvider extends ServiceProvider
             $category = Cache::remember('common:category', 10080, function () {
                 // 获取分类导航
                $categoryModel = new Category();
-               dd($categoryModel->categories());
                 return $categoryModel->categories();
             });
 
