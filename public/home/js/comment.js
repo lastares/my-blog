@@ -107,6 +107,7 @@ function comment(obj){
                       console.log(data);
                       if(data.code === 1) {
                           layer.msg(data.message, {icon: 2});
+                          layer.closeAll();
                           return false;
                       }
                       var newPid=data.id;
