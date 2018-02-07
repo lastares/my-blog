@@ -182,6 +182,7 @@
                     </div>
                 </li>
                 <li class="b-submit-button">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_field() }}" id="csrf_token"/>
                     <input type="button" style="cursor: pointer;" value="评 论" aid="{{ request()->id}}" pid="0" onclick="comment(this)">
                 </li>
                 <li class="b-clear-float"></li>

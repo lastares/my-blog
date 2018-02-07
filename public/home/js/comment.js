@@ -86,10 +86,11 @@ function comment(obj){
                     pid=$(obj).attr('pid'),
                     email=$(obj).parents('.b-box-textarea').eq(0).find("input[name='email']").val(),
                     postData={
-                    "aid":aid,
-                    "pid":pid,
-                    'content':content,
-                    'email':email
+                    aid:aid,
+                    pid:pid,
+                    content:content,
+                    email:email,
+                    _token: $('#csrf_token').val()
                 };
 
             if(data.email==0){
