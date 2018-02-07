@@ -106,8 +106,10 @@ function comment(obj){
                   $.post(ajaxCommentUrl, postData, function(data) {
                       console.log(data);
                       if(data.code === 1) {
-                          layer.msg(data.message, {icon: 2});
-                          layer.closeAll();
+                          layer.msg(data.message, {icon: 2, cancel: function () {
+                                  layer.closeAll();
+                              }});
+
                           return false;
                       }
                       var newPid=data.id;
