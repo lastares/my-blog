@@ -139,7 +139,7 @@
             }
             .b-box-textarea{
                 margin: 5px 0;
-                height: 120px;
+                height: auto;
                 border-radius: 4px;
                 position: relative;z-index: 1;
                 border:#ddd 1px solid;
