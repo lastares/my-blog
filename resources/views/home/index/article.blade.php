@@ -94,32 +94,32 @@
         {{--</div>--}}
         <!--淘宝橱窗广告end-->
         <!--随机推荐-->
-        <div class="maybe-love">
-            <h4 class="index-title"><i class="el-heart"></i>您还可能喜欢</h4>
-            <ul>
-                <li>
-                    <a href="/article/71.html">
-                        <img src="/home/images/2017032958db625a684a9.png"  alt="jquery ajax异步加载分类文章实例" title="jquery ajax异步加载分类文章实例" />
-                        <span >jquery ajax异步加载分类文章实例</span>
-                    </a>
-                </li><li>
-                    <a href="/article/34.html">
-                        <img src="/home/images/201612295864dab12c7bd.jpg"  alt="ecos框架入门之留言板开发" title="ecos框架入门之留言板开发" />
-                        <span >ecos框架入门之留言板开发</span>
-                    </a>
-                </li><li>
-                    <a href="/article/19.html">
-                        <img src="/home/images/585949886ec58.jpg"  alt="10个吸引百度蜘蛛爬行网站的技巧" title="10个吸引百度蜘蛛爬行网站的技巧" />
-                        <span >10个吸引百度蜘蛛爬行网站的技巧</span>
-                    </a>
-                </li><li>
-                    <a href="/article/38.html">
-                        <img src="/home/images/20170118587f0307db632.jpg"  alt="一个php程序员的学习过程" title="一个php程序员的学习过程" />
-                        <span >一个php程序员的学习过程</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
+        {{--<div class="maybe-love">--}}
+            {{--<h4 class="index-title"><i class="el-heart"></i>您还可能喜欢</h4>--}}
+            {{--<ul>--}}
+                {{--<li>--}}
+                    {{--<a href="/article/71.html">--}}
+                        {{--<img src="/home/images/2017032958db625a684a9.png"  alt="jquery ajax异步加载分类文章实例" title="jquery ajax异步加载分类文章实例" />--}}
+                        {{--<span >jquery ajax异步加载分类文章实例</span>--}}
+                    {{--</a>--}}
+                {{--</li><li>--}}
+                    {{--<a href="/article/34.html">--}}
+                        {{--<img src="/home/images/201612295864dab12c7bd.jpg"  alt="ecos框架入门之留言板开发" title="ecos框架入门之留言板开发" />--}}
+                        {{--<span >ecos框架入门之留言板开发</span>--}}
+                    {{--</a>--}}
+                {{--</li><li>--}}
+                    {{--<a href="/article/19.html">--}}
+                        {{--<img src="/home/images/585949886ec58.jpg"  alt="10个吸引百度蜘蛛爬行网站的技巧" title="10个吸引百度蜘蛛爬行网站的技巧" />--}}
+                        {{--<span >10个吸引百度蜘蛛爬行网站的技巧</span>--}}
+                    {{--</a>--}}
+                {{--</li><li>--}}
+                    {{--<a href="/article/38.html">--}}
+                        {{--<img src="/home/images/20170118587f0307db632.jpg"  alt="一个php程序员的学习过程" title="一个php程序员的学习过程" />--}}
+                        {{--<span >一个php程序员的学习过程</span>--}}
+                    {{--</a>--}}
+                {{--</li>--}}
+            {{--</ul>--}}
+        {{--</div>--}}
         <!--评论列表-->
 
         <!--END评论列表-->
