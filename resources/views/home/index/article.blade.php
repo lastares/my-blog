@@ -195,26 +195,27 @@
                 <a href="Comment/?48-1.html"><i class="el el-th-list"></i>浏览所有评论</a>
             </h4>
             <ul class="b-user-comment">
-                <li class="bg-color">
-                    <div class="comment-ava">
-                        <a href="#" id="Comment-137" target="_blank" rel="nofollow" title="蓝笑灵晨">
-                            <img class="img-circle" src="http://qzapp.qlogo.cn/qzapp/101370818/18298955B2ED231527EC85FE74F8DBCC/100" alt="蓝笑灵晨"/></a>
-                        <!--<span><i class="el-user"></i>木杉</span>-->
-                    </div>
-                    <div class="comment-info ">
-                        <div class="comment-line ">
-                            <ul>
-                                <li><a ><i class="el-user"></i>蓝笑灵晨</a></li>
-                                <li><a title="发表于2016-7-8"><i class="el-time"></i>2018-02-07 16:42:32</a></li>
-                                <li><a title="蓝笑灵晨 当前位于：中国浙江杭州"><i class="el-map-marker"></i>中国浙江杭州</a></li>
-                            </ul>
-                        </div>
-                        <div class="comment-content">来来来&nbsp;<a href="javascript:;" aid="120" pid="316" username="蓝笑灵晨" onclick="reply(this)"><button style="background:#da1a8d;color:#f3efef;">回复</button></a></div>
-                        <!--回复-->
-                        <ul class="re-comment">
-                        </ul>
-                    </div>
-                </li>
+                {{--<li class="bg-color">--}}
+                    {{--<div class="comment-ava">--}}
+                        {{--<a href="#" id="Comment-137" target="_blank" rel="nofollow" title="蓝笑灵晨">--}}
+                            {{--<img class="img-circle" src="http://qzapp.qlogo.cn/qzapp/101370818/18298955B2ED231527EC85FE74F8DBCC/100" alt="蓝笑灵晨"/></a>--}}
+                        {{--<!--<span><i class="el-user"></i>木杉</span>-->--}}
+                    {{--</div>--}}
+                    {{--<div class="comment-info ">--}}
+                        {{--<div class="comment-line ">--}}
+                            {{--<ul>--}}
+                                {{--<li><a ><i class="el-user"></i>蓝笑灵晨</a></li>--}}
+                                {{--<li><a title="发表于2016-7-8"><i class="el-time"></i>2018-02-07 16:42:32</a></li>--}}
+                                {{--<li><a title="蓝笑灵晨 当前位于：中国浙江杭州"><i class="el-map-marker"></i>中国浙江杭州</a></li>--}}
+                            {{--</ul>--}}
+                        {{--</div>--}}
+                        {{--<div class="comment-content">来来来&nbsp;<a href="javascript:;" aid="120" pid="316" username="蓝笑灵晨" onclick="reply(this)"><button style="background:#da1a8d;color:#f3efef;">回复</button></a></div>--}}
+                        {{--<!--回复-->--}}
+                        {{--<ul class="re-comment">--}}
+                        {{--</ul>--}}
+                    {{--</div>--}}
+                {{--</li>--}}
+                @foreach($comment as $k1 => $v1)
                 <li class="bg-color">
                     <div class="comment-ava">
                         <a href="#" id="Comment-137" target="_blank" rel="nofollow" title="syf_lingchen">
@@ -244,6 +245,7 @@
                         </ul>
                     </div>
                 </li>
+                @endforeach
             </ul>
 
         </div>
