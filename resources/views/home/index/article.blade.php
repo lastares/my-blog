@@ -232,7 +232,7 @@
                         </div>
                         <div class="comment-content">
                             {!! $v1['content'] !!}
-                            <a href="javascript:;" aid="{{ request()->id }}" pid="{{ $v['id'] }}" username="{{ $v1['name'] }}" onclick="reply(this)"><button style="background:#da1a8d;color:#f3efef;">回复</button></a>
+                            <a href="javascript:;" aid="{{ request()->id }}" pid="{{ $v1['id'] }}" username="{{ $v1['name'] }}" onclick="reply(this)"><button style="background:#da1a8d;color:#f3efef;">回复</button></a>
                         </div>
                         <!--回复-->
                         <ul class="re-comment">
