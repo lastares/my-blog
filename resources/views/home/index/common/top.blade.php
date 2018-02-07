@@ -81,7 +81,7 @@
         <!--会员登录-->
         @if(empty(session('user.name')))
         <div class="vip" style="width: 4%;float: right;text-align: right;">
-            <a href="javascript:;" onclick="comment(this)"><img class="img-circle" src="/home/images/default_head_img.gif" alt="宋耀锋博客" title="宋耀锋博客" style="margin-top: 17px;"></a>
+            <a href="javascript:;" onclick="comment(this)"><img class="img-circle" src="/home/images/default_head_img.gif" alt="欢迎登录宋耀锋博客" title="欢迎登录宋耀锋博客" style="margin-top: 17px;"></a>
         </div>
         @else
         <div class="vip" style="width: 4%;float: right;text-align: right;">
