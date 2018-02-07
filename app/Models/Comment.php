@@ -104,47 +104,47 @@ class Comment extends Base
             return false;
         }
         // 获取文章标题
-        $title = Article::where('id', $data['article_id'])
-            ->withTrashed()
-            ->value('title');
+//        $title = Article::where('id', $data['article_id'])
+//            ->withTrashed()
+//            ->value('title');
         // 给站长发送通知邮件
-        if($isAdmin == 0){
-            $address = Config::where('name', 'EMAIL_RECEIVE')->value('value');
-            if (!empty($address)) {
-                $emailData = [
-                    'name' => '站长',
-                    'user' => $name,
-                    'date' => date('Y-m-d H:i:s'),
-                    'type' => '评论',
-                    'url' => url('article', [$data['article_id']]).'#comment-'.$id,
-                    'title' => $title,
-                    'content' => $this->ubbToImage($content)
-                ];
-                $subject = $name. '评论了 '. $title;
-                dispatch(new SendCommentEmail($address, '站长', $subject, $emailData));
-            }
-        }
+//        if($isAdmin == 0){
+//            $address = Config::where('name', 'EMAIL_RECEIVE')->value('value');
+//            if (!empty($address)) {
+//                $emailData = [
+//                    'name' => '站长',
+//                    'user' => $name,
+//                    'date' => date('Y-m-d H:i:s'),
+//                    'type' => '评论',
+//                    'url' => url('article', [$data['article_id']]).'#comment-'.$id,
+//                    'title' => $title,
+//                    'content' => $this->ubbToImage($content)
+//                ];
+//                $subject = $name. '评论了 '. $title;
+//                dispatch(new SendCommentEmail($address, '站长', $subject, $emailData));
+//            }
+//        }
         // 给用户发送邮件通知
-        if ($data['pid']!=0) {
-            $parent_user_id = Comment::where('id', $data['pid'])->value('oauth_user_id');
-            $parentData = OauthUser::select('name', 'email')
-                ->where('id', $parent_user_id)
-                ->first()
-                ->toArray();
-            if (!empty($parentData['email'])) {
-                $emailData = [
-                    'name' => $parentData['name'],
-                    'user' => $name,
-                    'date' => date('Y-m-d H:i:s'),
-                    'type' => '回复',
-                    'url' => url('article', [$data['article_id']]).'#comment-'.$id,
-                    'title' => $title,
-                    'content' => $this->ubbToImage($content)
-                ];
-                $subject = $name. '评论了 '. $title;
-                dispatch(new SendCommentEmail($parentData['email'], $parentData['name'], $subject, $emailData));
-            }
-        }
+//        if ($data['pid']!=0) {
+//            $parent_user_id = Comment::where('id', $data['pid'])->value('oauth_user_id');
+//            $parentData = OauthUser::select('name', 'email')
+//                ->where('id', $parent_user_id)
+//                ->first()
+//                ->toArray();
+//            if (!empty($parentData['email'])) {
+//                $emailData = [
+//                    'name' => $parentData['name'],
+//                    'user' => $name,
+//                    'date' => date('Y-m-d H:i:s'),
+//                    'type' => '回复',
+//                    'url' => url('article', [$data['article_id']]).'#comment-'.$id,
+//                    'title' => $title,
+//                    'content' => $this->ubbToImage($content)
+//                ];
+//                $subject = $name. '评论了 '. $title;
+//                dispatch(new SendCommentEmail($parentData['email'], $parentData['name'], $subject, $emailData));
+//            }
+//        }
         return $id;
     }
 

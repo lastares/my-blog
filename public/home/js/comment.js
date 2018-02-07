@@ -74,34 +74,37 @@ function insertHtmlAtCaret(str) {
 
 // 发布评论
 function comment(obj){
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
     $.get(checkLogin, function(data) {
-
-        // console.log(data);
-        console.log(data.status);
         // data = $.parseJSON(data);
-        if(data.status==1){
+        if(data.status === 1){
             var content=$(obj).parents('.b-box-textarea').eq(0).find('.b-box-content').html();
-            if(content!='' && content!='请先登陆后发表评论'){
+            if(content !== '' && content !== '请先登陆后发表评论'){
                 var aid=$(obj).attr('aid'),
                     pid=$(obj).attr('pid'),
                     email=$(obj).parents('.b-box-textarea').eq(0).find("input[name='email']").val(),
                     postData={
-                    aid:aid,
+                    article_id:aid,
                     pid:pid,
                     content:content,
                     email:email,
                     _token: $('#csrf_token').val()
                 };
 
-            if(data.email==0){
-              layer.msg('邮箱为空，请到会员中心认证邮箱！', {icon: 2});
-              return false;
-            }
+            // if(data.email==0){
+            //   layer.msg('邮箱为空，请到会员中心认证邮箱！', {icon: 2});
+            //   return false;
+            // }
                   // 显示loading
                   layer.load(1);
+                  console.log(postData);
                   // ajax评论
                   $.post(ajaxCommentUrl, postData, function(data) {
-                      var newPid=data;
+                      var newPid=data.id;
                       var replyName=$(obj).attr('username');
                       var now = new Date();
                       // 获取当前时间

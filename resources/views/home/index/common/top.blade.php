@@ -5,6 +5,7 @@
     <title>{{ $title }}-宋耀锋博客</title>
     <meta name="keywords" content="{{ $config['WEB_KEYWORDS'] }}"/>
     <meta name="description" content="{{ $config['WEB_DESCRIPTION'] }}"/>
+    <meta name="csrf-token" content="{{ csrf_token() }}"/>
     <meta name="author" content="宋耀锋"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" user-scalable="no"/>
     <!--CSS-->
