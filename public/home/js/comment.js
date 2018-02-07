@@ -72,6 +72,9 @@ function insertHtmlAtCaret(str) {
     }
 }
 
+function layerCloser() {
+    layer.closeAll();
+}
 // 发布评论
 function comment(obj){
     $.ajaxSetup({
@@ -106,10 +109,8 @@ function comment(obj){
                   $.post(ajaxCommentUrl, postData, function(data) {
                       console.log(data);
                       if(data.code === 1) {
-                          layer.msg(data.message, {icon: 2, cancel: function () {
-                                  layer.closeAll();
-                              }});
-
+                          layer.msg(data.message, {icon: 2});
+                          setTimeout(layerCloser,2000);
                           return false;
                       }
                       var newPid=data.id;
