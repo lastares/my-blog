@@ -617,7 +617,7 @@
     // 评论相关路径
     ajaxCommentUrl="{{ url('comment') }}";
 
-    check_login="/checkLogin";
+    checkLogin="/checkLogin";
 
     logoutUrl="/auth/logout";
     function dashangToggle2(){
