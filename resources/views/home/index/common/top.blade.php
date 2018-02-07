@@ -50,11 +50,11 @@
     <script type="text/javascript"  src="/home/js/index.js"></script>
     <script type="text/javascript">
 
-        ajaxCommentUrl="http://www.100txy.com/Home/Index/ajax_comment";
+        ajaxCommentUrl="{{ url('comment') }}";
 
         check_login="/checkLogin";
 
-        logoutUrl="http://www.100txy.com/Home/User/logout";
+        logoutUrl="/auth/logout";
 
     </script>
     <script type="text/javascript" src="/home/js/comment.js"></script>
