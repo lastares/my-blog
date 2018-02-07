@@ -197,18 +197,9 @@ class IndexController extends BaseController
         $userId = session('user.id');
         // 判断是否是自己评论自己
         $pid = $data['pid'];
-        echo '<pre>';
-        print_r($pid);
-        echo '</pre>';
-//        $_data['type'] = 'no';
         if ($pid !== 0) {
             $oauthUserId = app('db')->table('comments')->where('id', $pid)->value('oauth_user_id');
-            echo '<pre>';
-            print_r($oauthUserId);
-            echo '</pre>';die;
             if($oauthUserId == $userId) {
-//                $_data['code'] = 1;
-//                $_data['type'] = 'yes';
                 return response()->json(['code' => 1, '自己不能评论自己']);
             }
         }
