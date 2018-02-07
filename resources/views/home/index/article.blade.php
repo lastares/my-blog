@@ -195,7 +195,57 @@
                 <a href="Comment/?48-1.html"><i class="el el-th-list"></i>浏览所有评论</a>
             </h4>
             <ul class="b-user-comment">
+                <li class="bg-color">
+                    <div class="comment-ava">
+                        <a href="#" id="Comment-137" target="_blank" rel="nofollow" title="蓝笑灵晨">
+                            <img class="img-circle" src="http://qzapp.qlogo.cn/qzapp/101370818/18298955B2ED231527EC85FE74F8DBCC/100" alt="蓝笑灵晨"/></a>
+                        <!--<span><i class="el-user"></i>木杉</span>-->
+                    </div>
+                    <div class="comment-info ">
+                        <div class="comment-line ">
+                            <ul>
+                                <li><a ><i class="el-user"></i>蓝笑灵晨</a></li>
+                                <li><a title="发表于2016-7-8"><i class="el-time"></i>2018-02-07 16:42:32</a></li>
+                                <li><a title="蓝笑灵晨 当前位于：中国浙江杭州"><i class="el-map-marker"></i>中国浙江杭州</a></li>
+                            </ul>
+                        </div>
+                        <div class="comment-content">来来来&nbsp;<a href="javascript:;" aid="120" pid="316" username="蓝笑灵晨" onclick="reply(this)"><button style="background:#da1a8d;color:#f3efef;">回复</button></a></div>
+                        <!--回复-->
+                        <ul class="re-comment">
+                        </ul>
+                    </div>
+                </li>
+                <li class="bg-color">
+                    <div class="comment-ava">
+                        <a href="#" id="Comment-137" target="_blank" rel="nofollow" title="syf_lingchen">
+                            <img class="img-circle" src="http://tvax3.sinaimg.cn/default/images/default_avatar_male_180.gif" alt="syf_lingchen"/></a>
+                        <!--<span><i class="el-user"></i>木杉</span>-->
+                    </div>
+                    <div class="comment-info ">
+                        <div class="comment-line ">
+                            <ul>
+                                <li><a ><i class="el-user"></i>syf_lingchen</a></li>
+                                <li><a title="发表于2016-7-8"><i class="el-time"></i>2018-02-07 16:26:53</a></li>
+                                <li><a title="syf_lingchen 当前位于：中国浙江杭州"><i class="el-map-marker"></i>中国浙江杭州</a></li>
+                            </ul>
+                        </div>
+                        <div class="comment-content"><img src="http://www.100txy.com/Public/emote/tuzki/t_0006.gif" title="顶" alt="雷小天博客">laikanan!&nbsp;<a href="javascript:;" aid="120" pid="314" username="syf_lingchen" onclick="reply(this)"><button style="background:#da1a8d;color:#f3efef;">回复</button></a></div>
+                        <!--回复-->
+                        <ul class="re-comment">
+                            <li style="border-left:none;">
+                                <div class="admin-ava"><img src="http://qzapp.qlogo.cn/qzapp/101370818/18298955B2ED231527EC85FE74F8DBCC/100" alt="蓝笑灵晨" title="蓝笑灵晨" class="img-circle"></div>
+                                <div class="re-info">
+                                <span>
+                                    <img src="/Template/xiao/Home/Public/images/icon/ok.png"><a href="#" target="_blank">蓝笑灵晨</a><time>2018-02-07 16:40:15</time> 回复 <a href="#Comment-1">syf_lingchen</a>
+                                </span>
+                                <div class=" re-content">不错吆&nbsp;<a href="javascript:;" aid="120" pid="315" username="syf_lingchen" childname="蓝笑灵晨" onclick="reply(this)"><button style="background:#da1a8d;color:#f3efef;">回复</button></a></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
             </ul>
+
         </div>
         <!-- 通用评论结束 -->
 
