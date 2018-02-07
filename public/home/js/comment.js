@@ -104,6 +104,7 @@ function comment(obj){
                   console.log(postData);
                   // ajax评论
                   $.post(ajaxCommentUrl, postData, function(data) {
+                      console.log(data);
                       if(data.code === 1) {
                           layer.msg(data.message);
                       }
