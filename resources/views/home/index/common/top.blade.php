@@ -113,13 +113,13 @@
                     <div class="vip-center">
                         <ul >
                             <li ><a href="#" target="_blank"><i class="el el-user"></i>会员中心</a></li>
-                            <li ><a href="#" target="_blank"><i class="el el-music"></i>娱乐频道</a></li>
-                            <li ><a href="#" target="_blank"><i class="el el-shopping-cart"></i>积分商城</a></li>
+                            <li ><a href="javascript:void(0);" target="_blank"><i class="el el-music"></i>娱乐频道</a></li>
+                            <li ><a href="javascript:void(0);" target="_blank"><i class="el el-shopping-cart"></i>积分商城</a></li>
                             <li ><a href="javascript:void(0);" target="_blank"><i class="el el-cogs"></i>个人设置</a></li>
                         </ul>
                     </div>
                     <div class="vip-bottom">
-                        <div class="vip-bottom-left"><p>你是本站第<span style="color:red;">{{ $oauthCount }}</span>位会员</p></div>
+                        <div class="vip-bottom-left"><p>你是本站第<span style="color:red;"> {{ $oauthCount }} </span>位会员</p></div>
                         <div class="vip-bottom-right"><a class="bh" href="{{ url('auth/oauth/logout') }}">安全退出</a></div>
                     </div>
                 </div>
