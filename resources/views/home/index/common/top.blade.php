@@ -119,7 +119,7 @@
                         </ul>
                     </div>
                     <div class="vip-bottom">
-                        <div class="vip-bottom-left"><p>你是本站第<span style="color:red;">666</span>位会员</p></div>
+                        <div class="vip-bottom-left"><p>你是本站第<span style="color:red;">{{ $oauthCount }}</span>位会员</p></div>
                         <div class="vip-bottom-right"><a class="bh" href="{{ url('auth/oauth/logout') }}">安全退出</a></div>
                     </div>
                 </div>
