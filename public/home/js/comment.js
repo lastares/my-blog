@@ -120,19 +120,19 @@ function comment(obj){
                           var str='<li class="bg-color"><div class="comment-ava"><img class="img-circle" src="'+headImg+'" alt="'+nickName+'"/></div><div class="comment-info "><div class="comment-line "><ul><li><a ><i class="el-user"></i>'+nickName+'</a></li><li><a title="发表于'+date+'"><i class="el-time"></i>'+date+'</a></li><li><a title="'+nickName+' 当前位于：'+data.city+'"><i class="el-map-marker"></i>'+data.city+'</a></li></ul></div><div class="comment-content">'+content+'&nbsp;<a href="javascript:;" aid="'+aid+'" pid="'+newPid+'" username="'+nickName+'" onclick="reply(this)"><button style="background:#da1a8d;color:#f3efef;">回复</button></a></div><ul class="re-comment"></ul></div></li>';
                           $('.b-user-comment').prepend(str);
                       }
-                      // else{
-                      //   if(data.type === 'yes'){
-                      //     // pid不为0表示是回复评论
-                      //     var str='<li style="border-left:none;"><div class="admin-ava"><img src="'+headImg+'" alt="'+nickName+'" title="'+nickName+'" class="img-circle"></div><div class="re-info"><span><img src="/Template/xiao/Home/Public/images/icon/ok.png"><a href="#" target="_blank">'+nickName+'</a><time>'+date+'</time> 回复 <a href="#Comment-1">'+replyName+'</a></span><div class=" re-content">'+content+'&nbsp;<a href="javascript:;" aid="'+aid+'" pid="'+newPid+'" username="'+replyName+'" childname="'+nickName+'" onclick="reply(this)"><button style="background:#da1a8d;color:#f3efef;">回复</button></a></div></div></li>';
-                      //     $(obj).parents('.comment-info').eq(0).append(str);
-                      //     $(obj).parents('.b-box-textarea').eq(0).remove();
-                      //   }
-                      //   else{
-                      //     layer.closeAll();
-                      //     layer.msg('不能自己评论自己！', {icon: 2});
-                      //     return false;
-                      //   }
-                      // }
+                      else{
+                        if(data.type === 'yes'){
+                          // pid不为0表示是回复评论
+                          var str='<li style="border-left:none;"><div class="admin-ava"><img src="'+headImg+'" alt="'+nickName+'" title="'+nickName+'" class="img-circle"></div><div class="re-info"><span><img src="/Template/xiao/Home/Public/images/icon/ok.png"><a href="#" target="_blank">'+nickName+'</a><time>'+date+'</time> 回复 <a href="#Comment-1">'+replyName+'</a></span><div class=" re-content">'+content+'&nbsp;<a href="javascript:;" aid="'+aid+'" pid="'+newPid+'" username="'+replyName+'" childname="'+nickName+'" onclick="reply(this)"><button style="background:#da1a8d;color:#f3efef;">回复</button></a></div></div></li>';
+                          $(obj).parents('.comment-info').eq(0).append(str);
+                          $(obj).parents('.b-box-textarea').eq(0).remove();
+                        }
+                        else{
+                          layer.closeAll();
+                          layer.msg('不能自己评论自己！', {icon: 2});
+                          return false;
+                        }
+                      }
                       $(obj).parents('.b-box-textarea').eq(0).find('.b-box-content').html('');
                       // 关闭loading
                       layer.closeAll();

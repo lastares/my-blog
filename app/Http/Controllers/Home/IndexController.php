@@ -240,7 +240,7 @@ class IndexController extends BaseController
         $id = $commentModel->storeData($data);
         // 更新缓存
         Cache::forget('common:newComment');
-        return ajax_return(200, ['id' => $id, 'type' => 'yes']);
+        return ajax_return(200, ['id' => $id]);
     }
 
     /**
