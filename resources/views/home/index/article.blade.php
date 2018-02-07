@@ -175,7 +175,7 @@
             <div class="b-box-content" contenteditable="true" onfocus="delete_hint(this)">请先登陆后发表评论</div>
             <ul class="b-emote-submit">
                 <li class="b-emote">
-                    <i class="el el-reddit" onclick="getTuzki(this)"></i>
+                    &nbsp;<i class="el el-reddit" onclick="getTuzki(this)"></i>
                     <input style="height:30px;width:20%;font-size:12px;margin-top:1px;" class="form-control b-email" type="text" name="email" @if(empty(session('user.email'))) placeholder="邮箱未认证" value="" @else placeholder="" value="{{ session('user.email') }}"  @endif disabled>
                     <div class="b-tuzki">
 
