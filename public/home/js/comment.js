@@ -169,7 +169,7 @@ function reply(obj){
       var username=check;
     }
 
-    var str='<div class="b-box-textarea"><div class="b-box-content" contenteditable="true" onfocus="delete_hint(this)">请先登陆后回复评论</div><ul class="b-emote-submit"><li class="b-emote"><i class="fa fa-smile-o" onclick="getTuzki(this)"></i><input style="height:30px;margin-left:-4px;" class="form-control b-email" type="text" name="email" placeholder="接收回复的email地址" value="'+userEmail+'"><div class="b-tuzki"></div></li><li class="b-submit-button"><input type="button" value="评 论" aid="'+aid+'" pid="'+pid+'" username="'+username+'" onclick="comment(this)"></li><li class="b-clear-float"></li></ul></div>';
+    var str='<div class="b-box-textarea"><div class="b-box-content" contenteditable="true" onfocus="delete_hint(this)">请先登陆后回复评论</div><ul class="b-emote-submit"><li class="b-emote"><i class="el el-reddit" onclick="getTuzki(this)"></i><input style="height:30px;margin-left:-4px;" class="form-control b-email" type="text" name="email" placeholder="接收回复的email地址" value="'+userEmail+'"><div class="b-tuzki"></div></li><li class="b-submit-button"><input type="button" value="评 论" aid="'+aid+'" pid="'+pid+'" username="'+username+'" onclick="comment(this)"></li><li class="b-clear-float"></li></ul></div>';
     var parentObj=$(obj).parents('.comment-info').eq(0).append(str);
 }
 
