@@ -201,7 +201,7 @@ class IndexController extends BaseController
         if ($pid != 0) {
             $oauthUserId = app('db')->table('comments')->where('pid', $pid)->value('oauth_user_id');
             if($oauthUserId == $userId) {
-                $data['type'] = 'yes';
+                $_data['type'] = 'yes';
                 return response()->json(['code' => 1, 'message' => '自己不能评论自己']);
             }
         }
