@@ -83,10 +83,9 @@ function comment(obj){
         }
     });
     $.get(checkLogin, function(data) {
-        // data = $.parseJSON(data);
         if(data.status === 1){
             var content=$(obj).parents('.b-box-textarea').eq(0).find('.b-box-content').html();
-            if(content !== '' && content !== '请先登陆后发表评论'){
+            if(content !== '' && content !== '请先登陆后发表评论' && content !== '请先登陆后回复评论'){
                 var aid=parseInt($(obj).attr('aid')),
                     pid=parseInt($(obj).attr('pid')),
                     email=$(obj).parents('.b-box-textarea').eq(0).find("input[name='email']").val(),
