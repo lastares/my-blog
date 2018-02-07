@@ -195,10 +195,10 @@ class IndexController extends BaseController
         // 获取用户id
         $userId = session('user.id');
         // 判断是否是自己评论自己
-        $pid = $data['pid'];
-        if($pid == $userId) {
-            return ajax_return(200, ['type' => 'yes']);
-        }
+//        $pid = $data['pid'];
+//        if($pid == $userId) {
+//            return ajax_return(200, ['type' => 'yes']);
+//        }
         // 是否是管理员
         $isAdmin = session('user.is_admin');
         // 获取当前时间戳
