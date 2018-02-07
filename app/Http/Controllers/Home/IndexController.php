@@ -196,7 +196,14 @@ class IndexController extends BaseController
         // 获取用户id
         $userId = session('user.id');
         // 判断是否是自己评论自己
-//        $pid = $data['pid'];
+        $pid = $data['pid'];
+        $_data['type'] = 'no';
+        if ($pid != 0) {
+            $oauthUserId = app('db')->table('comments')->where('pid', $pid)->value('oauth_user_id');
+            if($oauthUserId == $userId) {
+                $data['type'] = 'yes';
+            }
+        }
 //        if($pid == $userId) {
 //            return ajax_return(200, ['type' => 'yes']);
 //        }
@@ -243,7 +250,8 @@ class IndexController extends BaseController
         $id = $commentModel->storeData($data);
         // 更新缓存
         Cache::forget('common:newComment');
-        return ajax_return(200, ['id' => $id, 'type' => 'yes']);
+        $_data['id'] = $id;
+        return ajax_return(200, $_data);
     }
 
     /**
@@ -253,10 +261,10 @@ class IndexController extends BaseController
     {
         $data['status'] = 1;
         $data['email'] = 0;
-        if(empty(session('user.id'))) {
+        if (empty(session('user.id'))) {
             $data['status'] = 0;
-        }else {
-            if(!empty(session('user.email'))) {
+        } else {
+            if (!empty(session('user.email'))) {
                 $data['email'] = 1;
             }
         }
@@ -345,7 +353,7 @@ class IndexController extends BaseController
     public function message(Banner $banner, Message $message)
     {
         $pictures = $banner->getMsgPicture();
-        $isLogin = session('user')?  1 : 0;
+        $isLogin = session('user') ? 1 : 0;
         $messageWelcome = config('blog.messageWelcome');
         $assign = [
             'title' => '留言板',

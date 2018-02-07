@@ -104,7 +104,6 @@ function comment(obj){
             }
                   // 显示loading
                   layer.load(1);
-                  console.log(postData);
                   // ajax评论
                   $.post(ajaxCommentUrl, postData, function(data) {
                       console.log(data);
