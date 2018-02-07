@@ -243,11 +243,23 @@ class IndexController extends BaseController
      */
     public function checkLogin()
     {
-        if (empty(session('user.id'))) {
-            return 0;
-        } else {
-            return 1;
+        $data['status'] = 1;
+        $data['email'] = 0;
+        if(empty(session('user.id'))) {
+            $data['status'] = 0;
+        }else {
+            if(!empty(session('user.email'))) {
+                $data['email'] = 1;
+            }
         }
+
+        return response()->json($data);
+
+//        if (empty(session('user.id'))) {
+//            return 0;
+//        } else {
+//            return 1;
+//        }
     }
 
     /**

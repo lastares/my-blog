@@ -75,7 +75,10 @@ function insertHtmlAtCaret(str) {
 // 发布评论
 function comment(obj){
     $.get(checkLogin, function(data) {
-      data = $.parseJSON(data);
+
+        // console.log(data);
+        console.log(data.status);
+        // data = $.parseJSON(data);
         if(data.status==1){
             var content=$(obj).parents('.b-box-textarea').eq(0).find('.b-box-content').html();
             if(content!='' && content!='请先登陆后发表评论'){
