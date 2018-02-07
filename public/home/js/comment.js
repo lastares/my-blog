@@ -106,7 +106,7 @@ function comment(obj){
                   $.post(ajaxCommentUrl, postData, function(data) {
                       console.log(data);
                       if(data.code === 1) {
-                          layer.msg(data.message, {icon: 2});
+                          layer.msg(data.message);
                       }
                       var newPid=data.id;
                       var replyName=$(obj).attr('username');

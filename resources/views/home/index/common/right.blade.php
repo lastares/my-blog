@@ -184,7 +184,7 @@
                 </div>
                 <div class="sd-name">
                     <span><i class="el-user"></i>{{ $comment->name }}<time >{{ $comment->created_at }}</time></span>
-                    <a class="blue-text" href="/article/{{ $comment->article_id }}" title="{{ $comment->title }}" >{{ $comment->title }}</a>
+                    <a class="blue-text" href="javascript:void(0);">{!! $comment->content !!}</a>
                 </div>
             </li>
             @endforeach
