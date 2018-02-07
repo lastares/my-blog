@@ -134,11 +134,11 @@ function comment(obj){
                           $(obj).parents('.comment-info').eq(0).append(str);
                           $(obj).parents('.b-box-textarea').eq(0).remove();
                         }
-                        // else{
-                        //   layer.closeAll();
-                        //   layer.msg('不能自己评论自己！', {icon: 2});
-                        //   return false;
-                        // }
+                        else{
+                          layer.closeAll();
+                          layer.msg('不能自己评论自己！', {icon: 2});
+                          return false;
+                        }
                       }
                       $(obj).parents('.b-box-textarea').eq(0).find('.b-box-content').html('');
                       // 关闭loading
