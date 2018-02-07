@@ -104,6 +104,9 @@ function comment(obj){
                   console.log(postData);
                   // ajax评论
                   $.post(ajaxCommentUrl, postData, function(data) {
+                      if(data.status_code === 404) {
+                          layer.msg(data.message);
+                      }
                       var newPid=data.id;
                       var replyName=$(obj).attr('username');
                       var now = new Date();
