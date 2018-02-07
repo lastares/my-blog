@@ -25,49 +25,6 @@
     <link rel="stylesheet" type="text/css" href="/home/css/skin_3.css" title="qingshuang"/>
     <link rel="stylesheet" href="/home/css/font-icon.css"/>
     <link rel="stylesheet" href="/home/css/face.css"/>
-    <!--JS-->
-    <script type="text/javascript" src="/home/js/jquery.2.1.4.min.js"></script>
-    <script>
-        $("html").append("<div class='jiazai'><img src='/home/images/loading3.gif'/><span>正在加载中请等待...</span></div>")
-
-    </script>
-    <script type="text/javascript" src="/home/js/my.js"></script>
-    <!-- <script type="text/javascript" src="/home/js/scripts.js"></script> -->
-
-    <script type="text/javascript" src="/home/js/superbg.min.js"></script>
-    <!-- <script type="text/javascript" src="/home/js/supersized.3.2.7.min.js"></script> -->
-    <script type="text/javascript" src="/home/js/superbg-custom.js"></script>
-
-    <script type="text/javascript" src="/home/js/album.js"></script>
-    <script type="text/javascript" src="/home/js/tooltip.js"></script>
-    <script type="text/javascript" src="/home/js/face.js"></script>
-    <script type="text/javascript" src="/home/plugins/layer/layer.js" ></script>
-    <script type="text/javascript" src="/home/js/checkform.js" charset="utf-8"></script>
-    <script type="text/javascript"  src="/home/js/skin.js"></script>
-    <!--[if lte IE 9]>
-    <script>window.location.href='http://cdn.dmeng.net/upgrade-your-browser.html?referrer='+location.href;</script>
-    <![endif]-->
-    <script type="text/javascript"  src="/home/js/index.js"></script>
-    <script type="text/javascript">
-
-        ajaxCommentUrl="{{ url('comment') }}";
-
-        check_login="/checkLogin";
-
-        logoutUrl="/auth/logout";
-
-    </script>
-    <script type="text/javascript" src="/home/js/comment.js"></script>
-    <!-- 百度统计 -->
-    <script>
-        var _hmt = _hmt || [];
-        (function() {
-            var hm = document.createElement("script");
-            hm.src = "https://hm.baidu.com/hm.js?136bd7aac0d158dec628add4b8dd4c3a";
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(hm, s);
-        })();
-    </script>
     <!-- 百度统计 end-->
     <link rel="stylesheet" href="/home/css/swiper.css"/>
     <script type="text/javascript" src="/home/js/swiper.min.js"></script>

@@ -585,15 +585,55 @@
     </ul> -->
 
 </div>
+</body>
+
+</html>
+<!--JS-->
+<script type="text/javascript" src="/home/js/jquery.2.1.4.min.js"></script>
+<script>
+    $("html").append("<div class='jiazai'><img src='/home/images/loading3.gif'/><span>正在加载中请等待...</span></div>")
+</script>
+<script type="text/javascript" src="/home/js/my.js"></script>
+<!-- <script type="text/javascript" src="/home/js/scripts.js"></script> -->
+
+<script type="text/javascript" src="/home/js/superbg.min.js"></script>
+<!-- <script type="text/javascript" src="/home/js/supersized.3.2.7.min.js"></script> -->
+<script type="text/javascript" src="/home/js/superbg-custom.js"></script>
+
+<script type="text/javascript" src="/home/js/album.js"></script>
+<script type="text/javascript" src="/home/js/tooltip.js"></script>
+<script type="text/javascript" src="/home/js/face.js"></script>
+<script type="text/javascript" src="/home/plugins/layer/layer.js" ></script>
+<script type="text/javascript" src="/home/js/checkform.js" charset="utf-8"></script>
+<script type="text/javascript"  src="/home/js/skin.js"></script>
+<!--[if lte IE 9]>
+<script>window.location.href='http://cdn.dmeng.net/upgrade-your-browser.html?referrer='+location.href;</script>
+<![endif]-->
+<script type="text/javascript"  src="/home/js/index.js"></script>
+
+<script type="text/javascript" src="/home/js/comment.js"></script>
+
 <script type="text/javascript">
+    // 评论相关路径
+    ajaxCommentUrl="{{ url('comment') }}";
+
+    check_login="/checkLogin";
+
+    logoutUrl="/auth/logout";
     function dashangToggle2(){
         $(".hide_box2").fadeToggle();
         $(".shang_box2").fadeToggle();
     }
-</script>
 
+    <!-- 百度统计 -->
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?136bd7aac0d158dec628add4b8dd4c3a";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
 
-<script type="text/javascript">
     $(function(){
         // 博客运行计时查件
         siteTime();
@@ -661,11 +701,7 @@
         document.getElementById("sitetime").innerHTML="已平稳运行 "+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒"
     }
 
-
-
 </script>
 
-</body>
 
-</html>
 <script src="/home/plugins/countdown/jquery.countdown.min.js"></script>
