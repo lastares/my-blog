@@ -198,7 +198,7 @@ class IndexController extends BaseController
         // 判断是否是自己评论自己
         $pid = $data['pid'];
         $_data['type'] = 'no';
-        if ($pid != 0) {
+        if ($pid !== 0) {
             $oauthUserId = app('db')->table('comments')->where('pid', $pid)->value('oauth_user_id');
             if($oauthUserId == $userId) {
                 $_data['type'] = 'yes';
