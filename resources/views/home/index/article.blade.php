@@ -127,7 +127,7 @@
         <h3 class="form-btn blue-text" ><a href="javascript:;" ><i class="el-edit"></i>我要留言 / 展开表单</a></h3>
         <!-- 通用评论开始 -->
         <script>
-            var userEmail='';
+            var userEmail= "{{ session('user.email') }}";
         </script>
         <style type="text/css">
 
