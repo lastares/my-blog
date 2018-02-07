@@ -242,7 +242,7 @@
                                     <img src="{{ $n['avatar'] }}" alt="{{ $n['name'] }}" title="{{ $n['name'] }}" class="img-circle"></div>
                                 <div class="re-info">
                                 <span>
-                                    <img src="/images/icon/ok.png"><a href="#" target="_blank">{{ $n['name'] }}</a><time>{{ $n['created_at'] }}</time> 回复 <a href="#Comment-1">{{ $v1['name'] }}</a>
+                                    <img src="/home/images/icon/ok.png"><a href="#" target="_blank">{{ $n['name'] }}</a><time>{{ $n['created_at'] }}</time> 回复 <a href="#Comment-1">{{ $v1['name'] }}</a>
                                 </span>
                                 <div class=" re-content">不错吆&nbsp;<a href="javascript:;" aid="{{ request()->id }}" pid="{{ $v['id'] }}" username="{{ $v1['name'] }}" childname="{{ $n['name'] }}" onclick="reply(this)"><button style="background:#da1a8d;color:#f3efef;">回复</button></a></div>
                                 </div>
