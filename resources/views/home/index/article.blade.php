@@ -71,27 +71,27 @@
             @endif
         </div>
         <!--淘宝橱窗广告-->
-        <div>
-            <script type="text/javascript">
-                document.write('<a style="display:none!important" id="tanx-a-mm_128084981_40056229_151324323"></a>');
-                tanx_s = document.createElement("script");
-                tanx_s.type = "text/javascript";
-                tanx_s.charset = "gbk";
-                tanx_s.id = "tanx-s-mm_128084981_40056229_151324323";
-                tanx_s.async = true;
-                tanx_s.src = "http://p.tanx.com/ex?i=mm_128084981_40056229_151324323";
-                tanx_h = document.getElementsByTagName("head")[0];
-                if(tanx_h)tanx_h.insertBefore(tanx_s,tanx_h.firstChild);
-            </script>
-            <div id="authorad" style="width:20px;height:90px;background-color:#ff4400;float:right;font-size:10px;color:#fff;">
-                <ul style="text-align:center;height:90px;">
-                    <li style="height:22.5px;">博</li>
-                    <li style="height:22.5px;">主</li>
-                    <li style="height:22.5px;">推</li>
-                    <li style="height:22.5px;">荐</li>
-                </ul>
-            </div>
-        </div>
+        {{--<div>--}}
+            {{--<script type="text/javascript">--}}
+                {{--document.write('<a style="display:none!important" id="tanx-a-mm_128084981_40056229_151324323"></a>');--}}
+                {{--tanx_s = document.createElement("script");--}}
+                {{--tanx_s.type = "text/javascript";--}}
+                {{--tanx_s.charset = "gbk";--}}
+                {{--tanx_s.id = "tanx-s-mm_128084981_40056229_151324323";--}}
+                {{--tanx_s.async = true;--}}
+                {{--tanx_s.src = "http://p.tanx.com/ex?i=mm_128084981_40056229_151324323";--}}
+                {{--tanx_h = document.getElementsByTagName("head")[0];--}}
+                {{--if(tanx_h)tanx_h.insertBefore(tanx_s,tanx_h.firstChild);--}}
+            {{--</script>--}}
+            {{--<div id="authorad" style="width:20px;height:90px;background-color:#ff4400;float:right;font-size:10px;color:#fff;">--}}
+                {{--<ul style="text-align:center;height:90px;">--}}
+                    {{--<li style="height:22.5px;">博</li>--}}
+                    {{--<li style="height:22.5px;">主</li>--}}
+                    {{--<li style="height:22.5px;">推</li>--}}
+                    {{--<li style="height:22.5px;">荐</li>--}}
+                {{--</ul>--}}
+            {{--</div>--}}
+        {{--</div>--}}
         <!--淘宝橱窗广告end-->
         <!--随机推荐-->
         <div class="maybe-love">

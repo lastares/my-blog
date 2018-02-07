@@ -95,10 +95,10 @@ function comment(obj){
                     _token: $('#csrf_token').val()
                 };
 
-            // if(data.email==0){
-            //   layer.msg('邮箱为空，请到会员中心认证邮箱！', {icon: 2});
-            //   return false;
-            // }
+            if(data.email === 0){
+              layer.msg('邮箱为空，请到会员中心认证邮箱！', {icon: 2});
+              return false;
+            }
                   // 显示loading
                   layer.load(1);
                   console.log(postData);
@@ -112,12 +112,12 @@ function comment(obj){
                       var headImg=$('#vipsignin .img-circle').attr('src');
                       var nickName=$('#vipsignin .img-circle').attr('alt');
 
-                      if(pid==0){
+                      if(pid === 0){
                           // pid为0表示新增评论
                           var str='<li class="bg-color"><div class="comment-ava"><img class="img-circle" src="'+headImg+'" alt="'+nickName+'"/></div><div class="comment-info "><div class="comment-line "><ul><li><a ><i class="el-user"></i>'+nickName+'</a></li><li><a title="发表于'+date+'"><i class="el-time"></i>'+date+'</a></li><li><a title="'+nickName+' 当前位于：'+data.city+'"><i class="el-map-marker"></i>'+data.city+'</a></li></ul></div><div class="comment-content">'+content+'&nbsp;<a href="javascript:;" aid="'+aid+'" pid="'+newPid+'" username="'+nickName+'" onclick="reply(this)"><button style="background:#da1a8d;color:#f3efef;">回复</button></a></div><ul class="re-comment"></ul></div></li>';
                           $('.b-user-comment').prepend(str);
                       }else{
-                        if(data.type=='yes'){
+                        if(data.type === 'yes'){
                           // pid不为0表示是回复评论
                           var str='<li style="border-left:none;"><div class="admin-ava"><img src="'+headImg+'" alt="'+nickName+'" title="'+nickName+'" class="img-circle"></div><div class="re-info"><span><img src="/Template/xiao/Home/Public/images/icon/ok.png"><a href="#" target="_blank">'+nickName+'</a><time>'+date+'</time> 回复 <a href="#Comment-1">'+replyName+'</a></span><div class=" re-content">'+content+'&nbsp;<a href="javascript:;" aid="'+aid+'" pid="'+newPid+'" username="'+replyName+'" childname="'+nickName+'" onclick="reply(this)"><button style="background:#da1a8d;color:#f3efef;">回复</button></a></div></div></li>';
                             $(obj).parents('.comment-info').eq(0).append(str);
