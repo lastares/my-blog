@@ -190,7 +190,8 @@ class IndexController extends BaseController
     {
         $data = $request->all();
         if (ctype_alnum($data['content']) || in_array($data['content'], ['test', '测试'])) {
-            return ajax_return(404, '禁止无意义评论');
+            return response()->json(['code' => 1, 'message' => '禁止无意义评论']);
+//            return ajax_return(200, '禁止无意义评论');
         }
         // 获取用户id
         $userId = session('user.id');
@@ -210,7 +211,8 @@ class IndexController extends BaseController
         $lastCommentTime = strtotime($lastCommentDate);
         // 限制1分钟内只许评论1次
         if ($isAdmin != 1 && $time - $lastCommentTime < 60) {
-            return ajax_return(404, '评论太过频繁,请稍后再试');
+            return response()->json(['code' => 1, 'message' => '评论太过频繁,请稍后再试']);
+//            return ajax_return(200, '评论太过频繁,请稍后再试');
         }
         // 限制用户每天最多评论10条
         $date = date('Y-m-d', $time);
@@ -219,7 +221,8 @@ class IndexController extends BaseController
             ->whereBetween('created_at', [$date . ' 00:00:00', $date . ' 23:59:59'])
             ->count();
         if ($isAdmin != 1 && $count > 10) {
-            return ajax_return(404, '每天做多评论10条');
+            return response()->json(['code' => 1, 'message' => '每天做多评论10条']);
+//            return ajax_return(200, '每天做多评论10条');
         }
         // 如果用户输入邮箱；则将邮箱记录入oauth_user表中
         $pattern = "/^([0-9A-Za-z\\-_\\.]+)@([0-9a-z]+\\.[a-z]{2,3}(\\.[a-z]{2})?)$/i";

@@ -104,7 +104,7 @@ function comment(obj){
                   console.log(postData);
                   // ajax评论
                   $.post(ajaxCommentUrl, postData, function(data) {
-                      if(data.status_code === 404) {
+                      if(data.status_code === 1) {
                           layer.msg(data.message);
                       }
                       var newPid=data.id;
@@ -121,8 +121,8 @@ function comment(obj){
                           $('.b-user-comment').prepend(str);
                       }
                       else{
-                        if(data.type === 'yes'){
                           // pid不为0表示是回复评论
+                          if(data.type === 'yes'){
                           var str='<li style="border-left:none;"><div class="admin-ava"><img src="'+headImg+'" alt="'+nickName+'" title="'+nickName+'" class="img-circle"></div><div class="re-info"><span><img src="/Template/xiao/Home/Public/images/icon/ok.png"><a href="#" target="_blank">'+nickName+'</a><time>'+date+'</time> 回复 <a href="#Comment-1">'+replyName+'</a></span><div class=" re-content">'+content+'&nbsp;<a href="javascript:;" aid="'+aid+'" pid="'+newPid+'" username="'+replyName+'" childname="'+nickName+'" onclick="reply(this)"><button style="background:#da1a8d;color:#f3efef;">回复</button></a></div></div></li>';
                           $(obj).parents('.comment-info').eq(0).append(str);
                           $(obj).parents('.b-box-textarea').eq(0).remove();
