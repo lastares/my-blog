@@ -75,7 +75,6 @@ function insertHtmlAtCaret(str) {
 // 发布评论
 function comment(obj){
     $.get(check_login, function(data) {
-        console.log(check_login);
       data = $.parseJSON(data);
         if(data.status==1){
             var content=$(obj).parents('.b-box-textarea').eq(0).find('.b-box-content').html();

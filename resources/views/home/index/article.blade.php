@@ -183,7 +183,7 @@
                     </div>
                 </li>
                 <li class="b-submit-button">
-                    <input type="button" value="评 论" aid="124" pid="0" onclick="comment(this)">
+                    <input type="button" style="cursor: pointer;" value="评 论" aid="{{ request()->id}}" pid="0" onclick="comment(this)">
                 </li>
                 <li class="b-clear-float"></li>
             </ul>
