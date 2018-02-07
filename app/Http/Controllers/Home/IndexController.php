@@ -202,7 +202,7 @@ class IndexController extends BaseController
         echo '</pre>';
 //        $_data['type'] = 'no';
         if ($pid !== 0) {
-            $oauthUserId = app('db')->table('comments')->where('pid', $pid)->value('oauth_user_id');
+            $oauthUserId = app('db')->table('comments')->where('id', $pid)->value('oauth_user_id');
             echo '<pre>';
             print_r($oauthUserId);
             echo '</pre>';die;
