@@ -191,7 +191,7 @@
 
         <!-- 新的评论 -->
         <div class="comment-area" id="Comment">
-            <h4 class="index-title"><i class="el el-comment-alt"></i> 当前共有<span>0</span> 条评论
+            <h4 class="index-title"><i class="el el-comment-alt"></i> 当前共有<span>{{ count($comment) }}</span> 条评论
                 <a href="Comment/?48-1.html"><i class="el el-th-list"></i>浏览所有评论</a>
             </h4>
             <ul class="b-user-comment">
