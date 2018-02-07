@@ -79,10 +79,55 @@
             <!--移动的滑动 end-->
         </nav>
         <!--会员登录-->
+        @if(empty(session('user.name')))
         <div class="vip" style="width: 4%;float: right;text-align: right;">
             <a href="javascript:;" onclick="comment(this)"><img class="img-circle" src="/home/images/default_head_img.gif" alt="宋耀锋博客" title="宋耀锋博客" style="margin-top: 17px;"></a>
         </div>
+        @else
+        <div class="vip" style="width: 4%;float: right;text-align: right;">
+            <div class="vipsignin" id="vipsignin">
+                <img class="img-circle"  src="{{ session('user.avatar') }}" alt="{{ session('user.name') }}" title="{{ session('user.name') }}" style="width:87.5%;margin-top: 17px;" />
+                <!--start-->
+                <div class="vipsignin-z" id="vipsignin-z">
+                    <div class="vip-top">
+                        <div class="vip-top-left">
+                            <img src="{{ session('user.avatar') }}" alt="{{ session('user.name') }}" >
+                        </div>
+                        <div class="vip-top-right">
+                            <div class="vip-top-right-t"><a href="#" ><span>{{ session('user.name') }}</span></a></div>
+                            <div class="vip-top-right-b">
+                                <ul>
+                                    <li>
+                                        <div class="vipltag">金币：<span>0</span></div>
+                                        <div class="viprtag">积分：<span>0</span></div>
+                                    </li>
+                                    <li>
+                                        <div class="vipltag">签到：<span>0</span></div>
+                                        <div class="viprtag">消费：<span>0</span></div>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vip-center">
+                        <ul >
+                            <li ><a href="#" target="_blank"><i class="el el-user"></i>会员中心</a></li>
+                            <li ><a href="#" target="_blank"><i class="el el-music"></i>娱乐频道</a></li>
+                            <li ><a href="#" target="_blank"><i class="el el-shopping-cart"></i>积分商城</a></li>
+                            <li ><a href="javascript:void(0);" target="_blank"><i class="el el-cogs"></i>个人设置</a></li>
+                        </ul>
+                    </div>
+                    <div class="vip-bottom">
+                        <div class="vip-bottom-left"><p>你是本站第<span style="color:red;">666</span>位会员</p></div>
+                        <div class="vip-bottom-right"><a class="bh" href="{{ url('auth/oauth/logout') }}">安全退出</a></div>
+                    </div>
+                </div>
+                <!--end-->
+            </div>
+        </div>
         <!--会员登录-->
+        @endif
         <!--这里是手机导航-->
         <div class="mob-menu">
             <!--手机顶部搜索-->
