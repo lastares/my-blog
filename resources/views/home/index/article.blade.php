@@ -225,13 +225,13 @@
                     <div class="comment-info ">
                         <div class="comment-line ">
                             <ul>
-                                <li><a ><i class="el-user"></i>{{ $v1['name'] }}</a></li>
-                                <li><a title="发表于{{ $v1['created_at'] }}"><i class="el-time"></i>{{ $v1['created_at'] }}</a></li>
+                                <li><a ><i class="el-user"></i>{{ $v1['name'] }}&nbsp;</a></li>
+                                <li><a title="发表于{{ $v1['created_at'] }}"><i class="el-time"></i>{{ $v1['created_at'] }}</a>&nbsp;</li>
                                 <li><a title="{{ $v1['name'] }} 当前位于：中国浙江杭州"><i class="el-map-marker"></i>中国浙江杭州</a></li>
                             </ul>
                         </div>
                         <div class="comment-content">
-                            {!! $v1['content'] !!}&nbsp;
+                            {!! $v1['content'] !!}
                             <a href="javascript:;" aid="{{ request()->id }}" pid="{{ $v['id'] }}" username="{{ $v1['name'] }}" onclick="reply(this)"><button style="background:#da1a8d;color:#f3efef;">回复</button></a>
                         </div>
                         <!--回复-->
