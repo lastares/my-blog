@@ -104,7 +104,7 @@ function comment(obj){
                   console.log(postData);
                   // ajax评论
                   $.post(ajaxCommentUrl, postData, function(data) {
-                      if(data.status_code === 1) {
+                      if(data.code === 1) {
                           layer.msg(data.message);
                       }
                       var newPid=data.id;
