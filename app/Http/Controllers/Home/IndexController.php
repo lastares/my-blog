@@ -197,7 +197,7 @@ class IndexController extends BaseController
         $userId = session('user.id');
         // 判断是否是自己评论自己
         $pid = $data['pid'];
-        $_data['type'] = 'no';
+//        $_data['type'] = 'no';
         if ($pid !== 0) {
             $oauthUserId = app('db')->table('comments')->where('pid', $pid)->value('oauth_user_id');
             if($oauthUserId == $userId) {
@@ -253,7 +253,7 @@ class IndexController extends BaseController
         // 更新缓存
         Cache::forget('common:newComment');
         $_data['id'] = $id;
-        return ajax_return(200, $_data);
+        return ajax_return(200, ['id' => $id]);
     }
 
     /**
