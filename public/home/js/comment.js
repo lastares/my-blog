@@ -117,6 +117,7 @@ function comment(obj){
                       var nickName=$('#vipsignin .img-circle').attr('alt');
 
                       if(pid === 0){
+                          console.log(66666);
                           // pid为0表示新增评论
                           var str='<li class="bg-color"><div class="comment-ava"><img class="img-circle" src="'+headImg+'" alt="'+nickName+'"/></div><div class="comment-info "><div class="comment-line "><ul><li><a ><i class="el-user"></i>'+nickName+'</a></li><li><a title="发表于'+date+'"><i class="el-time"></i>'+date+'</a></li><li><a title="'+nickName+' 当前位于：'+data.city+'"><i class="el-map-marker"></i>'+data.city+'</a></li></ul></div><div class="comment-content">'+content+'&nbsp;<a href="javascript:;" aid="'+aid+'" pid="'+newPid+'" username="'+nickName+'" onclick="reply(this)"><button style="background:#da1a8d;color:#f3efef;">回复</button></a></div><ul class="re-comment"></ul></div></li>';
                           $('.b-user-comment').prepend(str);
