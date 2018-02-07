@@ -84,8 +84,8 @@ function comment(obj){
         if(data.status === 1){
             var content=$(obj).parents('.b-box-textarea').eq(0).find('.b-box-content').html();
             if(content !== '' && content !== '请先登陆后发表评论'){
-                var aid=$(obj).attr('aid'),
-                    pid=$(obj).attr('pid'),
+                var aid=parseInt($(obj).attr('aid')),
+                    pid=parseInt($(obj).attr('pid')),
                     email=$(obj).parents('.b-box-textarea').eq(0).find("input[name='email']").val(),
                     postData={
                     article_id:aid,
