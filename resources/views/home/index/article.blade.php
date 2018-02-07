@@ -219,7 +219,7 @@
                 <li class="bg-color">
                     <div class="comment-ava">
                         <a href="#" id="Comment-137" target="_blank" rel="nofollow" title="{{ $v1['name'] }}">
-                            <img class="img-circle" src="http://tvax3.sinaimg.cn/default/images/default_avatar_male_180.gif" alt="{{ $v1['name'] }}"/></a>
+                            <img class="img-circle" src="{{ $v['avatar'] }}" alt="{{ $v1['name'] }}"/></a>
                         <!--<span><i class="el-user"></i>木杉</span>-->
                     </div>
                     <div class="comment-info ">
