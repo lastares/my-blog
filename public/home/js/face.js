@@ -63,7 +63,7 @@ $(function(){
 			var node = $("#face-area .face-ul").eq(i);
 			for(var j = 0; j<emotion.num[i];j++){
 				var domStr = 	'<li class="face-item">' +
-									'<img src="' + emotion.baseUrl + '/Template/xiao/Home/Public/images/face/' + emotion.dir[i] + '/' + j + '.gif" alt="' + emotion.text[i][j] +
+									'<img src="' + emotion.baseUrl + '/home/images/face/' + emotion.dir[i] + '/' + j + '.gif" alt="' + emotion.text[i][j] +
 									'" title="' + emotion.text[i][j] + '" />' +
 								'</li>';
 				$(domStr).appendTo(node);

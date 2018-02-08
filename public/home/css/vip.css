@@ -1,0 +1,126 @@
+.input-prepend {
+    width: 35%;
+    float: left;
+}
+.input-prepend input {
+    width: 30%;
+}
+.layui-btn {
+    display: inline-block;
+    height: 35px;
+    line-height: 38px;
+    padding: 0 18px;
+    background-color: #1E9FFF;
+    color: #fff;
+    white-space: nowrap;
+    text-align: center;
+    font-size: 14px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    opacity: .9;
+    filter: alpha(opacity=90);
+    margin-left: 1.5px;
+}
+.input-prepend i {
+    width: 52px;
+}
+.lvip{
+    width:20%;
+    height:500px;
+    float:left;
+    text-align: center;
+    margin-top: 15px;
+    border-right: 1px solid #e5e5e5;
+}
+.rvip{
+    width:79%;
+    /*background: #67a8b3;*/
+    height:825px;
+    float:left;
+}
+.useravatar{
+    width:100%;
+}
+.useravatar img {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+}
+.vnickname{
+    color: #f70393;
+    display: inline-block;
+    font-family: cursive;
+    font-weight: bold;
+    width: 100%;
+}
+
+#num-info{
+    width: 100%;
+    height: 57px;
+}
+#num-info div {
+    width: 32.9%;
+    float: left;
+    margin: 8px 0 5px;
+    border-right: 1px solid #e5e5e5;
+}
+#num-info .num {
+
+    font-weight: bold;
+    display: block;
+    width: 100%;
+    font-size: 16px;
+}
+#num-info .text {
+
+    font-size: 12px;
+    display: block;
+    width: 100%;
+    height: 16px;
+}
+#num-info div:last-child {
+    border-right: 0;
+}
+.vmoney{
+    margin:10px 0;
+}
+.vmoney ul li{
+    display: inline;
+}
+.vmenus{
+    width:100%;
+    font-size: 13px;
+}
+.vmenus ul li{
+    margin-top: 5px;
+    height: 30px;
+    line-height: 30px;
+    border-bottom: 1px solid #e5e5e5;
+}
+.vmenus ul li a,.vmenus ul li a i{
+    color:#666;
+}
+.vmenus ul li.active a {
+    color: #00c8c9;
+    /*background: #fff;*/
+    margin-left: -1px;
+}
+.vmenus ul li.active a i{
+    color: #00c8c9;
+}
+.vsigneds{
+
+    border-bottom: 1px solid #e5e5e5;
+}
+.vsigneds input{
+    background: none;
+    border:none;
+    height:30px;
+    line-height: 30px;
+    color: #f705d9;
+    text-align:center;
+    font-size:12px;
+    font-family: monospace;
+}

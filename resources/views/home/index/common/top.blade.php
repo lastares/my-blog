@@ -26,9 +26,6 @@
     <link rel="stylesheet" type="text/css" href="/home/css/skin_3.css" title="qingshuang"/>
     <link rel="stylesheet" href="/home/css/font-icon.css"/>
     <link rel="stylesheet" href="/home/css/face.css"/>
-    <!-- 百度统计 end-->
-    <link rel="stylesheet" href="/home/css/swiper.css"/>
-    <script type="text/javascript" src="/home/js/swiper.min.js"></script>
 </head>
 
 <body class="nobg">
@@ -113,7 +110,7 @@
                     </div>
                     <div class="vip-center">
                         <ul >
-                            <li ><a href="#" target="_blank"><i class="el el-user"></i>会员中心</a></li>
+                            <li ><a href="/vip-center" target="_blank"><i class="el el-user"></i>会员中心</a></li>
                             <li ><a href="javascript:void(0);" target="_blank"><i class="el el-music"></i>娱乐频道</a></li>
                             <li ><a href="javascript:void(0);" target="_blank"><i class="el el-shopping-cart"></i>积分商城</a></li>
                             <li ><a href="javascript:void(0);" target="_blank"><i class="el el-cogs"></i>个人设置</a></li>

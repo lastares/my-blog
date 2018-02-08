@@ -57,8 +57,9 @@ Route::group(['namespace' => 'Home'], function () {
 
     // 时间轴视图
     Route::get('timeAxis', 'IndexController@timeAxis');
-    // 时间轴内容
-    Route::get('axis', 'IndexController@Axis');
+    // 用户中心 vip-center
+    Route::get('vip-center', 'IndexController@vip');
+    Route::get('vip-index', 'IndexController@vipIndex');
     // 用于测试
     Route::get('test', 'IndexController@test');
 

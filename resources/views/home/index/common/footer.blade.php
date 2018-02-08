@@ -613,6 +613,13 @@
 
 <script type="text/javascript" src="/home/js/comment.js"></script>
 
+<!-- 百度统计 end-->
+<link rel="stylesheet" href="/home/css/swiper.css"/>
+<script type="text/javascript" src="/home/js/swiper.min.js"></script>
+
+{{--计时插件--}}
+<script src="/home/plugins/countdown/jquery.countdown.min.js"></script>
+
 <script type="text/javascript">
     // 评论相关路径
     ajaxCommentUrl="{{ url('comment') }}";
@@ -711,6 +718,3 @@
     }
 
 </script>
-
-
-<script src="/home/plugins/countdown/jquery.countdown.min.js"></script>

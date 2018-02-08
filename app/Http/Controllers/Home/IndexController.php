@@ -112,12 +112,23 @@ class IndexController extends BaseController
         $total = count($article);
         $pageString = $article->links();
         $categoryName = Category::where('id', $id)->value('category_name');
-        if($categoryName == '关于') {
-            $assign = [
-                'title' => '关于我'
-            ];
-            return view('home.index.about', $assign);
+        $dispatch = ['title' => $categoryName];
+
+        switch ($categoryName) {
+            case '关于':
+                return view('home.index.about', $dispatch);
+                break;
+            case '留言':
+                return view('home.index.message', $dispatch);
+                break;
+            case '下载':
+                return view('home.index.downlist', $dispatch);
+                break;
+            case '导航':
+                return view('home.index.navigate', $dispatch);
+                break;
         }
+
         $assign = [
             'total' => $total,
             'pageString' => $pageString,
@@ -206,7 +217,7 @@ class IndexController extends BaseController
         $pid = $data['pid'];
         if ($pid !== 0) {
             $oauthUserId = app('db')->table('comments')->where('id', $pid)->value('oauth_user_id');
-            if($oauthUserId == $userId) {
+            if ($oauthUserId == $userId) {
                 return response()->json(['code' => 1, 'message' => '自己不能评论自己']);
             }
         }
@@ -425,6 +436,17 @@ class IndexController extends BaseController
     {
         $data = $article->aboutMe();
         return view('home.index.article', ['data' => $data, 'title' => '关于我']);
+    }
+
+
+    public function vip()
+    {
+        return view('home.index.vip-cnenter', ['title' => '会员中心']);
+    }
+
+    public function vipIndex()
+    {
+        return view('home.index.vip-index');
     }
 
 }
