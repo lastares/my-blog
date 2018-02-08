@@ -4,8 +4,8 @@
     <!--左侧开始-->
     <section>
         <div class="comment-area">
-            <img src="/home/images/feedback.png" style="width:100%;" alt="雷小天博客留言板"/>
-            <h4 class="index-title"> <i class="el-comment-alt"></i>当前共有<span>77</span>留言<a href="/Home/Index/feedback.html#Coon"  rel="nofollow" ><i class="el-edit"></i>发表留言</a></h4>
+            {{--<img src="/home/images/feedback.png" style="width:100%;" alt="雷小天博客留言板"/>--}}
+            <h4 class="index-title"> <i class="el-comment-alt"></i>当前共有<span>77</span>留言<a href="#leaveMessage"  rel="nofollow" ><i class="el-edit"></i>发表留言</a></h4>
             <ul class="feedback-comment" id="feedbackdata">
                 <li class="bg-color">
                     <span class="louceng" >144楼</span>
@@ -277,7 +277,7 @@
         </div> -->
         <!--评论表单-->
         <h3 class="form-btn blue-text" ><a href="javascript:;" ><i class="el-edit"></i>我要留言 / 展开表单</a></h3>
-        <div id="Coon" class="form-zd form-in">
+        <div id="leaveMessage" class="form-zd form-in">
             <!--表单开始-->
             <form action="#" id="contact-form" name="myform" method="post" onsubmit=return false>
                 <ul class="hdmenu">
