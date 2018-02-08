@@ -552,7 +552,7 @@
                 </div>
                 <div class="loginWin-third"><p class="loginWin-third-title"><span>使用第三方账号登录</span></p>
                     <ul class="loginWin-third-list cf">
-                        <li><a class="weixin-login" title="微信账号登录" href="/Home/User/oauth_login/type/wechat.html"></a></li>
+                        <li id="weibo"><a class="weixin-login" title="微信账号登录" href="javascript:void(0);" onclick="alertLogin();"></a></li>
                         <li><a class="qq-login" title="QQ账号登录" href="{{ url('auth/oauth/redirectToProvider/qq') }}"></a></li>
                         <li><a class="weibo-login" title="新浪微博账号登录" href="{{ url('auth/oauth/redirectToProvider/weibo') }}"></a></li>
                     </ul>
@@ -699,6 +699,15 @@
         var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes)
         var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds)
         document.getElementById("sitetime").innerHTML="已平稳运行 "+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒"
+    }
+
+
+    function alertLogin() {
+        layer.tips('暂不开放，请选择QQ或微博直接登录', '#weibo', {
+            tips: [1, '#6bc30d'],
+            // tips: [1, '#3595CC'],
+            time: 4000
+        });
     }
 
 </script>
