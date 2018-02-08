@@ -552,7 +552,7 @@
                 </div>
                 <div class="loginWin-third"><p class="loginWin-third-title"><span>使用第三方账号登录</span></p>
                     <ul class="loginWin-third-list cf">
-                        <li id="weibo"><a class="weixin-login" title="微信账号登录" href="javascript:void(0);" onclick="alertLogin();"></a></li>
+                        <li id="weixin"><a class="weixin-login" title="微信账号登录" href="javascript:void(0);" onclick="alertLogin();"></a></li>
                         <li><a class="qq-login" title="QQ账号登录" href="{{ url('auth/oauth/redirectToProvider/qq') }}"></a></li>
                         <li><a class="weibo-login" title="新浪微博账号登录" href="{{ url('auth/oauth/redirectToProvider/weibo') }}"></a></li>
                     </ul>
@@ -703,7 +703,7 @@
 
 
     function alertLogin() {
-        layer.tips('暂不开放，请选择QQ或微博直接登录', '#weibo', {
+        layer.tips('暂不开放，请选择QQ或微博直接登录', '#weixin', {
             tips: [1, '#6bc30d'],
             // tips: [1, '#3595CC'],
             time: 4000
