@@ -52,22 +52,22 @@ class Banner extends Base
      * }*/
 
 
-    public function updateBanner($id, $data, $_banner_path)
+    public function updateBanner($id, $data)
     {
-        $banner_path = $this->getImagePathById($id);
-        if ($banner_path !== $_banner_path) {
-            unlinkImage($banner_path);
-        }
+//        $banner_path = $this->getImagePathById($id);
+//        if ($banner_path !== $_banner_path) {
+//            unlinkImage($banner_path);
+//        }
         return $this->where('id', intval($id))->update($data);
     }
 
 
     public function deleteBanner(int $id)
     {
-        $banner_path = $this->getImagePathById($id);
-        if ($banner_path) {
-            unlinkImage($banner_path);
-        }
+//        $banner_path = $this->getImagePathById($id);
+//        if ($banner_path) {
+//            unlinkImage($banner_path);
+//        }
         return $this->where('id', intval($id))->forceDelete();
     }
 

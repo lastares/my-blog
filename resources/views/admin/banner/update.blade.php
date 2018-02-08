@@ -30,6 +30,7 @@
                     <option value="1" @if($banner->type == 1)selected="selected" @endif>留言板</option>
                     <option value="2" @if($banner->type == 2)selected="selected" @endif>文章分类</option>
                     <option value="3" @if($banner->type == 3)selected="selected" @endif>左邻右舍</option>
+                    <option value="4" @if($banner->type == 4)selected="selected" @endif>Banner</option>
                 </select>
             </div>
         </div>
@@ -37,7 +38,7 @@
             <label for="banner_path" class="col-sm-2 control-label">banner缩略图</label>
             <input class="form-conrol col-sm-6 uploadImg" type="file" id="banner_path">
             <div class="col-sm-6" style="margin-top: 10px;">
-                <img src="{{ $route_prefix . $banner->banner_path }}" title="banner缩略图" width="200" class="img-rounded img-responsive banner_path"/>
+                <img src="{{ $banner->banner_path }}" title="banner缩略图" width="200" class="img-rounded img-responsive banner_path"/>
                 <input type="hidden" name="banner_path" id="banner_img" value="{{ $banner->banner_path }}"/>
             </div>
         </div>
@@ -121,8 +122,8 @@
                     contentType: false,
                     cache: false,
                     success: function (data) {
-                        $('.banner_path').attr('src', data.prefix_route + data.data);
-                        $('#banner_img').val(data.data);
+                        $('.banner_path').attr('src', data.img_url);
+                        $('#banner_img').val(data.img_url);
                     }
                 });
             }

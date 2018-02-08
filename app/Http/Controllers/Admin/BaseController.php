@@ -14,12 +14,10 @@
 
 namespace App\Http\Controllers\Admin;
 // 引入鉴权类
-use Qiniu\Auth;
-// 引入上传类
-use Qiniu\Storage\UploadManager;
-
 use App\Http\Controllers\Controller;
 use Request;
+
+// 引入上传类
 
 class BaseController extends Controller
 {
@@ -87,10 +85,10 @@ class BaseController extends Controller
 //        $message = ['code' => 0, 'msg' => '上传成功', 'data' => $data, 'prefix_route' => config('blog.picture_upload_path')];
 //        return response()->json($message);
 //    }
-    public function uploadImg(Request $request)
+    public function uploadImg(\Illuminate\Http\Request $request)
     {
         $disk = \Storage::disk('qiniu'); //使用七牛云上传
-        $time = date('Y/m/d-H:i:s-');
+        $time = 'banner/' . date('Ymd');
         $filename = $disk->put($time, $request->file('file'));//上传
         if(!$filename) {
             return response()->json(['code' => 1, 'msg' => '上传失败']);

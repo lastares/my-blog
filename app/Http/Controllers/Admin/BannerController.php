@@ -20,8 +20,7 @@ class BannerController extends BaseController
         $title = trim($request->input('banner_title', ''));
         $banners = $banner->bannerList($title);
         $pageString = $banners->links();
-        $prefix_route = config('blog.picture_upload_path');
-        return view('admin/banner/index', compact('banners', 'pageString', 'prefix_route'));
+        return view('admin/banner/index', compact('banners', 'pageString'));
     }
 
     public function insert()
@@ -64,8 +63,7 @@ class BannerController extends BaseController
 
         $data = $request->except(['_token']);
 
-        $_banner_path = $request->input('banner_path', '');
-        $result = $bannerModel->updateBanner($id, $data, $_banner_path);
+        $result = $bannerModel->updateBanner($id, $data);
         if ($result !== false) {
             return $this->success();
         }

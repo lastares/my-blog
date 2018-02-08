@@ -10,33 +10,33 @@
         @if($url == $host)
         <div class="swiper-container">
             <ul class="slides swiper-wrapper">
-
+                @foreach($banners as $k => $banner)
                 <li class="swiper-slide img_loading">
                     <a href="#" title="宋耀锋博客全新改版上线">
-                        <img src="/home/images/banner/2016122200022.jpg" alt="宋耀锋博客全新改版上线"/>
+                        <img src="{{ $banner->banner_path }}" alt="{{ $banner->banner_title }}" title="{{ $banner->banner_title }}"/>
                     </a>
                     <!-- Add Pagination -->
                     <div class="swiper-pagination"></div>
-                    <span class="silde-title" style="display:none;">宋耀锋博客全新改版上线</span>
+                    {{--<span class="silde-title" style="display:none;">宋耀锋博客全新改版上线</span>--}}
                 </li>
+                @endforeach
+                {{--<li class="swiper-slide img_loading">--}}
+                    {{--<a href="http://laravel.100txy.com" title="laravel框架开发的个人博客">--}}
+                        {{--<img src="/home/images/banner/2017122200011.jpg" alt="laravel框架开发的个人博客"/>--}}
+                    {{--</a>--}}
+                    {{--<!-- Add Pagination -->--}}
+                    {{--<div class="swiper-pagination"></div>--}}
+                    {{--<span class="silde-title" style="display:none;">laravel框架开发的个人博客</span>--}}
+                {{--</li>--}}
 
-                <li class="swiper-slide img_loading">
-                    <a href="http://laravel.100txy.com" title="laravel框架开发的个人博客">
-                        <img src="/home/images/banner/2017122200011.jpg" alt="laravel框架开发的个人博客"/>
-                    </a>
-                    <!-- Add Pagination -->
-                    <div class="swiper-pagination"></div>
-                    <span class="silde-title" style="display:none;">laravel框架开发的个人博客</span>
-                </li>
-
-                <li class="swiper-slide img_loading">
-                    <a href="http://laravel.100txy.com" title="重磅！laravel框架博客源码低价销售">
-                        <img src="/home/images/banner/2017122200033.jpg" alt="重磅！laravel框架博客源码低价销售"/>
-                    </a>
-                    <!-- Add Pagination -->
-                    <div class="swiper-pagination"></div>
-                    <span class="silde-title" style="display:none;">重磅！laravel框架博客源码低价销售</span>
-                </li>
+                {{--<li class="swiper-slide img_loading">--}}
+                    {{--<a href="http://laravel.100txy.com" title="重磅！laravel框架博客源码低价销售">--}}
+                        {{--<img src="/home/images/banner/2017122200033.jpg" alt="重磅！laravel框架博客源码低价销售"/>--}}
+                    {{--</a>--}}
+                    {{--<!-- Add Pagination -->--}}
+                    {{--<div class="swiper-pagination"></div>--}}
+                    {{--<span class="silde-title" style="display:none;">重磅！laravel框架博客源码低价销售</span>--}}
+                {{--</li>--}}
             </ul>
             <!-- Add Arrows -->
             <div class="swiper-button-next"></div>

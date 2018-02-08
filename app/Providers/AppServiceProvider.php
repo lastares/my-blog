@@ -76,7 +76,11 @@ class AppServiceProvider extends ServiceProvider
 
             // 获取banner
             $banners = Cache::remember('common:banners', 10080, function () {
-                return Banner::select('id', 'banner_path', 'banner_title')->where('status', 1)->orderBy('id', 'desc')->get();
+                $where = [
+                    'status' => 1,
+                    'type' => 4
+                ];
+                return Banner::select('id', 'banner_path', 'banner_title')->where($where)->orderBy('id', 'desc')->get();
             });
             $url = str_replace('http://', '', request()->url());
             $host = request()->getHost();

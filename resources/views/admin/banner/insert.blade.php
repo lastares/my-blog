@@ -29,6 +29,7 @@
                         <option value="1">留言板</option>
                         <option value="2">文章分类</option>
                         <option value="3">左邻右舍</option>
+                        <option value="4">Banner</option>
                     </select>
                 </div>
             </div>
@@ -120,8 +121,8 @@
                     contentType: false,
                     cache: false,
                     success: function (data) {
-                        $('.banner_path').attr('src', data.prefix_route + data.data);
-                        $('#banner_img').val(data.data);
+                        $('.banner_path').attr('src', data.img_url);
+                        $('#banner_img').val(data.img_url);
                     }
                 });
             }
