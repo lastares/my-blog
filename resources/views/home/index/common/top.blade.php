@@ -14,7 +14,7 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-    <link rel="shortcut icon" href="/images/favicon.ico"/>
+    <link rel="shortcut icon" href="/favicon.ico"/>
 
     <!--CSS-->
     <link rel="stylesheet" href="/home/css/default.css"/>
