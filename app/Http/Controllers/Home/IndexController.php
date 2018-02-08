@@ -112,6 +112,12 @@ class IndexController extends BaseController
         $total = count($article);
         $pageString = $article->links();
         $categoryName = Category::where('id', $id)->value('category_name');
+        if($categoryName == '关于') {
+            $assign = [
+                'title' => '关于我'
+            ];
+            return view('home.index.about', $assign);
+        }
         $assign = [
             'total' => $total,
             'pageString' => $pageString,

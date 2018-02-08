@@ -89,6 +89,7 @@ class AppServiceProvider extends ServiceProvider
             // 转载
             $articleTransferCount = app('db')->table('articles')->where('type', 2)->count();
             $articleData = app('db')->table('articles')->select('like', 'click')->get();
+            $latestTime = app('db')->table('articles')->max('created_at');
             // 喜欢
             $articleLikeCount = 0;
             // 访问量
@@ -100,7 +101,7 @@ class AppServiceProvider extends ServiceProvider
             // 本站总共拥有的会员
             $oauthCount = app('db')->table('oauth_users')->count();
             // 分配数据
-            $assign = compact('oauthCount', 'category', 'tag', 'topArticle', 'newComment', 'friendshipLink', 'gitProject', 'notices', 'url', 'host', 'banners', 'articleCreateCount', 'articleTransferCount', 'articleLikeCount', 'articleClickCount');
+            $assign = compact('latestTime', 'oauthCount', 'category', 'tag', 'topArticle', 'newComment', 'friendshipLink', 'gitProject', 'notices', 'url', 'host', 'banners', 'articleCreateCount', 'articleTransferCount', 'articleLikeCount', 'articleClickCount');
             $view->with($assign);
         });
 
