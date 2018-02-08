@@ -521,7 +521,7 @@
 <div class="hide_box2"></div>
 <div class="shang_box2">
     <a class="shang_close2" href="javascript:void(0)" onClick="dashangToggle2()" title="关闭"><img src="/home/images/icon/close.jpg" alt="取消"/></a>
-    <img class="shang_logo2" src="/home/images/icon/logo2.png" alt="宋耀锋博客"/>
+    <img class="shang_logo2" src="/home/images/icon/logo.png" alt="宋耀锋博客"/>
     <!-- <div class="ty-content clearfix shang_box2" style="padding:0;"> -->
     <div class="TY-login-window">
 
