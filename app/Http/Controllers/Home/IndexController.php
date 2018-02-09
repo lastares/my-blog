@@ -432,7 +432,7 @@ class IndexController extends BaseController
 
     public function vip()
     {
-        return view('home.index.vip-cnenter', ['title' => '会员中心']);
+        return view('home.index.vip-center', ['title' => '会员中心']);
     }
 
     public function vipIndex()

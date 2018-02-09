@@ -30,16 +30,16 @@
                     <a href="/vip-center"  target="right"><i class="el el-home"></i>首页中心</a>
                 </li>
                 <li class="tab-comment ">
-                    <a href="/Index/vcomment.html"  target="right"><i class="el el-comment-alt"></i>评论留言</a>
+                    <a href="/#"  target="right"><i class="el el-comment-alt"></i>评论留言</a>
                 </li>
                 <li class="tab-message ">
-                    <a href="/Index/vmessage.html"  target="right"><i class="el el-envelope"></i>站内消息</a>
+                    <a href="#"  target="right"><i class="el el-envelope"></i>站内消息</a>
                 </li>
                 <li class="tab-order ">
-                    <a href="/Index/vbuy.html"  target="right"><i class="el el-usd"></i>充值记录</a>
+                    <a href="#"  target="right"><i class="el el-usd"></i>充值记录</a>
                 </li>
                 <li class="tab-order ">
-                    <a href="/Index/vcost.html"  target="right"><i class="el el-shopping-cart"></i>消费记录</a>
+                    <a href="#"  target="right"><i class="el el-shopping-cart"></i>消费记录</a>
                 </li>
                 <li class="tab-profile ">
                     <a href="/vip-member" target="right"><i class="el el-cogs"></i>个人资料</a>

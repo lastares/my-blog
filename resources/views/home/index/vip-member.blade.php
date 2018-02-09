@@ -141,7 +141,7 @@
             <li>
                 <div class="mlist">
                     <lable class="mlable">联系邮箱</lable>
-                    <div class="mvalue"><input name="email" type="text"  id="user_email" value="862761213@qq.com"  placeholder="邮箱未认证" onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9\@\.]/g,'')" disabled/><button id="email" onclick="update_user_mail(254);" class="layui-btn layui-btn-normal" style="background-color: #13c5f8;">修改</button></div>
+                    <div class="mvalue"><input name="email" type="text"  id="user_email" value=""  placeholder="邮箱未认证" onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9\@\.]/g,'')" disabled/><button id="email" onclick="update_user_mail(254);" class="layui-btn layui-btn-normal" style="background-color: #13c5f8;">修改</button></div>
                 </div>
             </li>
 
