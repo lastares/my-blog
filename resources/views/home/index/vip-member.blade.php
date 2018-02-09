@@ -206,23 +206,20 @@
         $.ajax({
             type: "POST",
             url:"/ajax_getcode",
-            data: {email:mail,_token: "{{ csrf_token() }}"},
+            data: {email: mail, _token: "{{ csrf_token() }}"},
             success: function(data){
                 layer.closeAll('loading');
-                if(data.code == 3){
+                if(data.code == 1){
                     layer.msg(data.msg);
-                }else if(data.code == 2){
-                    layer.msg(data.msg);
-                }else if(data.code == 1){
-                    layer.msg(data.msg);
+                }else if(data.code == 0){
+                    layer.msg('亲，验证码已发送到邮箱哟！');
                     $('.get_mail_code_btn').attr("disabled",true);
                     for(i=1;i<=t;i++) {
                         window.setTimeout("jinsom_mail_update_time(" + i + ","+t+")", i * 1000);
                     }
+                }else{
+                    layer.msg('无法获取验证码，请联系管理员！');
                 }
-                // else{
-                //     layer.msg('无法获取验证码，请联系管理员！');
-                // }
             }
         });
     }

@@ -459,16 +459,18 @@ class IndexController extends BaseController
             return response()->json(['code' => 1, 'msg' => '邮箱不能为空']);
         }
         if(Cache::has('codeExpired')) {
-            return response()->json(['code' => 3, 'msg' => '一分钟只能获取一次！！']);
+            return response()->json(['code' => 1, 'msg' => '一分钟只能获取一次！！']);
         }
         $existEmail = app('db')->table('oauth_users')->where('email', $email)->first();
         if(!empty($existEmail)) {
-            return response()->json(['code' => 3, 'msg' => '该邮箱已经被注册！']);
+            return response()->json(['code' => 1, 'msg' => '该邮箱已经被注册！']);
         }
 
         dispatch(new SendCommentEmail($email, $name, $subject, $data, 'mail'));
         $expiresAt = Carbon::now()->addMinutes(1);
         Cache::put('codeExpired', $data['code'], $expiresAt);
+
+        return response()->json(['code' => 0, 'msg' => '邮件发送成功！']);
 
     }
 
