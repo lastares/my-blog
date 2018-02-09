@@ -219,9 +219,10 @@
                     for(i=1;i<=t;i++) {
                         window.setTimeout("jinsom_mail_update_time(" + i + ","+t+")", i * 1000);
                     }
-                }else{
-                    layer.msg('无法获取验证码，请联系管理员！');
                 }
+                // else{
+                //     layer.msg('无法获取验证码，请联系管理员！');
+                // }
             }
         });
     }
