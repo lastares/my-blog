@@ -6,8 +6,8 @@
 
 
         <div class="useravatar">
-            <img src="http://tvax3.sinaimg.cn/default/images/default_avatar_male_180.gif" class="avatar" width="100" height="100">
-            <span class="vnickname">syf_lingchen</span>
+            <img src="{{ session('user.avatar') }}" class="avatar" width="100" height="100">
+            <span class="vnickname">{{ session('user.name') }}</span>
             <div id="num-info">
                 <div><span class="num">0</span><span class="text">金币</span></div>
                 <div><span class="num" id="vscore">0</span><span class="text">积分</span></div>
@@ -27,7 +27,7 @@
         <div class="vmenus">
             <ul>
                 <li class="tab-index active">
-                    <a href="/vindex.html"  target="right"><i class="el el-home"></i>首页中心</a>
+                    <a href="/vip-center"  target="right"><i class="el el-home"></i>首页中心</a>
                 </li>
                 <li class="tab-comment ">
                     <a href="/Index/vcomment.html"  target="right"><i class="el el-comment-alt"></i>评论留言</a>

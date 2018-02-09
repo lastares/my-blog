@@ -131,7 +131,7 @@
             <!--手机顶部搜索-->
             <div class="search">
                 <ul class="loginwap-third-list">
-                    <li id="weixin"><a class="weixin-login" title="微信账号登录" href="javascript:void(0);" onclick="alertLogin()"></a></li>
+                    <li><a class="weixin-login" title="微信账号登录" href="javascript:void(0);" onclick="return alert('该登录功能暂未开放，请使用QQ或微博直接登陆');"></a></li>
                     <li><a class="qq-login" title="QQ账号登录" href="{{ url('auth/oauth/redirectToProvider/qq') }}"></a></li>
                     <li style="margin-right: 0!important;"><a class="weibo-login" title="新浪微博账号登录" href="{{ url('auth/oauth/redirectToProvider/weibo') }}"></a></li>
                 </ul>
