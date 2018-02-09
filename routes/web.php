@@ -62,7 +62,7 @@ Route::group(['namespace' => 'Home'], function () {
     Route::get('vip-index', 'IndexController@vipIndex');
     Route::get('vip-member', 'IndexController@vipMember');
     // 邮箱验证码
-    Route::get('ajax_getcode', 'IndexController@randCode');
+    Route::post('ajax_getcode', 'IndexController@randCode');
     // 用于测试
     Route::get('test', 'IndexController@test');
 
