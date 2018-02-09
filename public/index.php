@@ -6,7 +6,6 @@
  * @package  Laravel
  * @author   Taylor Otwell <taylor@laravel.com>
  */
-echo '<h3>亲，网站维护中。。。。。。。。。。</h3>';die;
 define('LARAVEL_START', microtime(true));
 
 /*
