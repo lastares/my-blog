@@ -27,7 +27,7 @@
         <div class="vmenus">
             <ul>
                 <li class="tab-index active">
-                    <a href="/vip-center"  target="right"><i class="el el-home"></i>首页中心</a>
+                    <a href="javascript: void(0);"  target="right"><i class="el el-home"></i>首页中心</a>
                 </li>
                 <li class="tab-comment">
                     <a href="javascript: void(0);"  target="right"><i class="el el-comment-alt"></i>评论留言</a>
