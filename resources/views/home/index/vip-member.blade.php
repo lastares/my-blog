@@ -164,7 +164,7 @@
             title:'认证安全邮箱',
             type: 1,
             btn: false,
-            offset: 't' ,//具体配置参考：offset参数项
+            offset: ['auto', 'auto'] ,//具体配置参考：offset参数项
             area: ['450px', '230px'],
             content: '<div class="layui-form layui-form-pane"><div class="layui-form-item"><label class="layui-form-label">输入邮箱</label><div class="layui-input-block"><input type="text" placeholder="请输入邮箱地址" class="layui-input" id="user_mail" style="width: 210px;display: inline-block;"><input type="submit" class="get_mail_code_btn" onclick="update_mail_get_code(60);" value="获取验证码"></div></div><div class="layui-form-item"><label class="layui-form-label">验证码</label><div class="layui-input-block"><input type="text" placeholder="请输入邮箱验证码" class="layui-input" id="mail_code" maxlength="6"></div></div><div class="update_mail_btn" onclick="update_mail(254);">立即认证</div></div>',
             btnAlign: 'c', //按钮居中
