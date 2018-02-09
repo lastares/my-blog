@@ -42,7 +42,7 @@
                     <a href="/Index/vcost.html"  target="right"><i class="el el-shopping-cart"></i>消费记录</a>
                 </li>
                 <li class="tab-profile ">
-                    <a href="/vmember.html" target="right"><i class="el el-cogs"></i>个人资料</a>
+                    <a href="/vip-member" target="right"><i class="el el-cogs"></i>个人资料</a>
                 </li>
             </ul>
         </div>

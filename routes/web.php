@@ -60,6 +60,7 @@ Route::group(['namespace' => 'Home'], function () {
     // 用户中心 vip-center
     Route::get('vip-center', 'IndexController@vip');
     Route::get('vip-index', 'IndexController@vipIndex');
+    Route::get('vip-member', 'IndexController@vipMember');
     // 用于测试
     Route::get('test', 'IndexController@test');
 

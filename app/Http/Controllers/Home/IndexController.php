@@ -449,4 +449,9 @@ class IndexController extends BaseController
         return view('home.index.vip-index');
     }
 
+    public function vipMember()
+    {
+        return view('home.index.vip-member');
+    }
+
 }
