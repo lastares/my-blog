@@ -134,9 +134,9 @@ if (!function_exists('send_email')) {
             }
         });
         if (count(Mail::failures()) > 0) {
-            $data = array('status_code' => 500, 'message' => '邮件发送失败');
+            $data = ['status_code' => 500, 'message' => '邮件发送失败'];
         } else {
-            $data = array('status_code' => 200, 'message' => '邮件发送成功');
+            $data = ['status_code' => 200, 'message' => '邮件发送成功'];
         }
         return $data;
     }
@@ -431,8 +431,6 @@ if (!function_exists('returnJson')) {
 }
 
 
-
-
 /**
  *
  *
@@ -451,7 +449,7 @@ function human_filesize($bytes, $decimals = 2)
     $size = ['B', 'kB', 'MB', 'GB', 'TB', 'PB'];
     $factor = floor((strlen($bytes) - 1) / 3);
 
-    return sprintf("%.{$decimals}f", $bytes / pow(1024, $factor)) .@$size[$factor];
+    return sprintf("%.{$decimals}f", $bytes / pow(1024, $factor)) . @$size[$factor];
 }
 
 /**
@@ -460,5 +458,19 @@ function human_filesize($bytes, $decimals = 2)
 function is_image($mimeType)
 {
     return starts_with($mimeType, 'image/');
+}
+
+if (!function_exists('randomCode')) {
+    function randomCode()
+    {
+        $number = '1234567890';
+        $len = strlen($number);
+        $randomCode = '';
+        for ($i = 0; $i < 4; $i++) {
+            $randomCode .= $number{mt_rand(0, $len-1)};
+        }
+
+        return $randomCode;
+    }
 }
 

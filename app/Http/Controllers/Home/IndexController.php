@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Admin\BaseController;
 use App\Http\Requests\Comment\Store;
+use App\Jobs\SendCommentEmail;
 use App\Models\Article;
 use App\Models\ArticleTag;
 use App\Models\Banner;
@@ -16,9 +17,12 @@ use App\Models\OauthUser;
 use App\Models\Tag;
 use Cache, Captcha;
 use Carbon\Carbon;
+use function dispatch;
 use Illuminate\Http\Request;
 use App\Models\Message;
 use Illuminate\Support\Facades\Input;
+use Mail;
+use function randomCode;
 use function response;
 
 class IndexController extends BaseController
@@ -405,19 +409,6 @@ class IndexController extends BaseController
 
     }
 
-
-    public function timeAxis()
-    {
-        return view('home.index.timeAxis');
-    }
-
-
-    public function Axis()
-    {
-        return view('home.index.axis');
-    }
-
-
     public function captcha()
     {
         /*创建验证码*/
@@ -452,6 +443,33 @@ class IndexController extends BaseController
     public function vipMember()
     {
         return view('home.index.vip-member');
+    }
+
+
+    public function randCode(Request $request)
+    {
+//        $email = 'songyaofeng@aliyun.com';
+        $email = $request->input('email', '');
+        $name = session('user.name');
+        $subject = '宋耀锋博客用户认证';
+        $data = [
+            'code' => randomCode(),
+        ];
+        if(empty($email)) {
+            return response()->json(['code' => 1, 'msg' => '邮箱不能为空']);
+        }
+        if(Cache::has('codeExpired')) {
+            return response()->json(['code' => 3, 'msg' => '一分钟只能获取一次！！']);
+        }
+        $existEmail = app('db')->table('oauth_users')->where('email', $email)->first();
+        if(!empty($existEmail)) {
+            return response()->json(['code' => 3, 'msg' => '该邮箱已经被注册！']);
+        }
+
+        dispatch(new SendCommentEmail($email, $name, $subject, $data, 'mail'));
+        $expiresAt = Carbon::now()->addMinutes(1);
+        Cache::put('codeExpired', $data['code'], $expiresAt);
+
     }
 
 }

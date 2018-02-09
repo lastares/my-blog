@@ -205,16 +205,16 @@
         layer.load(1);
         $.ajax({
             type: "POST",
-            url:"http://www.100txy.com/Home/Index/ajax_getcode",
-            data: {update_mail:mail},
-            success: function(msg){
+            url:"/ajax_getcode",
+            data: {email:mail,_token: "{{ csrf_token() }}"},
+            success: function(data){
                 layer.closeAll('loading');
-                if(msg==3){
-                    layer.msg('该邮箱已经被注册！');
-                }else if(msg==2){
-                    layer.msg('一分钟只能获取一次！');
-                }else if(msg==1){
-                    layer.msg('验证码已发送到邮箱！');
+                if(data.code == 3){
+                    layer.msg(data.msg);
+                }else if(data.code == 2){
+                    layer.msg(data.msg);
+                }else if(data.code == 1){
+                    layer.msg(data.msg);
                     $('.get_mail_code_btn').attr("disabled",true);
                     for(i=1;i<=t;i++) {
                         window.setTimeout("jinsom_mail_update_time(" + i + ","+t+")", i * 1000);
