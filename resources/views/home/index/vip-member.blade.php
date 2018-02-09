@@ -1,12 +1,11 @@
-
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <title>个人资料</title>
-    <link rel="stylesheet" href="/home/plugins/layui/css/layui.css">
+    <link rel="stylesheet" href="/home/plugins/layui/layui/css/layui.css">
     <script type="text/javascript" src="/home/js/jquery.2.1.4.min.js"></script>
-    <script src="/home/plugins/layui/layui.js"></script>
+    <script src="/home/plugins/layui/layui/layui.js"></script>
     <script type="text/javascript" src="/home/plugins/layer/layer.js" ></script>
     <style type="text/css">
         body{
