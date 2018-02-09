@@ -456,14 +456,14 @@ class IndexController extends BaseController
             'code' => randomCode(),
         ];
         if(empty($email)) {
-            return response()->json(['code' => 1, 'msg' => '邮箱不能为空']);
+            return response()->json(['code' => 1, 'msg' => '亲，您的邮箱还没填呢']);
         }
         if(Cache::has('codeExpired')) {
-            return response()->json(['code' => 1, 'msg' => '一分钟只能获取一次！！']);
+            return response()->json(['code' => 1, 'msg' => '亲，验证码一分钟只能获取一次！！']);
         }
         $existEmail = app('db')->table('oauth_users')->where('email', $email)->first();
         if(!empty($existEmail)) {
-            return response()->json(['code' => 1, 'msg' => '该邮箱已经被注册！']);
+            return response()->json(['code' => 1, 'msg' => '亲，该邮箱已经被注册啦！']);
         }
 
         dispatch(new SendCommentEmail($email, $name, $subject, $data, 'mail'));

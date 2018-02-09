@@ -210,15 +210,15 @@
             success: function(data){
                 layer.closeAll('loading');
                 if(data.code == 1){
-                    layer.msg(data.msg);
+                    layer.msg(data.msg, {time: 2000});
                 }else if(data.code == 0){
-                    layer.msg('亲，验证码已发送到邮箱哟！');
+                    layer.msg('亲，验证码已发送到邮箱哟！', {time: 2000});
                     $('.get_mail_code_btn').attr("disabled",true);
                     for(i=1;i<=t;i++) {
                         window.setTimeout("jinsom_mail_update_time(" + i + ","+t+")", i * 1000);
                     }
                 }else{
-                    layer.msg('无法获取验证码，请联系管理员！');
+                    layer.msg('无法获取验证码，请联系管理员！', {time: 2000});
                 }
             }
         });
