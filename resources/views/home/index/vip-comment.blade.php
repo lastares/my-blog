@@ -34,8 +34,8 @@
             text-align: center;
         }
 
-        .layui-table a:link {
-            color: #6bc30d;
+        .list-item a:link {
+            color: #87c;
         }
     </style>
 </head>
@@ -59,7 +59,7 @@
                 </thead>
                 <tbody>
                 @foreach($comments as $k => $comment)
-                <tr>
+                <tr class="list-item">
                     <td>{{ $comment->id }}</td>
                     <td><a href="/article/{{ $comment->article_id }}" >{{ $comment->article_name }}</a></td>
                     <td>{!! $comment->content !!}</td>
