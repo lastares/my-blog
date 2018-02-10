@@ -25,8 +25,8 @@
             color: #8A8A8A;
         }
 
-        .layui-table tbody tr:hover {
-            background-color: #2acaf8;
+        .layui-table tbody .list-item:hover {
+            background-color: #14c327;
             color: #ffffff;
         }
         .layui-table {
