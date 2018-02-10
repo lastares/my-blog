@@ -26,7 +26,7 @@
         }
 
         .layui-table tbody tr:hover {
-            background-color: #f00;
+            background-color: #2acaf8;
             color: #ffffff;
         }
         .layui-table {
@@ -39,7 +39,7 @@
         }
 
         .list-item a:link {
-            color: #87c;
+            color: #ffffff;
         }
     </style>
 </head>
