@@ -24,10 +24,7 @@
             color: #8A8A8A;
         }
 
-        .layui-table td, .layui-table th {
-            background: none !important;
-        }
-        .layui-table thead tr {
+        .layui-table {
             background: none;
         }
     </style>
