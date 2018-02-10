@@ -60,7 +60,11 @@ Route::group(['namespace' => 'Home'], function () {
     // 用户中心 vip-center
     Route::get('vip-center', 'IndexController@vip');
     Route::get('vip-index', 'IndexController@vipIndex');
-    Route::get('vip-member', 'IndexController@vipMember');
+    Route::get('vip-info', 'IndexController@vipMember');
+    Route::get('vip-comment', 'IndexController@vipComment');
+    Route::get('vip-message', 'IndexController@vipMessage');
+    Route::get('vip-recharge', 'IndexController@vipRecharge');
+    Route::get('vip-consume', 'IndexController@vipConsume');
     // 邮箱验证码
     Route::post('ajax_getcode', 'IndexController@randCode');
     // 用于测试

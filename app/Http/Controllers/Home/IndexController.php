@@ -225,9 +225,7 @@ class IndexController extends BaseController
                 return response()->json(['code' => 1, 'message' => '自己不能评论自己']);
             }
         }
-//        if($pid == $userId) {
-//            return ajax_return(200, ['type' => 'yes']);
-//        }
+
         // 是否是管理员
         $isAdmin = session('user.is_admin');
         // 获取当前时间戳
@@ -448,21 +446,20 @@ class IndexController extends BaseController
 
     public function randCode(Request $request)
     {
-//        $email = 'songyaofeng@aliyun.com';
         $email = $request->input('email', '');
         $name = session('user.name');
         $subject = '宋耀锋博客用户认证';
         $data = [
             'code' => randomCode(),
         ];
-        if(empty($email)) {
+        if (empty($email)) {
             return response()->json(['code' => 1, 'msg' => '亲，您的邮箱还没填呢']);
         }
-        if(Cache::has('codeExpired')) {
+        if (Cache::has('codeExpired')) {
             return response()->json(['code' => 1, 'msg' => '亲，验证码一分钟只能获取一次！！']);
         }
         $existEmail = app('db')->table('oauth_users')->where('email', $email)->first();
-        if(!empty($existEmail)) {
+        if (!empty($existEmail)) {
             return response()->json(['code' => 1, 'msg' => '亲，该邮箱已经被注册啦！']);
         }
 
@@ -472,6 +469,26 @@ class IndexController extends BaseController
 
         return response()->json(['code' => 0, 'msg' => '邮件发送成功！']);
 
+    }
+
+    public function vipComment()
+    {
+        return view('home.index.vip-comment');
+    }
+
+    public function vipMessage()
+    {
+        return view('home.index.vip-message');
+    }
+
+    public function vipRecharge()
+    {
+        return view('home.index.vip-recharge');
+    }
+
+    public function vipConsume()
+    {
+        return view('home.index.vip-consume');
     }
 
 }
