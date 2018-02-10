@@ -27,6 +27,11 @@
 
         .layui-table {
             background: none;
+            text-align: center;
+        }
+
+        .layui-table th {
+            text-align: center;
         }
     </style>
 </head>
