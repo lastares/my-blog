@@ -294,7 +294,7 @@
                 <!------邮箱----->
                 <div class="input-prepend">
                     <i class="el-envelope"></i>
-                    <input name="u_mail" type="text"  id="u_mail" value="{{ session('user.email') }}" size="16" placeholder="您的邮箱（必须）" disabled onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9\@\.]/g,'')"/>
+                    <input name="u_mail" type="text"  id="u_mail" value="{{ $user->email }}" size="16" placeholder="您的邮箱（必须）" disabled onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9\@\.]/g,'')"/>
                 </div>
                 <!----网址------->
                 <div class="input-prepend">
