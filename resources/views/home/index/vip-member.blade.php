@@ -254,20 +254,16 @@
             type: "POST",
             url:"/ajax_checkcode",
             data: {user_id:user_id,update_mail:mail,mail_code:mail_code},
-            success: function(msg){
+            success: function(data){
                 layer.closeAll('loading');
-                if(msg==3){
-                    layer.msg('验证码错误！');
-                }else if(msg==2){
-                    layer.msg('请不要篡改邮箱！');
-                }else if(msg==1){
+                if(msg == 0){
                     layer.closeAll();
-                    layer.msg('认证成功！');
+                    layer.msg(data.msg);
                     $("#user_email").val("");
                     $("#user_email").val(mail);
                     $('#email').text('修改');
-                }else{
-                    layer.msg('操作异常，设置失败！');
+                }else {
+                    layer.msg(data.msg);
                 }
             }
         });
