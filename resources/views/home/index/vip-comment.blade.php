@@ -38,7 +38,7 @@
 <body>
     <div id="main">
         <div class="sub-title">个人资料</div>
-        <div class="tableList">
+        <div class="tableList" lay-size="sm">
             <table class="layui-table">
                 <colgroup>
                     <col width="150">
@@ -57,7 +57,7 @@
                 @foreach($comments as $k => $comment)
                 <tr>
                     <td>{{ $comment->id }}</td>
-                    <td>{{ $comment->article_name }}</td>
+                    <td><a href="/article/{{ $comment->article_id }}" >{{ $comment->article_name }}</a></td>
                     <td>{!! $comment->content !!}</td>
                     <td>{{ $comment->created_at }}</td>
                 </tr>
