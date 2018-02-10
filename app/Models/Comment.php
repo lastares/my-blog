@@ -262,5 +262,16 @@ class Comment extends Base
     }
 
 
+    public function getVipComments()
+    {
+        $data = $this->select('id', 'article_id', 'content', 'created_at')->where('oauth_user_id', session('user.id'))->orderBy('id', 'desc')->get();
+        foreach($data as $k => &$v) {
+            $v->article_name = app('db')->table('articles')->where($v->article_id)->value('title');
+        }
+
+        return $data;
+    }
+
+
 
 }

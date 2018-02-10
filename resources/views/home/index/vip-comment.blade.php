@@ -48,18 +48,14 @@
                 </tr>
                 </thead>
                 <tbody>
+                @foreach($comments as $k => $comment)
                 <tr>
-                    <td>贤心</td>
-                    <td>2016-11-29</td>
-                    <td>人生就像是一场修行</td>
-                    <td>人生就像是一场修行</td>
+                    <td>{{ $comment->id }}</td>
+                    <td>{{ $comment->title }}</td>
+                    <td>{!! $comment->content !!}</td>
+                    <td>{{ $comment->created_at }}</td>
                 </tr>
-                <tr>
-                    <td>许闲心</td>
-                    <td>2016-11-28</td>
-                    <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-                    <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-                </tr>
+                @endforeach
                 </tbody>
             </table>
         </div>
