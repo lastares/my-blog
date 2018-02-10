@@ -42,42 +42,24 @@ function checkform(){
       var name=$("#u_name").val();
       var mail=$("#u_mail").val();
       var url=$("#u_url").val();
-      var type=$("#type").val();
-      var txaArticle=$("#txaArticle").val();
-      if(type=='2'){
-        var mid=$("#mid").val();
-        var cid=0;
-      }else if (type=='3') {
-        var mid=0;
-        var cid=$("#cid").val();
-      }else {
-        var mid=0;
-        var cid=0;
-      }
+      var msg_content=$("#txaArticle").val();
       $.ajax({
         type:"POST",
-        // url:"ajax_feedback",
         url:"/feedback",
         // data:{'verify':verify,'name':name},
-        data:"verify="+verify+"&name="+name+"&mail="+mail+"&url="+url+"&content="+txaArticle+"&type="+type+"&mid="+mid+"&cid="+cid,
+        data:"verify="+verify+"&name="+name+"&mail="+mail+"&url="+url+"&msg_content="+msg_content+"&type="+type+"&mid="+mid+"&cid="+cid+"&_token=" + "{{ csrf_token() }}",
         dataType:"json",
 
         success:function(data){
-          if(data.status=='no'){
-            if(data.login=='no'){
-              layer.msg('请先登录再留言！', {icon: 2});
-              return false;
-            }
-            if(data.email=='no'){
-              layer.msg('请先认证邮箱再留言！', {icon: 2});
-              return false;
-            }
+          if(data.code === 1){
             layer.msg(data.msg, {icon: 2});
-            setTimeout(function(){
-              var verify=document.getElementById('safecode');
-              verify.setAttribute('src','http://www.100txy.com/Admin/Login/showVerify.html');
-            },500);//这代表2秒后跳转
             return false;
+            // layer.msg(data.msg, {icon: 2});
+            // setTimeout(function(){
+            //   var verify=document.getElementById('safecode');
+            //   verify.setAttribute('src','http://www.100txy.com/Admin/Login/showVerify.html');
+            // },500);//这代表2秒后跳转
+            // return false;
           }else{
             var date=data.date;
             var ip=data.ip;
