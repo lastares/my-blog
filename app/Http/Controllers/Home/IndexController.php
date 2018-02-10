@@ -375,12 +375,14 @@ class IndexController extends BaseController
         $pictures = $banner->getMsgPicture();
         $isLogin = session('user') ? 1 : 0;
         $messageWelcome = config('blog.messageWelcome');
+        $user = Cache::get('user');
         $assign = [
             'title' => '留言板',
             'pictures' => $pictures,
             'prefix_route' => config('blog.picture_upload_path'),
             'isLogin' => $isLogin,
             'messageWelcome' => $messageWelcome,
+            'mail' => $user->email
         ];
         return view('home.index.message', $assign);
     }
@@ -518,7 +520,8 @@ class IndexController extends BaseController
         if ($oauthUser->updateUser($user_id, $data) !== false) {
             // 用户修改邮件成功，蒋欣的用户重新存入缓存1天
             $expiresAt = Carbon::now()->addMinutes(1440);
-            $user = $this->userInfo;
+            $user = $oauthUser->getUserInfoById(session('user.id'));
+            session('user', $user);
             Cache::put('user', $user, $expiresAt);
             // 移除验证码缓存
             Cache::forget('codeExpired');
