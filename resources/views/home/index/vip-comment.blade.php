@@ -51,7 +51,7 @@
                 @foreach($comments as $k => $comment)
                 <tr>
                     <td>{{ $comment->id }}</td>
-                    <td>{{ $comment->title }}</td>
+                    <td>{{ $comment->article_name }}</td>
                     <td>{!! $comment->content !!}</td>
                     <td>{{ $comment->created_at }}</td>
                 </tr>
