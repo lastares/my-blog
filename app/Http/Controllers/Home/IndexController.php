@@ -375,15 +375,12 @@ class IndexController extends BaseController
         $pictures = $banner->getMsgPicture();
         $isLogin = session('user') ? 1 : 0;
         $messageWelcome = config('blog.messageWelcome');
-        $user = Cache::get('user');
-        dd($user->toArray());
         $assign = [
             'title' => '留言板',
             'pictures' => $pictures,
             'prefix_route' => config('blog.picture_upload_path'),
             'isLogin' => $isLogin,
             'messageWelcome' => $messageWelcome,
-            'mail' => $user->email
         ];
         return view('home.index.message', $assign);
     }
@@ -396,6 +393,9 @@ class IndexController extends BaseController
 
     public function messageInsert(Request $request, Message $message)
     {
+        if(!session('user')) {
+            return response()->json(['code' => 1, 'msg' => '请，您还未登录']);
+        }
         if (!Captcha::check($request->input('verify'))) {
             return response()->json(['code' => 1, 'msg' => '请输入正确的验证码']);
         }
