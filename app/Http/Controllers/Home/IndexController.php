@@ -468,11 +468,6 @@ class IndexController extends BaseController
             return response()->json(['code' => 1, 'msg' => '亲，验证码一分钟只能获取一次！！']);
         }
 
-        // 从缓存中查看验证码是否失效
-        if (!Cache::has('codeExpired')) {
-            return response()->json(['code' => 1, 'msg' => '亲，验证码已经失效啦！！']);
-        }
-
         $existEmail = app('db')->table('oauth_users')->where('email', $email)->first();
         if (!empty($existEmail)) {
             return response()->json(['code' => 1, 'msg' => '亲，该邮箱已经被注册啦！']);
@@ -501,6 +496,11 @@ class IndexController extends BaseController
         }
         if (empty($mail) || empty($mail_code)) {
             return response()->json(['code' => 1, 'msg' => '亲，消息要写完整哟！']);
+        }
+
+        // 从缓存中查看验证码是否失效
+        if (!Cache::has('codeExpired')) {
+            return response()->json(['code' => 1, 'msg' => '亲，验证码已经失效啦！！']);
         }
 
         if ($mail_code !== Cache::get('codeExpired')) {
