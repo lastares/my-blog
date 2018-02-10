@@ -30,8 +30,9 @@ class IndexController extends BaseController
     private $userInfo;
     public function __construct(OauthUser $oauthUser)
     {
-        dd(session('user.id'));
-        $this->userInfo = $oauthUser->getUserInfoById(session('user.id'));
+        if(!empty(session('user.id'))) {
+            $this->userInfo = $oauthUser->getUserInfoById(session('user.id'));
+        }
     }
 
     /**
