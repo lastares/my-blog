@@ -531,7 +531,7 @@ class IndexController extends BaseController
     public function vipComment(Comment $comment)
     {
         $comments = $comment->getVipComments();
-        return view('home.index.vip-comment', ['comment' => $comments]);
+        return view('home.index.vip-comment', ['comments' => $comments]);
     }
 
     public function vipMessage()
