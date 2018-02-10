@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use Auth;
 use App\Models\OauthUser;
+use Cache;
+use Carbon\Carbon;
 use Socialite;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -120,6 +122,9 @@ class OAuthController extends Controller
         $sessionData['user']['avatar'] = url('uploads/avatar/'.$userId.'.jpg');
         // 将数据存入session
         session($sessionData);
+        $user = $oauthUserModel->getUserInfoById($userId);
+        $expiresAt = Carbon::now()->addMinutes(1440);
+        Cache::put('user', $user, $expiresAt);
         // 如果session没有存储登录前的页面;则直接返回到首页
         return redirect(session('targetUrl', url('/')));
     }

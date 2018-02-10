@@ -440,7 +440,8 @@ class IndexController extends BaseController
 
     public function vipMember()
     {
-        return view('home.index.vip-member');
+        $userInfo = Cache::get('user');
+        return view('home.index.vip-member', ['user' => $userInfo]);
     }
 
 

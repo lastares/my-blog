@@ -16,4 +16,9 @@ class OauthUser extends Base
     {
         return $this->where('id', $user_id)->update($data);
     }
+
+    public function getUserInfoById(int $id)
+    {
+        return $this->where('id', intval($id))->first();
+    }
 }
