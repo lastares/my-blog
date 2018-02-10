@@ -252,7 +252,7 @@
         layer.load(1);
         $.ajax({
             type: "POST",
-            url:"/ajax_checkcode",
+            url:"/ajax_chkcode",
             data: {user_id:user_id,update_mail:mail,mail_code:mail_code},
             success: function(data){
                 layer.closeAll('loading');
