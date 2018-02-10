@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>评论留言-会员中心</title>
     <link rel="stylesheet" href="/home/plugins/layui-v2.2.5/layui/css/layui.css">
+    <link rel="stylesheet" href="/home/css/page.css"/>
     <script type="text/javascript" src="/home/js/jquery.2.1.4.min.js"></script>
     <script type="text/javascript" src="/home/plugins/layer-v3.1.1/layer/layer.js" ></script>
     <script src="/home/plugins/layui-v2.2.5/layui/layui.js"></script>
