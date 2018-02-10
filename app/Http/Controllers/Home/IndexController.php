@@ -444,6 +444,11 @@ class IndexController extends BaseController
     }
 
 
+    /**
+     * 用户邮箱发送验证码
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function randCode(Request $request)
     {
         $email = $request->input('email', '');
@@ -464,10 +469,41 @@ class IndexController extends BaseController
         }
 
         dispatch(new SendCommentEmail($email, $name, $subject, $data, 'mail'));
-        $expiresAt = Carbon::now()->addMinutes(1);
+        $expiresAt = Carbon::now()->addMinutes(5);
         Cache::put('codeExpired', $data['code'], $expiresAt);
 
         return response()->json(['code' => 0, 'msg' => '邮件发送成功！']);
+
+    }
+
+    public function ajax_chkcode(OauthUser $oauthUser)
+    {
+        $mail = request()->input('update_mail', '');
+        $mail_code = request()->input('mail_code', '');
+        $user_id = session('user.id');
+        if (empty($user_id)) {
+            return response()->json(['code' => 1, 'msg' => '亲，您还未登录！']);
+        }
+        if (empty($mail) || empty($mail_code)) {
+            return response()->json(['code' => 1, 'msg' => '亲，消息要写完整哟！']);
+        }
+
+        if ($mail_code !== session('codeExpired')) {
+            return response()->json(['code' => 1, 'msg' => '亲，邮箱验证码貌似不正确哟！']);
+        }
+
+        $result = $oauthUser->getUserByMail($mail, $user_id);
+        if ($result) {
+            return response()->json(['code' => 1, 'msg' => '亲，该邮箱已经认证过了哟！']);
+        }
+
+        $data['email'] = $mail;
+
+        if ($oauthUser->updateUser($user_id, $data) !== false) {
+            return response()->json(['code' => 0, 'msg' => '亲，您的邮箱已经认证成功！']);
+        } else {
+            return response()->json(['code' => 1, 'msg' => '亲，邮箱认证失败，请联系管理员！']);
+        }
 
     }
 

@@ -44,7 +44,7 @@
         <div id="code">
             <span> {{ $code }} </span><br>
         </div>
-        <p>验证码2分钟内有效，管理员不会索要您的验证码</p>
+        <p>验证码5分钟内有效，管理员不会索要您的验证码</p>
         <p>拿好哟，祝您生活愉快，欢迎回访！</p>
         <div id="logo">
             <img src="http://www.songyaofeng.com/home/images/icon/logo.png" alt="宋耀锋博客" title="宋耀锋博客">

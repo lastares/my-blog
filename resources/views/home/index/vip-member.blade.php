@@ -141,7 +141,7 @@
             <li>
                 <div class="mlist">
                     <lable class="mlable">联系邮箱</lable>
-                    <div class="mvalue"><input name="email" type="text"  id="user_email" value=""  placeholder="邮箱未认证" onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9\@\.]/g,'')" disabled/><button id="email" onclick="update_user_mail(254);" class="layui-btn layui-btn-normal" style="background-color: #13c5f8;">修改</button></div>
+                    <div class="mvalue"><input name="email" type="text"  id="user_email" value=""  placeholder="邮箱未认证" onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9\@\.]/g,'')" disabled/><button id="email" onclick="update_user_mail({{ session('user.id') }});" class="layui-btn layui-btn-normal" style="background-color: #13c5f8;">修改</button></div>
                 </div>
             </li>
 
@@ -166,7 +166,7 @@
             btn: false,
             offset: ['150px', '250px'] ,//具体配置参考：offset参数项
             area: ['450px', '230px'],
-            content: '<div class="layui-form layui-form-pane"><div class="layui-form-item"><label class="layui-form-label">输入邮箱</label><div class="layui-input-block"><input type="text" placeholder="请输入邮箱地址" class="layui-input" id="user_mail" style="width: 210px;display: inline-block;"><input type="submit" class="get_mail_code_btn" onclick="update_mail_get_code(60);" value="获取验证码"></div></div><div class="layui-form-item"><label class="layui-form-label">验证码</label><div class="layui-input-block"><input type="text" placeholder="请输入邮箱验证码" class="layui-input" id="mail_code" maxlength="6"></div></div><div class="update_mail_btn" onclick="update_mail(254);">立即认证</div></div>',
+            content: '<div class="layui-form layui-form-pane"><div class="layui-form-item"><label class="layui-form-label">输入邮箱</label><div class="layui-input-block"><input type="text" placeholder="请输入邮箱地址" class="layui-input" id="user_mail" style="width: 210px;display: inline-block;"><input type="submit" class="get_mail_code_btn" onclick="update_mail_get_code(60);" value="获取验证码"></div></div><div class="layui-form-item"><label class="layui-form-label">验证码</label><div class="layui-input-block"><input type="text" placeholder="请输入邮箱验证码" class="layui-input" id="mail_code" maxlength="6"></div></div><div class="update_mail_btn" onclick="update_mail('+ user_id +');">立即认证</div></div>',
             btnAlign: 'c', //按钮居中
             shade: 0 ,//不显示遮罩
             yes: function(){
@@ -241,18 +241,18 @@
         var mail=$('#user_mail').val();
         var mail_code=$('#mail_code').val();
         if(mail==''){
-            layer.msg('请输入邮箱！');
+            layer.msg('亲，邮箱还没输呢！');
             return false;
         }
         if(mail_code==''){
-            layer.msg('请输入验证码！');
+            layer.msg('亲，你是不是忘了验证码！');
             return false;
         }
 
         layer.load(1);
         $.ajax({
             type: "POST",
-            url:"http://www.100txy.com/Home/Index/ajax_checkcode",
+            url:"/ajax_checkcode",
             data: {user_id:user_id,update_mail:mail,mail_code:mail_code},
             success: function(msg){
                 layer.closeAll('loading');

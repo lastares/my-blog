@@ -67,6 +67,7 @@ Route::group(['namespace' => 'Home'], function () {
     Route::get('vip-consume', 'IndexController@vipConsume');
     // 邮箱验证码
     Route::post('ajax_getcode', 'IndexController@randCode');
+    Route::post('ajax_chkcode', 'IndexController@ajax_chkcode');
     // 用于测试
     Route::get('test', 'IndexController@test');
 
