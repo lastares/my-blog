@@ -488,13 +488,7 @@ class IndexController extends BaseController
             return response()->json(['code' => 1, 'msg' => '亲，消息要写完整哟！']);
         }
 
-        if ($mail_code !== session('codeExpired')) {
-            echo '<pre>';
-            print_r($mail_code);
-            echo '</pre>';
-            echo '<pre>';
-            print_r(session('codeExpired'));
-            echo '</pre>';die;
+        if ($mail_code !== Cache::get('codeExpired')) {
             return response()->json(['code' => 1, 'msg' => '亲，邮箱验证码貌似不正确哟！']);
         }
 
