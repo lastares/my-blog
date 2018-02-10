@@ -61,7 +61,7 @@
                 @foreach($comments as $k => $comment)
                 <tr class="list-item">
                     <td>{{ $comment->id }}</td>
-                    <td><a href="/article/{{ $comment->article_id }}" >{{ $comment->article_name }}</a></td>
+                    <td><a href="/article/{{ $comment->article_id }}" target="_blank">{{ $comment->article_name }}</a></td>
                     <td>{!! $comment->content !!}</td>
                     <td>{{ $comment->created_at }}</td>
                 </tr>
