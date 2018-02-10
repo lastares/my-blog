@@ -376,6 +376,7 @@ class IndexController extends BaseController
         $isLogin = session('user') ? 1 : 0;
         $messageWelcome = config('blog.messageWelcome');
         $user = Cache::get('user');
+        dd($user->toArray());
         $assign = [
             'title' => '留言板',
             'pictures' => $pictures,
