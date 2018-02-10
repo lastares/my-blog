@@ -14,37 +14,58 @@
             margin: 0;
             padding: 0;
         }
+        #main {
+            margin-left: 10px;
+        }
+
+        .sub-title {
+            font-size: 16px;
+            margin-bottom: 3px;
+            color: #8A8A8A;
+        }
+        .layui-table {
+            background: none !important;
+        }
+
+        .layui-table td, .layui-table th {
+            background: none !important;
+        }
     </style>
 </head>
 <body>
-    <table class="layui-table">
-    <colgroup>
-        <col width="150">
-        <col width="200">
-        <col>
-    </colgroup>
-    <thead>
-    <tr>
-        <th>编号</th>
-        <th>评论文章</th>
-        <th>评论内容</th>
-        <th>评论时间</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td>贤心</td>
-        <td>2016-11-29</td>
-        <td>人生就像是一场修行</td>
-        <td>人生就像是一场修行</td>
-    </tr>
-    <tr>
-        <td>许闲心</td>
-        <td>2016-11-28</td>
-        <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-        <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-    </tr>
-    </tbody>
-</table>
+    <div id="main">
+        <div class="sub-title">个人资料</div>
+        <div class="tableList">
+            <table class="layui-table">
+                <colgroup>
+                    <col width="150">
+                    <col width="200">
+                    <col>
+                </colgroup>
+                <thead>
+                <tr>
+                    <th style="background: none">编号</th>
+                    <th>评论文章</th>
+                    <th>评论内容</th>
+                    <th>评论时间</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>贤心</td>
+                    <td>2016-11-29</td>
+                    <td>人生就像是一场修行</td>
+                    <td>人生就像是一场修行</td>
+                </tr>
+                <tr>
+                    <td>许闲心</td>
+                    <td>2016-11-28</td>
+                    <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
+                    <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </body>
 </html>
