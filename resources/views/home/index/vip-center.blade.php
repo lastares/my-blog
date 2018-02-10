@@ -39,7 +39,7 @@
                     <a href="/vip-recharge"  target="right"><i class="el el-usd"></i>充值记录</a>
                 </li>
                 <li class="tab-order">
-                    <a href="/vip-comsume"  target="right"><i class="el el-shopping-cart"></i>消费记录</a>
+                    <a href="/vip-consume"  target="right"><i class="el el-shopping-cart"></i>消费记录</a>
                 </li>
                 <li class="tab-profile">
                     <a href="/vip-info" target="right"><i class="el el-cogs"></i>个人资料</a>
