@@ -33,6 +33,10 @@
         .layui-table th {
             text-align: center;
         }
+
+        .layui-table a:link {
+            color: #6bc30d;
+        }
     </style>
 </head>
 <body>
