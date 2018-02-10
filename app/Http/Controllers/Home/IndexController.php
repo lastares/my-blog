@@ -489,6 +489,12 @@ class IndexController extends BaseController
         }
 
         if ($mail_code !== session('codeExpired')) {
+            echo '<pre>';
+            print_r($mail_code);
+            echo '</pre>';
+            echo '<pre>';
+            print_r(session('codeExpired'));
+            echo '</pre>';die;
             return response()->json(['code' => 1, 'msg' => '亲，邮箱验证码貌似不正确哟！']);
         }
 
