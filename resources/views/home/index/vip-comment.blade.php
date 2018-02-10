@@ -15,7 +15,7 @@
             padding: 0;
         }
         #main {
-            margin-left: 10px;
+            padding: 15px 20px;
         }
 
         .sub-title {
@@ -23,12 +23,12 @@
             margin-bottom: 3px;
             color: #8A8A8A;
         }
-        .layui-table {
-            background: none !important;
-        }
 
         .layui-table td, .layui-table th {
             background: none !important;
+        }
+        .layui-table thead tr {
+            background: none;
         }
     </style>
 </head>
@@ -44,10 +44,10 @@
                 </colgroup>
                 <thead>
                 <tr>
-                    <th style="background: none">编号</th>
-                    <th>评论文章</th>
-                    <th>评论内容</th>
-                    <th>评论时间</th>
+                    <th><strong>编号</strong></th>
+                    <th><strong>评论文章</strong></th>
+                    <th><strong>评论内容</strong></th>
+                    <th><strong>评论时间</strong></th>
                 </tr>
                 </thead>
                 <tbody>
