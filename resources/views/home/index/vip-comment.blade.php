@@ -56,6 +56,9 @@
                     <td>{{ $comment->created_at }}</td>
                 </tr>
                 @endforeach
+                <tr>
+                    <td colspan="4">{{ $pageString }}</td>
+                </tr>
                 </tbody>
             </table>
         </div>
