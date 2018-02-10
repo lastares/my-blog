@@ -27,13 +27,6 @@ use function response;
 
 class IndexController extends BaseController
 {
-    private $userInfo;
-    public function __construct(OauthUser $oauthUser)
-    {
-        if(!empty(session('user.id'))) {
-            $this->userInfo = $oauthUser->getUserInfoById(session('user.id'));
-        }
-    }
 
     /**
      * 首页
@@ -382,14 +375,12 @@ class IndexController extends BaseController
         $pictures = $banner->getMsgPicture();
         $isLogin = session('user') ? 1 : 0;
         $messageWelcome = config('blog.messageWelcome');
-        $user = $this->userInfo;
         $assign = [
             'title' => '留言板',
             'pictures' => $pictures,
             'prefix_route' => config('blog.picture_upload_path'),
             'isLogin' => $isLogin,
             'messageWelcome' => $messageWelcome,
-            'user' => $user
         ];
         return view('home.index.message', $assign);
     }
