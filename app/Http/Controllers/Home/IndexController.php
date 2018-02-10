@@ -501,6 +501,9 @@ class IndexController extends BaseController
         $data['email'] = $mail;
 
         if ($oauthUser->updateUser($user_id, $data) !== false) {
+            $expiresAt = Carbon::now()->addMinutes(1440);
+            $user = $oauthUser->getUserInfoById(session('user.id'));
+            Cache::put('user', $user, $expiresAt);
             return response()->json(['code' => 0, 'msg' => '亲，您的邮箱已经认证成功！']);
         } else {
             return response()->json(['code' => 1, 'msg' => '亲，邮箱认证失败，请联系管理员！']);
