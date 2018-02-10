@@ -256,13 +256,13 @@
             data: {user_id:user_id,update_mail:mail,mail_code:mail_code, _token:"{{ csrf_token() }}"},
             success: function(data){
                 layer.closeAll('loading');
-                if(msg == 0){
+                if(data.code == 0){
                     layer.closeAll();
                     layer.msg(data.msg);
                     $("#user_email").val("");
                     $("#user_email").val(mail);
                     $('#email').text('修改');
-                }else {
+                }else if (data.code == 1) {
                     layer.msg(data.msg);
                 }
             }
