@@ -25,6 +25,10 @@
             color: #8A8A8A;
         }
 
+        .layui-table tbody tr:hover {
+            background-color: #f00;
+            color: #ffffff;
+        }
         .layui-table {
             background: none;
             text-align: center;
