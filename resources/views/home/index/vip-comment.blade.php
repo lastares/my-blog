@@ -38,9 +38,6 @@
             text-align: center;
         }
 
-        .list-item a:link {
-            color: #ffffff;
-        }
     </style>
 </head>
 <body>
