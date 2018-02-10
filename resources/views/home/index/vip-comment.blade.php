@@ -38,8 +38,8 @@
 <body>
     <div id="main">
         <div class="sub-title">个人资料</div>
-        <div class="tableList" lay-size="sm">
-            <table class="layui-table">
+        <div class="tableList">
+            <table class="layui-table" lay-size="sm">
                 <colgroup>
                     <col width="150">
                     <col width="200">
