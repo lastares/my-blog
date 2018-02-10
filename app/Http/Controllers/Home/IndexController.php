@@ -458,18 +458,32 @@ class IndexController extends BaseController
         $data = [
             'code' => randomCode(),
         ];
+
         if (empty($email)) {
             return response()->json(['code' => 1, 'msg' => '亲，您的邮箱还没填呢']);
         }
-        if (Cache::has('codeExpired')) {
+
+
+        if (Cache::has('isCanSend')) {
             return response()->json(['code' => 1, 'msg' => '亲，验证码一分钟只能获取一次！！']);
         }
+
+        // 从缓存中查看验证码是否失效
+        if (!Cache::has('codeExpired')) {
+            return response()->json(['code' => 1, 'msg' => '亲，验证码已经失效啦！！']);
+        }
+
         $existEmail = app('db')->table('oauth_users')->where('email', $email)->first();
         if (!empty($existEmail)) {
             return response()->json(['code' => 1, 'msg' => '亲，该邮箱已经被注册啦！']);
         }
 
         dispatch(new SendCommentEmail($email, $name, $subject, $data, 'mail'));
+        // 邮件发送的频率1分钟
+        $expiresAt2 = Carbon::now()->addMinutes(1);
+        Cache::put('isCanSend', time(), $expiresAt2);
+
+        // 验证码有效时间为5分钟
         $expiresAt = Carbon::now()->addMinutes(5);
         Cache::put('codeExpired', $data['code'], $expiresAt);
 
@@ -501,9 +515,12 @@ class IndexController extends BaseController
         $data['email'] = $mail;
 
         if ($oauthUser->updateUser($user_id, $data) !== false) {
+            // 用户修改邮件成功，蒋欣的用户重新存入缓存1天
             $expiresAt = Carbon::now()->addMinutes(1440);
             $user = $oauthUser->getUserInfoById(session('user.id'));
             Cache::put('user', $user, $expiresAt);
+            // 移除验证码缓存
+            Cache::forget('codeExpired');
             return response()->json(['code' => 0, 'msg' => '亲，您的邮箱已经认证成功！']);
         } else {
             return response()->json(['code' => 1, 'msg' => '亲，邮箱认证失败，请联系管理员！']);
