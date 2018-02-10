@@ -45,7 +45,7 @@ Route::group(['namespace' => 'Home'], function () {
     // 留言列表
     Route::get('message/list', 'IndexController@messageList');
     // 写入留言
-    Route::post('message/insert', 'IndexController@messageInsert');
+    Route::post('feedback', 'IndexController@messageInsert');
     // 关于我
     Route::get('about/me', 'IndexController@about');
     // 攻城略地
@@ -65,6 +65,8 @@ Route::group(['namespace' => 'Home'], function () {
     Route::get('vip-message', 'IndexController@vipMessage');
     Route::get('vip-recharge', 'IndexController@vipRecharge');
     Route::get('vip-consume', 'IndexController@vipConsume');
+
+
     // 邮箱验证码
     Route::post('ajax_getcode', 'IndexController@randCode');
     Route::post('ajax_chkcode', 'IndexController@ajax_chkcode');

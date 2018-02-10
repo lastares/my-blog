@@ -15,6 +15,9 @@
             margin: 0;
             padding: 0;
         }
+        a {
+            color: none;
+        }
         #main {
             padding: 15px 20px;
         }

@@ -1,4 +1,14 @@
-function checkform(){  // 关闭游客留言功能  // layer.msg('游客留言通道已关闭！', {icon: 2});  // return false;  //  //    if($("#u_name").val()=="" || $("#u_name").val().length<2){  //             layer.msg('用户名不能为空或者昵称太短了喔', {icon: 2});  //              return false;  //         }  //  //   if($("#u_mail").val()==""){
+function checkform(){
+  // 关闭游客留言功能
+  // layer.msg('游客留言通道已关闭！', {icon: 2});
+  // return false;
+  //
+  //    if($("#u_name").val()=="" || $("#u_name").val().length<2){
+  //             layer.msg('用户名不能为空或者昵称太短了喔', {icon: 2});
+  //              return false;
+  //         }
+  //
+  //   if($("#u_mail").val()==""){
   //       layer.msg('邮箱不能为空喔', {icon: 2});
   //        return false;
   //   }else{
@@ -19,7 +29,15 @@ function checkform(){  // 关闭游客留言功能  // layer.msg('游客留言
       }
     }
 
-    if($("#txaArticle").val()=="" || $("#txaArticle").val().length<2){        layer.msg('亲啥都没写喔，或者内容太少啦！', {icon: 2});         return false;    }    if($("#verify").val()==""){             layer.msg('验证码不能为空喔', {icon: 2});              return false;     }    if($("#txaArticle").val()!="" && $("#verify").val()!=""){
+    if($("#txaArticle").val()=="" || $("#txaArticle").val().length<2){
+        layer.msg('亲啥都没写喔，或者内容太少啦！', {icon: 2});
+         return false;
+    }
+    if($("#verify").val()==""){
+             layer.msg('验证码不能为空喔', {icon: 2});
+              return false;
+     }
+    if($("#txaArticle").val()!="" && $("#verify").val()!=""){
       var verify=$("#verify").val();
       var name=$("#u_name").val();
       var mail=$("#u_mail").val();
@@ -39,7 +57,7 @@ function checkform(){  // 关闭游客留言功能  // layer.msg('游客留言
       $.ajax({
         type:"POST",
         // url:"ajax_feedback",
-        url:"http://www.100txy.com/Home/Index/ajax_feedback",
+        url:"/feedback",
         // data:{'verify':verify,'name':name},
         data:"verify="+verify+"&name="+name+"&mail="+mail+"&url="+url+"&content="+txaArticle+"&type="+type+"&mid="+mid+"&cid="+cid,
         dataType:"json",
@@ -73,14 +91,21 @@ function checkform(){  // 关闭游客留言功能  // layer.msg('游客留言
               var verify=document.getElementById('safecode');
               verify.setAttribute('src','http://www.100txy.com/Admin/Login/showVerify.html');
             },500);//这代表2秒后跳转
-             $("html, body").animate({              scrollTop: $("#location").offset().top }, {duration: 500,easing: "swing"});            	return false;          }
+             $("html, body").animate({
+              scrollTop: $("#location").offset().top }, {duration: 500,easing: "swing"});
+            	return false;
+          }
           // alert(data.status);
         },
         error:function(jqXHR){
           layer.msg('发送错误：'+jqXHR.status, {icon: 2});
         },
       });
-      // layer.alert('恭喜提交成功！待管理员审核通过后显示!', {icon: 1});      return false;    }else{    return true;     }
+      // layer.alert('恭喜提交成功！待管理员审核通过后显示!', {icon: 1});
+      return false;
+    }else{
+    return true;
+     }
 }
 // 回复评论区域
 function replyfeedback(id){
