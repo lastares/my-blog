@@ -253,7 +253,7 @@
         $.ajax({
             type: "POST",
             url:"/ajax_chkcode",
-            data: {user_id:user_id,update_mail:mail,mail_code:mail_code},
+            data: {user_id:user_id,update_mail:mail,mail_code:mail_code, _token:"{{ csrf_token() }}"},
             success: function(data){
                 layer.closeAll('loading');
                 if(msg == 0){
