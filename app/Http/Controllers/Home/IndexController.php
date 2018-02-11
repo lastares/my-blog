@@ -410,10 +410,10 @@ class IndexController extends BaseController
         $data['ip'] = $request->ip();
 //        dd($data);
         if ($message->messageInsert($data) !== false) {
-            $this->success('留言成功', $data);
+            return $this->success('留言成功', $data);
         }
 
-        $this->error('亲，留言失败，请联系网站管理员');
+        return $this->error('亲，留言失败，请联系网站管理员');
 
     }
 
