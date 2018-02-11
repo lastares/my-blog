@@ -176,7 +176,7 @@
             <ul class="b-emote-submit">
                 <li class="b-emote">
                     &nbsp;<i class="el el-reddit" onclick="getTuzki(this)"></i>
-                    <input placeholder="亲，邮箱请到会员中心认证" style="height:30px;width:20%;font-size:12px;margin-top:1px;" class="form-control b-email" type="text" name="email" @if(empty(session('user.email')))  value="" @else value="{{ session('user.email') }}"  @endif disabled>
+                    <input placeholder="亲，邮箱请到会员中心认证" style="height:30px;width:20%;font-size:12px;margin-top:1px;" class="form-control b-email" type="text" name="email" @if(session('user')) value="{{ session('user.email') }}"  @endif disabled>
                     <div class="b-tuzki">
 
                     </div>
