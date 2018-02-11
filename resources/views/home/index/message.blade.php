@@ -331,6 +331,7 @@
                 </div>
                 <!--提交表单--------->
                 <div class="feed-sub">
+                    <input type="hidden" id="token" name="token" value="{{ csrf_token() }}" />
                     <button type="button" class="btn btn-inverse"  onclick="checkform();">提交留言</button>
                 </div>
             </form>

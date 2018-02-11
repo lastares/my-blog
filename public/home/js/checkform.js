@@ -43,12 +43,12 @@ function checkform(){
       var mail=$("#u_mail").val();
       var url=$("#u_url").val();
       var msg_content=$("#txaArticle").val();
-      alert(666);
+      var _token = $('#token').val();
       $.ajax({
         type:"POST",
         url:"/feedback",
         // data:{'verify':verify,'name':name},
-        data:"verify="+verify+"&name="+name+"&email="+mail+"&website="+url+"&msg_content="+msg_content+"&_token=" + "{{ csrf_token() }}",
+        data:"verify="+verify+"&name="+name+"&email="+mail+"&website="+url+"&msg_content="+msg_content+"&_token=" + _token,
         dataType:"json",
 
         success:function(data){
