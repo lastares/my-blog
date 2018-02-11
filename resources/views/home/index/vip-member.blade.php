@@ -108,35 +108,35 @@
                 <div class="mlist">
                     <lable class="mlable">个人编号</lable>
                     <div class="mvalue"><input name="id" type="text"  id="id" @if(session('user'))
-value="{{ session('user')['id'] }}" @else value=""  @endif  disabled /></div>
+value="{{ session('user')['id'] }}" @else value="" @endif placeholder="个人编号"  disabled /></div>
                 </div>
             </li>
 
             <li>
                 <div class="mlist">
                     <lable class="mlable">会员等级</lable>
-                    <div class="mvalue"><input name="grade" type="text"  id="grade" @if(session('user'))value="普通访客" @else value="" @endif disabled/></div>
+                    <div class="mvalue"><input name="grade" type="text"  id="grade" @if(session('user'))value="普通访客" @else value="" @endif placeholder="会员等级" disabled/></div>
                 </div>
             </li>
 
             <li>
                 <div class="mlist">
                     <lable class="mlable">登录次数</lable>
-                    <div class="mvalue"><input name="login_times" type="text"  id="login_times" @if(session('user')) value="{{ session('user')['id'] }}" @else value=""  @endif disabled/></div>
+                    <div class="mvalue"><input name="login_times" type="text" placeholder="登录次数"  id="login_times" @if(session('user')) value="{{ session('user')['id'] }}" @else value=""  @endif disabled/></div>
                 </div>
             </li>
 
             <li>
                 <div class="mlist">
                     <lable class="mlable">注册来源</lable>
-                    <div class="mvalue"><input name="type" type="text"  id="type" @if(session('user')) @if(session('user')['type'] == 1) value="QQ" @elseif( session('user')['type'] == 2) value="新浪微博" @elseif(session('user')['type'] == 3) value="Github" @else value="" @endif  @endif disabled/></div>
+                    <div class="mvalue"><input placeholder="注册来源" name="type" type="text"  id="type" @if(session('user')) @if(session('user')['type'] == 1) value="QQ" @elseif( session('user')['type'] == 2) value="新浪微博" @elseif(session('user')['type'] == 3) value="Github" @else value="" @endif  @endif disabled/></div>
                 </div>
             </li>
 
             <li>
                 <div class="mlist">
                     <lable class="mlable">注册时间</lable>
-                    <div class="mvalue"><input name="create_time" type="text"  id="create_time" @if(session('user')) value="{{session('user')['created_at']}}" @else value="" @endif disabled/></div>
+                    <div class="mvalue"><input placeholder="注册时间" name="create_time" type="text"  id="create_time" @if(session('user')) value="{{session('user')['created_at']}}" @else value="" @endif disabled/></div>
                 </div>
             </li>
             <li>
