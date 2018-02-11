@@ -279,7 +279,7 @@
         <h3 class="form-btn blue-text" ><a href="javascript:;" ><i class="el-edit"></i>我要留言 / 展开表单</a></h3>
         <div id="leaveMessage" class="form-zd form-in">
             <!--表单开始-->
-            <form action="/feedback" id="contact-form" name="myform" method="post" onsubmit=return false>
+            <form id="contact-form" name="myform">
                 {{ csrf_field() }}
                 <ul class="hdmenu">
                     <li><i class="el-ok-sign"></i> 审核开启</li>
@@ -331,7 +331,7 @@
                 </div>
                 <!--提交表单--------->
                 <div class="feed-sub">
-                    <input type="submit" class="btn btn-inverse"  onclick="return checkform()" value="提交留言" />
+                    <input type="submit" class="btn btn-inverse"  onclick="checkform();" value="提交留言" />
                 </div>
             </form>
             <!--表单结束-->

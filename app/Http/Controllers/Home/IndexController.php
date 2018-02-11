@@ -401,7 +401,7 @@ class IndexController extends BaseController
             return response()->json(['code' => 1, 'msg' => '请输入正确的验证码']);
         }
 
-        $data['emali'] = $request->input('email');
+        $data['email'] = $request->input('email');
         $data['name'] = $request->input('name');
         $data['msg_content'] = $request->input('msg_content');
         $data['website'] = $request->input('website');
