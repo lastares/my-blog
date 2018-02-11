@@ -8,7 +8,12 @@ class Message extends Base
 
     public function messageInsert($data)
     {
-        return $this->create($data);
+        return $this->create($data)->id;
+    }
+
+    public function getMessageById(int $id)
+    {
+        return $this->where('id', intval($id))->first()->toArray();
     }
 
 

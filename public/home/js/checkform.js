@@ -52,6 +52,7 @@ function checkform(){
         dataType:"json",
 
         success:function(data){
+            console.log(data);
           if(data.code === 1){
             layer.msg(data.msg, {icon: 2});
             return false;

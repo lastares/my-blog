@@ -408,9 +408,10 @@ class IndexController extends BaseController
         $data['user_id'] = session('user.id');
         $data['image_id'] = 1;
         $data['ip'] = $request->ip();
-//        dd($data);
-        if ($message->messageInsert($data) !== false) {
-            return $this->success('留言成功', $data);
+        $id = $message->messageInsert($data);
+        if ($id) {
+            $_data = $message->getMessageById($id);
+            return $this->success('留言成功', $_data);
         }
 
         return $this->error('亲，留言失败，请联系网站管理员');
