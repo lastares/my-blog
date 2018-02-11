@@ -16,6 +16,8 @@ class Message extends Base
         $data = $this->where('id', intval($id))->first()->toArray();
         $_data = &$data;
         $data['image_path'] = $this->getImgPathById($data['image_id']);
+        $location = getCityByIp($data['ip']);
+        $data['location'] = $location['country'] . $location['province'] . $location['city'];
         return $_data;
     }
 

@@ -68,7 +68,7 @@ function checkform(){
           }else{
             var date=data.data.created_at;
             var ip=data.data.ip;
-            var city=data.data.city;
+            var city=data.data.location;
             var src=data.data.image_path;
             console.log(src);
             //  layer.msg('恭喜提交成功！待管理员审核通过后显示!', {icon: 1});
