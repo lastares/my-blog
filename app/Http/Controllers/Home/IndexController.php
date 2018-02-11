@@ -388,9 +388,9 @@ class IndexController extends BaseController
 
     public function messageInsert(Request $request, Message $message, Banner $banner)
     {
-//        if(!session('user')) {
-//            return response()->json(['code' => 1, 'msg' => '请，您还未登录']);
-//        }
+        if(!session('user')) {
+            return response()->json(['code' => 1, 'msg' => '请，您还未登录']);
+        }
         if (!Captcha::check($request->input('verify'))) {
             return response()->json(['code' => 1, 'msg' => '请输入正确的验证码']);
         }
@@ -399,7 +399,7 @@ class IndexController extends BaseController
         $data['name'] = $request->input('name');
         $data['msg_content'] = $request->input('msg_content');
         $data['website'] = $request->input('website', '');
-//        $data['user_id'] = session('user.id');
+        $data['user_id'] = session('user.id');
 
         $imageIds = $banner->imageIds(1);
         $data['image_id'] = $imageIds[mt_rand(0, count($imageIds)-1)];
