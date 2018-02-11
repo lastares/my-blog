@@ -6,7 +6,7 @@
 
 
         <div class="useravatar">
-            <img src="{{ session('user.avatar') }}" class="avatar" width="100" height="100">
+            <img @if(session('user')) src="{{ session('user.avatar') }}" @else src="/home/images/default_head_img.gif" @endif class="avatar" width="100" height="100">
             <span class="vnickname">{{ session('user.name') }}</span>
             <div id="num-info">
                 <div><span class="num">0</span><span class="text">金币</span></div>
