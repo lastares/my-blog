@@ -66,7 +66,6 @@ class IndexController extends BaseController
      */
     public function article(int $id, Request $request, Article $articleModel, Comment $commentModel)
     {
-        dd(session('user'));
         // 获取文章数据
         $data = $articleModel->getDataById($id);
         // 去掉描述中的换行
