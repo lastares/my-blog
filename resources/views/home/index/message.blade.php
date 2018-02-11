@@ -280,6 +280,7 @@
         <div id="leaveMessage" class="form-zd form-in">
             <!--表单开始-->
             <form action="/feedback" id="contact-form" name="myform" method="post" onsubmit=return false>
+                {{ csrf_field() }}
                 <ul class="hdmenu">
                     <li><i class="el-ok-sign"></i> 审核开启</li>
                     <li><input name="jizhu" type="checkbox" value="1" checked class="comment-fuxuna" /> 记住信息</li>
