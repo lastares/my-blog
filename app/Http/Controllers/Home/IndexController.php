@@ -401,14 +401,18 @@ class IndexController extends BaseController
             return response()->json(['code' => 1, 'msg' => '请输入正确的验证码']);
         }
 
-        $data = $request->except(['verify', 'isLogin']);
-
-
-        if ($message->messageInsert($data)) {
-            return response()->json(['code' => 0, 'msg' => '留言成功']);
+        $data['emali'] = $request->input('email');
+        $data['name'] = $request->input('name');
+        $data['msg_content'] = $request->input('msg_content');
+        $data['website'] = $request->input('website');
+        $data['user_id'] = session('user.id');
+        $data['image_id'] = 1;
+        $data['ip'] = $request->ip();
+        if ($message->messageInsert($data) !== false) {
+            $this->success('留言成功', $data);
         }
 
-        return response()->json(['code' => 1, 'msg' => '留言成功']);
+        $this->error('亲，留言失败，请联系网站管理员');
 
     }
 

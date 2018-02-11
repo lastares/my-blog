@@ -47,7 +47,7 @@ function checkform(){
         type:"POST",
         url:"/feedback",
         // data:{'verify':verify,'name':name},
-        data:"verify="+verify+"&name="+name+"&mail="+mail+"&url="+url+"&msg_content="+msg_content+"&type="+type+"&mid="+mid+"&cid="+cid+"&_token=" + "{{ csrf_token() }}",
+        data:"verify="+verify+"&name="+name+"&email="+mail+"&website="+url+"&msg_content="+msg_content+"&_token=" + "{{ csrf_token() }}",
         dataType:"json",
 
         success:function(data){

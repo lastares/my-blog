@@ -38,10 +38,10 @@ class BaseController extends Controller
         return $this->data;
     }
 
-    protected function success($data = [])
+    protected function success($msg='操作成功', $data = [])
     {
         $this->data[self::FIELD_CODE] = 0;
-        $this->data[self::FIELD_MESSAGE] = '操作成功';
+        $this->data[self::FIELD_MESSAGE] = $msg;
         $this->data[self::FIELD_DATA] = $data;
         return $this->data;
     }
