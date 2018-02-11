@@ -25,7 +25,7 @@ use Mail;
 use function randomCode;
 use function response;
 
-class IndexController extends CommonController
+class IndexController extends BaseController
 {
 
     /**
