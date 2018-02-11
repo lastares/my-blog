@@ -13,7 +13,11 @@ class Message extends Base
 
     public function getMessageById(int $id)
     {
-        return $this->where('id', intval($id))->first()->toArray();
+        $data = $this->where('id', intval($id))->first()->toArray();
+        foreach($data as $k => &$v) {
+            $v['image_path'] = $this->getImgPathById($v['image_id']);
+        }
+        return $data;
     }
 
 
