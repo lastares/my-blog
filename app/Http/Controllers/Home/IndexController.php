@@ -404,7 +404,7 @@ class IndexController extends BaseController
         $data['email'] = $request->input('email');
         $data['name'] = $request->input('name');
         $data['msg_content'] = $request->input('msg_content');
-        $data['website'] = $request->input('website');
+        $data['website'] = $request->input('website', '');
         $data['user_id'] = session('user.id');
         $data['image_id'] = 1;
         $data['ip'] = $request->ip();
