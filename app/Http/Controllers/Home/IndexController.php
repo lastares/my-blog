@@ -110,7 +110,7 @@ class IndexController extends BaseController
      * @param $id
      * @return mixed
      */
-    public function category(Article $articleModel, $id)
+    public function category(Article $articleModel, $id, Message $message)
     {
         $map = [
             'articles.category_id' => $id
@@ -126,7 +126,14 @@ class IndexController extends BaseController
                 return view('home.index.about', $dispatch);
                 break;
             case '留言':
-                return view('home.index.message', $dispatch);
+                $messages = $message->messageList();
+                $pageString = $messages->render();
+                $assign = [
+                    'title' => '留言板',
+                    'messages' => $messages,
+                    'pageString' => $pageString
+                ];
+                return view('home.index.message', $assign);
                 break;
             case '下载':
                 return view('home.index.downlist', $dispatch);
@@ -374,9 +381,14 @@ class IndexController extends BaseController
 
     public function message(Banner $banner, Message $message)
     {
+        $messages = $message->messageList();
+        $pageString = $messages->render();
         $assign = [
             'title' => '留言板',
+            'messages' => $messages,
+            'pageString' => $pageString
         ];
+
         return view('home.index.message', $assign);
     }
 
