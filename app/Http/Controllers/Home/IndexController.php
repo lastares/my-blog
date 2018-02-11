@@ -66,7 +66,7 @@ class IndexController extends BaseController
      */
     public function article(int $id, Request $request, Article $articleModel, Comment $commentModel)
     {
-        dd(session('user'));
+//        dd(session('user'));
         // 获取文章数据
         $data = $articleModel->getDataById($id);
         // 去掉描述中的换行
@@ -504,7 +504,7 @@ class IndexController extends BaseController
 
     }
 
-    public function ajax_chkcode(OauthUser $oauthUser)
+    public function ajax_chkcode(OauthUser $oauthUser, Request $request)
     {
         $mail = request()->input('update_mail', '');
         $mail_code = request()->input('mail_code', '');
@@ -536,6 +536,7 @@ class IndexController extends BaseController
             // 用户修改邮件成功，蒋欣的用户重新存入缓存1天
             $expiresAt = Carbon::now()->addMinutes(1440);
             $user = $oauthUser->getUserInfoById(session('user.id'));
+            $request->session()->forget('user');
             session('user', $user);
             Cache::put('user', $user, $expiresAt);
             // 移除验证码缓存
