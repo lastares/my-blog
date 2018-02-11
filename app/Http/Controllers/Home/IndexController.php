@@ -25,7 +25,7 @@ use Mail;
 use function randomCode;
 use function response;
 
-class IndexController extends BaseController
+class IndexController extends CommonController
 {
 
     /**
@@ -444,8 +444,7 @@ class IndexController extends BaseController
 
     public function vipMember()
     {
-        $userInfo = session('user');
-        return view('home.index.vip-member', ['user' => $userInfo]);
+        return view('home.index.vip-member');
     }
 
 
