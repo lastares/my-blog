@@ -25,7 +25,7 @@
             <div class="form-group">
                 <label for="banner_title" class="col-sm-2 control-label">所属分类</label>
                 <div class="col-sm-6">
-                    <select name="type">
+                    <select id="type" name="type">
                         <option value="1">留言板</option>
                         <option value="2">文章分类</option>
                         <option value="3">左邻右舍</option>
@@ -109,6 +109,7 @@
             } else if (that.files[0].size > 5242880) {
                 alert('', "上传的图片大于5M", 'error');
             } else {
+                // $type = $('#type[selected]').val();
                 var formData = new FormData();
                 formData.append("file", $('#banner_path')[0].files[0]);
                 formData.append("_token", "{{csrf_token()}}");

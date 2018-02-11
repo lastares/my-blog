@@ -87,8 +87,9 @@ class BaseController extends Controller
 //    }
     public function uploadImg(\Illuminate\Http\Request $request)
     {
+//        $subDirectory = $request->input('sub-directory');
         $disk = \Storage::disk('qiniu'); //使用七牛云上传
-        $time = 'banner/' . date('Ymd');
+        $time = 'portrait/' . date('Ymd');
         $filename = $disk->put($time, $request->file('file'));//上传
         if(!$filename) {
             return response()->json(['code' => 1, 'msg' => '上传失败']);
