@@ -331,7 +331,7 @@
                 </div>
                 <!--提交表单--------->
                 <div class="feed-sub">
-                    <input type="submit" class="btn btn-inverse"  onclick="checkform();" value="提交留言" />
+                    <button type="button" class="btn btn-inverse"  onclick="checkform();">提交留言</button>
                 </div>
             </form>
             <!--表单结束-->
