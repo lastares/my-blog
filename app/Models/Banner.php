@@ -90,7 +90,7 @@ class Banner extends Base
 
     public function imageIds($type)
     {
-        return $this->select('id')->where('type', $type)->pluck('banner_id');
+        return $this->where('type', $type)->pluck('id');
     }
 
     /**
