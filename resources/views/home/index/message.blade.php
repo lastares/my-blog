@@ -279,7 +279,7 @@
         <h3 class="form-btn blue-text" ><a href="javascript:;" ><i class="el-edit"></i>我要留言 / 展开表单</a></h3>
         <div id="leaveMessage" class="form-zd form-in">
             <!--表单开始-->
-            <form action="#" id="contact-form" name="myform" method="post" onsubmit=return false>
+            <form action="/feedback" id="contact-form" name="myform" method="post" onsubmit=return false>
                 <ul class="hdmenu">
                     <li><i class="el-ok-sign"></i> 审核开启</li>
                     <li><input name="jizhu" type="checkbox" value="1" checked class="comment-fuxuna" /> 记住信息</li>
