@@ -1,4 +1,20 @@
 @include('home.index.common.top')
+<style>
+    .set-btn {
+        display: inline-block;
+        height: 38px;
+        line-height: 38px;
+        padding: 0 18px;
+        background-color: #1E9FFF;
+        color: #fff;
+        white-space: nowrap;
+        text-align: center;
+        font-size: 14px;
+        border: none;
+        border-radius: 2px;
+        cursor: pointer;
+    }
+</style>
 <!--主题框架开始-->
 <div class="container" id="location">
     <!--左侧开始-->
@@ -105,7 +121,7 @@
                 <!--提交表单--------->
                 <div class="feed-sub">
                     <input type="hidden" id="token" name="token" value="{{ csrf_token() }}" />
-                    <button type="button" class="btn btn-inverse"  onclick="checkform();">提交留言</button>
+                    <button type="button" class="btn btn-inverse set-btn" onclick="checkform();">提交留言</button>
                 </div>
             </form>
             <!--表单结束-->
