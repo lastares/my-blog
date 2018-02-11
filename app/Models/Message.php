@@ -14,10 +14,9 @@ class Message extends Base
     public function getMessageById(int $id)
     {
         $data = $this->where('id', intval($id))->first()->toArray();
-        foreach($data as $k => &$v) {
-            $v['image_path'] = $this->getImgPathById($v['image_id']);
-        }
-        return $data;
+        $_data = &$data;
+        $data['image_path'] = $this->getImgPathById($data['image_id']);
+        return $_data;
     }
 
 
