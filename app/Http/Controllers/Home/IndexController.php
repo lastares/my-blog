@@ -537,7 +537,8 @@ class IndexController extends BaseController
             $expiresAt = Carbon::now()->addMinutes(1440);
             $user = $oauthUser->getUserInfoById(session('user.id'));
             $request->session()->forget('user');
-            session('user', $user);
+            $request->session()->put('user', $user);
+
             Cache::put('user', $user, $expiresAt);
             // 移除验证码缓存
             Cache::forget('codeExpired');
