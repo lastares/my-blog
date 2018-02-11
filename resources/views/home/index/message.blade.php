@@ -27,7 +27,7 @@
                 <li class="bg-color">
                     <span class="louceng" >{{ $k + 1 }}</span>
                     <div class="comment-ava">
-                        <a href="" id="Comment-{{ $message->id }}" target="_blank" rel="nofollow" title="《雷小天》 没有填写网站?">
+                        <a href="" id="Comment-{{ $message->id }}" target="_blank" rel="nofollow" title="{{ $message->name }}">
                             <img class="img-circle" src="{{ $message->image_path }}" alt="{{ $message->name }}"/></a>
                         <!--<span><i class="el-user"></i>闫恒</span>-->
                     </div>
