@@ -18,7 +18,6 @@ class Message extends Base
         $data['image_path'] = $this->getImgPathById($data['image_id']);
         $location = getCityByIp($data['ip']);
         $data['location'] = $location['country'] . $location['province'] . $location['city'];
-        dd($_data);
         return $_data;
     }
 
