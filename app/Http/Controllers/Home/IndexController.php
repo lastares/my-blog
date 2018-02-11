@@ -22,6 +22,7 @@ use Illuminate\Http\Request;
 use App\Models\Message;
 use Illuminate\Support\Facades\Input;
 use Mail;
+use function mt_rand;
 use function randomCode;
 use function response;
 use function send_email;
@@ -373,15 +374,8 @@ class IndexController extends BaseController
 
     public function message(Banner $banner, Message $message)
     {
-        $pictures = $banner->getMsgPicture();
-        $isLogin = session('user') ? 1 : 0;
-        $messageWelcome = config('blog.messageWelcome');
         $assign = [
             'title' => '留言板',
-            'pictures' => $pictures,
-            'prefix_route' => config('blog.picture_upload_path'),
-            'isLogin' => $isLogin,
-            'messageWelcome' => $messageWelcome,
         ];
         return view('home.index.message', $assign);
     }
@@ -392,7 +386,7 @@ class IndexController extends BaseController
         return response()->json(['code' => 0, 'msg' => 'ok', 'data' => $data]);
     }
 
-    public function messageInsert(Request $request, Message $message)
+    public function messageInsert(Request $request, Message $message, Banner $banner)
     {
         if(!session('user')) {
             return response()->json(['code' => 1, 'msg' => '请，您还未登录']);
@@ -406,7 +400,9 @@ class IndexController extends BaseController
         $data['msg_content'] = $request->input('msg_content');
         $data['website'] = $request->input('website', '');
         $data['user_id'] = session('user.id');
-        $data['image_id'] = 1;
+
+        $imageIds = $banner->imageIds(1);
+        $data['image_id'] = mt_rand(0, count($imageIds)-1);
         $data['ip'] = $request->ip();
         $id = $message->messageInsert($data);
         if ($id) {

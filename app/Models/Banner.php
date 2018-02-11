@@ -88,14 +88,21 @@ class Banner extends Base
     }
 
 
+    public function imageIds($type)
+    {
+        return $this->select('id')->where('type', $type)->pluck('banner_id');
+    }
+
     /**
      * 前台留言板留言图片
      */
 
-    public function getMsgPicture()
+    public function getMsgPicture(int $id)
     {
-        return $this->select('id', 'banner_path', 'banner_title', 'type', 'created_at')->where('type', 1)->orderBy('id', 'desc')->get();
+        return $this->where('id', $id)->value('banner_path');
     }
+
+
 
     /**
      * 前台留言板留言图片
