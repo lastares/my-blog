@@ -107,7 +107,7 @@
             <li>
                 <div class="mlist">
                     <lable class="mlable">个人编号</lable>
-                    <div class="mvalue"><input name="id" type="text"  id="id" value="{{ $user->id }}"  disabled /></div>
+                    <div class="mvalue"><input name="id" type="text"  id="id" value="{{ $user['id'] }}"  disabled /></div>
                 </div>
             </li>
 
@@ -121,27 +121,27 @@
             <li>
                 <div class="mlist">
                     <lable class="mlable">登录次数</lable>
-                    <div class="mvalue"><input name="login_times" type="text"  id="login_times" value="{{ $user->login_times }}" disabled/></div>
+                    <div class="mvalue"><input name="login_times" type="text"  id="login_times" value="{{ $user['login_times'] }}" disabled/></div>
                 </div>
             </li>
 
             <li>
                 <div class="mlist">
                     <lable class="mlable">注册来源</lable>
-                    <div class="mvalue"><input name="type" type="text"  id="type" @if($user->type == 1) value="QQ" @elseif( $user->type == 2) value="新浪微博" @elseif($user->type == 3) value="Github" @endif disabled/></div>
+                    <div class="mvalue"><input name="type" type="text"  id="type" @if($user['type'] == 1) value="QQ" @elseif( $user['type'] == 2) value="新浪微博" @elseif($user['type'] == 3) value="Github" @endif disabled/></div>
                 </div>
             </li>
 
             <li>
                 <div class="mlist">
                     <lable class="mlable">注册时间</lable>
-                    <div class="mvalue"><input name="create_time" type="text"  id="create_time" value="{{ $user->created_at }}" disabled/></div>
+                    <div class="mvalue"><input name="create_time" type="text"  id="create_time" value="{{ $user['created_at'] }}" disabled/></div>
                 </div>
             </li>
             <li>
                 <div class="mlist">
                     <lable class="mlable">联系邮箱</lable>
-                    <div class="mvalue"><input name="email" type="text"  id="user_email" value="{{ $user->email }}"  placeholder="邮箱未认证" onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9\@\.]/g,'')" disabled/><button id="email" onclick="update_user_mail({{ session('user.id') }});" class="layui-btn layui-btn-normal" style="background-color: #13c5f8;">修改</button></div>
+                    <div class="mvalue"><input name="email" type="text"  id="user_email" value="{{ $user['email'] }}"  placeholder="邮箱未认证" onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9\@\.]/g,'')" disabled/><button id="email" onclick="update_user_mail({{ session('user.id') }});" class="layui-btn layui-btn-normal" style="background-color: #13c5f8;">修改</button></div>
                 </div>
             </li>
 
