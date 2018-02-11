@@ -444,7 +444,7 @@ class IndexController extends BaseController
 
     public function vipMember()
     {
-        $userInfo = Cache::get('user');
+        $userInfo = session('user');
         return view('home.index.vip-member', ['user' => $userInfo]);
     }
 
