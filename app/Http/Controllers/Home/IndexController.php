@@ -24,6 +24,7 @@ use Illuminate\Support\Facades\Input;
 use Mail;
 use function randomCode;
 use function response;
+use function send_email;
 
 class IndexController extends BaseController
 {
@@ -475,7 +476,6 @@ class IndexController extends BaseController
         if (!empty($existEmail)) {
             return response()->json(['code' => 1, 'msg' => '亲，该邮箱已经被注册啦！']);
         }
-
         dispatch(new SendCommentEmail($email, $name, $subject, $data, 'mail'));
         // 邮件发送的频率1分钟
         $expiresAt2 = Carbon::now()->addMinutes(1);
