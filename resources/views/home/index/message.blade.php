@@ -84,7 +84,7 @@
                 <!------邮箱----->
                 <div class="input-prepend">
                     <i class="el-envelope"></i>
-                    <input name="u_mail" type="text"  id="u_mail" @if(session('user.email')) value="{{ session('user.email') }}" @else value="" @endif size="16" placeholder="您的邮箱（必须）" disabled onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9\@\.]/g,'')"/>
+                    <input name="u_mail" type="text"  id="u_mail" @if(session('user.email')) value="{{ session('user.email') }}" @else value="" @endif size="16" placeholder="若邮箱为空，请到用户中心认证" disabled onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9\@\.]/g,'')"/>
                 </div>
                 <!----网址------->
                 <div class="input-prepend">
