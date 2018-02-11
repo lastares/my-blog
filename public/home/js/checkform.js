@@ -43,6 +43,7 @@ function checkform(){
       var mail=$("#u_mail").val();
       var url=$("#u_url").val();
       var msg_content=$("#txaArticle").val();
+      alert(666);
       $.ajax({
         type:"POST",
         url:"/feedback",
