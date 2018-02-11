@@ -36,8 +36,9 @@ class Message extends Base
         $data = $this->orderBy('id', 'desc')->paginate(15);
         foreach ($data as $k => &$v) {
             $v->image_path = $this->getImgPathById($v->image_id);
+            $location = getCityByIp($v->ip);
+            $v->location = $location['country'] . $location['province'] . $location['city'];
         }
-
         return $data;
     }
     public function getImgPathById(int $id)
