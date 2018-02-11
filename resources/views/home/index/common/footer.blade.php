@@ -166,11 +166,11 @@
 
         // 替换
 
-        document.body.innerHTML = document.body.innerHTML.replace(/\[Q([0-9]*)\]/g, "<img src='/home/images/face/mr/$.gif'/>");
+        document.body.innerHTML = document.body.innerHTML.replace(/\[Q([0-9]*)\]/g, "<img src='/home/images/face/mr/$1.gif'/>");
 
-        document.body.innerHTML = document.body.innerHTML.replace(/\[yc_([0-9]*)\]/g,"<img src='/home/images/face/yc/$.gif'/>");
+        document.body.innerHTML = document.body.innerHTML.replace(/\[yc_([0-9]*)\]/g,"<img src='/home/images/face/yc/$1.gif'/>");
 
-        document.body.innerHTML = document.body.innerHTML.replace(/\[ali_([0-9]*)\]/g,"<img src='/home/images/face/ali/$.gif'/>");
+        document.body.innerHTML = document.body.innerHTML.replace(/\[ali_([0-9]*)\]/g,"<img src='/home/images/face/ali/$1.gif'/>");
 
     </script>
 
