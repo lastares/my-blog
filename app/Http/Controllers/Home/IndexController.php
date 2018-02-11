@@ -408,6 +408,7 @@ class IndexController extends BaseController
         $data['user_id'] = session('user.id');
         $data['image_id'] = 1;
         $data['ip'] = $request->ip();
+        dd($data);
         if ($message->messageInsert($data) !== false) {
             $this->success('留言成功', $data);
         }

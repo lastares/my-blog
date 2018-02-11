@@ -8,7 +8,7 @@ class Message extends Base
 
     public function messageInsert($data)
     {
-        return $this->create($data)->id;
+        return $this->create($data);
     }
 
 
