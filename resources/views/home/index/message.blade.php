@@ -6,6 +6,13 @@
         <div class="comment-area">
             {{--<img src="/home/images/feedback.png" style="width:100%;" alt="雷小天博客留言板"/>--}}
             <h4 class="index-title"> <i class="el-comment-alt"></i>当前共有<span> {{ $messages->count() }} </span>条留言<a href="#leaveMessage"  rel="nofollow" ><i class="el-edit"></i>发表留言</a></h4>
+            <script>
+                document.body.innerHTML = document.body.innerHTML.replace(/\[Q([0-9]*)\]/g, "<img src='/Template/xiao/Home/Public/images/face/mr/$1.gif'/>");
+                document.body.innerHTML = document.body.innerHTML.replace(/\[yc_([0-9]*)\]/g,"<img src='/Template/xiao/Home/Public/images/face/yc/$1.gif'/>");
+                document.body.innerHTML = document.body.innerHTML.replace(/\[ali_([0-9]*)\]/g,"<img src='/Template/xiao/Home/Public/images/face/ali/$1.gif'/>");
+
+
+            </script>
             <ul class="feedback-comment" id="feedbackdata">
                 @foreach($messages as $k => $message)
                 <li class="bg-color">
