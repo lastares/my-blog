@@ -402,7 +402,7 @@ class IndexController extends BaseController
         $data['user_id'] = session('user.id');
 
         $imageIds = $banner->imageIds(1);
-        $data['image_id'] = mt_rand(0, count($imageIds)-1);
+        $data['image_id'] = $imageIds[mt_rand(0, count($imageIds)-1)];
         $data['ip'] = $request->ip();
         $id = $message->messageInsert($data);
         if ($id) {

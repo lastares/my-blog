@@ -336,7 +336,7 @@
                     <i class="el-question-sign"></i>
                     <input name="verify" type="text"  id="verify" size="16"  placeholder="验证码" />
                     <span>
-					<img id="safecode" src="{{url('captcha')}}" style="cursor: pointer;" onclick="this.src='{{ url('captcha') }}?r=' + Math.random();" title="点击刷新验证码" />
+					<img id="verifyCode" src="{{url('captcha')}}" style="cursor: pointer;" onclick="this.src='{{ url('captcha') }}?r=' + Math.random();" title="点击刷新验证码" />
 				</span>
                 </div>
                 <!--提交表单--------->

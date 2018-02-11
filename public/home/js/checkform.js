@@ -1,3 +1,6 @@
+var reloadCaptcha = function () {
+    $('img#verifyCode').attr('src', '/captcha?r=' + Math.random())
+}
 function checkform(){
   // 关闭游客留言功能
   // layer.msg('游客留言通道已关闭！', {icon: 2});
@@ -72,8 +75,7 @@ function checkform(){
             var str='<li class="bg-color"><div class="comment-ava"><img class="img-circle" src="'+src+'" alt="'+name+'" title="'+name+'"/></div><div class="comment-info "><div class="comment-line "><ul><li><a ><i class="el-user"></i>'+name+'</a></li><li><a title="发表于'+date+'"><i class="el-time"></i>'+date+'</a></li><li><a title="'+name+' 当前位于：'+city+'"><i class="el-map-marker"></i>'+city+'</a></li><li><a title="'+name+' 当前IP:'+ip+'"><i class="el-network"></i>'+ip+'</a></li></ul></div><div class="comment-content">'+msg_content+'</div><ul class="re-comment"></ul></div></li>';
             $('.feedback-comment').prepend(str);
             setTimeout(function(){
-              var verify=document.getElementById('safecode');
-              verify.setAttribute('src','http://www.100txy.com/Admin/Login/showVerify.html');
+              reloadCaptcha();
             },500);//这代表2秒后跳转
              $("html, body").animate({
               scrollTop: $("#location").offset().top }, {duration: 500,easing: "swing"});
