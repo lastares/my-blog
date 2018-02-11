@@ -5,7 +5,7 @@
     <section>
         <div class="comment-area">
             {{--<img src="/home/images/feedback.png" style="width:100%;" alt="雷小天博客留言板"/>--}}
-            <h4 class="index-title"> <i class="el-comment-alt"></i>当前共有<span>77</span>留言<a href="#leaveMessage"  rel="nofollow" ><i class="el-edit"></i>发表留言</a></h4>
+            <h4 class="index-title"> <i class="el-comment-alt"></i>当前共有<span> {{ $messages->count() }} </span>条留言<a href="#leaveMessage"  rel="nofollow" ><i class="el-edit"></i>发表留言</a></h4>
             <ul class="feedback-comment" id="feedbackdata">
                 @foreach($messages as $k => $message)
                 <li class="bg-color">
