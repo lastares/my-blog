@@ -115,7 +115,7 @@ value="{{ session('user')['id'] }}" @else value=""  @endif  disabled /></div>
             <li>
                 <div class="mlist">
                     <lable class="mlable">会员等级</lable>
-                    <div class="mvalue"><input name="grade" type="text"  id="grade" value="普通访客" disabled/></div>
+                    <div class="mvalue"><input name="grade" type="text"  id="grade" @if(session('user'))value="普通访客" @else value="" @endif disabled/></div>
                 </div>
             </li>
 
