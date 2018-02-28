@@ -271,7 +271,7 @@ class IndexController extends BaseController
         }
         // 存储评论
         $data['oauth_user_id'] = session('user.id');
-        dd(session('user.id'));
+        dd(session('user'));
         $id = $commentModel->storeData($data);
         // 更新缓存
         Cache::forget('common:newComment');
