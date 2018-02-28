@@ -12,20 +12,14 @@ use App\Models\Category;
 use App\Models\Chat;
 use App\Models\Comment;
 use App\Models\FriendshipLink;
+use App\Models\Message;
 use App\Models\Notice;
 use App\Models\OauthUser;
 use App\Models\Tag;
-use Cache, Captcha;
+use Cache;
+use Captcha;
 use Carbon\Carbon;
-use function dispatch;
 use Illuminate\Http\Request;
-use App\Models\Message;
-use Illuminate\Support\Facades\Input;
-use Mail;
-use function mt_rand;
-use function randomCode;
-use function response;
-use function send_email;
 
 class IndexController extends BaseController
 {
