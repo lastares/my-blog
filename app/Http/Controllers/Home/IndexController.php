@@ -256,22 +256,22 @@ class IndexController extends BaseController
 //            return ajax_return(200, '每天做多评论10条');
         }
         // 如果用户输入邮箱；则将邮箱记录入oauth_user表中
-        $pattern = "/^([0-9A-Za-z\\-_\\.]+)@([0-9a-z]+\\.[a-z]{2,3}(\\.[a-z]{2})?)$/i";
-        if (preg_match($pattern, $data['email'])) {
-            // 修改邮箱
-            $oauthUserMap = [
-                'id' => $userId
-            ];
-            $oauthUserData = [
-                'email' => $data['email']
-            ];
-            $oauthUserModel->updateData($oauthUserMap, $oauthUserData);
-            session(['user.email' => $data['email']]);
-            unset($data['email']);
-        }
+//        $pattern = "/^([0-9A-Za-z\\-_\\.]+)@([0-9a-z]+\\.[a-z]{2,3}(\\.[a-z]{2})?)$/i";
+//        if (preg_match($pattern, $data['email'])) {
+//            // 修改邮箱
+//            $oauthUserMap = [
+//                'id' => $userId
+//            ];
+//            $oauthUserData = [
+//                'email' => $data['email']
+//            ];
+//            $oauthUserModel->updateData($oauthUserMap, $oauthUserData);
+//            session(['user.email' => $data['email']]);
+//            unset($data['email']);
+//        }
         // 存储评论
-        $data['oauth_user_id'] = session('user.id');
         dd(session('user'));
+//        $data['oauth_user_id'] = session('user.id');
         $id = $commentModel->storeData($data);
         // 更新缓存
         Cache::forget('common:newComment');
