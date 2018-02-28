@@ -1,5 +1,6 @@
 <!doctype html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <title>{{ $title }}-宋耀锋博客</title>
@@ -26,6 +27,17 @@
     <link rel="stylesheet" type="text/css" href="/home/css/skin_3.css" title="qingshuang"/>
     <link rel="stylesheet" href="/home/css/font-icon.css"/>
     <link rel="stylesheet" href="/home/css/face.css"/>
+    <!-- 百度统计 -->
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?d8497d0303212ed5b5bcc2ed0344791b";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
 </head>
 
 <body class="nobg">
