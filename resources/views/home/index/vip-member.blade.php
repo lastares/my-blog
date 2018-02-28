@@ -136,7 +136,7 @@ value="{{ session('user')['id'] }}" @else value="" @endif placeholder="个人编
             <li>
                 <div class="mlist">
                     <lable class="mlable">注册时间</lable>
-                    <div class="mvalue"><input placeholder="注册时间" name="create_time" type="text"  id="create_time" @if(session('user')) value="{{session('user')['created_at']}}" @else value="" @endif disabled/></div>
+                    <div class="mvalue"><input placeholder="注册时间" name="create_time" type="text"  id="create_time"  disabled/></div>
                 </div>
             </li>
             <li>
