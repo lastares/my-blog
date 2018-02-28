@@ -134,7 +134,7 @@ class IndexController extends BaseController
                 return view('home.index.downlist', $dispatch);
                 break;
             case '导航':
-                return view('home.index.navigate', $dispatch);
+                return view('home.tools.navigate', $dispatch);
                 break;
         }
 
@@ -395,7 +395,7 @@ class IndexController extends BaseController
 
     public function messageInsert(Request $request, Message $message, Banner $banner)
     {
-        if(!session('user')) {
+        if (!session('user')) {
             return response()->json(['code' => 1, 'msg' => '请，您还未登录']);
         }
         if (!Captcha::check($request->input('verify'))) {
@@ -409,7 +409,7 @@ class IndexController extends BaseController
         $data['user_id'] = session('user.id');
 
         $imageIds = $banner->imageIds(1);
-        $data['image_id'] = $imageIds[mt_rand(0, count($imageIds)-1)];
+        $data['image_id'] = $imageIds[mt_rand(0, count($imageIds) - 1)];
         $data['ip'] = $request->ip();
         $id = $message->messageInsert($data);
         if ($id) {
@@ -563,6 +563,40 @@ class IndexController extends BaseController
     public function vipConsume()
     {
         return view('home.index.vip-consume');
+    }
+
+    public function links(Message $message, Comment $comment, FriendshipLink $friendshipLink)
+    {
+
+        $topTenMessage = $message->topTenMessage();
+        $topTenComment = $comment->topTenComment();
+        $links = $friendshipLink->applyLinksList();
+        $assign = [
+            'title' => '友情链接',
+            'topTenMessage' => $topTenMessage,
+            'friendLink' => $links['canDisplay'],
+            'applyLinks' => $links['notCanDisplay'],
+            'topTenComment' => $topTenComment
+        ];
+
+
+        return view('home.index.links', $assign);
+    }
+
+    public function applyLinks(Request $request, FriendshipLink $friendshipLink)
+    {
+        if (!Captcha::check($request->input('verify'))) {
+            return response()->json(['code' => 1, 'msg' => '请输入正确的验证码']);
+        }
+        $data = $request->except('_token','verify');
+        $result = $friendshipLink->storeData($data);
+        if ($result) {
+            // 更新缓存
+            Cache::forget('common:friendshipLink');
+            return response()->json(['code' => 0, 'msg' => '恭喜您，申请成功！待管理员审核通过后会邮件通知您，并同时显示在友情链接列表', 'data' => $data]);
+        } else {
+            return response()->json(['code' => 1, 'msg' => '申请友情链接失败，请联系网站管理员！']);
+        }
     }
 
 }

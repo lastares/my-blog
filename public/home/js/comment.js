@@ -8,7 +8,7 @@ function getTuzki(obj){
         var str='';
         for (var i = 1; i < 41; i++) {
             // var number=formatNum(i,4);
-            str+='<img src="http://'+window.location.host+'/home/emote/tuzki/'+i+'.gif" title="'+alt[i-1]+'" alt="雷小天博客">';
+            str+='<img src="http://'+window.location.host+'/home/emote/tuzki/'+i+'.gif" title="'+alt[i-1]+'" alt="宋耀锋博客">';
         };
         tuzkiObj.html(str);
         tuzkiNumber=0;

@@ -272,6 +272,15 @@ class Comment extends Base
         return $data;
     }
 
+    public function topTenComment()
+    {
+        $data = $this->orderBy('id', 'desc')->take(10)->get();
+        foreach($data as $k => &$v) {
+            $v->avatar = app('db')->table('oauth_users')->where('id', $v->oauth_user_id)->value('avatar');
+        }
+        return $data;
+    }
+
 
 
 }

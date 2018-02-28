@@ -27,7 +27,7 @@
     <link rel="stylesheet" type="text/css" href="/home/css/skin_3.css" title="qingshuang"/>
     <link rel="stylesheet" href="/home/css/font-icon.css"/>
     <link rel="stylesheet" href="/home/css/face.css"/>
-    <!-- 百度统计 -->
+    <!-- 百度统计开始 -->
     <script>
         var _hmt = _hmt || [];
         (function() {
@@ -37,7 +37,7 @@
             s.parentNode.insertBefore(hm, s);
         })();
     </script>
-
+    <!-- 百度统计结束 -->
 </head>
 
 <body class="nobg">
@@ -129,7 +129,7 @@
                         </ul>
                     </div>
                     <div class="vip-bottom">
-                        <div class="vip-bottom-left"><p>你是本站第<span style="color:red;"> {{ $oauthCount }} </span>位会员</p></div>
+                        <div class="vip-bottom-left"><p>你是本站第<span style="color:red;"> {{ session('user.id') }} </span>位会员</p></div>
                         <div class="vip-bottom-right"><a class="bh" href="{{ url('auth/oauth/logout') }}">安全退出</a></div>
                     </div>
                 </div>

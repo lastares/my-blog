@@ -31,10 +31,10 @@
                     <td>{{ $v->name }}</td>
                     <td><a href="{{ $v->url }}" target="_blank">{{ $v->url }}</a></td>
                     <td>
-                        @if(is_null($v->deleted_at))
-                            √
+                        @if($v->status === 1)
+                            已审核
                         @else
-                            ×
+                            未审核
                         @endif
                     </td>
                     <td>

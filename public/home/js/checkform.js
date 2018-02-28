@@ -103,29 +103,29 @@ function replyfeedback(id){
   $('#'+id).prepend(str);
 }
 //确定回复评论
-function doreply(id){
-    var ctxaArticle=$("#ctxaArticle").val();
-    var asrc="/Template/xiao/Home/Public/images/icon/ava.jpg";
-    var bsrc="/Template/xiao/Home/Public/images/icon/ok.png";
-    $.ajax({
-      type:"POST",
-      // url:"ajax_reply",
-      url:"http://www.100txy.com/Home/Index/ajax_reply",
-      // get 方式data:{'verify':verify,'name':name},
-      data:"id="+id+"&recontent="+ctxaArticle,
-      dataType:"json",
-      success:function(data){
-        var boxTextarea=$('.re-comment').find('.c-textarea');
-        if(boxTextarea.length==1){
-            boxTextarea.remove();
-        }
-          var redate=data.redate;
-          var name=data.name;
-          var str='<li style="border-left:none;"><div class="admin-ava"><img src="'+asrc+'" alt="雷小天" title="雷小天" class="img-circle"/></div><div class="re-info"><span><img src="'+bsrc+'"/><a href="http://www.100txy.com" target="_blank">雷小天</a><time>'+redate+'</time> 回复 <a href="#Comment-113">@'+name+'</a></span><div class=" re-content">'+ctxaArticle+'</div></div></li>';
-          $('#'+id).prepend(str);
-      },
-      error:function(jqXHR){
-        layer.msg('发送错误：'+jqXHR.status, {icon: 2});
-      },
-    });
-}
+// function doreply(id){
+//     var ctxaArticle=$("#ctxaArticle").val();
+//     var asrc="/Template/xiao/Home/Public/images/icon/ava.jpg";
+//     var bsrc="/Template/xiao/Home/Public/images/icon/ok.png";
+//     $.ajax({
+//       type:"POST",
+//       // url:"ajax_reply",
+//       url:"http://www.100txy.com/Home/Index/ajax_reply",
+//       // get 方式data:{'verify':verify,'name':name},
+//       data:"id="+id+"&recontent="+ctxaArticle,
+//       dataType:"json",
+//       success:function(data){
+//         var boxTextarea=$('.re-comment').find('.c-textarea');
+//         if(boxTextarea.length==1){
+//             boxTextarea.remove();
+//         }
+//           var redate=data.redate;
+//           var name=data.name;
+//           var str='<li style="border-left:none;"><div class="admin-ava"><img src="'+asrc+'" alt="雷小天" title="雷小天" class="img-circle"/></div><div class="re-info"><span><img src="'+bsrc+'"/><a href="http://www.100txy.com" target="_blank">雷小天</a><time>'+redate+'</time> 回复 <a href="#Comment-113">@'+name+'</a></span><div class=" re-content">'+ctxaArticle+'</div></div></li>';
+//           $('#'+id).prepend(str);
+//       },
+//       error:function(jqXHR){
+//         layer.msg('发送错误：'+jqXHR.status, {icon: 2});
+//       },
+//     });
+// }

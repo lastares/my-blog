@@ -75,16 +75,17 @@ class FriendshipLinkController extends Controller
      */
     public function update(Store $request, $id, FriendshipLink $friendshipLinkModel)
     {
-        $map = [
-            'id' => $id
-        ];
         $data = $request->except('_token');
-        $result = $friendshipLinkModel->updateData($map, $data);
+        echo '<pre>';
+        print_r($data);
+        echo '</pre>';die;
+        $result = $friendshipLinkModel->where('id', $id)->update($data);
         if ($result) {
             // 更新缓存
             Cache::forget('common:friendshipLink');
+            return response()->json(['code' => 0, 'msg' => '操作成功']);
         }
-        return redirect()->back();
+        return response()->json(['code' => 1, 'msg' => '修改失败，请稍后重试']);
     }
 
     /**

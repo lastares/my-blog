@@ -124,7 +124,7 @@
 
         <!--END评论列表-->
         <!--评论表单-->
-        <h3 class="form-btn blue-text" ><a href="javascript:;" ><i class="el-edit"></i>我要留言 / 展开表单</a></h3>
+        <h3 class="form-btn blue-text" ><a href="javascript:;" ><i class="el-edit"></i>我要评论 / 展开表单</a></h3>
         <!-- 通用评论开始 -->
         <script>
             var userEmail= "{{ session('user.email') }}";

@@ -24,6 +24,10 @@ Route::group(['namespace' => 'Home'], function () {
     Route::get('tools_category/{id}', 'ToolsController@navigateUrls');
     // 标签
     Route::get('tag/{id}', 'IndexController@tag');
+    //友情链接
+    Route::get('links', 'IndexController@links');
+    // 申请邮箱链接
+    Route::post('applyLinks', 'IndexController@applyLinks');
     // 随言碎语
     Route::get('chat', 'IndexController@chat');
     // 开源项目

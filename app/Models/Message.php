@@ -47,4 +47,15 @@ class Message extends Base
     {
         return app('db')->table('banners')->where('id', $id)->value('banner_path');
     }
+
+    public function topTenMessage()
+    {
+        $data = $this->select('id', 'name', 'user_id', 'ip', 'image_id')->orderBy('id', 'desc')->take(10)->get();
+        foreach($data as $k => &$v) {
+            $v->image_path = $this->getImgPathById($v->image_id);
+            $location = getCityByIp($v->ip);
+            $v->location = $location['country'] . $location['province'] . $location['city'];
+        }
+        return $data;
+    }
 }

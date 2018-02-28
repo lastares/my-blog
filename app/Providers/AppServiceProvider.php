@@ -98,10 +98,8 @@ class AppServiceProvider extends ServiceProvider
                     $articleLikeCount += $v->like ;
                     $articleClickCount += $v->click;
             }
-            // 本站总共拥有的会员
-            $oauthCount = app('db')->table('oauth_users')->count();
             // 分配数据
-            $assign = compact('latestTime', 'oauthCount', 'category', 'tag', 'topArticle', 'newComment', 'friendshipLink', 'gitProject', 'notices', 'url', 'host', 'banners', 'articleCreateCount', 'articleTransferCount', 'articleLikeCount', 'articleClickCount');
+            $assign = compact('latestTime', 'category', 'tag', 'topArticle', 'newComment', 'friendshipLink', 'gitProject', 'notices', 'url', 'host', 'banners', 'articleCreateCount', 'articleTransferCount', 'articleLikeCount', 'articleClickCount');
             $view->with($assign);
         });
 

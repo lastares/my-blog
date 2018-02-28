@@ -5,7 +5,7 @@ namespace App\Models;
 class FriendshipLink extends Base
 {
     protected $table = 'friendship_links';
-    protected $fillable = ['name', 'url', 'sort'];
+//    protected $fillable = ['name', 'url', 'sort', 'email'];
 
     /**
      * 添加数据
@@ -69,6 +69,14 @@ class FriendshipLink extends Base
         {
             $v->linkImage = config('blog.picture_upload_path') . $bannerList[mt_rand(0, $bannerCount)];
         }
+        return $data;
+    }
+
+
+    public function applyLinksList()
+    {
+        $data['canDisplay'] = $this->select('name', 'url', 'id')->where('status', 1)->orderBy('id', 'desc')->get();
+        $data['notCanDisplay'] = $this->select('name', 'url', 'id')->where('status', 2)->orderBy('id', 'desc')->get();
         return $data;
     }
 }
