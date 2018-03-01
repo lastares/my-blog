@@ -23,9 +23,9 @@
                 <ul>
                     @foreach($topTenComment as $k => $comment)
                     <li>
-                        <a  target="_blank" rel="nofollow" title="笑忘录"><img src="{{ $comment->avatar }}" class="img-circle img_45x45"/></a>
+                        <a  target="_blank" rel="nofollow" title="{{ $comment->name }}"><img src="{{ $comment->avatar }}" class="img-circle img_45x45"/></a>
                         <div class="hd_right">
-                            <a  target="_blank" rel="nofollow" title="笑忘录">笑忘录</a><br> <a style="color:#333;"title="{{ $comment->location }}">{{ $comment->location }}</a>
+                            <a  target="_blank" rel="nofollow" title="{{ $comment->name }}">{{ $comment->name }}</a><br> <a style="color:#333;"title="{{ $comment->city }}">{{ $comment->city }}</a>
                         </div>
                     </li>
                     @endforeach

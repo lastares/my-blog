@@ -227,7 +227,7 @@
                             <ul>
                                 <li><a ><i class="el-user"></i>{{ $v1['name'] }}&nbsp;</a></li>
                                 <li><a title="发表于{{ $v1['created_at'] }}"><i class="el-time"></i>{{ $v1['created_at'] }}</a>&nbsp;</li>
-                                <li><a title="{{ $v1['name'] }} 当前位于：中国浙江杭州"><i class="el-map-marker"></i>中国浙江杭州</a></li>
+                                <li><a title="{{ $v1['name'] }} 当前位于：{{ $v1['city'] }}"><i class="el-map-marker"></i>{{ $v1['city'] }}</a></li>
                             </ul>
                         </div>
                         <div class="comment-content">

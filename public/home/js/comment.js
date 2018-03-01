@@ -105,7 +105,7 @@ function comment(obj){
                   layer.load(1);
                   // ajax评论
                   $.post(ajaxCommentUrl, postData, function(data) {
-                      console.log(data);
+                      // console.log(data);
                       if(data.code === 1) {
                           layer.msg(data.message, {icon: 2});
                           setTimeout(layerCloser,2000);

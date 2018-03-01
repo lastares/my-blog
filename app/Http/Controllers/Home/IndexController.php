@@ -60,7 +60,6 @@ class IndexController extends BaseController
      */
     public function article(int $id, Request $request, Article $articleModel, Comment $commentModel)
     {
-//        dd(session('user'));
         // 获取文章数据
         $data = $articleModel->getDataById($id);
         // 去掉描述中的换行
@@ -215,6 +214,7 @@ class IndexController extends BaseController
      */
     public function comment(Store $request, Comment $commentModel, OauthUser $oauthUserModel)
     {
+
         $data = $request->all();
         if (ctype_alnum($data['content']) || in_array($data['content'], ['test', '测试'])) {
             return response()->json(['code' => 1, 'message' => '禁止无意义评论']);
@@ -271,11 +271,13 @@ class IndexController extends BaseController
 //        }
         // 存储评论
         $data['oauth_user_id'] = session('user.id');
+        $data['comment_ip'] = $request->ip();
         $id = $commentModel->storeData($data);
         // 更新缓存
         Cache::forget('common:newComment');
         $_data['id'] = $id;
-        return ajax_return(200, ['id' => $id]);
+        $city = getAreaByIp($data['comment_ip']);
+        return ajax_return(200, ['id' => $id, 'city' => $city]);
     }
 
     /**
@@ -294,12 +296,6 @@ class IndexController extends BaseController
         }
 
         return response()->json($data);
-
-//        if (empty(session('user.id'))) {
-//            return 0;
-//        } else {
-//            return 1;
-//        }
     }
 
     /**
@@ -570,6 +566,7 @@ class IndexController extends BaseController
 
         $topTenMessage = $message->topTenMessage();
         $topTenComment = $comment->topTenComment();
+        // dd($topTenComment->toArray());
         $links = $friendshipLink->applyLinksList();
         $assign = [
             'title' => '友情链接',
@@ -578,8 +575,6 @@ class IndexController extends BaseController
             'applyLinks' => $links['notCanDisplay'],
             'topTenComment' => $topTenComment
         ];
-
-
         return view('home.index.links', $assign);
     }
 

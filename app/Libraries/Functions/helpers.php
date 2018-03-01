@@ -495,3 +495,9 @@ function getCityByIp($ip = ''){
 }
 
 
+function getAreaByIp(string $ip = '' ) {
+    $location = getCityByIp($ip);
+    return $location['country'] . $location['province'] . $location['city'];
+}
+
+
