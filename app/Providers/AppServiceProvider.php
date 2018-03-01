@@ -14,6 +14,7 @@ use App\Models\Tag;
 use App\Observers\CacheClearObserver;
 use Artisan;
 use Cache;
+use Carbon\Carbon;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\ServiceProvider;
 
@@ -89,7 +90,7 @@ class AppServiceProvider extends ServiceProvider
             // 转载
             $articleTransferCount = app('db')->table('articles')->where('type', 2)->count();
             $articleData = app('db')->table('articles')->select('like', 'click')->get();
-            $latestTime = app('db')->table('articles')->max('created_at');
+            $latestTime = date('Y-m-d', strtotime(app('db')->table('articles')->max('created_at')));
             // 喜欢
             $articleLikeCount = 0;
             // 访问量

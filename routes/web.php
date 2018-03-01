@@ -18,10 +18,10 @@ Route::group(['namespace' => 'Home'], function () {
     // 首页
     Route::get('/', 'IndexController@index');
     Route::get('newArticle', 'IndexController@newArticle');
-    // 分类
+    // 网址导航
     Route::get('category/{id}', 'IndexController@category');
     Route::get('toolsCategory/{id}/catename/{catename}', 'ToolsController@tools_category');
-    Route::get('tools_category/{id}', 'ToolsController@navigateUrls');
+    Route::get('url_search', 'ToolsController@urlSearch');
     // 标签
     Route::get('tag/{id}', 'IndexController@tag');
     //友情链接
@@ -149,25 +149,25 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'admi
         Route::get('forceDelete/{id}', 'ArticleController@forceDelete');
     });
 
-    // 分类管理
-//    Route::group(['prefix' => 'category'], function () {
-//        // 分类列表
-//        Route::get('index', 'CategoryController@index');
-//        // 添加分类
-//        Route::get('create', 'CategoryController@create');
-//        Route::post('store', 'CategoryController@store');
-//        // 编辑分类
-//        Route::get('edit/{id}', 'CategoryController@edit');
-//        Route::post('update/{id}', 'CategoryController@update');
-//        // 排序
-//        Route::post('sort', 'CategoryController@sort');
-//        // 删除分类
-//        Route::get('destroy/{id}', 'CategoryController@destroy');
-//        // 恢复删除的分类
-//        Route::get('restore/{id}', 'CategoryController@restore');
-//        // 彻底删除分类
-//        Route::get('forceDelete/{id}', 'CategoryController@forceDelete');
-//    });
+     // 网址导航
+    Route::group(['prefix' => 'urlCategory'], function () {
+        // 分类列表
+        Route::get('index', 'UrlCategoryController@index');
+        // 添加分类
+        Route::get('create', 'UrlCategoryController@create');
+        Route::post('store', 'UrlCategoryController@store');
+        // 编辑分类
+        Route::get('edit/{id}', 'UrlCategoryController@edit');
+        Route::post('update/{id}', 'UrlCategoryController@update');
+        // 排序
+        Route::post('sort', 'UrlCategoryController@sort');
+        // 删除分类
+        Route::get('destroy/{id}', 'UrlCategoryController@destroy');
+        // 恢复删除的分类
+        Route::get('restore/{id}', 'UrlCategoryController@restore');
+        // 彻底删除分类
+        Route::get('forceDelete/{id}', 'UrlCategoryController@forceDelete');
+    });
 
     // 标签管理
     Route::group(['prefix' => 'tag'], function () {

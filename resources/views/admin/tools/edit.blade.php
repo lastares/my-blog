@@ -23,7 +23,7 @@
             <a href="{{ url('admin/tools/index') }}">工具导航列表</a>
         </li>
         <li class="active">
-            <a href="">编辑友情链接</a>
+            <a href="">编辑网址</a>
         </li>
     </ul>
     <form id="frm" class="form-horizontal">
@@ -31,19 +31,7 @@
         <input type="hidden" name="id" value="{{ $data->id }}" />
         <table class="table table-striped table-bordered table-hover">
             <tr>
-                <th>导航栏目</th>
-                <td>
-                    <select name="category_id" id="category_id">
-                        @foreach($category as $k => $v)
-                            @if($v->id >= 7)
-                            <option @if($data->category_id == $v->id) selected="selected" @endif value="{{ $v->id }}">{{ $v->name }}</option>
-                            @endif
-                        @endforeach
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <th>上级分类</th>
+                <th>导航分类</th>
                 <td>
                     <select name="tools_category_id" id="tools_category_id">
                         @foreach($toolsCategories as $k => $toolsCategory)

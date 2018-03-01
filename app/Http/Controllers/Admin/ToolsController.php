@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\FriendshipLink;
 use App\Models\Tools;
 use App\Models\ToolsCategory;
+use App\Models\UrlCategory;
 use Cache;
 use Illuminate\Http\Request;
 
@@ -21,6 +22,7 @@ class ToolsController extends Controller
     public function index(Tools $tools)
     {
         $data = $tools->toolsList();
+        // dd($data->toArray());
         $assign = compact('data');
         return view('admin.Tools.index', $assign);
     }
@@ -62,9 +64,9 @@ class ToolsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id, ToolsCategory $toolsCategory)
+    public function edit($id, UrlCategory $toolsCategory)
     {
-        $category = Category::all();
+        $category = UrlCategory::all();
         $data = Tools::find($id);
         $toolsCategories = $toolsCategory->getTree();
         $assign = compact('data', 'toolsCategories', 'category');

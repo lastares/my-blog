@@ -16,6 +16,7 @@ use App\Models\Message;
 use App\Models\Notice;
 use App\Models\OauthUser;
 use App\Models\Tag;
+use App\Models\UrlCategory;
 use Cache;
 use Captcha;
 use Carbon\Carbon;
@@ -104,7 +105,7 @@ class IndexController extends BaseController
      * @param $id
      * @return mixed
      */
-    public function category(Article $articleModel, $id, Message $message)
+    public function category(Article $articleModel, $id, Message $message, UrlCategory $category)
     {
         $map = [
             'articles.category_id' => $id
@@ -133,7 +134,12 @@ class IndexController extends BaseController
                 return view('home.index.downlist', $dispatch);
                 break;
             case '导航':
-                return view('home.tools.navigate', $dispatch);
+                $twoCategory = $category->categoryUrls();
+                $assign = [
+                    'title' => '网址导航',
+                    'twoCategory' => $twoCategory
+                ];
+                return view('home.tools.navigate', $assign);
                 break;
         }
 

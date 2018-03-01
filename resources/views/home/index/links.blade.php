@@ -199,6 +199,7 @@
                     $("#lname").val('');
                     $("#email").val('');
                     $("#url").val('');
+                    $("#verify").val('');
                     var lname=data.data.name;
                     var url=data.data.url;
                     //  layer.msg('恭喜提交成功！待管理员审核通过后显示!', {icon: 1});

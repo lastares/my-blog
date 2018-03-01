@@ -53,9 +53,15 @@
                                 </ul>
                             </li>
                             <li>
-                                <a><i class="fa fa-th"></i> 分类管理 <span class="fa fa-chevron-down"></span></a>
+                                <a><i class="fa fa-th"></i> 顶部导航 <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="{{ url('admin/category/index') }}">分类列表</a></li>
+                                    <li><a href="{{ url('admin/category/index') }}">导航列表</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a><i class="fa fa-th"></i> 网址导航 <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="{{ url('admin/urlCategory/index') }}">导航列表</a></li>
                                 </ul>
                             </li>
                             {{--<li>--}}
@@ -65,9 +71,9 @@
                                 {{--</ul>--}}
                             {{--</li>--}}
                             <li>
-                                <a><i class="fa fa-th"></i> 网站导航 <span class="fa fa-chevron-down"></span></a>
+                                <a><i class="fa fa-th"></i> 网址大全 <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="{{ url('admin/tools/index') }}">网站导航列表</a></li>
+                                    <li><a href="{{ url('admin/tools/index') }}">网址列表</a></li>
                                 </ul>
                             </li>
                             <li>

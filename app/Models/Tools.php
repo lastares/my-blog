@@ -10,7 +10,10 @@ class Tools extends Base
 
     public function toolsList()
     {
-        $data = $this->select('id', 'tools_url', 'tools_name', 'category_id', 'tools_category_id')->orderBy('id', 'desc')->get();
+        $data = $this->select('id', 'tools_url', 'tools_name', 'tools_category_id')->orderBy('id', 'desc')->get();
+        foreach($data as $k => &$v) {
+            $v->category_name = app('db')->table('url_category')->where('id', $v->tools_category_id)->value('category_name');
+        }
         return $data;
     }
     /**
@@ -43,7 +46,15 @@ class Tools extends Base
     }
 
 
-
+    public function search()
+    {
+        $wd = request()->input('keywords');
+        $query = $this;
+        if($wd) {
+            $query = $query->where('tools_name', 'like', '%' . $wd . '%');
+        }
+        return $query->select('id', 'tools_name', 'tools_url')->orderBy('id', 'desc')->get();
+    }
 
     /**
      * 给url添加http 或者删除/

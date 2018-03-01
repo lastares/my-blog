@@ -79,7 +79,7 @@
 
             <!-- <li><i class="el-cloud"></i><iframe id="tianqi"  scrolling="no" frameborder="0" allowtransparency="true" src="http://i.tianqi.com/index.php?c=code&id=34&icon=1&num=3"></iframe></li> -->
 
-            <li><span><i class="el-arrow-up"></i>最近：<font class="blue-text">宋耀锋</font> 5天前&nbsp;&nbsp;17:55</span><a title="Thinkphp5模板继承和替换的问题" > 更新了<b class="lable">文章</b></a></li>
+            <li><span><i class="el-arrow-up"></i>最近：<font class="blue-text">宋耀锋</font> {{ $latestTime }}&nbsp;&nbsp;</span><a title="Thinkphp5模板继承和替换的问题" > 更新了<b class="lable">文章</b></a></li>
 
             <li><i class="el-calendar"></i>历史上的今天：<a title="1936年2月3日 红军抗日先锋军渡河东征" class="orange-text">红军抗日先锋军渡河东征</a></li>
 

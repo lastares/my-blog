@@ -9,7 +9,7 @@
         <li class="active">工具管理列表</li>
     </ul>
     <div style="margin-bottom: 10px;">
-        <a type="button" class="btn btn-success" href="{{ url('admin/tools/create') }}">添加工具</a>
+        <a type="button" class="btn btn-success" href="{{ url('admin/tools/create') }}">添加网址</a>
     </div>
         <table class="table table-bordered table-striped table-hover table-condensed">
             <tr>
@@ -17,7 +17,6 @@
                 {{--<th width="5%">排序</th>--}}
                 <th>网站名称</th>
                 <th>网站URL</th>
-                <th>导航栏目</th>
                 <th>所属分类</th>
                 <th>状态</th>
                 <th>操作</th>
@@ -29,9 +28,8 @@
                         {{--<input class="form-control" type="text" name="{{ $v->id }}" value="{{ $v->sort }}">--}}
                     {{--</td>--}}
                     <td>{{ $v->tools_name }}</td>
-                    <td><a href="{{ $v->tools_urls }}" target="_blank">{{ $v->tools_url }}</a></td>
+                    <td><a href="{{ $v->tools_url }}" target="_blank">{{ $v->tools_url }}</a></td>
                     <td>{{ $v->category_name }}</td>
-                    <td>{{ $v->tools_category_name }}</td>
                     <td>
                         @if(is_null($v->deleted_at))
                             √

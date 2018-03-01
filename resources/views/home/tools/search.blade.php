@@ -40,7 +40,7 @@
             {{--@else--}}
             <span class="orange-text">{{ $title }}</span>
             {{--@endif--}}
-                <span style="float:right;">
+            <span style="float:right;">
                 <form action="/url_search" method="get">
                     <input name="keywords" type="text"  placeholder="请输入关键字" onfocus="this.placeholder=''" onblur="this.placeholder='请输入关键字'" />
                     <button style="cursor: pointer;" type="button" class="searchBtn"><i class="el-search"></i></button>
@@ -49,29 +49,22 @@
         </h4>
         <div class="article-content bg-color">
             <div id="container" class="wrap">
-                @foreach($twoCategory as $k => $v)
-                <div class="section mtop" id="zonghe">
-                    <h2 class="title">
-                        <i class="icon-"></i>{{ $v->category_name }}
-                        <span class="sub-category">
-                            @foreach($v->childCategory as $kk => $vv)
-                                <a href="/toolsCategory/{{ $vv->id }}/catename/{{ $vv->category_name }}" @if($kk == 0)) class="current" @endif>{{ $vv->category_name }}</a> |
-                            @endforeach
-                        </span>
-                        {{--<a href="/toolsCategory/{{ $v->id }}" class="more">更多&gt;&gt;</a>--}}
-                    </h2>
-                    <div class="content">
-                        <ul class="time-list clearfix">
-                            @foreach($v->childUrls as $k1 => $v2)
-                            <li>
-                                <a href="{{ $v2->tools_url }}" target="_blank" rel="nofollow">{{ $v2->tools_name }}</a>
-                                {{--<p>帮助读者快速了解掌握Web相关开发技术。</p>--}}
-                            </li>
-                            @endforeach
-                        </ul>
+                    <div class="section mtop" id="zonghe">
+                        <h2 class="title">
+                            <i class="icon-"></i>搜索：{{ request('keywords') }}
+                            <a href="javascript: void(0);" onClick="history.back(-1);" class="more">返回&gt;&gt;</a>
+                        </h2>
+                        <div class="content">
+                            <ul class="time-list clearfix">
+                                @foreach($urls as $k1 => $v2)
+                                    <li>
+                                        <a href="{{ $v2->tools_url }}" target="_blank" rel="nofollow">{{ $v2->tools_name }}</a>
+                                        {{--<p>帮助读者快速了解掌握Web相关开发技术。</p>--}}
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                @endforeach
             </div><!--#container-->
         </div>
     </section>
