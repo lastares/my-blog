@@ -56,7 +56,7 @@ class FriendshipLink extends Base
     /**前台首页左侧左邻右舍**/
     public static function linkList()
     {
-        return self::select('name', 'url')->orderBy('id', 'desc')->get();
+        return self::select('name', 'url')->where('status', 1)->orderBy('id', 'desc')->get();
     }
 
     /** 前台更多左邻右舍 **/
