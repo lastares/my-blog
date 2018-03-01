@@ -91,6 +91,7 @@ class Comment extends Base
             'article_id' => $data['article_id'],
             'pid' => $data['pid'],
             'content' => $content,
+            'comment_ip' => $data['comment_ip'],
             'status' => 1
         );
 
