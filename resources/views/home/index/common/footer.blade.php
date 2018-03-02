@@ -350,7 +350,7 @@
         layer.open({
             type: 1 //Page层类型
             ,area: ['640px', '440px']
-            ,title: '亲，如果有time就欣赏一下吧'
+            ,title: '亲，欢迎来访，(*￣︶￣)'
             ,maxmin: true //允许全屏最小化
             ,offset: 'rb'
             ,anim: 1 //0-6的动画形式，-1不开启
@@ -359,6 +359,7 @@
         var flashvars={
                 f:'http://movie.ks.js.cn/flv/other/1_0.flv',
                 c:0,
+                e:1,
                 b:1,
                 p:1
             };
