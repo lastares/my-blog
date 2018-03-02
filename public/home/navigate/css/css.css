@@ -15,12 +15,12 @@
 .nav li.active a{background:#4c4b4b color:#fff;}
 .nav-fixed{position:fixed;top:0;left:0;width:100%;z-index:999;}
 
-#container{min-height:300px;}
+#container{min-height:574px;}
 .section{padding: 20px;margin-top:50px;border-radius:4px;}
 .section .title{height:30px;line-height:30px;border-bottom:1px dotted #ccc;font-size:16px;color:#03796e;position:relative;}
 .section .title .more{display:inline-block;font-size:12px;line-height:30px;font-weight:normal;color:#2196f3;position:absolute;right:0px;font-family:SimSun;}
 .section .title .more:hover{color:#390;}
-.sub-category{font-weight:normal;font-size:12px;margin-left:30px;}
+.sub-category{font-weight:normal;font-size:x-small;margin-left: 1em;}
 .sub-category a{margin:0 1px;display:inline-block;padding:1px 5px;height:14px;line-height:14px;color:#ff5722;border-radius:2px;transition: all 0.3s linear 0s;}
 
 .action{float:right;font-size:12px;font-weight:normal;}

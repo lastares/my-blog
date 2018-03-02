@@ -136,7 +136,7 @@ class IndexController extends BaseController
             case '导航':
                 $twoCategory = $category->categoryUrls();
                 $assign = [
-                    'title' => '网址导航',
+                    'title' => '导航',
                     'twoCategory' => $twoCategory
                 ];
                 return view('home.tools.navigate', $assign);
