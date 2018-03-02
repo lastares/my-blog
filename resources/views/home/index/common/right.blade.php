@@ -3,7 +3,25 @@
     <!--关注我开始-->
     <div class="focus-me bg-color animation-div">
 
-        <h4 class="index-title"><i class="el-heart"></i>关注我<small>Focus Me</small></h4>
+        <h4 class="index-title">
+            <i class="el-heart"></i>关注我<small>Focus Me</small>
+            <div id="tp-weather-widget" style="float: right;"></div>
+            <script>(function(T,h,i,n,k,P,a,g,e){g=function(){P=h.createElement(i);a=h.getElementsByTagName(i)[0];P.src=k;P.charset="utf-8";P.async=1;a.parentNode.insertBefore(P,a)};T["ThinkPageWeatherWidgetObject"]=n;T[n]||(T[n]=function(){(T[n].q=T[n].q||[]).push(arguments)});T[n].l=+new Date();if(T.attachEvent){T.attachEvent("onload",g)}else{T.addEventListener("load",g,false)}}(window,document,"script","tpwidget","//widget.seniverse.com/widget/chameleon.js"))</script>
+            <script>tpwidget("init", {
+                    "flavor": "slim",
+                    "location": "WTMKQ069CCJ7",
+                    "geolocation": "disabled",
+                    "language": "zh-chs",
+                    "unit": "c",
+                    "theme": "chameleon",
+                    "container": "tp-weather-widget",
+                    "bubble": "enabled",
+                    "alarmType": "badge",
+                    "uid": "UE08E33A89",
+                    "hash": "6c437f1c5cac19e85d9ef1b447e58f58"
+                });
+                tpwidget("show");</script>
+        </h4>
 
         <div class="xiangguan">
 
