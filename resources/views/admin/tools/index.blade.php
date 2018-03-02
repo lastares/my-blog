@@ -49,6 +49,9 @@
                 </tr>
             @endforeach
         </table>
+    <div class="text-center">
+        {{ $pageString }}
+    </div>
 @endsection
 @section('my-js')
     <script>

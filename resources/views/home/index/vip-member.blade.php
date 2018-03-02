@@ -142,7 +142,7 @@ value="{{ session('user')['id'] }}" @else value="" @endif placeholder="个人编
             <li>
                 <div class="mlist">
                     <lable class="mlable">联系邮箱</lable>
-                    <div class="mvalue"><input name="email" type="text"  id="user_email" @if(session('user')) value="{{ session('user')['email'] }}" @else value="" @endif placeholder="邮箱未认证" onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9\@\.]/g,'')" disabled/><button id="email" onclick="update_user_mail({{ session('user.id') }});" class="layui-btn layui-btn-normal" style="background-color: #13c5f8;">修改</button></div>
+                    <div class="mvalue"><input name="email" type="text"  id="user_email" @if(session('user')) value="{{ session('user')['email'] }}" @else value="" @endif placeholder="邮箱未认证" onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9\@\.]/g,'')" disabled/><button id="email" onclick="update_user_mail({{ session('user.id') }});" class="layui-btn layui-btn-normal" style="background-color: #13c5f8;">认证</button></div>
                 </div>
             </li>
 

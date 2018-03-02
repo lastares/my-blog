@@ -22,7 +22,8 @@ class ToolsController extends Controller
     public function index(Tools $tools)
     {
         $data = $tools->toolsList();
-        $assign = compact('data');
+        $pageString = $data->links();
+        $assign = compact('data', 'pageString');
         return view('admin.tools.index', $assign);
     }
 
