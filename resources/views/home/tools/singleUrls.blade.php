@@ -20,7 +20,7 @@
         float: left;
     }
     .section {
-        width: 100%;
+        width: 97%;
         float: left;
         margin-top: 15px;
         padding:15px 0px;
