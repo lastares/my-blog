@@ -8,7 +8,9 @@
     <meta name="description" content="{{ $config['WEB_DESCRIPTION'] }}"/>
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
     <meta name="author" content="宋耀锋"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" user-scalable="no"/>
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" user-scalable="yes"/>
     <!--CSS-->
 
 
@@ -22,6 +24,7 @@
     <link rel="stylesheet" href="/home/css/public.css"/>
     <link rel="stylesheet" href="/home/css/animation.css"/>
     <link rel="stylesheet" href="/home/css/page.css"/>
+    <link rel="stylesheet" href="/home/css/loginModal.css"/>
     <link rel="stylesheet" type="text/css" href="/home/css/skin_1.css" title="qingxin"/>
     <link rel="stylesheet" type="text/css" href="/home/css/skin_2.css" title="jianyue"/>
     <link rel="stylesheet" type="text/css" href="/home/css/skin_3.css" title="qingshuang"/>

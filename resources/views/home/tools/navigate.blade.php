@@ -8,15 +8,19 @@
 <script type="text/javascript" src="/home/navigate/js/jquery.min.js"></script>
 <script type="text/javascript" src="/home/navigate/js/common.js"></script>
 <style>
-    .wrap{width:1200px;min-width:1200px;}
+    @media(max-width:960px)
+    {
+        /* 网页全屏显示 */
+        body {width:100%;}
+    }
     .time-list li{height:32px;}
     .mysection {
         width: 100% !important;
-        min-height: 780px;
+        min-height: 80%;
         float: left;
     }
     .section {
-        width: 95%;
+        width: 100% !important;
         float: left;
         margin-top: 15px;
         padding:15px 0px;
@@ -24,7 +28,11 @@
     .searchBtn {
         border: none;
         box-shadow:none;
-        margin-right: 10px;
+        margin-right: 1em;
+    }
+    .wrap {
+        width: 100% !important;
+        min-width: 50%
     }
 </style>
 <!--导航结束-->
@@ -40,7 +48,7 @@
             {{--@else--}}
             <span class="orange-text">{{ $title }}</span>
             {{--@endif--}}
-                <span style="float:right;">
+            <span style="float:right;">
                 <form action="/url_search" method="get">
                     <input name="keywords" type="text"  placeholder="请输入关键字" onfocus="this.placeholder=''" onblur="this.placeholder='请输入关键字'" />
                     <button style="cursor: pointer;" type="button" class="searchBtn"><i class="el-search"></i></button>
