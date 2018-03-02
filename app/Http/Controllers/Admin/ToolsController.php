@@ -22,9 +22,8 @@ class ToolsController extends Controller
     public function index(Tools $tools)
     {
         $data = $tools->toolsList();
-        // dd($data->toArray());
         $assign = compact('data');
-        return view('admin.Tools.index', $assign);
+        return view('admin.tools.index', $assign);
     }
 
     /**
