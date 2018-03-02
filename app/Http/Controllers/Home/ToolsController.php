@@ -40,9 +40,4 @@ class ToolsController extends BaseController
         $urls = $tools->search();
         return view('home.tools.search', ['urls' => $urls, 'title' => '网址导航']);
     }
-
-    public function video()
-    {
-        return view('home.tools.video');
-    }
 }

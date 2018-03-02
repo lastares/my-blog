@@ -22,7 +22,6 @@ Route::group(['namespace' => 'Home'], function () {
     Route::get('category/{id}', 'IndexController@category');
     Route::get('toolsCategory/{id}/catename/{catename}', 'ToolsController@tools_category');
     Route::get('url_search', 'ToolsController@urlSearch');
-    Route::get('video', 'ToolsController@video');
     // 标签
     Route::get('tag/{id}', 'IndexController@tag');
     //友情链接

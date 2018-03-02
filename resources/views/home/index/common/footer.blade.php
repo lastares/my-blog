@@ -188,11 +188,11 @@
 
 <div class="select-skin">
 
-    <div class="skin-btn">
+    {{--<div class="skin-btn">--}}
 
-        <a href="javascript:void(0);" class="skin-btn-open">换<br>肤</a>
+        {{--<a href="javascript:void(0);" class="skin-btn-open">换<br>肤</a>--}}
 
-    </div>
+    {{--</div>--}}
 
 
 
@@ -215,6 +215,37 @@
 </div>
 
 <!---END 底部开始-->
+
+<!--kefu-->
+<div id="floatTools" class="rides-cs" style="height:246px;">
+    <div class="floatL">
+        <a style="display:block" id="aFloatTools_Show" class="btnOpen" title="查看在线客服" style="top:20px" href="javascript:void(0);">展开</a>
+        <a style="display:none" id="aFloatTools_Hide" class="btnCtn" title="关闭在线客服" style="top:20px" href="javascript:void(0);">收缩</a>
+    </div>
+    <div id="divFloatToolsView" class="floatR" style="display: none;height:237px;width: 140px;">
+        <div class="cn">
+            <h3 class="titZx">右侧在线客服</h3>
+            <ul>
+                <li>
+                    <span>客服1</span> <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=862761213&site=qq&menu=yes"><img border="0" src="/home/plugins/kefu/images/online.png" alt="点击这里给我发消息" title="点击这里给我发消息"/></a>
+                </li>
+                <li>
+                    <span>客服2</span> <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=862761213&site=qq&menu=yes"><img border="0" src="/home/plugins/kefu/images/online.png" alt="点击这里给我发消息" title="点击这里给我发消息"/></a>
+                </li>
+                <li>
+                    <span>客服3</span> <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=862761213&site=qq&menu=yes"><img border="0" src="/home/plugins/kefu/images/online.png" alt="点击这里给我发消息" title="点击这里给我发消息"/></a>
+                </li>
+                {{--<li>--}}
+                    {{--<a href="#" target="_blank">腾讯微博</a>--}}
+                    {{--<a href="#" target="_blank">新浪微博</a>--}}
+                    {{--<div class="div_clear"></div>--}}
+                {{--</li>--}}
+                <li style="border:none;">亲，欢迎来访本博客！</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--kefu-->
 
 <div class="hide_box2"></div>
 <div class="shang_box2">
@@ -345,6 +376,17 @@
     <!-- 百度统计结束 -->
 
     $(function(){
+        // 右侧客服
+        $("#aFloatTools_Show").click(function(){
+            $('#divFloatToolsView').animate({width:'show',opacity:'show'},100,function(){$('#divFloatToolsView').show();});
+            $('#aFloatTools_Show').hide();
+            $('#aFloatTools_Hide').show();
+        });
+        $("#aFloatTools_Hide").click(function(){
+            $('#divFloatToolsView').animate({width:'hide', opacity:'hide'},100,function(){$('#divFloatToolsView').hide();});
+            $('#aFloatTools_Show').show();
+            $('#aFloatTools_Hide').hide();
+        });
         // 右下角视频
         @if($url == $host)
         layer.open({
