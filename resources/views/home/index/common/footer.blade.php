@@ -268,6 +268,7 @@
                             <input type="hidden" id="user_action" name="action" value="f7.1483930809431.111114|b2de5928fa17c27cadcda46f7cd0197f|d41d8cd98f00b204e9800998ecf8427e|Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36|0|9|v2.2"><label for="vwriter"></label>
                         </div>
                         <div class="loginWin-form-item loginWin-password-input">
+                            <input type="hidden" id="ismobile" name="ismobile" value="{{ $isMobile }}" />
                             <input type="password" class="input-text" id="vpassword" name="vpassword" placeholder="密码"><label for="vpassword"></label>
                         </div>
                         <div class="loginWin-form-item cf"><label class="fl">
@@ -350,10 +351,11 @@
 <script src="/home/plugins/countdown/jquery.countdown.min.js"></script>
 
 {{--video插件--}}
-@if($url == $host)
+@if($url == $host && $isMobile==false)
 <script type="text/javascript" src="/home/js/ckplayer.js" charset="utf-8"></script>
 @endif
 <script type="text/javascript">
+    var ismobile = $('#ismobile').val();
     // 评论相关路径
     ajaxCommentUrl="{{ url('comment') }}";
 
@@ -388,7 +390,7 @@
             $('#aFloatTools_Hide').hide();
         });
         // 右下角视频
-        @if($url == $host)
+        @if($url == $host && $isMobile == false)
         layer.open({
             type: 1 //Page层类型
             ,area: ['640px', '440px']
@@ -413,7 +415,7 @@
         */
         var video=['http://movie.ks.js.cn/flv/other/1_0.mp4->video/mp4'];
         var support=['iPad','iPhone','ios','android+false','msie10+false','webKit'];
-        CKobject.embedHTML5('video','ckplayer_a1',600,400,video,flashvars,support);
+        CKobject.embedHTML5('video','ckplayer_a1','100%','100%',video,flashvars,support);
 
         @endif
 

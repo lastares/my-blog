@@ -99,8 +99,11 @@ class AppServiceProvider extends ServiceProvider
                     $articleLikeCount += $v->like ;
                     $articleClickCount += $v->click;
             }
+
+            // 是否是手机端访问
+            $isMobile = ismobile();
             // 分配数据
-            $assign = compact('latestTime', 'category', 'tag', 'topArticle', 'newComment', 'friendshipLink', 'gitProject', 'notices', 'url', 'host', 'banners', 'articleCreateCount', 'articleTransferCount', 'articleLikeCount', 'articleClickCount');
+            $assign = compact('isMobile', 'latestTime', 'category', 'tag', 'topArticle', 'newComment', 'friendshipLink', 'gitProject', 'notices', 'url', 'host', 'banners', 'articleCreateCount', 'articleTransferCount', 'articleLikeCount', 'articleClickCount');
             $view->with($assign);
         });
 
