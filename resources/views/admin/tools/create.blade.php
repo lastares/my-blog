@@ -35,19 +35,7 @@
         {{ csrf_field() }}
         <table class="table table-striped table-bordered table-hover">
             <tr>
-                <th>导航栏目</th>
-                <td>
-                    <select name="category_id" id="category_id">
-                        @foreach($category as $k => $v)
-                            @if($v->id >= 7)
-                            <option value="{{ $v->id }}">{{ $v->name }}</option>
-                            @endif
-                        @endforeach
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <th>工具分类</th>
+                <th>网站分类</th>
                 <td>
                     <select name="tools_category_id" id="tools_category_id">
                         @foreach($toolsCategories as $k => $toolsCategory)

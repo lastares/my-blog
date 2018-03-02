@@ -31,7 +31,7 @@ class ToolsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(ToolsCategory $toolsCategory)
+    public function create(UrlCategory $toolsCategory)
     {
         $category = Category::all();
         $toolsCategories = $toolsCategory->getTree();
