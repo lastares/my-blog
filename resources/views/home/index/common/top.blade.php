@@ -8,7 +8,9 @@
     <meta name="description" content="{{ $config['WEB_DESCRIPTION'] }}"/>
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
     <meta name="author" content="宋耀锋"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" user-scalable="no"/>
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" user-scalable="yes"/>
     <!--CSS-->
 
 
