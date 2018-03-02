@@ -12,7 +12,7 @@
     .time-list li{height:32px;}
     .mysection {
         width: 100% !important;
-        min-height: 780px;
+        min-height: 80%;
         float: left;
     }
     .section {
@@ -24,7 +24,11 @@
     .searchBtn {
         border: none;
         box-shadow:none;
-        margin-right: 10px;
+        margin-right: 1em;
+    }
+    .wrap {
+        width: 100% !important;
+        min-width: 50%
     }
 </style>
 <!--导航结束-->
