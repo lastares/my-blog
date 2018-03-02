@@ -217,7 +217,7 @@
 <!---END 底部开始-->
 
 <!--kefu-->
-<div id="floatTools" class="rides-cs" style="height:246px;">
+<div @if($isMobile) style="display: none;" @else style="height:246px;" @endif id="floatTools" class="rides-cs" style="height:246px;">
     <div class="floatL">
         <a style="display:block" id="aFloatTools_Show" class="btnOpen" title="查看在线客服" style="top:20px" href="javascript:void(0);">展开</a>
         <a style="display:none" id="aFloatTools_Hide" class="btnCtn" title="关闭在线客服" style="top:20px" href="javascript:void(0);">收缩</a>
