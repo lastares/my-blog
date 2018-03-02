@@ -318,6 +318,10 @@
 {{--计时插件--}}
 <script src="/home/plugins/countdown/jquery.countdown.min.js"></script>
 
+{{--video插件--}}
+@if($url == $host)
+<script type="text/javascript" src="/home/js/ckplayer.js" charset="utf-8"></script>
+@endif
 <script type="text/javascript">
     // 评论相关路径
     ajaxCommentUrl="{{ url('comment') }}";
@@ -330,7 +334,7 @@
         $(".shang_box2").fadeToggle();
     }
 
-    <!-- 百度统计 -->
+    <!-- 百度统计开始 -->
     var _hmt = _hmt || [];
     (function() {
         var hm = document.createElement("script");
@@ -338,8 +342,49 @@
         var s = document.getElementsByTagName("script")[0];
         s.parentNode.insertBefore(hm, s);
     })();
+    <!-- 百度统计结束 -->
 
     $(function(){
+        // 右下角视频
+        @if($url == $host)
+        layer.open({
+            type: 1 //Page层类型
+            ,area: ['640px', '440px']
+            ,title: '亲，如果有time就欣赏一下吧'
+            ,maxmin: true //允许全屏最小化
+            ,offset: 'rb'
+            ,anim: 1 //0-6的动画形式，-1不开启
+            ,content: '<div style="margin:0 auto;text-align:center;" id="video"><div id="a1"></div></div>'
+        });
+        var flashvars={
+                f:'http://movie.ks.js.cn/flv/other/1_0.flv',
+                c:0,
+                b:1,
+                p:1
+            };
+        var params={AllowAutoPlay:true,bgcolor:'#FFF',allowFullScreen:true,allowScriptAccess:'always'};
+        CKobject.embedSWF('ckplayer/ckplayer.swf','a1','ckplayer_a1','100%','100%',flashvars,params);
+        /*
+        CKobject.embedSWF(播放器路径,容器id,播放器id/name,播放器宽,播放器高,flashvars的值,其它定义也可省略);
+        下面三行是调用html5播放器用到的
+        */
+        var video=['http://movie.ks.js.cn/flv/other/1_0.mp4->video/mp4'];
+        var support=['iPad','iPhone','ios','android+false','msie10+false','webKit'];
+        CKobject.embedHTML5('video','ckplayer_a1',600,400,video,flashvars,support);
+
+        @endif
+
+        // 网站标题滚动开始
+        var titlename= $(document).attr("title").split("");
+        function gdtitle(){
+            titlename.push(titlename[0]);
+            titlename.shift();
+            document.title = titlename.join("");
+        }
+        setInterval(gdtitle,1000);//设置时间间隔运行
+        // 网站标题滚动结束
+
+
         // 博客运行计时查件
         siteTime();
         var swiper = new Swiper('.swiper-container', {

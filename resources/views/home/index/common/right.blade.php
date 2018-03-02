@@ -247,7 +247,7 @@
     <!--左邻右舍-->
 
     <div class="side-link ">
-        <h4 class="index-title"><i class="el-paper-clip"></i>左邻右舍<small>Friend Links</small><a href="/links"><i class="el el-plus"></i>申请</a></h4>
+        <h4 class="index-title"><i class="el-paper-clip"></i>左邻右舍<small>Friend Links</small><a href="/links" target="_blank"><i class="el el-plus"></i>申请</a></h4>
         <ul>
             @foreach($friendshipLink as $k2 => $v2)
                 <li><a target="_blank" href="{{ $v2->url }}" target="_blank" title="{{ $v2->name }}">{{ $v2->name }}</a></li>
