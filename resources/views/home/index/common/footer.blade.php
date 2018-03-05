@@ -391,7 +391,7 @@
         @if($url == $host && $isMobile == false)
         layer.open({
             type: 1 //Page层类型
-            ,area: ['640px', '440px']
+            ,area: ['640px', '404px']
             ,title: '亲，欢迎来访，(*￣︶￣)'
             ,maxmin: true //允许全屏最小化
             ,offset: 'rb'
