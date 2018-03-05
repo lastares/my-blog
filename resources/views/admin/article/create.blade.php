@@ -59,7 +59,7 @@
             <tr>
                 <th>标签</th>
                 <td>
-                    @foreach($tag as $v)
+                    @foreach($_tag as $v)
                         {{ $v['name'] }}&nbsp;&nbsp;<input class="syf-icheck" type="checkbox" name="tag_ids[]" value="{{ $v['id'] }}" @if(in_array($v['id'], old('tag_ids', []))) checked="checked" @endif> &emsp;
                     @endforeach
                 </td>

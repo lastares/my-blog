@@ -43,9 +43,9 @@ class ArticleController extends Controller
     public function create(Category $category)
     {
         $category = $category->getTree();
-        $tag = Tag::all();
+        $_tag = Tag::all();
         $author = Config::where('name', 'AUTHOR')->value('value');
-        $assign = compact('category', 'tag', 'author');
+        $assign = compact('category', '_tag', 'author');
         return view('admin.article.create', $assign);
     }
 
