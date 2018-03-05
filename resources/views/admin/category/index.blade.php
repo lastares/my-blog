@@ -24,6 +24,7 @@
                 <th>id</th>
                 <th>分类名称</th>
                 <th>父级分类</th>
+                <th>排序值</th>
                 <th>状态</th>
                 <th>操作</th>
             </tr>
@@ -32,6 +33,7 @@
                     <td>{{ $v->id }}</td>
                     <td>{{ str_repeat('-', 8*$v['level']) . $v->category_name }}</td>
                     <td>{{ $v->parent_id }}</td>
+                    <td>@if($v->parent_id == 0) {{ $v->sort_number }} @endif</td>
                     <td>
                         @if(is_null($v->deleted_at))
                             √

@@ -23,9 +23,15 @@
                 </td>
             </tr>
             <tr>
-                <th>分类名</th>
+                <th>分类名称</th>
                 <td>
                     <input class="form-control" type="text" name="category_name" value="{{ $data['category_name'] }}">
+                </td>
+            </tr>
+            <tr>
+                <th>排序值</th>
+                <td>
+                    <input class="form-control" type="text" name="sort_number" placeholder="0" value="{{ $data['sort_number'] }}">
                 </td>
             </tr>
             <tr>

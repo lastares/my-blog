@@ -43,7 +43,7 @@ class Category extends Base
     // 获取树形数据
     public function getTree()
     {
-        $data = $this->select('id', 'category_name', 'parent_id')->get();
+        $data = $this->select('id', 'category_name', 'parent_id', 'sort_number')->orderBy('sort_number', 'asc')->get();
         return $this->_getTree($data);
     }
 
@@ -81,7 +81,7 @@ class Category extends Base
     public function categories()
     {
         $result = [];
-        $data = self::select('id', 'category_name', 'parent_id')->get()->toArray();
+        $data = self::select('id', 'category_name', 'parent_id')->orderBy('sort_number', 'asc')->get()->toArray();
         foreach ($data as $k => $v) {
             if ($v['parent_id'] == 0) {
                 foreach ($data as $k2 => $v2) {

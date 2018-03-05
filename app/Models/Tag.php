@@ -6,6 +6,7 @@ use DB;
 
 class Tag extends Base
 {
+    protected $table = 'tags';
     /**
      * 获取标签下的文章数统计
      *
