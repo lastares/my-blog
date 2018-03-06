@@ -3,7 +3,7 @@
 $local = '/usr/local/nginx/html/blog';
 
 // 安全验证字符串，为空则不验证
-$token = '';
+$token = 'qqq93529512';
 
 
 // 如果启用验证，并且验证失败，返回错误
