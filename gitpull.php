@@ -62,5 +62,5 @@ if (!$payload) {
  * `Host key verification failed.`
  *
  */
-echo shell_exec("cd {$local} && git pull 2>&1");
+echo shell_exec("cd {$local} && git pull origin blog2 2>&1");
 die("done " . date('Y-m-d H:i:s', time()));
