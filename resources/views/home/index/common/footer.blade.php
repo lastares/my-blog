@@ -318,7 +318,7 @@
 
 </html>
 <!--JS-->
-<script type="text/javascript" src="/home/js/jquery.2.1.4.min.js"></script>
+<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 <script>
     $("html").append("<div class='jiazai'><img src='/home/images/loading3.gif'/><span>正在加载中请等待...</span></div>")
 </script>
@@ -339,6 +339,7 @@
 <script>window.location.href='http://cdn.dmeng.net/upgrade-your-browser.html?referrer='+location.href;</script>
 <![endif]-->
 <script type="text/javascript"  src="/home/js/index.js"></script>
+{{--<script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>--}}
 
 <script type="text/javascript" src="/home/js/comment.js"></script>
 
