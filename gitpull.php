@@ -1,6 +1,6 @@
 <?php
 // 本地仓库路径
-$local = '/usr/local/nginx/html/blog';
+$local = 'F:\www\my-blog';
 
 // 安全验证字符串，为空则不验证
 $token = 'qqq93529512';
