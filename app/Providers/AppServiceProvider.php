@@ -104,7 +104,7 @@ class AppServiceProvider extends ServiceProvider
             // 是否是手机端访问
             $isMobile = ismobile();
 
-            $_chats = app('db')->table('chats')->select('id', 'content', 'created_at')->orderBy('id', 'desc')->limit(3)->get();
+            $_chats = app('db')->table('chats')->select('id', 'content', 'created_at')->orderBy('id', 'desc')->limit(5)->get();
             foreach ($_chats as $k => &$v) {
                 $dt = Carbon::parse($v->created_at);
                 $_chats[$k]->month = $dt->month;
