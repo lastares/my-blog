@@ -1,13 +1,22 @@
 @extends('layouts.admin')
 
 @section('title', '修改Banner')
-
+@section('my-css')
+    <style>
+        textarea {
+            padding: 10px;
+            vertical-align: top;
+            width: 100%;
+            resize: none;
+        }
+    </style>
+@endsection
 @section('content')
     <!--我是主要内容 start-->
     <ul class="breadcrumb" style="font-size: 16px;">
         <li><a href="#">首页</a></li>
-        <li><a href="{{ url('admin/banner/index') }}">Banner管理</a></li>
-        <li class="active">修改Banner</li>
+        <li><a href="{{ url('admin/videoVip/index') }}">视频会员管理</a></li>
+        <li class="active">修改视频会员</li>
     </ul>
     <div class="row">
         <div class="col-md-2 col-md-offset-9">
@@ -16,44 +25,35 @@
     </div>
     <form class="form-horizontal">
         {{csrf_field()}}
-        <input type="hidden" name="id" value="{{$banner->id}}" />
         <div class="form-group">
-            <label for="banner_title" class="col-sm-2 control-label">图片标题</label>
+            <label for="video_vip_name" class="col-sm-2 control-label">视频会员种类</label>
             <div class="col-sm-6">
-                <input type="text" value="{{$banner->banner_title}}" name="banner_title" class="form-control" id="banner_title" placeholder="请输入banner标题">
+                <input type="text" value="{{ $videoVip->video_vip_name }}" name="video_vip_name" class="form-control" id="video_vip_name" placeholder="请输入视频种类">
             </div>
         </div>
         <div class="form-group">
-            <label for="banner_title" class="col-sm-2 control-label">所属分类</label>
+            <label for="video_vip_price" class="col-sm-2 control-label">视频会员价格</label>
             <div class="col-sm-6">
-                <select name="type">
-                    <option value="1" @if($banner->type == 1)selected="selected" @endif>留言板</option>
-                    <option value="2" @if($banner->type == 2)selected="selected" @endif>文章分类</option>
-                    <option value="3" @if($banner->type == 3)selected="selected" @endif>左邻右舍</option>
-                    <option value="4" @if($banner->type == 4)selected="selected" @endif>Banner</option>
-                </select>
+                <input type="text" name="video_vip_price" value="{{ $videoVip->video_vip_price }}" class="form-control" id="video_vip_price" placeholder="请输入视频会员价格">
             </div>
         </div>
         <div class="form-group">
-            <label for="banner_path" class="col-sm-2 control-label">banner缩略图</label>
+            <label for="video_vip_description" class="col-sm-2 control-label">视频会员描述</label>
+            <div class="col-sm-6">
+                <textarea placeholder="请输入视频会员描述" name="video_vip_description" id="video_vip_description" cols="80" rows="10">{{ $videoVip->video_vip_description }}</textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="banner_path" class="col-sm-2 control-label">视频会员logo</label>
             <input class="form-conrol col-sm-6 uploadImg" type="file" id="banner_path">
             <div class="col-sm-6" style="margin-top: 10px;">
-                <img src="{{ $banner->banner_path }}" title="banner缩略图" width="200" class="img-rounded img-responsive banner_path"/>
-                <input type="hidden" name="banner_path" id="banner_img" value="{{ $banner->banner_path }}"/>
+                <img src="{{ $videoVip->video_vip_logo }}" title="banner缩略图" width="200" class="img-rounded img-responsive banner_path"/>
+                <input type="hidden" name="video_vip_logo" id="banner_img" value="{{ $videoVip->video_vip_logo }}"/>
             </div>
-        </div>
-        <div class="form-group">
-            <label for="status" class="col-sm-2 control-label">状态</label>
-            <label class="radio-inline">
-                <input type="radio" name="status" value="0" @if($banner->status == 0) checked @endif> 草稿
-            </label>
-            <label class="radio-inline">
-                <input type="radio" name="status" value="1" @if($banner->status == 1) checked @endif> 发布
-            </label>
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <button type="button" class="btn btn-success btn-lg" onclick="submitBtn();"> 保 存</button>
+                <button type="button" class="btn btn-success btn-lg" onclick="submitBtn({{ $videoVip->id }});"> 保 存</button>
                 <button type="button" class="btn btn-warning btn-lg" style="margin-left: 30px;" onclick="window.history.go(-1);"> 返 回</button>
             </div>
         </div>
@@ -62,21 +62,21 @@
 @endsection
 @section('my-js')
     <script>
-        function submitBtn() {
-            var banner_title = $('input[name=banner_title]').val();
-            var banner_path = $('input[name=banner_path]').val();
-            if(banner_title === '') {
+        function submitBtn(id) {
+            var video_vip_name = $('input[name=video_vip_name]').val();
+            var video_vip_logo = $('input[name=video_vip_logo]').val();
+            if(video_vip_name === '') {
                 layer.msg('banner标题不能为空');
                 return;
             }
-            if(banner_path === '') {
+            if(video_vip_logo === '') {
                 layer.msg('banner缩略图不能为空');
                 return;
             }
             var data = $('.form-horizontal').serialize();
             $.ajax({
                 type: "POST",
-                url: "/admin/banner/update",
+                url: "/admin/videoVip/update/" + id,
                 data: data,
                 dataType: 'json',
                 cache: false,
@@ -91,7 +91,7 @@
                                 swal.showLoading();
                             },
                             onClose: () => {
-                                location.href = '/admin/banner/index';
+                                location.href = '/admin/videoVip/index';
                             }
                         })
                     }else{
@@ -115,7 +115,7 @@
                 formData.append("_token", "{{csrf_token()}}");
                 $.ajax({
                     type: "POST",
-                    url: "/admin/banner/upload",
+                    url: "/admin/videoVip/upload?sub-directory=video-vip",
                     data: formData,
                     dataType: 'json',
                     processData: false,

@@ -17,6 +17,7 @@ use App\Models\Notice;
 use App\Models\OauthUser;
 use App\Models\Tag;
 use App\Models\UrlCategory;
+use App\Models\VideoVip;
 use Cache;
 use Captcha;
 use Carbon\Carbon;
@@ -105,7 +106,7 @@ class IndexController extends BaseController
      * @param $id
      * @return mixed
      */
-    public function category(Article $articleModel, $id, Message $message, UrlCategory $category)
+    public function category(Article $articleModel, $id, Message $message, UrlCategory $category, VideoVip $videoVip)
     {
         $map = [
             'articles.category_id' => $id
@@ -130,8 +131,13 @@ class IndexController extends BaseController
                 ];
                 return view('home.index.message', $assign);
                 break;
-            case '下载':
-                return view('home.index.downlist', $dispatch);
+            case '视频会员':
+                $videoVips = $videoVip->vips();
+                $assign = [
+                    'title' => $dispatch['title'],
+                    'videoVips' => $videoVips
+                ];
+                return view('home.index.videoVip', $assign);
                 break;
             case '导航':
                 $twoCategory = $category->categoryUrls();

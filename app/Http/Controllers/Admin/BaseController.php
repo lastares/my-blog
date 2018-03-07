@@ -98,6 +98,18 @@ class BaseController extends Controller
         return response()->json(['code' => 0, 'msg' => '上传成功', 'img_url' => $img_url]);
     }
 
+    public function uploadImg2(\Illuminate\Http\Request $request)
+    {
+        $subDirectory = $request->input('sub-directory');
+        $disk = \Storage::disk('qiniu'); //使用七牛云上传
+        $time = $subDirectory . '/' . date('Ymd');
+        $filename = $disk->put($time, $request->file('file'));//上传
+        if(!$filename) {
+            return response()->json(['code' => 1, 'msg' => '上传失败']);
+        }
+        $img_url = $disk->getDriver()->downloadUrl($filename); //获取下载链接
+        return response()->json(['code' => 0, 'msg' => '上传成功', 'img_url' => $img_url]);
+    }
 
     public function uploadFiles()
     {

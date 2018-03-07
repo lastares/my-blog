@@ -132,6 +132,12 @@
                                     <li><a href="{{ url('admin/gitProject/index') }}">开源项目</a></li>
                                 </ul>
                             </li>
+                            <li>
+                                <a><i class="fa fa-cogs"></i> 视频会员 <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="{{ url('admin/videoVip/index') }}">视频会员列表</a></li>
+                                </ul>
+                            </li>
                         </ul>
                     </div>
                 </div>
