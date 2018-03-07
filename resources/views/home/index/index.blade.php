@@ -60,7 +60,7 @@
                             <ul>
                                 <li><a title="{{ $v->author }}{{ $v->created_at }}发表"><i class="el-time"></i>{{ $v->created_at }}</a></li>
                                 <li><a target="_blank" href="#" title="作者： {{ $v->author }}"><i class="el-user"></i>{{ $v->author }}</a></li>
-                                <li><a href="#"title="已有 0 条评论"><i class="el-comment"></i>0</a></li>
+                                <li><a href="javascript: void(0);" title="已有 {{ $v->commentCount }} 条评论"><i class="el-comment"></i>{{ $v->commentCount }}</a></li>
                                 <li><a title="已有 {{ $v->click }} 次浏览"><i class="el-eye-open"></i>{{ $v->click }}</a></li>
                                 <li><a href="/category/{{ $v->category_id }}" title="查看分类"><i class="el-th-list"></i>{{ $v->category_name }}</a></li>
                             </ul>

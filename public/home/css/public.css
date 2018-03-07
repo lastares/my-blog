@@ -1176,6 +1176,15 @@ header .mynav {
     opacity: 0.8;
 }
 
+.shuobg4 {
+    background: #fd4067;
+    opacity: 0.8;
+}
+.shuobg5 {
+    background: #14c327;
+    opacity: 0.8;
+}
+
 /*tab锟叫伙拷*/
 .mytab {
     margin-top: 30px;

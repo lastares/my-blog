@@ -137,6 +137,7 @@ class Article extends Base
         $articleTagModel = new ArticleTag();
         $tag = $articleTagModel->getTagNameByArticleIds($article_id);
         foreach ($data as $k => $v) {
+            $data[$k]->commentCount = self::getCommentsByArticleId($v->id);
             $data[$k]->tag = isset($tag[$v->id]) ? $tag[$v->id] : [];
             $dt = Carbon::parse($v->created_at);
             $data[$k]->month = $dt->month;
@@ -196,5 +197,10 @@ class Article extends Base
         // 处理标签可能为空的情况
         $data['tag'] = empty($tag) ? [] : current($tag);
         return $data;
+    }
+
+    private static function getCommentsByArticleId(int $article_id)
+    {
+        return app('db')->table('comments')->where('article_id', $article_id)->count();
     }
 }
