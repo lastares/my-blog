@@ -114,19 +114,16 @@
 
     <!--说说-->
     <div class="bg-color animation-div">
-        <h4 class="index-title"><i class="el-headphones"></i>说说<small>Shuo Shuo</small></h4>
+        <h4 class="index-title"><i class="el-headphones"></i>网站更新<small>Internet Update</small></h4>
         <div class="shuo-side">
             <ul>
+                @foreach($_chats as $k => $chat)
                 <li id="Hots">
-                    <span class="shuobg1"><strong>01-27 </strong></span>
-                    <div><a title="PHP 可以获取客户端哪些访问信息" href="/chatdetail/73.html" >PHP 可以获取客户端哪些访问信息</a><b title="点击23">(23)</b></div>
-                </li><li id="Hots">
-                    <span class="shuobg2"><strong>01-25 </strong></span>
-                    <div><a title="You have new mail in /var/spool/mail/root" href="/chatdetail/72.html" >You have new mail in /var/spool/mail/root</a><b title="点击25">(25)</b></div>
-                </li><li id="Hots">
-                    <span class="shuobg3"><strong>01-24 </strong></span>
-                    <div><a title="jQuery实现获取短信邮箱验证码倒计时" href="/chatdetail/71.html" >jQuery实现获取短信邮箱验证码倒计时</a><b title="点击36">(36)</b></div>
-                </li>		</ul>
+                    <span class="shuobg{{ $k + 1 }}"><strong>{{ $chat->month }}-{{ $chat->day }} </strong></span>
+                    <div><a title="{{ $chat->content }}" href="javascript: void(0);" >{{ $chat->content }}</a><b title="{{ $chat->content }}"></b></div>
+                </li>
+                @endforeach
+            </ul>
         </div>
     </div>
     <!--推荐图文-->

@@ -70,10 +70,10 @@ class AppServiceProvider extends ServiceProvider
             });
 
 
-            $gitProject = Cache::remember('common:gitProject', 10080, function () {
+//            $gitProject = Cache::remember('common:gitProject', 10080, function () {
                 // 获取开源项目
-                return GitProject::select('name', 'type')->orderBy('sort')->get();
-            });
+//                return GitProject::select('name', 'type')->orderBy('sort')->get();
+//            });
 
             // 获取banner
             $banners = Cache::remember('common:banners', 10080, function () {
@@ -92,7 +92,6 @@ class AppServiceProvider extends ServiceProvider
             $articleData = app('db')->table('articles')->select('like', 'click')->get();
             $maxTime = app('db')->table('articles')->max('created_at');
             $latestArticle = app('db')->table('articles')->select('id', 'title', 'author',  'created_at')->where('created_at', $maxTime)->first();
-//            $latestTime = date('Y-m-d', strtotime(app('db')->table('articles')->max('created_at')));
             // 喜欢
             $articleLikeCount = 0;
             // 访问量
@@ -104,8 +103,15 @@ class AppServiceProvider extends ServiceProvider
 
             // 是否是手机端访问
             $isMobile = ismobile();
+
+            $_chats = app('db')->table('chats')->select('id', 'content', 'created_at')->orderBy('id', 'desc')->limit(3)->get();
+            foreach ($_chats as $k => &$v) {
+                $dt = Carbon::parse($v->created_at);
+                $_chats[$k]->month = $dt->month;
+                $_chats[$k]->day = $dt->day;
+            }
             // 分配数据
-            $assign = compact('isMobile', 'latestArticle', 'category', 'tag', 'topArticle', 'newComment', 'friendshipLink', 'gitProject', 'notices', 'url', 'host', 'banners', 'articleCreateCount', 'articleTransferCount', 'articleLikeCount', 'articleClickCount');
+            $assign = compact('_chats', 'isMobile', 'latestArticle', 'category', 'tag', 'topArticle', 'newComment', 'friendshipLink', 'notices', 'url', 'host', 'banners', 'articleCreateCount', 'articleTransferCount', 'articleLikeCount', 'articleClickCount');
             $view->with($assign);
         });
 

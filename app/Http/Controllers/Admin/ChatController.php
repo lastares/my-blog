@@ -74,8 +74,7 @@ class ChatController extends Controller
             'id' => $id
         ];
         $chatModel->updateData($map, $data);
-        return redirect()->back();
-
+        return redirect('admin/chat/index');
     }
 
     /**
