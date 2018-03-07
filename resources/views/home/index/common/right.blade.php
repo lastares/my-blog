@@ -200,13 +200,16 @@
             @foreach($newComment as $k => $comment)
             <li>
                 <div class="sd-tx">
-                    <a href="/article/{{ $comment->article_id }}" target="_blank" rel="nofollow" title="{{ $comment->title }}">
+                    <a href="javascript: void(0);" rel="nofollow">
                         <img src="{{ $comment->avatar }}" alt="{{ $comment->name }}" class="img-circle"/>
                     </a>
                 </div>
                 <div class="sd-name">
-                    <span><i class="el-user"></i>{{ $comment->name }}<time >{{ $comment->created_at }}</time></span>
-                    <a class="blue-text" href="javascript:void(0);">{!! $comment->content !!}</a>
+                    <span><i class="el-user"></i>{{ $comment->name }}<time >{{ $comment->created_at }}</time></span><br>
+                    <a target="_blank" href="/article/{{ $comment->article_id }}" class="blue-text" href="">在 {{ $comment->title }} 中评论</a>
+                    <a href="javascript:void(0);">
+                        {!! $comment->content !!}
+                    </a>
                 </div>
             </li>
             @endforeach
