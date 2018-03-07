@@ -64,10 +64,6 @@ class Banner extends Base
 
     public function deleteBanner(int $id)
     {
-//        $banner_path = $this->getImagePathById($id);
-//        if ($banner_path) {
-//            unlinkImage($banner_path);
-//        }
         return $this->where('id', intval($id))->forceDelete();
     }
 

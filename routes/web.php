@@ -21,7 +21,8 @@ Route::group(['namespace' => 'Home'], function () {
     // 网址导航
     Route::get('category/{id}', 'IndexController@category');
     Route::get('toolsCategory/{id}/catename/{catename}', 'ToolsController@tools_category');
-    Route::get('url_search', 'ToolsController@urlSearch');
+    // 视频会员
+    Route::get('videoVips', 'IndexController@vips');
     // 标签
     Route::get('tag/{id}', 'IndexController@tag');
     //友情链接
@@ -187,6 +188,28 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'admi
 
         // 弹窗获取弹窗值回填
         Route::get('getTag', 'TagController@getTag');
+    });
+
+    // 视频会员管理
+    Route::group(['prefix' => 'videoVip'], function () {
+        // 标签列表
+        Route::get('index', 'VideoVipController@index');
+        Route::get('insert', 'VideoVipController@insert');
+        Route::post('upload', 'BaseController@uploadImg2');
+        // 添加标签
+        Route::post('store', 'VideoVipController@create');
+        // 编辑标签
+        Route::get('edit/{id}', 'VideoVipController@edit');
+        Route::post('update/{id}', 'VideoVipController@update');
+        // 删除标签
+        Route::get('destroy/{id}', 'VideoVipController@destroy');
+        // 恢复删除的标签
+        Route::get('restore/{id}', 'VideoVipController@restore');
+        // 彻底删除标签
+        Route::get('forceDelete/{id}', 'VideoVipController@forceDelete');
+
+        // 弹窗获取弹窗值回填
+        Route::get('getTag', 'VideoVipController@getTag');
     });
 
     // 评论管理

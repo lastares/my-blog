@@ -142,7 +142,7 @@
         {{--</div>--}}
         <div class="bottom-nav">
 
-            <span><a href="/admin/index/index">后台</a>&nbsp;&nbsp; </span><span><a href="http://www.miitbeian.gov.cn/state/outPortal/loginPortal.action"> {{ $config['WEB_ICP_NUMBER'] }}</a>
+            <span><a target="_blank" href="/admin/index/index">后台</a>&nbsp;&nbsp; </span><span><a href="http://www.miitbeian.gov.cn/state/outPortal/loginPortal.action"> {{ $config['WEB_ICP_NUMBER'] }}</a>
         <!--CNZZ统计开始-->
         <script type="text/javascript">
             var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1272825053'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s13.cnzz.com/z_stat.php%3Fid%3D1272825053%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));
@@ -318,7 +318,7 @@
 
 </html>
 <!--JS-->
-<script type="text/javascript" src="/home/js/jquery.2.1.4.min.js"></script>
+<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 <script>
     $("html").append("<div class='jiazai'><img src='/home/images/loading3.gif'/><span>正在加载中请等待...</span></div>")
 </script>
@@ -339,6 +339,7 @@
 <script>window.location.href='http://cdn.dmeng.net/upgrade-your-browser.html?referrer='+location.href;</script>
 <![endif]-->
 <script type="text/javascript"  src="/home/js/index.js"></script>
+{{--<script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>--}}
 
 <script type="text/javascript" src="/home/js/comment.js"></script>
 

@@ -90,7 +90,9 @@ class AppServiceProvider extends ServiceProvider
             // 转载
             $articleTransferCount = app('db')->table('articles')->where('type', 2)->count();
             $articleData = app('db')->table('articles')->select('like', 'click')->get();
-            $latestTime = date('Y-m-d', strtotime(app('db')->table('articles')->max('created_at')));
+            $maxTime = app('db')->table('articles')->max('created_at');
+            $latestArticle = app('db')->table('articles')->select('id', 'title', 'author',  'created_at')->where('created_at', $maxTime)->first();
+//            $latestTime = date('Y-m-d', strtotime(app('db')->table('articles')->max('created_at')));
             // 喜欢
             $articleLikeCount = 0;
             // 访问量
@@ -103,7 +105,7 @@ class AppServiceProvider extends ServiceProvider
             // 是否是手机端访问
             $isMobile = ismobile();
             // 分配数据
-            $assign = compact('isMobile', 'latestTime', 'category', 'tag', 'topArticle', 'newComment', 'friendshipLink', 'gitProject', 'notices', 'url', 'host', 'banners', 'articleCreateCount', 'articleTransferCount', 'articleLikeCount', 'articleClickCount');
+            $assign = compact('isMobile', 'latestArticle', 'category', 'tag', 'topArticle', 'newComment', 'friendshipLink', 'gitProject', 'notices', 'url', 'host', 'banners', 'articleCreateCount', 'articleTransferCount', 'articleLikeCount', 'articleClickCount');
             $view->with($assign);
         });
 
