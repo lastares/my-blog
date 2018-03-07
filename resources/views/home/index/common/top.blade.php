@@ -40,6 +40,31 @@
         })();
     </script>
     <!-- 百度统计结束 -->
+    <style>
+        pre {
+            display: block;
+            padding: 9.5px;
+            margin: 0 0 10px;
+            font-size: 13px;
+            line-height: 1.42857143;
+            color: #333;
+            word-break: break-all;
+            word-wrap: break-word;
+            background-color: rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 4px;
+        }
+        code, kbd, pre, samp {
+            font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+        }
+        code, kbd, pre, samp {
+            font-family: monospace,monospace;
+            font-size: 1em;
+        }
+        pre {
+            overflow: auto;
+        }
+    </style>
 </head>
 
 <body class="nobg">
