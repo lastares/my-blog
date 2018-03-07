@@ -28,7 +28,7 @@
                     <strong><span style="font-family:&#39;Microsoft YaHei&#39;;line-height:2;">职业：</span></strong><span style="font-family:&#39;Microsoft YaHei&#39;;line-height:2;">php开发工程师</span>
                 </p>
                 <p>
-                    <span style="white-space:normal;"><b><span style="font-family:&#39;Microsoft YaHei&#39;;line-height:2;">个人简介：</span></b><span></span></span><span style="white-space:normal;"><b><span style="font-family:&#39;Microsoft YaHei&#39;;"></span></b><span style="color:#64451D;font-family:&#39;Microsoft YaHei&#39;;line-height:2;"><span style="color:#333333;line-height:2;">精通PHP技术开发，目前擅长ThinkPHP、Laravel、Lumen等框架的开发，熟练Angular、jQuery、Bootstrap、AJAX、javascript、Html、CSS等前端页面技术，掌握Linux系统基本命令操作。</span></span></span>
+                    <span style="white-space:normal;"><b><span style="font-family:&#39;Microsoft YaHei&#39;;line-height:2;">个人简介：</span></b><span></span></span><span style="white-space:normal;"><b><span style="font-family:&#39;Microsoft YaHei&#39;;"></span></b><span style="color:#64451D;font-family:&#39;Microsoft YaHei&#39;;line-height:2;"><span style="color:#333333;line-height:2;">熟练PHP技术开发，目前擅长ThinkPHP、Laravel、Lumen等框架的开发，熟练Angular、jQuery、Bootstrap、AJAX、javascript、Html、CSS等前端页面技术，掌握Linux系统基本命令操作。</span></span></span>
                 </p>
                 <p>
 	<span style="white-space:normal;font-size:14px;"><span style="color:#64451D;font-family:&#39;Microsoft YaHei&#39;;font-size:16px;"><span style="color:#333333;"><br>
