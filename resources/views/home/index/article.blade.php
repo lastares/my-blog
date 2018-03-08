@@ -13,7 +13,7 @@
                 <ul>
                     <li><a title="{{ $data->author }}发表于{{ $data->created_at }}"><i class="el-time"></i><time>{{ $data->created_at }}</time></a></li>
                     <li><a href="#" title="本文作者：{{ $data->author }}"><i class="el-user"></i>{{ $data->author }}</a></li>
-                    <li><a href="#Comment" title="转到评论"><i class="el-comment"></i>0条</a></li>
+                    <li><a href="#Comment" title="转到评论"><i class="el-comment"></i>{{ $data->commentCount }}条</a></li>
                     <li><a title="已有 {{ $data->click }} 次浏览"><i class="el-eye-open"></i>({{ $data->click }})</a></li>
                 </ul>
             </div>
