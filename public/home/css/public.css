@@ -290,6 +290,37 @@ header .mynav {
     overflow: hidden;
 }
 
+/*news消息*/
+
+.web-xiaoxi-news {
+    margin-top: 25px;
+    width: 67%;
+    float: left;
+    position: relative;
+    font-size: 12px;
+    color: #777;
+}
+
+.web-xiaoxi-news i {
+    position: absolute;
+    left: 0;
+    top: 6px;
+    color: inherit;
+}
+
+.mulitline-news {
+    height: 25px;
+    overflow: hidden;
+    margin-left: 20px;
+}
+
+.mulitline-news li {
+    line-height: 20px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
 #tianqi {
     height: 20px;
     max-width: 270px;

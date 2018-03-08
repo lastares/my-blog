@@ -23,6 +23,7 @@ Route::group(['namespace' => 'Home'], function () {
     Route::get('toolsCategory/{id}/catename/{catename}', 'ToolsController@tools_category');
     // 视频会员
     Route::get('videoVips', 'IndexController@vips');
+    Route::get('news', 'IndexController@news');
     // 标签
     Route::get('tag/{id}', 'IndexController@tag');
     //友情链接

@@ -16,7 +16,9 @@ use Artisan;
 use Cache;
 use Carbon\Carbon;
 use Illuminate\Database\QueryException;
+use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\ServiceProvider;
+use function latestNews;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -69,11 +71,9 @@ class AppServiceProvider extends ServiceProvider
                 return FriendshipLink::linkList();
             });
 
-
-//            $gitProject = Cache::remember('common:gitProject', 10080, function () {
-                // 获取开源项目
-//                return GitProject::select('name', 'type')->orderBy('sort')->get();
-//            });
+            //历史上的今天
+            $newsLinks = latestNews()['links'];
+            $newsTitles = latestNews()['titles'];
 
             // 获取banner
             $banners = Cache::remember('common:banners', 10080, function () {
@@ -111,7 +111,7 @@ class AppServiceProvider extends ServiceProvider
                 $_chats[$k]->day = $dt->day;
             }
             // 分配数据
-            $assign = compact('_chats', 'isMobile', 'latestArticle', 'category', 'tag', 'topArticle', 'newComment', 'friendshipLink', 'notices', 'url', 'host', 'banners', 'articleCreateCount', 'articleTransferCount', 'articleLikeCount', 'articleClickCount');
+            $assign = compact('newsLinks', 'newsTitles','_chats', 'isMobile', 'latestArticle', 'category', 'tag', 'topArticle', 'newComment', 'friendshipLink', 'notices', 'url', 'host', 'banners', 'articleCreateCount', 'articleTransferCount', 'articleLikeCount', 'articleClickCount');
             $view->with($assign);
         });
 
