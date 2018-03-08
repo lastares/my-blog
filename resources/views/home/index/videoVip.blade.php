@@ -35,7 +35,7 @@
                             <div class="links-two-bg links-two-3d">
                                 <a href="javascript: void(0);" onclick="saleVip();" title="{{ $videoVip->video_vip_description }}">
                                     <div>
-                                        <img src="{{ $videoVip->video_vip_logo }}" width="150" height="64" alt="{{ $videoVip->video_vip_description }}" title="{{ $videoVip->video_vip_description }}">
+                                        <img src="{{ $videoVip->video_vip_logo }}" width="150" height="64" title="{{ $videoVip->video_vip_description }}">
                                         <p class="links-p">{{ str_limit($videoVip->video_vip_description, 22) }}</p>
                                     </div>
                                 </a>
