@@ -196,6 +196,7 @@ class Article extends Base
         $tag = $articleTag->getTagNameByArticleIds([$id]);
         // 处理标签可能为空的情况
         $data['tag'] = empty($tag) ? [] : current($tag);
+        $data['commentCount'] = self::getCommentsByArticleId($data->id);
         return $data;
     }
 
