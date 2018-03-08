@@ -43,15 +43,22 @@ class IndexController extends BaseController
 
         $_result = $data->all();
         foreach ($_result as $k => &$v) {
-            if(substr($v['link'], 0, 1) == '/' || empty($v['text'])) {
+            if (substr($v['link'], 0, 1) == '/' || empty($v['text'])) {
                 unset($_result[$k]);
             }
             $v['text'] = trim($v['text']);
         }
         $_result = array_values($_result);
-        foreach($_result as $k1 => $v1) {
-            Redis::set($v1['link'], $v1['text']);
-            if($k1 == 4) { break; }
+        $result = [];
+        foreach ($_result as $k1 => $v1) {
+            $result[$v1['link']] = $v1['text'];
+            if ($k1 == 4) {
+                break;
+            }
+        }
+
+        if (!empty($result)) {
+            Cache::put('news', $result, 1440);
         }
     }
 

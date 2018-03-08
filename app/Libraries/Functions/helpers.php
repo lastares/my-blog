@@ -537,15 +537,4 @@ function ismobile() {
 }
 
 
-if(!function_exists('latestNews')) {
-    function latestNews() {
-        $data['links'] = Redis::command('keys',['*']);
-        $data['titles'] = [];
-        foreach($data['links'] as $k => $v) {
-            $data['titles'][] = Redis::get($v);
-        }
-        return $data;
-    }
-}
-
 
