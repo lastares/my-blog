@@ -129,7 +129,7 @@ class Article extends Base
             ->select('articles.id', 'articles.type', 'articles.title', 'articles.click', 'articles.cover', 'articles.author', 'articles.description', 'articles.category_id', 'articles.created_at', 'c.category_name')
             ->join('categories as c', 'articles.category_id', 'c.id')
             ->orderBy('articles.created_at', 'desc')
-            ->paginate(11);
+            ->paginate(14);
         // 提取文章id组成一个数组
         $dataArray = $data->toArray();
         $article_id = array_column($dataArray['data'], 'id');
