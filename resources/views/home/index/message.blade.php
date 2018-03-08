@@ -20,7 +20,7 @@
                         <div class="comment-line ">
                             <ul>
                                 <li><a title=""><i class="el-user"></i>{{ $message->name }}</a></li>
-                                <li><a title="发表于{{ $message->created_at }}"><i class="el-time"></i>2018-01-27 10:35</a></li>
+                                <li><a title="发表于{{ $message->created_at }}"><i class="el-time"></i>{{ $message->created_at }}</a></li>
                                 <li><a title="{{ $message->name }} 当前位于：{{ $message->location }}"><i class="el-map-marker"></i>{{ $message->location }}</a></li>
                                 <li><a title="{{ $message->name }} 当前IP:{{ $message->ip }}"><i class="el-network"></i>{{ $message->ip }}</a></li>
                             </ul>
