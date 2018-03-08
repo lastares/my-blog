@@ -111,11 +111,11 @@
                 <div id="web-news">
                     {{--<i class="el-speaker-news"></i>--}}
                     <ul class="mulitline-news">
-                        @foreach($newsLinks as $k => $v)
-                        <li>
-                            <a href="{{ $v }}" target="_blank" title="{{ $newsTitles[$k] }}" class="orange-text">{{ $newsTitles[$k] }}</a>
-                        </li>
-                        @endforeach
+                        {{--@foreach($newsLinks as $k => $v)--}}
+                        {{--<li>--}}
+                            {{--<a href="{{ $v }}" target="_blank" title="{{ $newsTitles[$k] }}" class="orange-text">{{ $newsTitles[$k] }}</a>--}}
+                        {{--</li>--}}
+                        {{--@endforeach--}}
                     </ul>
                 </div>
                 {{--@foreach($newsLinks as $k => $v)--}}
