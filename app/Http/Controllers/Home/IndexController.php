@@ -22,9 +22,38 @@ use Cache;
 use Captcha;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redis;
+use QL\QueryList;
 
 class IndexController extends BaseController
 {
+    public static function news()
+    {
+        // 采集某页面所有的超链接和超链接文本内容
+        // 可以先手动获取要采集的页面源码
+        $url = 'https://www.csdn.net';
+        $html = file_get_contents($url);
+        // 然后可以把页面源码或者HTML片段传给QueryList
+        $data = QueryList::html($html)->rules([  //设置采集规则
+            // 采集所有a标签的href属性
+            'link' => ['a', 'href'],
+            // 采集所有a标签的文本内容
+            'text' => ['a', 'text']
+        ])->query()->getData();
+
+        $_result = $data->all();
+        foreach ($_result as $k => &$v) {
+            if(substr($v['link'], 0, 1) == '/' || empty($v['text'])) {
+                unset($_result[$k]);
+            }
+            $v['text'] = trim($v['text']);
+        }
+        $_result = array_values($_result);
+        foreach($_result as $k1 => $v1) {
+            Redis::set($v1['link'], $v1['text']);
+            if($k1 == 4) { break; }
+        }
+    }
 
     /**
      * 首页
@@ -595,7 +624,7 @@ class IndexController extends BaseController
         if (!Captcha::check($request->input('verify'))) {
             return response()->json(['code' => 1, 'msg' => '请输入正确的验证码']);
         }
-        $data = $request->except('_token','verify');
+        $data = $request->except('_token', 'verify');
         $result = $friendshipLink->storeData($data);
         if ($result) {
             // 更新缓存

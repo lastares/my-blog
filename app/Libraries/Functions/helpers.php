@@ -5,6 +5,7 @@ use HyperDown\Parser;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Auth;
+use \Illuminate\Support\Facades\Redis;
 
 if (!function_exists('unlinkImage')) {
     function unlinkImage($imagePath): void
@@ -534,4 +535,17 @@ function ismobile() {
     }
     return false;
 }
+
+
+if(!function_exists('latestNews')) {
+    function latestNews() {
+        $data['links'] = Redis::command('keys',['*']);
+        $data['titles'] = [];
+        foreach($data['links'] as $k => $v) {
+            $data['titles'][] = Redis::get($v);
+        }
+        return $data;
+    }
+}
+
 

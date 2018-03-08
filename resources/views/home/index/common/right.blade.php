@@ -107,7 +107,20 @@
                 </a>
             </li>
 
-            <li><i class="el-calendar"></i>历史上的今天：<a title="1936年2月3日 红军抗日先锋军渡河东征" class="orange-text">红军抗日先锋军渡河东征</a></li>
+            <li><i class="el-calendar"></i>CSDN最新文章：
+                <div id="web-news">
+                    {{--<i class="el-speaker-news"></i>--}}
+                    <ul class="mulitline-news">
+                        @foreach($newsLinks as $k => $v)
+                        <li>
+                            <a href="{{ $v }}" target="_blank" title="{{ $newsTitles[$k] }}" class="orange-text">{{ $newsTitles[$k] }}</a>
+                        </li>
+                        @endforeach
+                    </ul>
+                </div>
+                {{--@foreach($newsLinks as $k => $v)--}}
+                {{--<a href="{{ $v }}" target="_blank" title="{{ $newsTitles[$k] }}" class="orange-text">{{ $newsTitles[$k] }}</a>--}}
+            </li>
 
         </ul>
     </div>

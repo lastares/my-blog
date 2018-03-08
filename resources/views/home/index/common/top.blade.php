@@ -182,7 +182,7 @@
                     @if(!isset($v3['childs']))
                         <li><a href="/category/{{ $v3['id'] }}" >{{ $v3['category_name'] }}</a></li>
                     @else
-                        <li class='mob-drop' >
+                        <li class='mob-drop' data-index="{{ $k3 }}">
                             <a href="javascrip:;">{{ $v3['category_name'] }}<i></i></a>
                             <ul class="mob-dropmenu">
                                 @foreach($v3['childs'] as $k4 => $v5)
