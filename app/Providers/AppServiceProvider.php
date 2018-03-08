@@ -2,13 +2,13 @@
 
 namespace App\Providers;
 
+use App\Http\Controllers\Home\IndexController;
 use App\Models\Article;
 use App\Models\Banner;
 use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Config;
 use App\Models\FriendshipLink;
-use App\Models\GitProject;
 use App\Models\Notice;
 use App\Models\Tag;
 use App\Observers\CacheClearObserver;
@@ -16,9 +16,7 @@ use Artisan;
 use Cache;
 use Carbon\Carbon;
 use Illuminate\Database\QueryException;
-use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\ServiceProvider;
-use function latestNews;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -37,7 +35,7 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('home/*', function ($view) {
             $category = Cache::remember('common:category', 10080, function () {
                 // 获取分类导航
-               $categoryModel = new Category();
+                $categoryModel = new Category();
                 return $categoryModel->categories();
             });
 
@@ -54,7 +52,12 @@ class AppServiceProvider extends ServiceProvider
                     ->limit(5)
                     ->get();
             });
-
+            if (!Cache::has('news')) {
+                IndexController::news();
+                $latestNews = Cache::get('news');
+            } else {
+                $latestNews = Cache::get('news');
+            }
             $notices = Cache::remember('common:notices', 86400, function () {
                 // 获取网站公告
                 return Notice::select('id', 'notice_title', 'notice_content', 'created_at')->orderBy('id', 'desc')->get();
@@ -70,10 +73,6 @@ class AppServiceProvider extends ServiceProvider
                 // 获取友情链接
                 return FriendshipLink::linkList();
             });
-
-            //历史上的今天
-            $newsLinks = latestNews()['links'];
-            $newsTitles = latestNews()['titles'];
 
             // 获取banner
             $banners = Cache::remember('common:banners', 10080, function () {
@@ -91,14 +90,14 @@ class AppServiceProvider extends ServiceProvider
             $articleTransferCount = app('db')->table('articles')->where('type', 2)->count();
             $articleData = app('db')->table('articles')->select('like', 'click')->get();
             $maxTime = app('db')->table('articles')->max('created_at');
-            $latestArticle = app('db')->table('articles')->select('id', 'title', 'author',  'created_at')->where('created_at', $maxTime)->first();
+            $latestArticle = app('db')->table('articles')->select('id', 'title', 'author', 'created_at')->where('created_at', $maxTime)->first();
             // 喜欢
             $articleLikeCount = 0;
             // 访问量
             $articleClickCount = 0;
-            foreach($articleData as $k => $v) {
-                    $articleLikeCount += $v->like ;
-                    $articleClickCount += $v->click;
+            foreach ($articleData as $k => $v) {
+                $articleLikeCount += $v->like;
+                $articleClickCount += $v->click;
             }
 
             // 是否是手机端访问
@@ -111,7 +110,7 @@ class AppServiceProvider extends ServiceProvider
                 $_chats[$k]->day = $dt->day;
             }
             // 分配数据
-            $assign = compact('newsLinks', 'newsTitles','_chats', 'isMobile', 'latestArticle', 'category', 'tag', 'topArticle', 'newComment', 'friendshipLink', 'notices', 'url', 'host', 'banners', 'articleCreateCount', 'articleTransferCount', 'articleLikeCount', 'articleClickCount');
+            $assign = compact('latestNews', '_chats', 'isMobile', 'latestArticle', 'category', 'tag', 'topArticle', 'newComment', 'friendshipLink', 'notices', 'url', 'host', 'banners', 'articleCreateCount', 'articleTransferCount', 'articleLikeCount', 'articleClickCount');
             $view->with($assign);
         });
 

@@ -109,17 +109,14 @@
 
             <li><i class="el-calendar"></i>CSDN最新文章：
                 <div id="web-news">
-                    {{--<i class="el-speaker-news"></i>--}}
                     <ul class="mulitline-news">
-                        {{--@foreach($newsLinks as $k => $v)--}}
-                        {{--<li>--}}
-                            {{--<a href="{{ $v }}" target="_blank" title="{{ $newsTitles[$k] }}" class="orange-text">{{ $newsTitles[$k] }}</a>--}}
-                        {{--</li>--}}
-                        {{--@endforeach--}}
+                        @foreach($latestNews as $k => $v)
+                        <li>
+                            <a href="{{ $k }}" target="_blank" title="{{ $v }}" class="orange-text">{{ $v }}</a>
+                        </li>
+                        @endforeach
                     </ul>
                 </div>
-                {{--@foreach($newsLinks as $k => $v)--}}
-                {{--<a href="{{ $v }}" target="_blank" title="{{ $newsTitles[$k] }}" class="orange-text">{{ $newsTitles[$k] }}</a>--}}
             </li>
 
         </ul>
