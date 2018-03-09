@@ -50,8 +50,8 @@
             {{--@endif--}}
             <span style="float:right;">
                 <form action="/url_search" method="get">
-                    <input name="keywords" type="text"  placeholder="请输入关键字" onfocus="this.placeholder=''" onblur="this.placeholder='请输入关键字'" />
-                    <button style="cursor: pointer;" type="button" class="searchBtn"><i class="el-search"></i></button>
+                    <input name="wd" type="text"  placeholder="请输入关键字" onfocus="this.placeholder=''" onblur="this.placeholder='请输入关键字'" />
+                    <button style="cursor: pointer;" type="submit" class="searchBtn"><i class="el-search"></i></button>
                 </form>
             </span>
         </h4>
@@ -66,7 +66,6 @@
                                 <a href="/toolsCategory/{{ $vv->id }}/catename/{{ $vv->category_name }}" @if($kk == 0)) class="current" @endif>{{ $vv->category_name }}</a> |
                             @endforeach
                         </span>
-                        {{--<a href="/toolsCategory/{{ $v->id }}" class="more">更多&gt;&gt;</a>--}}
                     </h2>
                     <div class="content">
                         <ul class="time-list clearfix">

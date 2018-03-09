@@ -292,6 +292,4 @@ class Comment extends Base
     {
         return app('db')->table('oauth_users')->where('id', intval($oauth_user_id))->value($column);
     }
-
-
 }

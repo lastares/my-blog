@@ -48,7 +48,7 @@ class Tools extends Base
 
     public function search()
     {
-        $wd = request()->input('keywords');
+        $wd = request()->input('wd');
         $query = $this;
         if($wd) {
             $query = $query->where('tools_name', 'like', '%' . $wd . '%');
