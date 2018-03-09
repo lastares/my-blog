@@ -196,6 +196,12 @@ class IndexController extends BaseController
         return view('home.index.category', $assign);
     }
 
+
+    public function url_search()
+    {
+        return view('home.tools.search');
+    }
+
     /**
      * 获取标签下的文章
      *
@@ -325,6 +331,9 @@ class IndexController extends BaseController
         Cache::forget('common:newComment');
         $_data['id'] = $id;
         $city = getAreaByIp($data['comment_ip']);
+        $subject = '文章评论通知';
+        $data = ['title' => Article::getColumnValue($data['id'], 'title'), 'name' => session('user.name')];
+        dispatch(new SendCommentEmail('862761213@qq.com', '主人', $subject, $data, 'comment-mail'));
         return ajax_return(200, ['id' => $id, 'city' => $city]);
     }
 
@@ -511,7 +520,7 @@ class IndexController extends BaseController
     {
         $email = $request->input('email', '');
         $name = session('user.name');
-        $subject = '宋耀锋博客用户认证';
+        $subject = env('MAIL_SUBJECT');
         $data = [
             'code' => randomCode(),
         ];

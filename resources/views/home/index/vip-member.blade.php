@@ -272,43 +272,43 @@ value="{{ session('user')['id'] }}" @else value="" @endif placeholder="个人编
 </script>
 
 <script type="text/javascript">
-    function viporder(obj){
-        var id=obj.id;
-        if(id=='exscore'){
-            if($("#exscore").val()==""){
-                layer.msg('请输入你要兑换的积分', {icon: 2});
-                return false;
-            }
-            var exscore=$("#exscore").val();
-            $.ajax({
-                type:"POST",
-                url:"http://www.100txy.com/Home/Index/ajax_exscore",
-                data:"exscore="+exscore,
-                dataType:"json",
-
-                success:function(data){
-                    if(data.status=='no'){
-                        layer.msg(data.msg, {icon: 2});
-                        return false;
-                    }else{
-                        var score=data.score;
-                        var gold=data.gold;
-                        $("#gold").val("");
-                        $("#gold").val(gold);
-                        $("#score").val("");
-                        $("#score").val(score);
-                        //  layer.msg('恭喜提交成功！待管理员审核通过后显示!', {icon: 1});
-                        layer.msg('恭喜您，积分兑换成功！', {icon: 1});
-                        return false;
-                    }
-                },
-                error:function(jqXHR){
-                    layer.msg('发送错误：'+jqXHR.status, {icon: 2});
-                },
-            });
-        }
-
-    }
+    // function viporder(obj){
+    //     var id=obj.id;
+    //     if(id=='exscore'){
+    //         if($("#exscore").val()==""){
+    //             layer.msg('请输入你要兑换的积分', {icon: 2});
+    //             return false;
+    //         }
+    //         var exscore=$("#exscore").val();
+    //         $.ajax({
+    //             type:"POST",
+    //             url:"",
+    //             data:"exscore="+exscore,
+    //             dataType:"json",
+    //
+    //             success:function(data){
+    //                 if(data.status=='no'){
+    //                     layer.msg(data.msg, {icon: 2});
+    //                     return false;
+    //                 }else{
+    //                     var score=data.score;
+    //                     var gold=data.gold;
+    //                     $("#gold").val("");
+    //                     $("#gold").val(gold);
+    //                     $("#score").val("");
+    //                     $("#score").val(score);
+    //                     //  layer.msg('恭喜提交成功！待管理员审核通过后显示!', {icon: 1});
+    //                     layer.msg('恭喜您，积分兑换成功！', {icon: 1});
+    //                     return false;
+    //                 }
+    //             },
+    //             error:function(jqXHR){
+    //                 layer.msg('发送错误：'+jqXHR.status, {icon: 2});
+    //             },
+    //         });
+    //     }
+    //
+    // }
 
 </script>
 </body>

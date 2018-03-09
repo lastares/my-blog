@@ -204,4 +204,9 @@ class Article extends Base
     {
         return app('db')->table('comments')->where('article_id', $article_id)->count();
     }
+
+    public static function getColumnValue(int $id, string $column)
+    {
+        return self::where('id', intval($id))->value($column);
+    }
 }

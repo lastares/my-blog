@@ -21,6 +21,7 @@ Route::group(['namespace' => 'Home'], function () {
     // 网址导航
     Route::get('category/{id}', 'IndexController@category');
     Route::get('toolsCategory/{id}/catename/{catename}', 'ToolsController@tools_category');
+    Route::get('url_search', 'ToolsController@urlSearch');
     // 视频会员
     Route::get('videoVips', 'IndexController@vips');
     Route::get('news', 'IndexController@news');
