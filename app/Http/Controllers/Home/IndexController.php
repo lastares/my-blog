@@ -331,9 +331,9 @@ class IndexController extends BaseController
         Cache::forget('common:newComment');
         $_data['id'] = $id;
         $city = getAreaByIp($data['comment_ip']);
-        $subject = '文章评论通知';
-        $data = ['title' => Article::getColumnValue($data['id'], 'title'), 'name' => session('user.name')];
-        dispatch(new SendCommentEmail('862761213@qq.com', '主人', $subject, $data, 'comment-mail'));
+//        $subject = '文章评论通知';
+//        $data = ['title' => Article::getColumnValue($data['id'], 'title'), 'name' => session('user.name')];
+//        dispatch(new SendCommentEmail('862761213@qq.com', '主人', $subject, $data, 'comment-mail'));
         return ajax_return(200, ['id' => $id, 'city' => $city]);
     }
 
