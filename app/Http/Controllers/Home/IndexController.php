@@ -468,6 +468,9 @@ class IndexController extends BaseController
         $id = $message->messageInsert($data);
         if ($id) {
             $_data = $message->getMessageById($id);
+            $subject = '博客评论通知';
+            $data = ['name' => session('user.name')];
+            dispatch(new SendCommentEmail('862761213@qq.com', '主人', $subject, $data, 'message-mail'));
             return $this->success('留言成功', $_data);
         }
 
