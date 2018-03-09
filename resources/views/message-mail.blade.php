@@ -41,7 +41,7 @@
         <p>您好!</p>
         <p><strong>{{ $name }}</strong>用户 于 {{ date('Y-m-d H:i:s', time()) }} </p>
         <p>给您留言了</p>
-        <p>有时间就去看看吧，记得去看看呦！！</p>
+        <p>有时间记得去看看呦！！</p>
         <p>特此通知，希望主人您生活快乐，工作愉快，老婆越来越漂亮！</p>
         <div id="logo">
             <img src="http://www.songyaofeng.com/home/images/icon/logo.png" alt="宋耀锋博客" title="宋耀锋博客">
