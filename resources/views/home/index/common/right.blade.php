@@ -70,9 +70,7 @@
                 {{--<li><strong>108</strong><span>文章数量</span></li>--}}
                 {{--<li><strong>106</strong><span>今日访客</span></li>--}}
             </ul>
-
         </div>
-
     </div>
     <!--右侧个人统计结束-->
 
@@ -124,7 +122,7 @@
 
     <!--说说-->
     <div class="bg-color animation-div">
-        <h4 class="index-title"><i class="el-headphones"></i>网站更新<small>Internet Update</small></h4>
+        <h4 class="index-title"><i class="el-headphones"></i>网站更新<small>WebSite Update</small></h4>
         <div class="shuo-side">
             <ul>
                 @foreach($_chats as $k => $chat)
