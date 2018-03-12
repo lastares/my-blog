@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="/admin/plugins/editormd/css/editormd.min.css">
     <link rel="stylesheet" href="/admin/plugins/iCheck-1.0.2/skins/all.css">
     <link rel="stylesheet" href="/admin/plugins/switchery/dist/switchery.min.css">
+    <link rel="stylesheet" href="/admin/plugins/select2/select2.min.css">
 @endsection
 
 @section('content')
@@ -51,18 +52,24 @@
                     <input class="form-control" type="text" name="author" value="{{ $article->author }}">
                 </td>
             </tr>
-            <tr>
-                <th>关键词</th>
-                <td>
-                    <input class="form-control" type="text" name="keywords" value="{{ $article->keywords }}">
-                </td>
-            </tr>
+            {{--<tr>--}}
+                {{--<th>关键词</th>--}}
+                {{--<td>--}}
+                    {{--<input class="form-control" type="text" name="keywords" value="{{ $article->keywords }}">--}}
+                {{--</td>--}}
+            {{--</tr>--}}
             <tr>
                 <th>标签</th>
                 <td>
-                    @foreach($tag as $v)
-                        {{ $v['name'] }}&nbsp;&nbsp;<input class="syf-icheck" type="checkbox" name="tag_ids[]" value="{{ $v['id'] }}" @if(in_array($v['id'], $article->tag_ids)) checked="checked" @endif> &emsp;
-                    @endforeach
+                    {{--@foreach($tag as $v)--}}
+                        {{--{{ $v['name'] }}&nbsp;&nbsp;<input class="syf-icheck" type="checkbox" name="tag_ids[]" value="{{ $v['id'] }}" @if(in_array($v['id'], $article->tag_ids)) checked="checked" @endif> &emsp;--}}
+                    {{--@endforeach--}}
+                    <select class="js-example-basic-multiple form-control" name="tag_ids[]" multiple="multiple">
+                        <option value="">请选择标签</option>
+                        @foreach($tag as $v)
+                            <option @if(in_array($v['id'], $article->tag_ids)) selected="selected" @endif value="{{ $v['id'] }}">{{ $v['name'] }}&nbsp;</option>
+                        @endforeach
+                    </select>
                 </td>
             </tr>
             <tr>
@@ -104,10 +111,14 @@
     <script src="/admin/plugins/editormd/editormd.min.js"></script>
     <script src="/admin/plugins/iCheck-1.0.2/icheck.min.js"></script>
     <script src="/admin/plugins/layer-2.4/layer.js"></script>
+    <script src="/admin/plugins/select2/select2.full.min.js"></script>
     <script>
         var testEditor;
 
         $(function() {
+            $('.js-example-basic-multiple').select2({
+                placeholder: '请选择文章标签'
+            });
             layer.load(layer.open, {shade: 0.3});
             setTimeout(function () {
                 layer.closeAll('loading');
