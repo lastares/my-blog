@@ -335,6 +335,9 @@
 <script type="text/javascript" src="/home/plugins/layer-v3.1.1/layer/layer.js" ></script>
 <script type="text/javascript" src="/home/js/checkform.js" charset="utf-8"></script>
 <script type="text/javascript"  src="/home/js/skin.js"></script>
+
+{{--select2插件--}}
+
 <!--[if lte IE 9]>
 <script>window.location.href='http://cdn.dmeng.net/upgrade-your-browser.html?referrer='+location.href;</script>
 <![endif]-->

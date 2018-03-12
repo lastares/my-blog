@@ -105,6 +105,7 @@
     <script>
         var testEditor;
         $(function() {
+
             layer.load(layer.open, {shade: 0.3});
             setTimeout(function () {
                 layer.closeAll('loading');
