@@ -81,7 +81,7 @@ class Article extends Base
      *
      * @return mixed
      */
-    public function articleList($where = [])
+    public function articleList($where = [], $pageSize = 15)
     {
         $query = $this;
         $where['title'] = request()->input('title', '');
@@ -107,7 +107,7 @@ class Article extends Base
             ->join('categories as c', 'articles.category_id', 'c.id')
             ->orderBy('id', 'desc')
             ->withTrashed()
-            ->paginate(config(15));
+            ->paginate($pageSize);
         return $articles;
     }
 
@@ -209,4 +209,5 @@ class Article extends Base
     {
         return self::where('id', intval($id))->value($column);
     }
+
 }

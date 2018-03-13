@@ -15,3 +15,4 @@
 
 <!---底部开始-->
 @include('home.index.common.footer')
+@yield('my-js')
