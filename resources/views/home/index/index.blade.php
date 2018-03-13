@@ -1,4 +1,5 @@
 @extends('layouts.home')
+
 @section('content')
     <section class="mysection">
         @if(request()->has('wd'))
@@ -44,7 +45,7 @@
         </div>
         @endif
         <div class="arclist">
-            <h4 class="index-title homeh4"><a href=""><i class="el-certificate"></i>最新文章<small>New Article</small></a></h4>
+            <h4 class="index-title homeh4"><a href=""><i class="el-certificate"></i>最新文章<small>New Article</small></a> </h4>
             <!--列表开始-->
             <ul id="newArticleList">
                 @foreach($article as $k => $v)
