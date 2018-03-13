@@ -81,7 +81,6 @@
                 {{--<a class="next" href="/index/2.html">下一页</a>--}}
                 {{--<a class="end" href="/index/11.html">尾页</a> <span class="rows">共 108 条记录</span>--}}
             </div>
-
             <!--列表结束-->
             {{--<div class="sucailist mob-hidden">--}}
             {{--<h4 class="index-title"><a href=""><i class="el-certificate"></i>最新素材<small>New sucai</small></a></h4>--}}

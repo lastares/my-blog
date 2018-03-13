@@ -157,6 +157,7 @@ class IndexController extends BaseController
             case '关于':
                 return view('home.index.about', $dispatch);
                 break;
+
             case '留言':
                 $messages = $message->messageList();
                 $pageString = $messages->render();
@@ -167,6 +168,11 @@ class IndexController extends BaseController
                 ];
                 return view('home.index.message', $assign);
                 break;
+
+            case '听听音乐':
+                return view('home.index.music', $dispatch);
+                break;
+
             case '视频会员':
                 $videoVips = $videoVip->vips();
                 $assign = [
