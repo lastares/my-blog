@@ -283,7 +283,7 @@
     </ul> -->
 
 </div>
-<div id="spig" class="spig"><div id="message">正在加载中……</div><div id="mumu" class="mumu"></div>
+<div id="spig" class="spig"><div id="message"></div><div id="mumu" class="mumu"></div>
 </div>
 </body>
 
