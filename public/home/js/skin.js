@@ -74,8 +74,6 @@ $(function(){
     H_qqServer={};
     H_qqServer.clickOpenServer = function () {
         $('.skin-btn-open').click(function(){
-            console.log(66666);
-            alert(6666);
             $('.skin-btn').animate({
                 right: '-50'
             },400);
