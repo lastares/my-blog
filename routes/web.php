@@ -24,6 +24,7 @@ Route::group(['namespace' => 'Home'], function () {
     Route::get('url_search', 'ToolsController@urlSearch');
     // 视频会员
     Route::get('videoVips', 'IndexController@vips');
+    // 采集到的csdn最新文章
     Route::get('news', 'IndexController@news');
     // 标签
     Route::get('tag/{id}', 'IndexController@tag');
