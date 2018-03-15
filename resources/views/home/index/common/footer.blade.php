@@ -292,7 +292,7 @@
 {{--<!-- JQuery-mousewheel 3.1.9 -->--}}
 <script src="http://lib.baomitu.com/jquery-mousewheel/3.1.9/jquery.mousewheel.min.js"></script>
 {{--<!-- Scrollbar -->--}}
-<script src="http://static.badapple.top/BadApplePlayer/js/scrollbar.js"></script>
+<script src="/home/js/scrollbar.js"></script>
 {{--<!-- BadApplePlayer -->--}}
 <script src="http://static.badapple.top/BadApplePlayer/Player.js"></script>
 </body>
