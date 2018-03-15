@@ -140,7 +140,8 @@
         <ul>
             @foreach($topArticle as $kk => $vv)
                 <li>
-                    <div class="arcimg img_loading">
+                    <div class="arcimg">
+                    {{--<div class="arcimg img_loading">--}}
                         <a href="{{ url('article', ['id' => $vv->id]) }}" target="_blank">
                             <img src="{{ $vv->cover }}" alt="{{ $vv->title }}" title="{{ $vv->title }}">
                         </a>
