@@ -284,7 +284,18 @@
 </div>
 <div id="spig" class="spig"><div id="message"></div><div id="mumu" class="mumu"></div>
 </div>
-
+<!-- Your XlchPlayerKey -->
+<script>XlchKey="9JqARv6v2Y";</script>
+<!-- font-awesome 4.2.0 -->
+<link href="http://lib.baomitu.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<!-- JQuery 2.2.4 -->
+<script src="http://lib.baomitu.com/jquery/2.2.4/jquery.min.js"></script>
+<!-- JQuery-mousewheel 3.1.9 -->
+<script src="http://lib.baomitu.com/jquery-mousewheel/3.1.9/jquery.mousewheel.min.js"></script>
+<!-- Scrollbar -->
+<script src="http://static.badapple.top/BadApplePlayer/js/scrollbar.js"></script>
+<!-- BadApplePlayer -->
+<script src="http://static.badapple.top/BadApplePlayer/Player.js"></script>
 
 </body>
 
@@ -339,17 +350,7 @@
 <script src="/home/plugins/countdown/jquery.countdown.min.js"></script>
 
 {{--<!-- Your XlchPlayerKey -->--}}
-<script>XlchKey="9JqARv6v2Y";</script>
-{{--<!-- font-awesome 4.2.0 -->--}}
-<link href="http://lib.baomitu.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-{{--<!-- JQuery 2.2.4 -->--}}
-{{--<script src="http://lib.baomitu.com/jquery/2.2.4/jquery.min.js"></script>--}}
-{{--<!-- JQuery-mousewheel 3.1.9 -->--}}
-<script src="http://lib.baomitu.com/jquery-mousewheel/3.1.9/jquery.mousewheel.min.js"></script>
-{{--<!-- Scrollbar -->--}}
-<script src="http://static.badapple.top/BadApplePlayer/js/scrollbar.js"></script>
-{{--<!-- BadApplePlayer -->--}}
-<script src="http://static.badapple.top/BadApplePlayer/Player.js"></script>
+
 
 
 <script type="text/javascript">
