@@ -289,7 +289,7 @@
 <!-- font-awesome 4.2.0 -->
 <link href="http://lib.baomitu.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <!-- JQuery 2.2.4 -->
-<script src="http://lib.baomitu.com/jquery/2.2.4/jquery.min.js"></script>
+{{--<script src="http://lib.baomitu.com/jquery/2.2.4/jquery.min.js"></script>--}}
 <!-- JQuery-mousewheel 3.1.9 -->
 <script src="http://lib.baomitu.com/jquery-mousewheel/3.1.9/jquery.mousewheel.min.js"></script>
 <!-- Scrollbar -->
@@ -301,7 +301,7 @@
 
 </html>
 <!--JS-->
-<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
 <script>
     $("html").append("<div class='jiazai'><img src='/home/images/loading3.gif'/><span>正在加载中请等待...</span></div>")
 </script>
