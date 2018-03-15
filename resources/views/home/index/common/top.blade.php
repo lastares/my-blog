@@ -28,7 +28,7 @@
     <link rel="stylesheet" type="text/css" href="/home/css/skin_2.css" title="jianyue"/>
     <link rel="stylesheet" type="text/css" href="/home/css/skin_3.css" title="qingshuang"/>
     <link rel="stylesheet" href="/home/css/font-icon.css"/>
-
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
     <!-- 百度统计开始 -->
     <script>
         var _hmt = _hmt || [];
