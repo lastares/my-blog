@@ -15,12 +15,12 @@
                 @foreach($article as $k => $v)
                     <li>
                         <!-- <li id="tuijian"id="Hot"> -->
-                        <div class="arcimg img_loading">
+                        <div class="arcimg">
                             <img  src="{{ $v->cover }}" alt="{{ $v->title }}" title="{{ $v->title }}" />
                         </div>
                         <div class="arc-right">
                             <h4 class="blue-text"><a href="/article/{{ $v->id }}" title="{{ $v->title }}">{{ $v->title }}</a></h4>
-                            <p>{{ $v->descrition }}</p>
+                            <p>{{ $v->description }}</p>
                             <ul>
                                 <li><a title="{{ $v->author }} {{ $v->created_at }}发表"><i class="el-time"></i> 2017-07-14</a></li>
                                 <li><a href="#" title="作者： {{ $v->author }}"><i class="el-user"></i>{{ $v->author }}</a></li>
