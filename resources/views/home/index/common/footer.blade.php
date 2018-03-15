@@ -1,4 +1,5 @@
 <footer>
+
     {{--<div class="footer-area">--}}
         {{--<!--博客相关-->--}}
         {{--<div class="about-blog">--}}
@@ -188,15 +189,13 @@
 
 <div class="select-skin">
 
-    <div class="skin-btn">
-
+    <div class="skin-btn" style="right: -7px;">
         <a href="javascript:void(0);" class="skin-btn-open">换<br>肤</a>
-
     </div>
 
 
 
-    <div class="skin-content">
+    <div class="skin-content" style="display: block; right: -250px;">
 
         <h1>选择风格<span class="skin-close">关闭</span></h1>
 
@@ -285,11 +284,23 @@
 </div>
 <div id="spig" class="spig"><div id="message"></div><div id="mumu" class="mumu"></div>
 </div>
+
+<!-- Your XlchPlayerKey -->
+<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<!-- Your XlchPlayerKey -->
+<script>XlchKey="9JqARv6v2Y";</script>
+<!-- font-awesome 4.2.0 -->
+<link href="http://lib.baomitu.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<!-- JQuery-mousewheel 3.1.9 -->
+<script src="http://lib.baomitu.com/jquery-mousewheel/3.1.9/jquery.mousewheel.min.js"></script>
+<!-- Scrollbar -->
+<script src="http://static.badapple.top/BadApplePlayer/js/scrollbar.js"></script>
+<!-- BadApplePlayer -->
+<script src="http://static.badapple.top/BadApplePlayer/Player.js"></script>
 </body>
 
 </html>
 <!--JS-->
-<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 <script>
     $("html").append("<div class='jiazai'><img src='/home/images/loading3.gif'/><span>正在加载中请等待...</span></div>")
 </script>
@@ -336,6 +347,7 @@
 
 {{--计时插件--}}
 <script src="/home/plugins/countdown/jquery.countdown.min.js"></script>
+
 
 
 <script type="text/javascript">

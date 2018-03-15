@@ -28,7 +28,6 @@
     <link rel="stylesheet" type="text/css" href="/home/css/skin_2.css" title="jianyue"/>
     <link rel="stylesheet" type="text/css" href="/home/css/skin_3.css" title="qingshuang"/>
     <link rel="stylesheet" href="/home/css/font-icon.css"/>
-    <link rel="stylesheet" href="/home/plugins/kefu/css/kefu.css"/>
     <!-- 百度统计开始 -->
     <script>
         var _hmt = _hmt || [];
