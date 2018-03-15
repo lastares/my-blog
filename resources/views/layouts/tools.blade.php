@@ -11,7 +11,7 @@
     <link rel="stylesheet" type="text/css" href="/home/css/css.css">
     <link href="" rel="shortcut icon">
     <script type="text/javascript" src="/home/js/jquery.min.js"></script>
-    <script type="text/ecmascript" src="/home/js/common.js"></script>
+    <script type="text/javascript" src="/home/js/common.js"></script>
     <style>
         .wrap{width:1200px;min-width:1200px;}
         .time-list li{height:32px;}
