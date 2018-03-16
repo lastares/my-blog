@@ -152,7 +152,6 @@ class IndexController extends BaseController
         $pageString = $article->links();
         $categoryName = Category::where('id', $id)->value('category_name');
         $dispatch = ['title' => $categoryName];
-
         switch ($categoryName) {
             case '关于':
                 return view('home.index.about', $dispatch);
@@ -180,6 +179,13 @@ class IndexController extends BaseController
                     'videoVips' => $videoVips
                 ];
                 return view('home.index.videoVip', $assign);
+                break;
+
+            case '视频解析':
+                $assign = [
+                    'title' => '视频解析',
+                ];
+                return view('home.index.parseVip', $assign);
                 break;
             case '导航':
                 $twoCategory = $category->categoryUrls();

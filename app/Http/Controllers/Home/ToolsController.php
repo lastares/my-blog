@@ -41,4 +41,9 @@ class ToolsController extends BaseController
         return view('home.tools.search', ['urls' => $urls, 'title' => '网址导航']);
     }
 
+    public function parseVipContainer()
+    {
+        return view('home.tools.parse-vip-container');
+    }
+
 }
