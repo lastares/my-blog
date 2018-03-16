@@ -122,7 +122,7 @@
 
     .btn-block {
         display: block;
-        width: 100%;
+        width: 49%;
     }
     .btn-lg {
         padding: 10px 16px;
@@ -173,6 +173,7 @@
     }
 
 
+
 </style>
 <!--导航结束-->
 
@@ -186,7 +187,7 @@
         </h4>
         <div class="article-content bg-color">
             <div class="col-md-12 center-block" style="float: none;">
-                <div class="col-md-14 column" style="margin-bottom: 15px;">
+                <div class="col-md-12 column" style="margin-bottom: 15px;">
                     <form method="get" id="1233911832">
                         <div class="input-group" style="width: 100%;">
                             <span class="input-group-addon input-lg" style="width: 80px; ">选择接口</span>
@@ -234,13 +235,14 @@
                         <br>
                         <div>
                             <button id="bf" type="button" class="btn btn-success btn-lg btn-block" onclick="dihejk()">播放</button>
+                            <button id="dp" type="button" class="btn btn-success btn-lg btn-block" onclick="extendScreen()">大屏</button>
                         </div>
                     </form>
                 </div>
                 <div>
                     <div class="panel panel-default">
                         <div id="kj" class="panel-body">
-                            <iframe src="{{ url('parse-vip-container') }}" id="player" width="100%" height="750" allowtransparency="true" frameborder="0" scrolling="no"></iframe>
+                            <iframe src="{{ url('parse-vip-container') }}" id="player" width="100%" height="700" allowtransparency="true" frameborder="0" scrolling="no"></iframe>
                         </div>
                     </div>
                 </div>
@@ -266,4 +268,33 @@
         while(c--)
             if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);
         return p
-    }('b a(){0 6=1.2("9").4;0 5=1.2("3");0 3=1.2("3").c;0 8=5.e[3].4;0 7=1.2("f");7.d=8+6}',16,16,'var|document|getElementById|jk|value|jkurl|diz|cljurl|jkv|url|dihejk|function|selectedIndex|src|options|player'.split('|'),0,{}))</script>
+    }('b a(){0 6=1.2("9").4;0 5=1.2("3");0 3=1.2("3").c;0 8=5.e[3].4;0 7=1.2("f");7.d=8+6}',16,16,'var|document|getElementById|jk|value|jkurl|diz|cljurl|jkv|url|dihejk|function|selectedIndex|src|options|player'.split('|'),0,{}))
+    function extendScreen()
+    {
+        $url = $('input[type=search]').val();
+        if($url === '') {
+            layer.msg('请输入播放地址,解析后在进入大屏播放', {time: 3000});
+            return ;
+        }
+        let dpText = $('#dp').text();
+        if(dpText === '大屏') {
+            $('.myheader').css('display', 'none');
+            $('.foot-nav').css('display', 'none');
+            $('.input-group').css('display', 'none');
+            $('.index-title').css('display', 'none');
+            $('div[class=container]').removeClass().addClass('extendsScreen');
+            $('#player').css('height', '900px');
+            $('#dp').text('返回正常小屏幕');
+        } else {
+            $('.myheader').css('display', 'block');
+            $('.foot-nav').css('display', 'block');
+            $('.input-group').css('display', '');
+            $('.index-title').css('display', 'block');
+            $('div[class=extendsScreen]').removeClass('extendsScreen').addClass('container');
+            $('#player').css('height', '700px');
+            $('#dp').text('大屏');
+        }
+
+    }
+
+</script>
