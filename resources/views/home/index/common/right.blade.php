@@ -127,7 +127,7 @@
             <ul>
                 @foreach($_chats as $k => $chat)
                 <li id="Hots">
-                    <span class="shuobg{{ $k + 1 }}"><strong>{{ $chat->month }}-{{ $chat->day }} </strong></span>
+                    <span class="shuobg{{ $k + 1 }}"><strong>{{ $chat->month }}月-{{ $chat->day }}日 </strong></span>
                     <div><a title="{{ $chat->content }}" href="javascript: void(0);" >{{ $chat->content }}</a><b title="{{ $chat->content }}"></b></div>
                 </li>
                 @endforeach

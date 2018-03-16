@@ -144,11 +144,11 @@
         <div class="bottom-nav">
 
             <span><a target="_blank" href="/admin/index/index">后台</a>&nbsp;&nbsp; </span><span><a href="http://www.miitbeian.gov.cn/state/outPortal/loginPortal.action"> {{ $config['WEB_ICP_NUMBER'] }}</a>
-        <!--CNZZ统计开始-->
-        <script type="text/javascript">
-            var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1272825053'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s13.cnzz.com/z_stat.php%3Fid%3D1272825053%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));
-        </script>
-        <!--CNZZ统计结束-->
+        {{--<!--CNZZ统计开始-->--}}
+        {{--<script type="text/javascript">--}}
+            {{--var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1272825053'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s13.cnzz.com/z_stat.php%3Fid%3D1272825053%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));--}}
+        {{--</script>--}}
+        {{--<!--CNZZ统计结束-->--}}
             </span>
         </div>
     </div>
@@ -348,8 +348,7 @@
 {{--计时插件--}}
 <script src="/home/plugins/countdown/jquery.countdown.min.js"></script>
 
-{{--<!-- Your XlchPlayerKey -->--}}
-
+{{--瀑布流加载--}}
 
 
 <script type="text/javascript">
@@ -375,6 +374,7 @@
     <!-- 百度统计结束 -->
 
     $(function(){
+
         var isindex = true;
         var visitor = true;
         // 网站标题滚动开始

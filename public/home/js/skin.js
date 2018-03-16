@@ -94,7 +94,6 @@ $(function(){
         });
     };
     H_qqServer.run= function () {
-        console.log(66666);
         this.clickOpenServer();
     };
     H_qqServer.run();
