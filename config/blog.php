@@ -20,6 +20,6 @@ return [
     'pageSize' => 6,
 
     // 水印文字
-    'text_water' => 'http://www.songyaofeng.com',
+    'text_water' => 'https://www.songyaofeng.com',
 
 ];

@@ -80,7 +80,7 @@
                 <p>
                     <span style="font-size:14px;font-family:'Microsoft YaHei';">频率：每月至少更新原创文章1篇；</span><br />
                     <span style="font-size:14px;font-family:'Microsoft YaHei';"> 名称：宋耀锋博客</span><br />
-                    <span style="font-size:14px;font-family:'Microsoft YaHei';"> 地址：</span><a href="http://www.songyaofeng.com" target="_blank"><span style="font-size:14px;font-family:'Microsoft YaHei';">http://www.songyaofeng.com</span></a><br />
+                    <span style="font-size:14px;font-family:'Microsoft YaHei';"> 地址：</span><a href="https://www.songyaofeng.com" target="_blank"><span style="font-size:14px;font-family:'Microsoft YaHei';">http://www.songyaofeng.com</span></a><br />
                     <span style="font-size:14px;font-family:'Microsoft YaHei';"> 介绍：原创性独立个人博客，个人网zhan。</span>
                 </p>
             </div>

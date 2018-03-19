@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://www.songyaofeng.com'),
+    'url' => env('APP_URL', 'https://www.songyaofeng.com'),
 
     /*
     |--------------------------------------------------------------------------
