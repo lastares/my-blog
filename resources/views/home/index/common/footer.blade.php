@@ -334,8 +334,8 @@
 </script>
 @endif
 <!--[if lte IE 9]>
-<script>window.location.href='http://cdn.dmeng.net/upgrade-your-browser.html?referrer='+location.href;</script>
-<![endif]-->
+<!--<script>window.location.href='http://cdn.dmeng.net/upgrade-your-browser.html?referrer='+location.href;</script>-->
+{{--<![endif]-->--}}
 <script type="text/javascript"  src="/home/js/index.js"></script>
 {{--<script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>--}}
 
