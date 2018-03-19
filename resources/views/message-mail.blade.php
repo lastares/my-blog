@@ -44,7 +44,7 @@
         <p>有时间记得去看看呦！！</p>
         <p>特此通知，希望主人您生活快乐，工作愉快，老婆越来越漂亮！</p>
         <div id="logo">
-            <img src="http://www.songyaofeng.com/home/images/icon/logo.png" alt="宋耀锋博客" title="宋耀锋博客">
+            <img src="https://www.songyaofeng.com/home/images/icon/logo.png" alt="宋耀锋博客" title="宋耀锋博客">
         </div>
     </div>
 </body>

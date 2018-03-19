@@ -27,18 +27,20 @@
 
             <div><a class="benbo" href="JavaScript:void(0);" rel="nofollow" onclick="personMail();"><i class="el el-rss"></i></a><span>个人邮箱</span></div>
             <!-- <div><a class="benbo" href="#" target="_blank"><span id="qq" style="padding-top:45px;">QQ空间</span></a><span>QQ空间</span></div> -->
-            <div><a class="taobao" href="https://github.com/songyaofeng"  rel="nofollow" target="_blank"><i class="el el-github"></i></a><span>github</span></div>
+            <div>
+                <a class="taobao" href="https://github.com/songyaofeng"  rel="nofollow" target="_blank"><i class="el el-github"></i></a><span>github</span>
+            </div>
 
             <div><a class="side-fx"><i class="el-share-alt"></i></a><span>分享本博</span></div>
 
-            <div><a class="mail-btn" href="javascript:;"><i class="el el-picasa"></i></a><span>头条号</span></div>
-
+            {{--<div><a class="mail-btn" href="javascript:;"><i class="el el-picasa"></i></a><span>头条号</span></div>--}}
+            <div><a class="mail-btn" href="https://www.songyaofeng.com/category/69"  rel="nofollow" target="_blank"><i class="el el-video"></i></a><span>VIP视频</span></div>
         </div>
 
-        <div class="mail-dy">
-            <img src="/home/images/icon/weixin.jpg">
-            <i class="el-remove fx-close" style="cursor:pointer;"></i>
-        </div>
+        {{--<div class="mail-dy">--}}
+            {{--<img src="/home/images/icon/weixin.jpg">--}}
+            {{--<i class="el-remove fx-close" style="cursor:pointer;"></i>--}}
+        {{--</div>--}}
         <div class="bd-fx side-bdfx ">
             <i class="el-remove fx-close"></i>
             <ul class="bdsharebuttonbox">
