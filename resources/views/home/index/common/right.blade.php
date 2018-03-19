@@ -34,7 +34,7 @@
             <div><a class="side-fx"><i class="el-share-alt"></i></a><span>分享本博</span></div>
 
             {{--<div><a class="mail-btn" href="javascript:;"><i class="el el-picasa"></i></a><span>头条号</span></div>--}}
-            <div><a class="mail-btn" href="https://www.songyaofeng.com/category/69"  rel="nofollow" target="_blank"><i class="el el-video"></i></a><span>VIP视频</span></div>
+            <div><a class="mail-btn" href="http://www.songyaofeng.com/category/69"  rel="nofollow" target="_blank"><i class="el el-video"></i></a><span>VIP视频</span></div>
         </div>
 
         {{--<div class="mail-dy">--}}
@@ -61,7 +61,7 @@
                 <img class="img-circle" src="/home/images/ava.jpg"/>
             </a>
         </div>
-        <div class="author-name"><span class="blue-text">宋耀锋</span><p>PHPer</p></div>
+        <div class="author-name"><span class="blue-text">宋耀锋</span><p>Hello，world，I'm PHPer</p></div>
         <div class="data-info">
             <ul>
                 <li><strong>{{ $articleCreateCount }}</strong><span>原创</span></li>
