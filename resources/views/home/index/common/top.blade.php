@@ -95,14 +95,14 @@
                 <!-- <li  ><a href="/Home/Index/chat.html" >说说</a></li> -->
                 @foreach($category as $k3 => $v3)
                     @if(!isset($v3['childs']))
-                        <li><a href="/category/{{ $v3['id'] }}" >{{ $v3['category_name'] }}</a></li>
+                        <li><a target="_blank" href="/category/{{ $v3['id'] }}" >{{ $v3['category_name'] }}</a></li>
                     @else
                         <li class='drop'>
                             <a href="JavaScript:;" >{{ $v3['category_name'] }}<i class='el-chevron-down'></i></a>
                             <div class="drop-nav orange-text ">
                                 <ul>
                                     @foreach($v3['childs'] as $k4 => $v5)
-                                        <li><a href="/category/{{ $v5['id'] }}">{{ $v5['category_name'] }}</a></li>
+                                        <li><a target="_blank" href="/category/{{ $v5['id'] }}">{{ $v5['category_name'] }}</a></li>
                                     @endforeach
                                 </ul>
                             </div>
