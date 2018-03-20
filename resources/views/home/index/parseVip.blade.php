@@ -283,7 +283,7 @@
             $('.input-group').css('display', 'none');
             $('.index-title').css('display', 'none');
             $('div[class=container]').removeClass().addClass('extendsScreen');
-            $('#player').css('height', '900px');
+            $('#player').css('height', '870px');
             $('#dp').text('返回正常小屏幕');
         } else {
             $('.myheader').css('display', 'block');
