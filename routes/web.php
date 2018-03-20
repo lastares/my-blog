@@ -26,6 +26,9 @@ Route::group(['namespace' => 'Home'], function () {
     Route::get('videoVips', 'IndexController@vips');
     Route::get('parse-vip', 'IndexController@parseVip');
     Route::get('parse-vip-container', 'ToolsController@parseVipContainer');
+
+    // 网站统计
+    // Route::get('websiteCount', 'PageCountController@pageInfo');
     // 采集到的csdn最新文章
     Route::get('news', 'IndexController@news');
     // 标签

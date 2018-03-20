@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Http\Controllers\Home\IndexController;
+use App\Http\Controllers\Home\PageCountController;
 use App\Models\Article;
 use App\Models\Banner;
 use App\Models\Category;
@@ -38,6 +39,7 @@ class AppServiceProvider extends ServiceProvider
                 $categoryModel = new Category();
                 return $categoryModel->categories();
             });
+            $pageInfoCount = PageCountController::pageInfo();
 
             $tag = Cache::remember('common:tag', 10080, function () {
                 // 获取标签下的文章数统计
@@ -85,20 +87,18 @@ class AppServiceProvider extends ServiceProvider
             $url = str_replace('http://', '', request()->url());
             $host = request()->getHost();
             // 原创
-            $articleCreateCount = app('db')->table('articles')->where('type', 1)->count();
-            // 转载
-            $articleTransferCount = app('db')->table('articles')->where('type', 2)->count();
-            $articleData = app('db')->table('articles')->select('like', 'click')->get();
+            $articleCount = app('db')->table('articles')->count();
+//            $articleData = app('db')->table('articles')->select('like', 'click')->get();
             $maxTime = app('db')->table('articles')->max('created_at');
             $latestArticle = app('db')->table('articles')->select('id', 'title', 'author', 'created_at')->where('created_at', $maxTime)->first();
             // 喜欢
-            $articleLikeCount = 0;
-            // 访问量
-            $articleClickCount = 0;
-            foreach ($articleData as $k => $v) {
-                $articleLikeCount += $v->like;
-                $articleClickCount += $v->click;
-            }
+//            $articleLikeCount = 0;
+//            // 访问量
+//            $articleClickCount = 0;
+//            foreach ($articleData as $k => $v) {
+//                $articleLikeCount += $v->like;
+//                $articleClickCount += $v->click;
+//            }
 
             // 是否是手机端访问
             $isMobile = ismobile();
@@ -110,7 +110,7 @@ class AppServiceProvider extends ServiceProvider
                 $_chats[$k]->day = $dt->day;
             }
             // 分配数据
-            $assign = compact('latestNews', '_chats', 'isMobile', 'latestArticle', 'category', 'tag', 'topArticle', 'newComment', 'friendshipLink', 'notices', 'url', 'host', 'banners', 'articleCreateCount', 'articleTransferCount', 'articleLikeCount', 'articleClickCount');
+            $assign = compact('pageInfoCount', 'latestNews', '_chats', 'isMobile', 'latestArticle', 'category', 'tag', 'topArticle', 'newComment', 'friendshipLink', 'notices', 'url', 'host', 'banners', 'articleCount');
             $view->with($assign);
         });
 

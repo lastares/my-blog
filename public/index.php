@@ -21,7 +21,6 @@ define('LARAVEL_START', microtime(true));
 |
 */
 require __DIR__.'/../vendor/autoload.php';
-
 /*
 |--------------------------------------------------------------------------
 | Turn On The Lights
@@ -57,3 +56,9 @@ $response = $kernel->handle(
 $response->send();
 
 $kernel->terminate($request, $response);
+
+use Illuminate\Http\Request;
+$request = new Request();
+if($request->url() == '27.38.246.246') {
+    exit('网站维护中..........');
+}

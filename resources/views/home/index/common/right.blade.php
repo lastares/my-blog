@@ -64,13 +64,13 @@
         <div class="author-name"><span class="blue-text">宋耀锋</span><p>Hello，world，I'm PHPer</p></div>
         <div class="data-info">
             <ul>
-                <li><strong>{{ $articleCreateCount }}</strong><span>原创</span></li>
-                <li><strong>{{ $articleTransferCount }}</strong><span>转载</span></li>
-                <li><strong>{{ $articleClickCount }}</strong><span>点击量</span></li>
-                {{--<li><strong>1</strong><span>今日会员</span></li>--}}
-                {{--<li><strong>89</strong><span>今日访问ip</span></li>--}}
-                {{--<li><strong>108</strong><span>文章数量</span></li>--}}
-                {{--<li><strong>106</strong><span>今日访客</span></li>--}}
+                {{--<li><strong>{{ $articleCreateCount }}</strong><span>原创</span></li>--}}
+                {{--<li><strong>{{ $articleTransferCount }}</strong><span>转载</span></li>--}}
+                {{--<li><strong>{{ $articleClickCount }}</strong><span>点击量</span></li>--}}
+                {{--<li><strong>{{ $articleClickCount }}</strong><span>点击量</span></li>--}}
+                <li><strong>{{ $articleCount }}</strong><span>文章数量</span></li>
+                <li><strong>{{ $pageInfoCount['seePageInfo']['ip_count'] }}</strong><span>今日访问ip</span></li>
+                <li><strong>{{ $pageInfoCount['seePageInfo']['pv_count'] }}</strong><span>今日访客</span></li>
             </ul>
         </div>
     </div>
