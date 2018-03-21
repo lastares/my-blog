@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>{{ $title }}--宋耀锋博客&nbsp;&nbsp;&nbsp;&nbsp;</title>
+    <title>{{ $title }}--{{ $config['WEB_NAME'] }}&nbsp;&nbsp;&nbsp;&nbsp;</title>
     <meta name="keywords" content="{{ $config['WEB_KEYWORDS'] }}"/>
     <meta name="description" content="{{ $config['WEB_DESCRIPTION'] }}"/>
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
