@@ -58,16 +58,6 @@
 
     </script>
     <script type="text/javascript" src="/home/js/comment.js"></script>
-    <!-- 百度统计 -->
-    <script>
-        var _hmt = _hmt || [];
-        (function() {
-            var hm = document.createElement("script");
-            hm.src = "https://hm.baidu.com/hm.js?136bd7aac0d158dec628add4b8dd4c3a";
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(hm, s);
-        })();
-    </script>
     <!-- 百度统计 end-->
     <link rel="stylesheet" href="/home/css/swiper.css"/>
     <script type="text/javascript" src="/home/js/swiper.min.js"></script>
