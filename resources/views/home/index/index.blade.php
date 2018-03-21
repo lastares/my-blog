@@ -12,7 +12,7 @@
         <div class="swiper-container">
             <ul class="slides swiper-wrapper">
                 @foreach($banners as $k => $banner)
-                <li class="swiper-slide  img_loading">
+                <li class="swiper-slide">
                 {{--<li class="swiper-slide img_loading">--}}
                     <a href="#" title="宋耀锋博客全新改版上线">
                         <img src="{{ $banner->banner_path }}" alt="{{ $banner->banner_title }}" title="{{ $banner->banner_title }}"/>
