@@ -375,6 +375,13 @@
 
     $(function(){
 
+        if(window.console&&window.console.log){
+            console.log('欢迎访问宋耀锋博客！');
+            console.log('如果你看中了宋耀锋博客的某个功能，可以自行检查代码或者直接询问我就可以啦~');
+            console.log("%c联系博主请到留言板：http://www.songyaofeng.com/category/61","color:red");
+            console.log("%c当然也有Email：songyaofeng@aliyun.com ","color:red")
+        }
+
         var isindex = true;
         var visitor = true;
         // 网站标题滚动开始
@@ -458,7 +465,6 @@
     function alertLogin() {
         layer.tips('暂不开放，请选择QQ或微博直接登录', '#weixin', {
             tips: [1, '#6bc30d'],
-            // tips: [1, '#3595CC'],
             time: 4000
         });
     }

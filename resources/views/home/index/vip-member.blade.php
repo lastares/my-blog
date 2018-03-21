@@ -1,163 +1,75 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <title>个人资料</title>
-    <link rel="stylesheet" href="/home/plugins/layui-v2.2.5/layui/css/layui.css">
-    <script type="text/javascript" src="/home/js/jquery.2.1.4.min.js"></script>
-    <script type="text/javascript" src="/home/plugins/layer-v3.1.1/layer/layer.js" ></script>
-    <script src="/home/plugins/layui-v2.2.5/layui/layui.js"></script>
-    <style type="text/css">
-        body{
-            margin:0;
-            padding:0
-        }
-        .mmain{
-            /*border-left: 1px solid #e5e5e5;*/
-            margin-top: 20px;
-        }
-        .mcontent{
-            padding-left:20px;
-        }
-        .mcontent ul{
-            padding:0;
-        }
-        .mcontent ul li{
-            list-style: none;
-        }
-        .sub-title {
-            font-size: 16px;
-            margin-bottom: 3px;
-            color: #8A8A8A;
-        }
-        .mlist{
-            width:100%;
-            /*border:1px solid #3432a9;*/
-            margin-top: 5px;
-            height: 40px;
-        }
-        .mlable{
-            /*border: 1px solid #e6e6e6;*/
-            width: 10%;
-            font-size: 13px;
-            float: left;
-            border: 1px solid #10b7f5;
-            height: 35px;
-            line-height: 35px;
-            text-align: center;
+    <head>
+        <meta charset="utf-8">
+        <title>个人资料</title>
+        <link rel="stylesheet" href="/home/plugins/layui-v2.2.5/layui/css/layui.css">
+        <link rel="stylesheet" href="/home/css/vip-member.css">
+    </head>
+    <body>
+        <div class="mmain">
+            <div class="sub-title">个人资料</div>
+            <div class="mcontent">
+                <ul>
+                    <li>
+                        <div class="mlist">
+                            <lable class="mlable">个人编号</lable>
+                            <div class="mvalue"><input name="id" type="text"  id="id" @if(session('user'))
+        value="{{ session('user')['id'] }}" @else value="" @endif placeholder="个人编号"  disabled /></div>
+                        </div>
+                    </li>
 
-        }
-        .mvalue{
-            float:left;
-            height: 35px;
-            /*border: 1px solid gray;*/
-            margin-left: 1px;
-            width: 35%;
-        }
-        .mvalue input{
-            background: none;
-            line-height: 33px;
-            width: 65%;
-            border: 1px solid #ccc;
-            padding-left: 3px;
-        }
-        .layui-btn {
-            display: inline-block;
-            height: 37px;
-            line-height: 37px;
-            padding: 0 18px;
-            background-color: #1E9FFF;
-            color: #fff;
-            white-space: nowrap;
-            text-align: center;
-            font-size: 14px;
-            border: none;
-            border-radius: 2px;
-            cursor: pointer;
-            opacity: .9;
-            margin-left: 1.5px;
-        }
-        /*弹出层样式*/
-        .update_mail_btn {
-            width: 80px;
-            padding: 7px 0px;
-            background: #5FB878;
-            color: #fff;
-            text-align: center;
-            margin: auto;
-            border-radius: 2px;
-            cursor: pointer;
-        }
-        .get_mail_code_btn {
-            text-align: center;
-            background: #5fb878;
-            padding: 9px 7px;
-            border-radius: 2px;
-            color: #fff;
-            cursor: pointer;
-            border: 0;
-        }
-    </style>
-</head>
-<body>
-<div class="mmain">
-    <div class="sub-title">个人资料</div>
-    <div class="mcontent">
-        <ul>
-            <li>
-                <div class="mlist">
-                    <lable class="mlable">个人编号</lable>
-                    <div class="mvalue"><input name="id" type="text"  id="id" @if(session('user'))
-value="{{ session('user')['id'] }}" @else value="" @endif placeholder="个人编号"  disabled /></div>
-                </div>
-            </li>
+                    <li>
+                        <div class="mlist">
+                            <lable class="mlable">会员等级</lable>
+                            <div class="mvalue"><input name="grade" type="text"  id="grade" @if(session('user'))value="普通访客" @else value="" @endif placeholder="会员等级" disabled/></div>
+                        </div>
+                    </li>
 
-            <li>
-                <div class="mlist">
-                    <lable class="mlable">会员等级</lable>
-                    <div class="mvalue"><input name="grade" type="text"  id="grade" @if(session('user'))value="普通访客" @else value="" @endif placeholder="会员等级" disabled/></div>
-                </div>
-            </li>
+                    <li>
+                        <div class="mlist">
+                            <lable class="mlable">登录次数</lable>
+                            <div class="mvalue"><input name="login_times" type="text" placeholder="登录次数"  id="login_times" @if(session('user')) value="{{ session('user')['id'] }}" @else value=""  @endif disabled/></div>
+                        </div>
+                    </li>
 
-            <li>
-                <div class="mlist">
-                    <lable class="mlable">登录次数</lable>
-                    <div class="mvalue"><input name="login_times" type="text" placeholder="登录次数"  id="login_times" @if(session('user')) value="{{ session('user')['id'] }}" @else value=""  @endif disabled/></div>
-                </div>
-            </li>
+                    <li>
+                        <div class="mlist">
+                            <lable class="mlable">注册来源</lable>
+                            <div class="mvalue"><input placeholder="注册来源" name="type" type="text"  id="type" @if(session('user')) @if(session('user')['type'] == 1) value="QQ" @elseif( session('user')['type'] == 2) value="新浪微博" @elseif(session('user')['type'] == 3) value="Github" @else value="" @endif  @endif disabled/></div>
+                        </div>
+                    </li>
 
-            <li>
-                <div class="mlist">
-                    <lable class="mlable">注册来源</lable>
-                    <div class="mvalue"><input placeholder="注册来源" name="type" type="text"  id="type" @if(session('user')) @if(session('user')['type'] == 1) value="QQ" @elseif( session('user')['type'] == 2) value="新浪微博" @elseif(session('user')['type'] == 3) value="Github" @else value="" @endif  @endif disabled/></div>
-                </div>
-            </li>
+                    <li>
+                        <div class="mlist">
+                            <lable class="mlable">注册时间</lable>
+                            <div class="mvalue"><input placeholder="注册时间" name="create_time" type="text"  id="create_time" @if(session('user')) value="{{session('user')['created_at']}}" @else value="" @endif disabled/></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="mlist">
+                            <lable class="mlable">联系邮箱</lable>
+                            <div class="mvalue"><input name="email" type="text"  id="user_email" @if(session('user')) value="{{ session('user')['email'] }}" @else value="" @endif placeholder="邮箱未认证" onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9\@\.]/g,'')" disabled/><button id="email" onclick="update_user_mail({{ session('user.id') }});" class="layui-btn layui-btn-normal" style="background-color: #13c5f8;">认证</button></div>
+                        </div>
+                    </li>
 
-            <li>
-                <div class="mlist">
-                    <lable class="mlable">注册时间</lable>
-                    <div class="mvalue"><input placeholder="注册时间" name="create_time" type="text"  id="create_time" @if(session('user')) value="{{session('user')['created_at']}}" @else value="" @endif disabled/></div>
-                </div>
-            </li>
-            <li>
-                <div class="mlist">
-                    <lable class="mlable">联系邮箱</lable>
-                    <div class="mvalue"><input name="email" type="text"  id="user_email" @if(session('user')) value="{{ session('user')['email'] }}" @else value="" @endif placeholder="邮箱未认证" onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9\@\.]/g,'')" disabled/><button id="email" onclick="update_user_mail({{ session('user.id') }});" class="layui-btn layui-btn-normal" style="background-color: #13c5f8;">认证</button></div>
-                </div>
-            </li>
-
-            <li>
-                <div class="mlist">
-                    <lable class="mlable">积分兑换</lable>
-                    <div class="mvalue"><input name="exscore" type="text"  id="exscore" value="" maxlength="4" placeholder="请输入你要兑换的积分" onkeyup="value=value.replace(/[^(0-9)\.]/g,'')" /><button id="exscore" onclick="viporder(this)" class="layui-btn layui-btn-normal">兑换</button></div>
-                </div>
-            </li>
+                    <li>
+                        <div class="mlist">
+                            <lable class="mlable">积分兑换</lable>
+                            <div class="mvalue"><input name="exscore" type="text"  id="exscore" value="" maxlength="4" placeholder="请输入你要兑换的积分" onkeyup="value=value.replace(/[^(0-9)\.]/g,'')" /><button id="exscore" onclick="viporder(this)" class="layui-btn layui-btn-normal">兑换</button></div>
+                        </div>
+                    </li>
 
 
 
-        </ul>
-    </div>
-</div>
+                </ul>
+            </div>
+        </div>
+    </body>
+</html>
+<script type="text/javascript" src="/home/js/jquery.2.1.4.min.js"></script>
+<script type="text/javascript" src="/home/plugins/layer-v3.1.1/layer/layer.js" ></script>
+<script src="/home/plugins/layui-v2.2.5/layui/layui.js"></script>
 <script type="text/javascript">
     //修改邮箱
     function update_user_mail(user_id){
@@ -311,5 +223,3 @@ value="{{ session('user')['id'] }}" @else value="" @endif placeholder="个人编
     // }
 
 </script>
-</body>
-</html>

@@ -518,7 +518,15 @@ class IndexController extends BaseController
 
     public function vipIndex()
     {
-        return view('home.index.vip-index');
+        $currentTime = date('Y-m-d H:i:s', time());
+        $currentIp = request()->ip();
+        $location = getCityByIp($currentIp);
+        $assign = [
+            'currentTime' => $currentTime,
+            'currentIp' => $currentIp,
+            'location' => $location['province'] . " " . $location['city']
+        ];
+        return view('home.index.vip-index', $assign);
     }
 
     public function vipMember()

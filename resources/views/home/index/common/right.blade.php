@@ -61,7 +61,7 @@
                 <img class="img-circle" src="/home/images/ava.jpg"/>
             </a>
         </div>
-        <div class="author-name"><span class="blue-text">宋耀锋</span><p>曾梦想仗剑走天涯，后来因为bug太多就没去</p></div>
+        <div class="author-name"><span class="blue-text">蓝笑灵晨</span><p>曾梦想仗剑走天涯，后来因为bug太多就没去</p></div>
         <div class="data-info">
             <ul>
                 {{--<li><strong>{{ $articleCreateCount }}</strong><span>原创</span></li>--}}
