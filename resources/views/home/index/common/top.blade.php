@@ -30,17 +30,7 @@
     <link rel="stylesheet" href="/home/css/font-icon.css"/>
     <link href="https://cdn.bootcss.com/Swiper/3.4.0/css/swiper.min.css" rel="stylesheet">
 
-    <!-- 百度统计开始 -->
-    <script>
-        var _hmt = _hmt || [];
-        (function() {
-            var hm = document.createElement("script");
-            hm.src = "https://hm.baidu.com/hm.js?d8497d0303212ed5b5bcc2ed0344791b";
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(hm, s);
-        })();
-    </script>
-    <!-- 百度统计结束 -->
+
     <style>
         pre {
             display: block;
