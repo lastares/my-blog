@@ -225,7 +225,7 @@
                     </ul>
                 </div>
                 <div class="loginWin-form">
-                    <form class="loginWin-login-form" id="topguideloginform" name="topguideloginform" method="post" action="javascript::void(0);" accept-charset="UTF-8" target="_top">
+                    <form class="loginWin-login-form" id="topguideloginform" name="topguideloginform" method="post" action="javascript:void(0);" accept-charset="UTF-8" target="_top">
                         <div class="loginWin-form-item loginWin-account-input"><input type="text" class="input-text" id="vwriter" name="vwriter" placeholder="用户名/手机/邮箱" autocomplete="off">
                             <input type="hidden" id="user_action" name="action" value="f7.1483930809431.111114|b2de5928fa17c27cadcda46f7cd0197f|d41d8cd98f00b204e9800998ecf8427e|Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36|0|9|v2.2"><label for="vwriter"></label>
                         </div>
@@ -233,11 +233,11 @@
                             <input type="password" class="input-text" id="vpassword" name="vpassword" placeholder="密码"><label for="vpassword"></label>
                         </div>
                         <div class="loginWin-form-item cf"><label class="fl">
-                                <input type="checkbox" class="input-checkbox" id="rmflag" name="rmflag" value="1" checked="checked">下次自动登录</label><a class="loginWin-password-link fr" href="javascript::void(0);" onclick="return alert('暂不开放！');" target="_blank">忘记密码？</a>
+                                <input type="checkbox" class="input-checkbox" id="rmflag" name="rmflag" value="1" checked="checked">下次自动登录</label><a class="loginWin-password-link fr" href="javascript:void(0);" onclick="return alert('暂不开放！');" target="_blank">忘记密码？</a>
                         </div>
                         <div class="loginWin-form-item"><button type="submit" onclick="return alert('暂不开放，请选择第三方！');" class="loginWin-submit-btn">登 录</button>
                         </div>
-                        <div class="cf"><a class="loginWin-register-link fl" href="javascript::void(0);" onclick="return alert('暂不开放，请选择第三方！');" target="_blank">立即注册</a><span class="normal-login-toggle fr">返回登录</span>
+                        <div class="cf"><a class="loginWin-register-link fl" href="javascript:void(0);" onclick="return alert('暂不开放，请选择第三方！');" target="_blank">立即注册</a><span class="normal-login-toggle fr">返回登录</span>
                         </div>
                     </form>
                 </div>
@@ -284,7 +284,7 @@
 </html>
 <!--JS-->
 <!-- JQuery 2.2.4 -->
-<script src="/home/js/jquery.2.2.4.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script>
     $("html").append("<div class='jiazai'><img src='/home/images/loading3.gif'/><span>正在加载中请等待...</span></div>")
 </script>
@@ -298,7 +298,8 @@
 <script type="text/javascript" src="/home/js/album.js"></script>
 <script type="text/javascript" src="/home/js/tooltip.js"></script>
 <script type="text/javascript" src="/home/js/face.js"></script>
-<script type="text/javascript" src="/home/plugins/layer-v3.1.1/layer/layer.js" ></script>
+<script src="https://cdn.bootcss.com/layer/3.1.0/layer.js"></script>
+{{--<script type="text/javascript" src="/home/plugins/layer-v3.1.1/layer/layer.js" ></script>--}}
 <script type="text/javascript" src="/home/js/checkform.js" charset="utf-8"></script>
 <script type="text/javascript"  src="/home/js/skin.js"></script>
 
@@ -325,9 +326,7 @@
 
 <script type="text/javascript" src="/home/js/comment.js"></script>
 
-<!-- 百度统计 end-->
-<link rel="stylesheet" href="/home/css/swiper.css"/>
-<script type="text/javascript" src="/home/js/swiper.min.js"></script>
+<script src="https://cdn.bootcss.com/Swiper/3.4.0/js/swiper.min.js"></script>
 
 {{--计时插件--}}
 <script src="/home/plugins/countdown/jquery.countdown.min.js"></script>
@@ -336,9 +335,9 @@
 <!-- Your XlchPlayerKey -->
 <script>XlchKey="9JqARv6v2Y";</script>
 <!-- font-awesome 4.2.0 -->
-<link href="http://lib.baomitu.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <!-- JQuery-mousewheel 3.1.9 -->
-<script src="http://lib.baomitu.com/jquery-mousewheel/3.1.9/jquery.mousewheel.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery-mousewheel/3.1.9/jquery.mousewheel.min.js"></script>
 <!-- Scrollbar -->
 <script src="/home/js/scrollbar.js"></script>
 <!-- BadApplePlayer -->

@@ -28,6 +28,7 @@
     <link rel="stylesheet" type="text/css" href="/home/css/skin_2.css" title="jianyue"/>
     <link rel="stylesheet" type="text/css" href="/home/css/skin_3.css" title="qingshuang"/>
     <link rel="stylesheet" href="/home/css/font-icon.css"/>
+    <link href="https://cdn.bootcss.com/Swiper/3.4.0/css/swiper.min.css" rel="stylesheet">
 
     <!-- 百度统计开始 -->
     <script>
