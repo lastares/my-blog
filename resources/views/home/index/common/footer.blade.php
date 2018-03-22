@@ -342,8 +342,15 @@
 <script src="/home/js/scrollbar.js"></script>
 <!-- BadApplePlayer -->
 <script src="/home/js/player.js"></script>
-
 <script type="text/javascript">
+    // 百度统计
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?d8497d0303212ed5b5bcc2ed0344791b";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
     // 评论相关路径
     ajaxCommentUrl="{{ url('comment') }}";
 
