@@ -342,6 +342,9 @@
 <script src="/home/js/scrollbar.js"></script>
 <!-- BadApplePlayer -->
 <script src="/home/js/player.js"></script>
+
+{{--瀑布流--}}
+
 <script type="text/javascript">
     // 百度统计
     var _hmt = _hmt || [];
@@ -363,7 +366,6 @@
     }
 
     $(function(){
-
         if(window.console&&window.console.log){
             console.log('欢迎访问宋耀锋博客！');
             console.log('如果你看中了宋耀锋博客的某个功能，可以自行检查代码或者直接询问我就可以啦~');

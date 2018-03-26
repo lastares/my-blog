@@ -183,15 +183,3 @@ function delete_hint(obj){
         $(obj).css('color', '#333');
     }
 }
-// 检查是不是自己评论自己,没用
-function checkouid(pid){
-  $.ajax({
-    type:"POST",
-    url:"http://www.100txy.com/Home/Index/checkouid",
-    data:"pid="+pid,
-    dataType:"json",
-    success:function(data){
-      return data.type;
-    },
-  });
-}

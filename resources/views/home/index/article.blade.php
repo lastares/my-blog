@@ -70,29 +70,6 @@
                 <span><i class="el-arrow-down"></i>下一篇：<a class='blue-text' href="javascript: void(0);" >没有了</a></span>
             @endif
         </div>
-        <!--淘宝橱窗广告-->
-        {{--<div>--}}
-            {{--<script type="text/javascript">--}}
-                {{--document.write('<a style="display:none!important" id="tanx-a-mm_128084981_40056229_151324323"></a>');--}}
-                {{--tanx_s = document.createElement("script");--}}
-                {{--tanx_s.type = "text/javascript";--}}
-                {{--tanx_s.charset = "gbk";--}}
-                {{--tanx_s.id = "tanx-s-mm_128084981_40056229_151324323";--}}
-                {{--tanx_s.async = true;--}}
-                {{--tanx_s.src = "http://p.tanx.com/ex?i=mm_128084981_40056229_151324323";--}}
-                {{--tanx_h = document.getElementsByTagName("head")[0];--}}
-                {{--if(tanx_h)tanx_h.insertBefore(tanx_s,tanx_h.firstChild);--}}
-            {{--</script>--}}
-            {{--<div id="authorad" style="width:20px;height:90px;background-color:#ff4400;float:right;font-size:10px;color:#fff;">--}}
-                {{--<ul style="text-align:center;height:90px;">--}}
-                    {{--<li style="height:22.5px;">博</li>--}}
-                    {{--<li style="height:22.5px;">主</li>--}}
-                    {{--<li style="height:22.5px;">推</li>--}}
-                    {{--<li style="height:22.5px;">荐</li>--}}
-                {{--</ul>--}}
-            {{--</div>--}}
-        {{--</div>--}}
-        <!--淘宝橱窗广告end-->
         <!--随机推荐-->
         {{--<div class="maybe-love">--}}
             {{--<h4 class="index-title"><i class="el-heart"></i>您还可能喜欢</h4>--}}
@@ -176,7 +153,7 @@
             <ul class="b-emote-submit">
                 <li class="b-emote">
                     &nbsp;<i class="el el-reddit" onclick="getTuzki(this)"></i>
-                    <input style="height:30px;width:20%;font-size:12px;margin-top:1px;" class="form-control b-email" type="text" name="email" @if(empty(session('user.email'))) placeholder="亲，邮箱请到会员中心认证" value="" @else value="{{ session('user.email') }}"  @endif disabled>
+                    <input style="height:30px;width:21%;font-size:12px;margin-top:1px;" class="form-control b-email" type="text" name="email" @if(empty(session('user.email'))) placeholder="亲，邮箱请到会员中心认证" value="" @else value="{{ session('user.email') }}"  @endif disabled>
                     <div class="b-tuzki">
 
                     </div>
@@ -192,7 +169,7 @@
         <!-- 新的评论 -->
         <div class="comment-area" id="Comment">
             <h4 class="index-title"><i class="el el-comment-alt"></i> 当前共有<span>{{ count($comment) }}</span> 条评论
-                <a href="Comment/?48-1.html"><i class="el el-th-list"></i>浏览所有评论</a>
+                {{--<a href="Comment/"><i class="el el-th-list"></i>浏览所有评论</a>--}}
             </h4>
             <ul class="b-user-comment">
                 {{--<li class="bg-color">--}}
@@ -266,4 +243,106 @@
 <!--主题框架结束-->
 <!---底部开始-->
 @include('home.index.common.footer')
+<div class="hide_box"></div>
+<div class="shang_box">
+    <a class="shang_close" href="javascript:void(0)" onClick="dashangToggle()" title="关闭"><img src="/home/images/icon/close.jpg" alt="取消" /></a>
+    <img class="shang_logo" src="/home/images/icon/logo.png" alt="宋耀锋" />
+    <div class="shang_tit">
+        <p>感谢您的支持，我会继续努力的!</p>
+    </div>
+    <div class="shang_payimg">
+        <img src="/home/images/icon/alipayimg.jpg" alt="扫码查看" title="扫一扫" />
+    </div>
+
+    <div class="pay_explain">感谢阅读本篇文章</div>
+
+    <div class="shang_payselect">
+        <div class="pay_item checked" data-id="alipay">
+            <span class="radiobox"></span>
+            <span class="pay_logo"><img src="/home/images/icon/alipay.jpg" alt="支付宝" /></span>
+        </div>
+        <div class="pay_item" data-id="weipay">
+            <span class="radiobox"></span>
+            <span class="pay_logo"><img src="/home/images/icon/wechat.jpg" alt="微信" /></span>
+        </div>
+    </div>
+</div>
+<!-- 手机端 -->
+<div class="shang_box_wap">
+
+    <a class="shang_close" href="javascript:void(0)" onClick="dashangToggle()" title="关闭"><img src="/home/images/icon/close.jpg" alt="取消" /></a>
+    <div class="shang_tit">
+
+        <p>感谢您的支持，我会继续努力的!</p>
+
+    </div>
+
+    <div class="shang_payimg">
+
+        <img src="/home/images/icon/alipayimg.jpg" alt="扫码查看" title="扫一扫" />
+
+    </div>
+
+
+    <div class="pay_explain">长按二维码打赏，你说多少就多少</div>
+
+
+    <div class="shang_payselect">
+
+        <div class="pay_item checked" data-id="alipay">
+
+            <span class="radiobox"></span>
+
+            <span class="pay_logo"><img src="/home/images/icon/alipay.jpg" alt="支付宝" /></span>
+
+        </div>
+
+        <div class="pay_item" data-id="weipay">
+
+            <span class="radiobox"></span>
+
+            <span class="pay_logo"><img src="/home/images/icon/wechat.jpg" alt="微信" /></span>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- 手机端end -->
+
+<script>
+    $(function(){
+        $(".pay_item").click(function(){
+            $(this).addClass('checked').siblings('.pay_item').removeClass('checked');
+            var dataid=$(this).attr('data-id');
+            $(".shang_payimg img").attr("src","/home/images/icon/"+dataid+"img.jpg");
+            $("#shang_pay_txt").text(dataid=="alipay"?"支付宝":"微信");
+        });
+    });
+    function dashangToggle(){
+        $(".hide_box").fadeToggle();
+        var is_pc=IsPC();
+        if(is_pc==true){
+            $(".shang_box").fadeToggle();
+        }else{
+            $(".shang_box_wap").fadeToggle();
+        }
+    }
+    // 判断是不是手机端
+    function IsPC() {
+        var userAgentInfo = navigator.userAgent;
+        var Agents = ["Android", "iPhone",
+            "SymbianOS", "Windows Phone",
+            "iPad", "iPod"];
+        var flag = true;
+        for (var v = 0; v < Agents.length; v++) {
+            if (userAgentInfo.indexOf(Agents[v]) > 0) {
+                flag = false;
+                break;
+            }
+        }
+        return flag;
+    }
+
+</script>
 <!---底部结束-->
