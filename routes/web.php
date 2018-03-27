@@ -103,11 +103,11 @@ Route::group(['namespace' => 'Home', 'prefix' => 'home'], function () {
 // auth
 Route::group(['namespace' => 'Auth', 'prefix' => 'auth'], function () {
     // 第三方登录
-    Route::group(['prefix' => 'oauth'], function () {
+    Route::group(['prefix' => 'api'], function () {
 //        // 重定向
         Route::get('redirectToProvider/{service}', 'OAuthController@redirectToProvider');
 //        // 获取用户资料并登录
-        Route::get('api/callback/{service}', 'OAuthController@handleProviderCallback');
+        Route::get('callback/{service}', 'OAuthController@handleProviderCallback');
 //        // 退出登录
         Route::get('logout', 'OAuthController@logout');
     });
