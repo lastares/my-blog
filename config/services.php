@@ -43,7 +43,7 @@ return [
     'qq' => [
         'client_id' => env('QQ_KEY'),
         'client_secret' => env('QQ_SECRET'),
-        'redirect' => env('APP_URL').'/auth/api/callback/qq'
+        'redirect' => env('APP_URL').'/auth/oauth/handleProviderCallback/qq'
     ],
 
     'github' => [
