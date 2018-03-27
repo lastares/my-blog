@@ -107,7 +107,7 @@ Route::group(['namespace' => 'Auth', 'prefix' => 'auth'], function () {
 //        // 重定向
         Route::get('redirectToProvider/{service}', 'OAuthController@redirectToProvider');
 //        // 获取用户资料并登录
-        Route::get('connect/callback/{service}', 'OAuthController@handleProviderCallback');
+        Route::get('api/callback/{service}', 'OAuthController@handleProviderCallback');
 //        // 退出登录
         Route::get('logout', 'OAuthController@logout');
     });
