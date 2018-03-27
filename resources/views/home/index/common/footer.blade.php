@@ -244,7 +244,7 @@
                 <div class="loginWin-third"><p class="loginWin-third-title"><span>使用第三方账号登录</span></p>
                     <ul class="loginWin-third-list cf">
                         <li id="weixin"><a class="weixin-login" title="微信账号登录" href="javascript:void(0);" onclick="alertLogin();"></a></li>
-                        <li><a class="qq-login" title="QQ账号登录" href="{{ url('auth/api/callback/qq') }}"></a></li>
+                        <li><a class="qq-login" title="QQ账号登录" href="{{ url('auth/oauth/redirectToProvider/qq') }}"></a></li>
                         <li><a class="weibo-login" title="新浪微博账号登录" href="{{ url('auth/oauth/redirectToProvider/weibo') }}"></a></li>
                     </ul>
                 </div>
