@@ -344,6 +344,7 @@
 <script src="/home/js/player.js"></script>
 
 {{--瀑布流--}}
+<script src="/home/plugins/lazy-loading/jquery.lazyload.min.js"></script>
 
 <script type="text/javascript">
     // 百度统计
