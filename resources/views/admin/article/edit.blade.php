@@ -92,7 +92,19 @@
                     <input class="js-switch" type="checkbox" name="is_top" value="1" @if($article->is_top == 1) checked="checked" @endif>
                 </td>
             </tr>
-
+            <tr>
+                <th>状态</th>
+                <td>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="status" value="1" @if($article->status == 1) checked="checked" @endif />发布
+                        </label>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <label>
+                            <input type="radio" name="status" value="2" @if($article->status == 2) checked="checked" @endif />草稿
+                        </label>
+                    </div>
+                </td>
+            </tr>
             <tr>
                 <th></th>
                 <td>

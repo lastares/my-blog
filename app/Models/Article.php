@@ -123,6 +123,7 @@ class Article extends Base
      */
     public function getHomeList($map = [])
     {
+
         // 获取文章分页
         $data = $this
             ->whereMap($map)
