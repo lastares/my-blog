@@ -70,7 +70,8 @@
             <th>标题</th>
             <th>类型</th>
             <th>点击数</th>
-            <th>状态</th>
+            <th>删除状态</th>
+            <th>发布状态</th>
             <th>发布时间</th>
             <th>操作</th>
         </tr>
@@ -94,6 +95,9 @@
                     @else
                         ×
                     @endif
+                </td>
+                <td>
+                    @if($article->status == 1) 已发布 @else 草稿 @endif
                 </td>
                 <td>{{ $article->created_at }}</td>
                 <td>

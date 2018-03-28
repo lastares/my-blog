@@ -70,8 +70,11 @@ class IndexController extends BaseController
      */
     public function index(Request $request, Article $articleModel)
     {
+        $map = [
+            'status' => 1,
+        ];
         // 获取文章列表数据
-        $article = $articleModel->getHomeList();
+        $article = $articleModel->getHomeList($map);
         $assign = [
             'article' => $article,
             'pageString' => $article->links(),
@@ -378,7 +381,8 @@ class IndexController extends BaseController
     {
         $wd = request()->input('wd');
         $map = [
-            'title' => ['like', '%' . $wd . '%']
+            'title' => ['like', '%' . $wd . '%'],
+            'status' => 1,
         ];
         $article = $articleModel->getHomeList($map);
         Cache::put('article', $article, Carbon::now()->addSeconds(1));

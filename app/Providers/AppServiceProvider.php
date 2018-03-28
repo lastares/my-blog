@@ -84,21 +84,13 @@ class AppServiceProvider extends ServiceProvider
                 ];
                 return Banner::select('id', 'banner_path', 'banner_title')->where($where)->orderBy('id', 'desc')->get();
             });
-            $url = str_replace('https://', '', request()->url());
+            $urlExt = env('APP_DEBUG') ? 'http://' : 'https://';
+            $url = str_replace($urlExt, '', request()->url());
             $host = request()->getHost();
             // 原创
             $articleCount = app('db')->table('articles')->count();
-//            $articleData = app('db')->table('articles')->select('like', 'click')->get();
             $maxTime = app('db')->table('articles')->max('created_at');
             $latestArticle = app('db')->table('articles')->select('id', 'title', 'author', 'created_at')->where('created_at', $maxTime)->first();
-            // 喜欢
-//            $articleLikeCount = 0;
-//            // 访问量
-//            $articleClickCount = 0;
-//            foreach ($articleData as $k => $v) {
-//                $articleLikeCount += $v->like;
-//                $articleClickCount += $v->click;
-//            }
 
             // 是否是手机端访问
             $isMobile = ismobile();
