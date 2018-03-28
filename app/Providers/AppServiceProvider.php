@@ -84,7 +84,7 @@ class AppServiceProvider extends ServiceProvider
                 ];
                 return Banner::select('id', 'banner_path', 'banner_title')->where($where)->orderBy('id', 'desc')->get();
             });
-            $url = str_replace('http://', '', request()->url());
+            $url = str_replace('https://', '', request()->url());
             $host = request()->getHost();
             // 原创
             $articleCount = app('db')->table('articles')->count();
