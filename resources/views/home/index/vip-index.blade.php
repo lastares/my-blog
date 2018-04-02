@@ -44,10 +44,8 @@
                     <div class="box">
                         <div class="title">我的最近发布</div>
                         <ul>
-                            <li><a href="http://www.100txy.com/132.html" target="_blank">干货-给想自学编程又无从下手的小白一些建议</a></li>
-                            <li><a href="http://www.100txy.com/64.html" target="_blank">雷小天博客-专注分享全面优质的免费IT视频教程资源</a></li>
-                            <li><a href="http://www.100txy.com/40.html" target="_blank">windows快捷工具推荐 让你的操作无与伦比</a></li>
-                            <li><a href="http://www.100txy.com/11.html" target="_blank">雷小天博客-专注分享全面优质的免费IT视频教程资源</a></li>
+                            <li><a href="#" target="_blank">干货-给想自学编程又无从下手的小白一些建议</a></li>
+                            <li><a href="#" target="_blank">windows快捷工具推荐 让你的操作无与伦比</a></li>
                         </ul>
                     </div>
                     <div class="box">
