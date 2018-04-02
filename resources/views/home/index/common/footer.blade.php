@@ -245,7 +245,8 @@
                     <ul class="loginWin-third-list cf">
                         <li id="weixin"><a class="weixin-login" title="微信账号登录" href="javascript:void(0);" onclick="alertLogin();"></a></li>
                         <li><a class="qq-login" title="QQ账号登录" href="{{ url('auth/oauth/redirectToProvider/qq') }}"></a></li>
-                        <li><a class="weibo-login" title="新浪微博账号登录" href="{{ url('auth/oauth/redirectToProvider/weibo') }}"></a></li>
+                        {{--<li><a class="weibo-login" title="新浪微博账号登录" href="{{ url('auth/oauth/redirectToProvider/weibo') }}"></a></li>--}}
+                        <li><a href="{{ url('auth/oauth/redirectToProvider/github') }}"><img src="/home/images/github-login.png" width="60"/></a></li>
                     </ul>
                 </div>
 
