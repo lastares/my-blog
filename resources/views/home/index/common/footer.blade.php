@@ -285,7 +285,7 @@
 </html>
 <!--JS-->
 <!-- JQuery 2.2.4 -->
-<script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/home/js/jquery.2.2.4.min.js"></script>
 <script>
     $("html").append("<div class='jiazai'><img src='/home/images/loading3.gif'/><span>正在加载中请等待...</span></div>")
 </script>
@@ -299,7 +299,7 @@
 <script type="text/javascript" src="/home/js/album.js"></script>
 <script type="text/javascript" src="/home/js/tooltip.js"></script>
 <script type="text/javascript" src="/home/js/face.js"></script>
-<script src="https://cdn.bootcss.com/layer/3.1.0/layer.js"></script>
+<script src="/home/js/layer.js"></script>
 {{--<script type="text/javascript" src="/home/plugins/layer-v3.1.1/layer/layer.js" ></script>--}}
 <script type="text/javascript" src="/home/js/checkform.js" charset="utf-8"></script>
 <script type="text/javascript"  src="/home/js/skin.js"></script>
@@ -327,7 +327,7 @@
 
 <script type="text/javascript" src="/home/js/comment.js"></script>
 
-<script src="https://cdn.bootcss.com/Swiper/3.4.0/js/swiper.min.js"></script>
+<script src="/home/js/swiper.min.js"></script>
 
 {{--计时插件--}}
 <script src="/home/plugins/countdown/jquery.countdown.min.js"></script>
@@ -338,14 +338,13 @@
 <!-- font-awesome 4.2.0 -->
 <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <!-- JQuery-mousewheel 3.1.9 -->
-<script src="https://cdn.bootcss.com/jquery-mousewheel/3.1.9/jquery.mousewheel.min.js"></script>
+<script src="/home/js/mousewheel.min.js"></script>
 <!-- Scrollbar -->
 <script src="/home/js/scrollbar.js"></script>
 <!-- BadApplePlayer -->
 <script src="/home/js/player.js"></script>
 
 {{--瀑布流--}}
-<script src="/home/plugins/lazy-loading/jquery.lazyload.min.js"></script>
 
 <script type="text/javascript">
     // 百度统计
