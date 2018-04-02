@@ -55,48 +55,49 @@ class BaseController extends Controller
     /**
      * 上传图片
      */
-//    public function uploadImg()
-//    {
-//        $targetDir = config('blog._picture_upload_path') . date('Y-m-d');
-//        $file = Request::file('file');
-//        if (!is_dir($targetDir)) {
-//            @mkdir($targetDir, 0777, true);
-//        }
-//        $originFilename = $file->getClientOriginalName();
-//        $fileSize = $file->getSize();
-//        $file_mime = $file->getClientOriginalExtension();
-//        $fileName = uniqid() . '.' . $file->getClientOriginalExtension();
-//        if (in_array($file_mime, array('jpg', 'gif', 'png'))) {
-//            if ($fileSize > 1024 * 20 * 1024) {
-//                return response()->json(['code' => -1, 'msg' => '文件大小必须小于20M', 'data' => []]);
-//            }
-//        } else {
+    public function uploadImg()
+    {
+        $targetDir = config('blog._picture_upload_path') . date('Y-m-d');
+        $file = Request::file('file');
+        if (!is_dir($targetDir)) {
+            @mkdir($targetDir, 0777, true);
+        }
+        $originFilename = $file->getClientOriginalName();
+        $fileSize = $file->getSize();
+        $file_mime = $file->getClientOriginalExtension();
+        $fileName = uniqid() . '.' . $file->getClientOriginalExtension();
+        if (in_array($file_mime, array('jpg', 'gif', 'png'))) {
+            if ($fileSize > 1024 * 20 * 1024) {
+                return response()->json(['code' => 1, 'msg' => '文件大小必须小于20M', 'data' => []]);
+            }
+        }
+//        else {
 //            //这里修改主要针对PDF合同 保留原有名称中的标识 topay-JCFK- ；pledge-JCFK；purchase-JCFK；daiXiao-JCFK 等；
 //            $originFilename = substr($originFilename, 0, strrpos($originFilename, '.'));//不带扩展名的文件名
 //            $fileName = $originFilename . uniqid() . '.' . $file->getClientOriginalExtension();
 //        }
-//        if ($fileSize > 1024 * 50 * 1024) {
-//            return response()->json(['code' => -1, 'msg' => '上传文件最大为50M', 'data' => []]);
-//        }
-//        if (!move_uploaded_file($_FILES['file']['tmp_name'], $targetDir . '/' . $fileName)) {
-//            return response()->json(['code' => 1, 'msg' => '上传失败']);
-//        }
-//        $data = date('Y-m-d') . '/' . $fileName;
-//        $message = ['code' => 0, 'msg' => '上传成功', 'data' => $data, 'prefix_route' => config('blog.picture_upload_path')];
-//        return response()->json($message);
-//    }
-    public function uploadImg(\Illuminate\Http\Request $request)
-    {
-//        $subDirectory = $request->input('sub-directory');
-        $disk = \Storage::disk('qiniu'); //使用七牛云上传
-        $time = 'portrait/' . date('Ymd');
-        $filename = $disk->put($time, $request->file('file'));//上传
-        if(!$filename) {
+        if ($fileSize > 1024 * 50 * 1024) {
+            return response()->json(['code' => 1, 'msg' => '上传文件最大为2M', 'data' => []]);
+        }
+        if (!move_uploaded_file($_FILES['file']['tmp_name'], $targetDir . '/' . $fileName)) {
             return response()->json(['code' => 1, 'msg' => '上传失败']);
         }
-        $img_url = $disk->getDriver()->downloadUrl($filename); //获取下载链接
-        return response()->json(['code' => 0, 'msg' => '上传成功', 'img_url' => $img_url]);
+        $data = date('Y-m-d') . '/' . $fileName;
+        $message = ['code' => 0, 'msg' => '上传成功', 'imgUrl' => $data, 'prefix_route' => config('blog.picture_upload_path')];
+        return response()->json($message);
     }
+//    public function uploadImg(\Illuminate\Http\Request $request)
+//    {
+////        $subDirectory = $request->input('sub-directory');
+//        $disk = \Storage::disk('qiniu'); //使用七牛云上传
+//        $time = 'portrait/' . date('Ymd');
+//        $filename = $disk->put($time, $request->file('file'));//上传
+//        if(!$filename) {
+//            return response()->json(['code' => 1, 'msg' => '上传失败']);
+//        }
+//        $img_url = $disk->getDriver()->downloadUrl($filename); //获取下载链接
+//        return response()->json(['code' => 0, 'msg' => '上传成功', 'img_url' => $img_url]);
+//    }
 
     public function uploadImg2(\Illuminate\Http\Request $request)
     {
