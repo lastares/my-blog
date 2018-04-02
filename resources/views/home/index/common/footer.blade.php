@@ -299,7 +299,7 @@
 <script type="text/javascript" src="/home/js/album.js"></script>
 <script type="text/javascript" src="/home/js/tooltip.js"></script>
 <script type="text/javascript" src="/home/js/face.js"></script>
-<script src="/home/js/layer.js"></script>
+<script src="/home/plugins/layer-v3.1.1/layer/layer.js"></script>
 {{--<script type="text/javascript" src="/home/plugins/layer-v3.1.1/layer/layer.js" ></script>--}}
 <script type="text/javascript" src="/home/js/checkform.js" charset="utf-8"></script>
 <script type="text/javascript"  src="/home/js/skin.js"></script>
