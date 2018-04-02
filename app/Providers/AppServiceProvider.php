@@ -82,7 +82,7 @@ class AppServiceProvider extends ServiceProvider
                     'status' => 1,
                     'type' => 4
                 ];
-                return Banner::select('id', 'banner_path', 'banner_title')->where($where)->orderBy('id', 'desc')->get();
+                return Banner::select('id', 'banner_path', 'banner_title')->where($where)->orderBy('id', 'desc')->limit(5)->get();
             });
             $urlExt = env('APP_DEBUG') ? 'http://' : 'https://';
             $url = str_replace($urlExt, '', request()->url());

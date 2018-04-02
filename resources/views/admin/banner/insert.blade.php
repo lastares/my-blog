@@ -122,8 +122,13 @@
                     contentType: false,
                     cache: false,
                     success: function (data) {
-                        $('.banner_path').attr('src', data.prefix_route + data.imgUrl);
-                        $('#banner_img').val(data.prefix_route + data.imgUrl);
+                        if(data.code === 0) {
+                            $('.banner_path').attr('src', data.prefix_route + data.imgUrl);
+                            $('#banner_img').val(data.prefix_route + data.imgUrl);
+                        } else {
+                          layer.msg(data.msg);
+                        }
+
                     }
                 });
             }
