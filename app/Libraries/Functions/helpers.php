@@ -392,6 +392,19 @@ if (!function_exists('curl_get_contents')) {
     }
 }
 
+if(!function_exists('curl')) {
+    function curl(string $remoteUrl) {
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_URL, $remoteUrl);
+        curl_setopt($curl, CURLOPT_HEADER, 1);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);//这个是重点。
+        $data = curl_exec($curl);
+        curl_close($curl);
+        return $data;
+    }
+}
+
 if (!function_exists('redis')) {
     /**
      * redis的便捷操作方法

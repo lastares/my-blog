@@ -106,10 +106,20 @@
                     更新了<b class="lable">文章</b>
                 </a>
             </li>
-
-            <li><i class="el-calendar"></i>CSDN最新热门文章：
+            <li><i class="el-calendar"></i>历史上的今天：
                 <div id="web-news">
                     <ul class="mulitline-news">
+                        @foreach($historieToday as $k1 => $v1)
+                            <li>
+                                <a href="javascript:void(0);" target="_blank" title="{{ $v1 }}" class="orange-text">{{ $v1 }}</a>
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
+            </li>
+            <li><i class="el-calendar"></i>CSDN最新热门文章：
+                <div id="web-news">
+                    <ul class="mulitline-new">
                         @foreach($latestNews as $k => $v)
                         <li>
                             <a href="{{ $k }}" target="_blank" title="{{ $v }}" class="orange-text">{{ $v }}</a>
@@ -118,7 +128,6 @@
                     </ul>
                 </div>
             </li>
-
         </ul>
     </div>
 

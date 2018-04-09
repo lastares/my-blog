@@ -13,6 +13,8 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
+        // 历史上的今天
+        \App\Console\Commands\HistoryToday::class
         //
     ];
 
@@ -25,6 +27,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command('make:news')->dailyAt('2:30');
+        $schedule->command('make:historyToday')->dailyAt('17:28');
     }
 
     /**
