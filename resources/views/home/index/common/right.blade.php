@@ -109,7 +109,7 @@
             <li><i class="el-calendar"></i>历史上的今天：
                 <div id="web-news">
                     <ul class="mulitline-news">
-                        @foreach($historieToday as $k1 => $v1)
+                        @foreach($historyToday as $k1 => $v1)
                             <li>
                                 <a href="javascript:void(0);" target="_blank" title="{{ $v1 }}" class="orange-text">{{ $v1 }}</a>
                             </li>

@@ -59,12 +59,12 @@ class AppServiceProvider extends ServiceProvider
                     ->limit(5)
                     ->get();
             });
-//            if (!Cache::has('news')) {
-//                IndexController::news();
-//                $latestNews = Cache::get('news');
-//            } else {
+            if (!Cache::has('news')) {
+                IndexController::news();
                 $latestNews = Cache::get('news');
-//            }
+            } else {
+                $latestNews = Cache::get('news');
+            }
             $notices = Cache::remember('common:notices', 86400, function () {
                 // 获取网站公告
                 return Notice::select('id', 'notice_title', 'notice_content', 'created_at')->orderBy('id', 'desc')->get();
@@ -108,10 +108,14 @@ class AppServiceProvider extends ServiceProvider
             }
 
             // 历史上的今天
-
-            $historieToday = unserialize(app('redis')->get('historyToday'));
+            if (app('redis')->exists('historyToday')) {
+                $historyToday = unserialize(app('redis')->get('historyToday'));
+            } else {
+                BaseController::historyToday();
+                $historyToday = unserialize(app('redis')->get('historyToday'));
+            }
             // 分配数据
-            $assign = compact('historieToday', 'pageInfoCount', 'latestNews', '_chats', 'isMobile', 'latestArticle', 'category', 'tag', 'topArticle', 'newComment', 'friendshipLink', 'notices', 'url', 'host', 'banners', 'articleCount');
+            $assign = compact('historyToday', 'pageInfoCount', 'latestNews', '_chats', 'isMobile', 'latestArticle', 'category', 'tag', 'topArticle', 'newComment', 'friendshipLink', 'notices', 'url', 'host', 'banners', 'articleCount');
             $view->with($assign);
         });
 

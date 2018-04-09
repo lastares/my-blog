@@ -156,11 +156,14 @@ class BaseController extends Controller
         array_pop($histories);
         redis('historyToday', $histories);
 
-        //        if (!app('redis')->exists('historyToday')) {
-//            redis('historyToday', $histories, 86400);
-//        } else {
-//            return unserialize(app('redis')->get('historyToday'));
-//        }
+        /*
+
+        if (!app('redis')->exists('historyToday')) {
+            redis('historyToday', $histories, 86400);
+        } else {
+            return unserialize(app('redis')->get('historyToday'));
+        }
+        */
 
     }
 
