@@ -13,9 +13,12 @@
  */
 
 namespace App\Http\Controllers\Admin;
+
 // 引入鉴权类
 use App\Http\Controllers\Controller;
+use function explode;
 use Request;
+use function unserialize;
 
 // 引入上传类
 
@@ -38,7 +41,7 @@ class BaseController extends Controller
         return $this->data;
     }
 
-    protected function success($msg='操作成功', $data = [])
+    protected function success($msg = '操作成功', $data = [])
     {
         $this->data[self::FIELD_CODE] = 0;
         $this->data[self::FIELD_MESSAGE] = $msg;
@@ -105,7 +108,7 @@ class BaseController extends Controller
         $disk = \Storage::disk('qiniu'); //使用七牛云上传
         $time = $subDirectory . '/' . date('Ymd');
         $filename = $disk->put($time, $request->file('file'));//上传
-        if(!$filename) {
+        if (!$filename) {
             return response()->json(['code' => 1, 'msg' => '上传失败']);
         }
         $img_url = $disk->getDriver()->downloadUrl($filename); //获取下载链接
@@ -141,6 +144,24 @@ class BaseController extends Controller
         $data = date('Y-m-d') . '/' . $fileName;
         $message = ['code' => 0, 'msg' => '上传成功', 'data' => $data, 'prefix_route' => config('blog._file_upload_path')];
         return response()->json($message);
+    }
+
+
+    public static function historyToday()
+    {
+        $remoteUrl = 'https://www.ipip5.com/today/api.php?type=txt';
+        $histories = curl($remoteUrl);
+        $histories = explode("\n", $histories);
+        $histories = array_splice($histories, 10);
+        array_pop($histories);
+        redis('historyToday', $histories);
+
+        //        if (!app('redis')->exists('historyToday')) {
+//            redis('historyToday', $histories, 86400);
+//        } else {
+//            return unserialize(app('redis')->get('historyToday'));
+//        }
+
     }
 
 }

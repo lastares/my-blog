@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Http\Controllers\Admin\BaseController;
 use App\Http\Controllers\Home\IndexController;
 use App\Http\Controllers\Home\PageCountController;
 use App\Models\Article;
@@ -13,9 +14,13 @@ use App\Models\FriendshipLink;
 use App\Models\Notice;
 use App\Models\Tag;
 use App\Observers\CacheClearObserver;
+use Appstract\LushHttp\Request\Adapter\Curl;
 use Artisan;
 use Cache;
 use Carbon\Carbon;
+use function curl_get_contents;
+use function file_get_contents;
+use function getCurl;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\ServiceProvider;
 
@@ -101,8 +106,12 @@ class AppServiceProvider extends ServiceProvider
                 $_chats[$k]->month = $dt->month;
                 $_chats[$k]->day = $dt->day;
             }
+
+            // 历史上的今天
+
+            $historieToday = unserialize(app('redis')->get('historyToday'));
             // 分配数据
-            $assign = compact('pageInfoCount', 'latestNews', '_chats', 'isMobile', 'latestArticle', 'category', 'tag', 'topArticle', 'newComment', 'friendshipLink', 'notices', 'url', 'host', 'banners', 'articleCount');
+            $assign = compact('historieToday', 'pageInfoCount', 'latestNews', '_chats', 'isMobile', 'latestArticle', 'category', 'tag', 'topArticle', 'newComment', 'friendshipLink', 'notices', 'url', 'host', 'banners', 'articleCount');
             $view->with($assign);
         });
 
