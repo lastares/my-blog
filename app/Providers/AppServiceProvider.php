@@ -73,7 +73,7 @@ class AppServiceProvider extends ServiceProvider
             $newComment = Cache::remember('common:newComment', 10080, function () {
                 // 获取最新评论
                 $commentModel = new Comment();
-                return $commentModel->getNewData(6);
+                return $commentModel->getNewData(5);
             });
 
             $friendshipLink = Cache::remember('common:friendshipLink', 10080, function () {
