@@ -59,12 +59,12 @@ class AppServiceProvider extends ServiceProvider
                     ->limit(5)
                     ->get();
             });
-            if (!Cache::has('news')) {
-                IndexController::news();
+//            if (!Cache::has('news')) {
+//                IndexController::news();
+//                $latestNews = Cache::get('news');
+//            } else {
                 $latestNews = Cache::get('news');
-            } else {
-                $latestNews = Cache::get('news');
-            }
+//            }
             $notices = Cache::remember('common:notices', 86400, function () {
                 // 获取网站公告
                 return Notice::select('id', 'notice_title', 'notice_content', 'created_at')->orderBy('id', 'desc')->get();
