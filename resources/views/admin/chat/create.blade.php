@@ -22,13 +22,14 @@
             <tr>
                 <th>内容</th>
                 <td>
-                    <textarea class="form-control modal-sm" name="content" cols="40" rows="10" placeholder="随言碎语内容">{{ old('content') }}</textarea>
+                    <textarea style="resize: none;width:100%" class="form-control modal-sm" name="content" placeholder="随言碎语内容">{{ old('content') }}</textarea>
                 </td>
             </tr>
             <tr>
                 <th></th>
                 <td>
                     <input class="btn btn-success" type="submit" value="提交">
+                    <button type="button" onclick="window.history.go(-1);" class="btn btn-info">返回</button>
                 </td>
             </tr>
         </table>

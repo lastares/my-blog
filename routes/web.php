@@ -17,12 +17,26 @@ use App\Models\Banner;
 Route::group(['namespace' => 'Home'], function () {
     // 首页
     Route::get('/', 'IndexController@index');
-    // 分类
+    Route::get('newArticle', 'IndexController@newArticle');
+    // 网址导航
     Route::get('category/{id}', 'IndexController@category');
     Route::get('toolsCategory/{id}/catename/{catename}', 'ToolsController@tools_category');
-    Route::get('tools_category/{id}', 'ToolsController@navigateUrls');
+    Route::get('url_search', 'ToolsController@urlSearch');
+    // 视频会员
+    Route::get('videoVips', 'IndexController@vips');
+    Route::get('parse-vip', 'IndexController@parseVip');
+    Route::get('parse-vip-container', 'ToolsController@parseVipContainer');
+
+    // 网站统计
+    // Route::get('websiteCount', 'PageCountController@pageInfo');
+    // 采集到的csdn最新文章
+    Route::get('news', 'IndexController@news');
     // 标签
     Route::get('tag/{id}', 'IndexController@tag');
+    //友情链接
+    Route::get('links', 'IndexController@links');
+    // 申请友情链接
+    Route::post('applyLinks', 'IndexController@applyLinks');
     // 随言碎语
     Route::get('chat', 'IndexController@chat');
     // 开源项目
@@ -44,7 +58,7 @@ Route::group(['namespace' => 'Home'], function () {
     // 留言列表
     Route::get('message/list', 'IndexController@messageList');
     // 写入留言
-    Route::post('message/insert', 'IndexController@messageInsert');
+    Route::post('feedback', 'IndexController@messageInsert');
     // 关于我
     Route::get('about/me', 'IndexController@about');
     // 攻城略地
@@ -56,8 +70,19 @@ Route::group(['namespace' => 'Home'], function () {
 
     // 时间轴视图
     Route::get('timeAxis', 'IndexController@timeAxis');
-    // 时间轴内容
-    Route::get('axis', 'IndexController@Axis');
+    // 用户中心 vip-center
+    Route::get('vip-center', 'IndexController@vip');
+    Route::get('vip-index', 'IndexController@vipIndex');
+    Route::get('vip-info', 'IndexController@vipMember');
+    Route::get('vip-comment', 'IndexController@vipComment');
+    Route::get('vip-message', 'IndexController@vipMessage');
+    Route::get('vip-recharge', 'IndexController@vipRecharge');
+    Route::get('vip-consume', 'IndexController@vipConsume');
+
+
+    // 邮箱验证码
+    Route::post('ajax_getcode', 'IndexController@randCode');
+    Route::post('ajax_chkcode', 'IndexController@ajax_chkcode');
     // 用于测试
     Route::get('test', 'IndexController@test');
 
@@ -133,24 +158,24 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'admi
         Route::get('forceDelete/{id}', 'ArticleController@forceDelete');
     });
 
-    // 分类管理
-    Route::group(['prefix' => 'category'], function () {
+     // 网址导航
+    Route::group(['prefix' => 'urlCategory'], function () {
         // 分类列表
-        Route::get('index', 'CategoryController@index');
+        Route::get('index', 'UrlCategoryController@index');
         // 添加分类
-        Route::get('create', 'CategoryController@create');
-        Route::post('store', 'CategoryController@store');
+        Route::get('create', 'UrlCategoryController@create');
+        Route::post('store', 'UrlCategoryController@store');
         // 编辑分类
-        Route::get('edit/{id}', 'CategoryController@edit');
-        Route::post('update/{id}', 'CategoryController@update');
+        Route::get('edit/{id}', 'UrlCategoryController@edit');
+        Route::post('update/{id}', 'UrlCategoryController@update');
         // 排序
-        Route::post('sort', 'CategoryController@sort');
+        Route::post('sort', 'UrlCategoryController@sort');
         // 删除分类
-        Route::get('destroy/{id}', 'CategoryController@destroy');
+        Route::get('destroy/{id}', 'UrlCategoryController@destroy');
         // 恢复删除的分类
-        Route::get('restore/{id}', 'CategoryController@restore');
+        Route::get('restore/{id}', 'UrlCategoryController@restore');
         // 彻底删除分类
-        Route::get('forceDelete/{id}', 'CategoryController@forceDelete');
+        Route::get('forceDelete/{id}', 'UrlCategoryController@forceDelete');
     });
 
     // 标签管理
@@ -171,6 +196,28 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'admi
 
         // 弹窗获取弹窗值回填
         Route::get('getTag', 'TagController@getTag');
+    });
+
+    // 视频会员管理
+    Route::group(['prefix' => 'videoVip'], function () {
+        // 标签列表
+        Route::get('index', 'VideoVipController@index');
+        Route::get('insert', 'VideoVipController@insert');
+        Route::post('upload', 'BaseController@uploadImg2');
+        // 添加标签
+        Route::post('store', 'VideoVipController@create');
+        // 编辑标签
+        Route::get('edit/{id}', 'VideoVipController@edit');
+        Route::post('update/{id}', 'VideoVipController@update');
+        // 删除标签
+        Route::get('destroy/{id}', 'VideoVipController@destroy');
+        // 恢复删除的标签
+        Route::get('restore/{id}', 'VideoVipController@restore');
+        // 彻底删除标签
+        Route::get('forceDelete/{id}', 'VideoVipController@forceDelete');
+
+        // 弹窗获取弹窗值回填
+        Route::get('getTag', 'VideoVipController@getTag');
     });
 
     // 评论管理
@@ -233,23 +280,23 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'admi
 
 
     // 工具分类管理
-    Route::group(['prefix' => 'toolsCategory'], function () {
+    Route::group(['prefix' => 'category'], function () {
         // 工具分类列表
-        Route::get('index', 'ToolsCategoryController@index');
+        Route::get('index', 'CategoryController@index');
         // 添加工具分类
-        Route::get('create', 'ToolsCategoryController@create');
-        Route::post('store', 'ToolsCategoryController@store');
+        Route::get('create', 'CategoryController@create');
+        Route::post('store', 'CategoryController@store');
         // 编辑分类
-        Route::get('edit/{id}', 'ToolsCategoryController@edit');
-        Route::post('update/{id}', 'ToolsCategoryController@update');
+        Route::get('edit/{id}', 'CategoryController@edit');
+        Route::post('update/{id}', 'CategoryController@update');
         // 排序
-        Route::post('sort', 'ToolsCategoryController@sort');
+        Route::post('sort', 'CategoryController@sort');
         // 删除分类
-        Route::get('destroy/{id}', 'ToolsCategoryController@destroy');
+        Route::get('destroy/{id}', 'CategoryController@destroy');
         // 恢复删除的分类
-        Route::get('restore/{id}', 'ToolsCategoryController@restore');
+        Route::get('restore/{id}', 'CategoryController@restore');
         // 彻底删除分类
-        Route::get('forceDelete/{id}', 'ToolsCategoryController@forceDelete');
+        Route::get('forceDelete/{id}', 'CategoryController@forceDelete');
     });
 
 

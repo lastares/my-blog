@@ -39,6 +39,17 @@
                 </td>
             </tr>
             <tr>
+                <th>状态</th>
+                <td>
+                    <label class="radio-inline">
+                        <input type="radio" name="status" value="1" checked> 已审核
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="status" value="2"> 未审核
+                    </label>
+                </td>
+            </tr>
+            <tr>
                 <th></th>
                 <td>
                     <input class="btn btn-success" type="submit" value="提交">

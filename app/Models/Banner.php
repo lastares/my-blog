@@ -52,22 +52,18 @@ class Banner extends Base
      * }*/
 
 
-    public function updateBanner($id, $data, $_banner_path)
+    public function updateBanner($id, $data)
     {
-        $banner_path = $this->getImagePathById($id);
-        if ($banner_path !== $_banner_path) {
-            unlinkImage($banner_path);
-        }
+//        $banner_path = $this->getImagePathById($id);
+//        if ($banner_path !== $_banner_path) {
+//            unlinkImage($banner_path);
+//        }
         return $this->where('id', intval($id))->update($data);
     }
 
 
     public function deleteBanner(int $id)
     {
-        $banner_path = $this->getImagePathById($id);
-        if ($banner_path) {
-            unlinkImage($banner_path);
-        }
         return $this->where('id', intval($id))->forceDelete();
     }
 
@@ -88,14 +84,21 @@ class Banner extends Base
     }
 
 
+    public function imageIds($type)
+    {
+        return $this->where('type', $type)->pluck('id');
+    }
+
     /**
      * 前台留言板留言图片
      */
 
-    public function getMsgPicture()
+    public function getMsgPicture(int $id)
     {
-        return $this->select('id', 'banner_path', 'banner_title', 'type', 'created_at')->where('type', 1)->orderBy('id', 'desc')->get();
+        return $this->where('id', $id)->value('banner_path');
     }
+
+
 
     /**
      * 前台留言板留言图片

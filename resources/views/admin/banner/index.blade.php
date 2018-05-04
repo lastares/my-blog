@@ -77,15 +77,16 @@
                 <td>
                     @if($banner->type == 1) 留言板
                     @elseif($banner->type == 2) 文章分类
-                    @else 左邻右舍
+                    @elseif($banner->type == 3) 左邻右舍
+                    @elseif($banner->type == 4) banner
                     @endif
                 </td>
-                <td><img width="100" src="{{$prefix_route . $banner->banner_path }}" title="{{$banner->banner_title}}"/></td>
+                <td><img width="100" src="{{$banner->banner_path }}" title="{{$banner->banner_title}}"/></td>
                 <td>
-                    @if(is_null($banner->deleted_at))
-                        √
+                    @if(is_null($banner->deleted_at) && $banner->status == 1)
+                        发布 √
                     @else
-                        ×
+                        草稿 ×
                     @endif
                 </td>
                 <td>{{ $banner->created_at }}</td>

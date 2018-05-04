@@ -1,77 +1,123 @@
-@extends('layouts.home')
-@section('title', $title)
-@section('my-css')
-    <link rel="stylesheet" href="/home/css/message.css">
-    <style>
-        .layui-layer-lan .layui-layer-title {
-            background: #fd4067 !important;
-            color: #fff;
-            border: none;
-            font-size: 24px;
-        }
-    </style>
-@endsection
-@section('content')
-    <div class="article_box">
-        <div class="article_sebox">
-            <!--留言块开始-->
-            <div id="msgBox">
-                <form id="frm">
-                    <input type="hidden" name="isLogin" value="{{ $isLogin }}" />
-                    <h2>啊啊啊！！！不要问我在干什么。。 我已经疯了！！！</h2>
-                    <!--选择头像-->
-                    <div style="height: 80px;width: 100%; text-align: left;float: left;">
-                        @foreach($pictures as $k => $picture)
-                            <div class="touxiang">
-                                <img src="{{ $prefix_route . $picture->banner_path }}" class="current"/>
-                                <label><input name="image_id" type="radio" value="{{ $picture->id }}"
-                                              @if($k == 0) checked @endif /></label>
-                            </div>
-                        @endforeach
+@include('home.index.common.top')
+<link rel="stylesheet" href="/home/css/face.css"/>
+<!--主题框架开始-->
+<div class="container" id="location">
+    <!--左侧开始-->
+    <section>
+        <div class="comment-area">
+            {{--<img src="/home/images/feedback.png" style="width:100%;" alt="雷小天博客留言板"/>--}}
+            <h4 class="index-title"> <i class="el-comment-alt"></i>当前共有<span> {{ $messages->count() }} </span>条留言<a href="#leaveMessage"  rel="nofollow" ><i class="el-edit"></i>发表留言</a></h4>
+            <ul class="feedback-comment" id="feedbackdata">
+                @foreach($messages as $k => $message)
+                <li class="bg-color">
+                    <span class="louceng" >{{ $k + 1 }}</span>
+                    <div class="comment-ava">
+                        <a href="" id="Comment-{{ $message->id }}" target="_blank" rel="nofollow" title="{{ $message->name }}">
+                            <img class="img-circle" src="{{ $message->image_path }}" alt="{{ $message->name }}"/></a>
+                        <!--<span><i class="el-user"></i>闫恒</span>-->
                     </div>
-                    <!--验证吗框-->
-                    <div style="height: 60px;width: 100%; float: left;">
-                        <div class="inputbox" style="width: 215px;">
-                            <input id="userName" name="msg_title" placeholder="昵称或站名(必填)" type="text" class="f-text"/>
+                    <div class="comment-info ">
+                        <div class="comment-line ">
+                            <ul>
+                                <li><a title=""><i class="el-user"></i>{{ $message->name }}</a></li>
+                                <li><a title="发表于{{ $message->created_at }}"><i class="el-time"></i>{{ $message->created_at }}</a></li>
+                                <li><a title="{{ $message->name }} 当前位于：{{ $message->location }}"><i class="el-map-marker"></i>{{ $message->location }}</a></li>
+                                <li><a title="{{ $message->name }} 当前IP:{{ $message->ip }}"><i class="el-network"></i>{{ $message->ip }}</a></li>
+                            </ul>
                         </div>
-                        <div class="inputbox" style="width: 140px;">
-                            <!--显示验证码-->
-                            <img id="verifyCode" title="点击刷新验证码" src="{{url('captcha')}}" style="cursor: pointer;"
-                                 onclick="this.src='{{ url('captcha') }}?r=' + Math.random();"/>
-                        </div>
-                        <div class="inputbox" style="width: 200px;">
-                            <!--验证码输入框 -->
-                            <input id="verify" placeholder="验证码(必填)" autocomplete="off" type="text" class="yan-text"
-                                   name="verify"/>
-                        </div>
+                        <div class="comment-content">{!! $message->msg_content !!}</div>
+                        <!--回复-->
+                        <ul class="re-comment" id="{{ $message->id }}">
+                        </ul>
                     </div>
-
-                    <!--留言内容-->
-                    <textarea placeholder="留言内容不为空" id="conBox" class="f-text" name="msg_content"
-                              type="text"></textarea>
-                    <!--提交按钮-->
-                    <div class="tr">
-                        <p>
-                            <span class="countTxt">啊啊啊啊！请勿打广告，谢谢，谢谢！&nbsp;&nbsp;</span>
-                            <button type="button" href="javascript: void(0);" onclick="messageInsert();"> 留&nbsp;&nbsp;&nbsp;言 </button>
-                        </p>
-                    </div>
-                </form>
-
-                <!--留言展示区开始-->
-                <div class="list" style="margin-top:-50px;">
-                    <h3><span>留言吐槽</span></h3>
-                    <ul id="messageList">
-                    </ul>
-                </div>
-                <!--留言展示区结束-->
-            </div>
+                </li>
+                @endforeach
+            </ul>
+            <div id="pagerArea" unselectable="on" onselectstart="return false;" style="-moz-user-select:none;"></div>
         </div>
+        <!-- 分页 -->
+        <!-- <div class="pagination">
+            <div class="list-page">
+                <ul class="post-data">
+                    <li ><a>第 1 - 12 页</a> <a>共 111 条</a></li>
+                </ul>
+            </div>
+            <ul>
+                <li class="active"><a>首页</a></li>
+                <li class="active"><a>上一页</a></li>
+                <li ><a href="?5-2.html">下一页</a></li>
+                <li ><a href="?5-12.html">尾页</a></li>
+            </ul>
+        </div> -->
+        <!--评论表单-->
+        <h3 class="form-btn blue-text" ><a href="javascript:;" ><i class="el-edit"></i>我要留言 / 展开表单</a></h3>
+        <div id="leaveMessage" class="form-zd form-in">
+            <!--表单开始-->
+            <form id="contact-form" name="myform">
+                {{ csrf_field() }}
+                <ul class="hdmenu">
+                    <li><i class="el-ok-sign"></i> 审核开启</li>
+                    <li><input name="jizhu" type="checkbox" value="1" checked class="comment-fuxuna" /> 记住信息</li>
+                    <li><input name="huifu" type="checkbox" value="1" checked class="comment-fuxuna" /> 邮件回复</li>
+                </ul>
+                <!----昵称------->
+                <div class="input-prepend">
+                    <i class="el-user"></i>
+                    <input name="u_name" type="text" id="u_name" value="{{ session('user.name') }}" size="16"  placeholder="您的称呼（必须）" disabled onkeyup="value=value.replace(/[^\a-\z\A-\Z\u4E00-\u9FA5]/g,'')"/>
+                    <input name="type" type="hidden" id="type" value="0" />
+                </div>
+                <!------邮箱----->
+                <div class="input-prepend">
+                    <i class="el-envelope"></i>
+                    <input name="u_mail" type="text"  id="u_mail" @if(session('user.email')) value="{{ session('user.email') }}" @else value="" @endif size="16" placeholder="若邮箱为空，请到会员中心认证" disabled onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9\@\.]/g,'')"/>
+                </div>
+                <!----网址------->
+                <div class="input-prepend">
+                    <i class="el-globe"></i>
+                    <input name="u_url" type="text"  id="u_url" size="16" value="" placeholder="您的网站（选填）" onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9\/\.\:]/g,'')"/>
+                </div>
+                <!--表情按钮-->
+                <div class="face-box">
+                    <div id="face-btn"><a href="javascript:void(0);" ><img src="/home/images/face/mr/0.gif" width='25'/></a></div>
+                    <textarea name="u_content"  id="txaArticle" placeholder="听说留言会让人更美..."  ></textarea>
+                    <!--表情--------->
+                    <div class="face-main" id="face-area" style="display:none;">
+                        <ul class="face-tab clearfix">
+                            <li><a href="javascript:void(0);" class="selected-a">默认</a></li>
+                            <li><a href="javascript:void(0);">阿狸</a></li>
+                            <li><a href="javascript:void(0);">贴吧表情</a></li>
+                            <!--<li><a href="javascript:void(0);">暴走漫画</a></li>-->
+                        </ul>
+                        <ul class="face-ul clearfix face_selected"></ul>
+                        <ul class="face-ul clearfix" style="display:none;"></ul>
+                        <ul class="face-ul clearfix" style="display:none;"></ul>
+                        <ul class="face-ul clearfix" style="display:none;"></ul>
+                        <a href="javascript:void(0);" class="face-close"><i class="el-remove"></i></a>
+                    </div>
+                </div>
+                <!--验证码-->
+                <div class="input-prepend yzm">
+                    <i class="el-question-sign"></i>
+                    <input name="verify" type="text"  id="verify" size="16"  placeholder="验证码" />
+                    <span>
+					<img id="verifyCode" src="{{url('captcha')}}" style="cursor: pointer;" onclick="this.src='{{ url('captcha') }}?r=' + Math.random();" title="点击刷新验证码" />
+				</span>
+                </div>
+                <!--提交表单--------->
+                <div class="feed-sub">
+                    <input type="hidden" id="token" name="token" value="{{ csrf_token() }}" />
+                    <button type="button" class="btn btn-inverse set-btn" onclick="checkform();">提交留言</button>
+                </div>
+            </form>
+            <!--表单结束-->
+        </div>
+    </section>
+    <!--左侧结束-->
+    <!--=========右侧开始==========-->
+    @include('home.index.common.right')
+    <!--=========END右侧==========-->
 
-    </div>
-
-
-@endsection
-@section('my-js')
-    <script src="/home/js/message.js"></script>
-@endsection
+</div>
+<!--主题框架结束-->
+<!---底部开始-->
+@include('home.index.common.footer')

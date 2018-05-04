@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Cache;
 use App\Jobs\SendCommentEmail;
+use function getAreaByIp;
 
 /**
  * 评论
@@ -34,7 +35,7 @@ class Comment extends Base
     {
         // 获取配置项
         $config = Cache::remember('config', 10080, function () {
-            return Config::pluck('value','name');
+            return Config::pluck('value', 'name');
         });
 
         $ubb = ['[Kiss]', '[Love]', '[Yeah]', '[啊！]', '[背扭]', '[顶]', '[抖胸]', '[88]', '[汗]', '[瞌睡]', '[鲁拉]', '[拍砖]', '[揉脸]', '[生日快乐]', '[摊手]', '[睡觉]', '[瘫坐]', '[无聊]', '[星星闪]', '[旋转]', '[也不行]', '[郁闷]', '[正Music]', '[抓墙]', '[撞墙至死]', '[歪头]', '[戳眼]', '[飘过]', '[互相拍砖]', '[砍死你]', '[扔桌子]', '[少林寺]', '[什么？]', '[转头]', '[我爱牛奶]', '[我踢]', '[摇晃]', '[晕厥]', '[在笼子里]', '[震荡]'];
@@ -42,7 +43,7 @@ class Comment extends Base
         $image = [];
         // 循环生成img标签
         for ($i = 1; $i <= $count; $i++) {
-            $image[] = '<img src="'.asset('/home/plugins/emote/tuzki/'.$i.'.gif').'" title="'.str_replace(['[', ']'], '', $ubb[$i-1]).'" alt="'.$config->get('WEB_NAME').'">';
+            $image[] = '<img src="' . asset('/home/emote/tuzki/' . $i . '.gif') . '" title="' . str_replace(['[', ']'], '', $ubb[$i - 1]) . '" alt="' . $config->get('WEB_NAME') . '">';
         }
         return str_replace($ubb, $image, $content);
     }
@@ -61,7 +62,7 @@ class Comment extends Base
         preg_match_all('/<img.*?title="(.*?)".*?>/i', $content, $img);
         $search = $img[0];
         $replace = array_map(function ($v) {
-            return '['.$v.']';
+            return '[' . $v . ']';
         }, $img[1]);
         $content = str_replace($search, $replace, $content);
         $content = strip_tags($content);
@@ -90,6 +91,7 @@ class Comment extends Base
             'article_id' => $data['article_id'],
             'pid' => $data['pid'],
             'content' => $content,
+            'comment_ip' => $data['comment_ip'],
             'status' => 1
         );
 
@@ -98,53 +100,53 @@ class Comment extends Base
             ->create($comment)
             ->id;
         if ($id) {
-            session()->flash('alert-message','添加成功');
-            session()->flash('alert-class','alert-success');
-        }else{
+            session()->flash('alert-message', '添加成功');
+            session()->flash('alert-class', 'alert-success');
+        } else {
             return false;
         }
         // 获取文章标题
-        $title = Article::where('id', $data['article_id'])
-            ->withTrashed()
-            ->value('title');
+//        $title = Article::where('id', $data['article_id'])
+//            ->withTrashed()
+//            ->value('title');
         // 给站长发送通知邮件
-        if($isAdmin == 0){
-            $address = Config::where('name', 'EMAIL_RECEIVE')->value('value');
-            if (!empty($address)) {
-                $emailData = [
-                    'name' => '站长',
-                    'user' => $name,
-                    'date' => date('Y-m-d H:i:s'),
-                    'type' => '评论',
-                    'url' => url('article', [$data['article_id']]).'#comment-'.$id,
-                    'title' => $title,
-                    'content' => $this->ubbToImage($content)
-                ];
-                $subject = $name. '评论了 '. $title;
-                dispatch(new SendCommentEmail($address, '站长', $subject, $emailData));
-            }
-        }
+//        if($isAdmin == 0){
+//            $address = Config::where('name', 'EMAIL_RECEIVE')->value('value');
+//            if (!empty($address)) {
+//                $emailData = [
+//                    'name' => '站长',
+//                    'user' => $name,
+//                    'date' => date('Y-m-d H:i:s'),
+//                    'type' => '评论',
+//                    'url' => url('article', [$data['article_id']]).'#comment-'.$id,
+//                    'title' => $title,
+//                    'content' => $this->ubbToImage($content)
+//                ];
+//                $subject = $name. '评论了 '. $title;
+//                dispatch(new SendCommentEmail($address, '站长', $subject, $emailData));
+//            }
+//        }
         // 给用户发送邮件通知
-        if ($data['pid']!=0) {
-            $parent_user_id = Comment::where('id', $data['pid'])->value('oauth_user_id');
-            $parentData = OauthUser::select('name', 'email')
-                ->where('id', $parent_user_id)
-                ->first()
-                ->toArray();
-            if (!empty($parentData['email'])) {
-                $emailData = [
-                    'name' => $parentData['name'],
-                    'user' => $name,
-                    'date' => date('Y-m-d H:i:s'),
-                    'type' => '回复',
-                    'url' => url('article', [$data['article_id']]).'#comment-'.$id,
-                    'title' => $title,
-                    'content' => $this->ubbToImage($content)
-                ];
-                $subject = $name. '评论了 '. $title;
-                dispatch(new SendCommentEmail($parentData['email'], $parentData['name'], $subject, $emailData));
-            }
-        }
+//        if ($data['pid']!=0) {
+//            $parent_user_id = Comment::where('id', $data['pid'])->value('oauth_user_id');
+//            $parentData = OauthUser::select('name', 'email')
+//                ->where('id', $parent_user_id)
+//                ->first()
+//                ->toArray();
+//            if (!empty($parentData['email'])) {
+//                $emailData = [
+//                    'name' => $parentData['name'],
+//                    'user' => $name,
+//                    'date' => date('Y-m-d H:i:s'),
+//                    'type' => '回复',
+//                    'url' => url('article', [$data['article_id']]).'#comment-'.$id,
+//                    'title' => $title,
+//                    'content' => $this->ubbToImage($content)
+//                ];
+//                $subject = $name. '评论了 '. $title;
+//                dispatch(new SendCommentEmail($parentData['email'], $parentData['name'], $subject, $emailData));
+//            }
+//        }
         return $id;
     }
 
@@ -156,7 +158,7 @@ class Comment extends Base
      */
     public function getNewData($limit = 20)
     {
-        $data = $this->select('comments.content', 'comments.created_at', 'ou.name', 'ou.avatar', 'a.title', 'a.id as article_id')
+        $data = $this->select('comments.content', 'comments.created_at', 'ou.name', 'ou.avatar', 'a.cover', 'a.title', 'a.id as article_id')
             ->join('articles as a', 'comments.article_id', 'a.id')
             ->join('oauth_users as ou', 'ou.id', 'comments.oauth_user_id')
             ->orderBy('comments.created_at', 'desc')
@@ -170,8 +172,8 @@ class Comment extends Base
             // 处理有表情时直接截取会把img表情截断的问题
             $content = strip_tags($v->content);
             if (mb_strlen($content) > 10) {
-                $data[$k]->content = re_substr($content,0,40);
-            }else{
+                $data[$k]->content = re_substr($content, 0, 40);
+            } else {
                 $data[$k]->content = $v->content;
             }
         }
@@ -184,13 +186,14 @@ class Comment extends Base
      * @param $article_id
      * @return mixed
      */
-    public function getDataByArticleId($article_id){
+    public function getDataByArticleId($article_id)
+    {
         $map = [
             'comments.article_id' => $article_id,
             'comments.pid' => 0
         ];
         // 关联第三方用户表获取一级评论
-        $data=$this
+        $data = $this
             ->select('comments.*', 'ou.name', 'ou.avatar')
             ->join('oauth_users as ou', 'comments.oauth_user_id', 'ou.id')
             ->where($map)
@@ -198,17 +201,18 @@ class Comment extends Base
             ->get()
             ->toArray();
         foreach ($data as $k => $v) {
+            $data[$k]['city'] = getAreaByIp($v['comment_ip']);
             $data[$k]['content'] = htmlspecialchars_decode($v['content']);
             // 获取二级评论
             $this->child = [];
             $this->getTree($v);
             $child = $this->child;
-            if(!empty($child)){
+            if (!empty($child)) {
                 // 按评论时间asc排序
                 uasort($child, function ($a, $b) {
                     $prev = isset($a['created_at']) ? $a['created_at'] : 0;
                     $next = isset($b['created_at']) ? $b['created_at'] : 0;
-                    if($prev == $next)return 0;
+                    if ($prev == $next) return 0;
                     return ($prev < $next) ? -1 : 1;
                 });
                 foreach ($child as $m => $n) {
@@ -227,11 +231,12 @@ class Comment extends Base
     }
 
     // 递归获取树状结构
-    public function getTree($data){
+    public function getTree($data)
+    {
         $map = [
             'pid' => $data['id']
         ];
-        $child=$this
+        $child = $this
             ->select('comments.*', 'ou.name', 'ou.avatar')
             ->join('oauth_users as ou', 'comments.oauth_user_id', 'ou.id')
             ->where($map)
@@ -239,7 +244,7 @@ class Comment extends Base
             ->get()
             ->toArray();
 
-        if(!empty($child)){
+        if (!empty($child)) {
             foreach ($child as $k => $v) {
                 $v['content'] = htmlspecialchars_decode($v['content']);
                 $this->child[] = $v;
@@ -262,5 +267,29 @@ class Comment extends Base
     }
 
 
+    public function getVipComments()
+    {
+        $data = $this->select('id', 'article_id', 'content', 'created_at')->where('oauth_user_id', session('user.id'))->orderBy('id', 'desc')->paginate(10);
+        foreach ($data as $k => &$v) {
+            $v->article_name = app('db')->table('articles')->where('id', $v->article_id)->value('title');
+        }
 
+        return $data;
+    }
+
+    public function topTenComment()
+    {
+        $data = $this->select('id', 'comment_ip', 'oauth_user_id')->orderBy('id', 'desc')->take(10)->get();
+        foreach ($data as $k => &$v) {
+            $v->name = $this->getColumnValue($v->oauth_user_id, 'name');
+            $v->avatar = $this->getColumnValue($v->oauth_user_id, 'avatar');
+            $v->city = getAreaByIp($v->comment_ip);
+        }
+        return $data;
+    }
+
+    public function getColumnValue(int $oauth_user_id, string $column)
+    {
+        return app('db')->table('oauth_users')->where('id', intval($oauth_user_id))->value($column);
+    }
 }

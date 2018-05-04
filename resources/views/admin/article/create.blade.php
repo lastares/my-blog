@@ -3,9 +3,16 @@
 @section('title', '发布文章')
 
 @section('my-css')
+
     <link rel="stylesheet" href="/admin/plugins/editormd/css/editormd.min.css">
     <link rel="stylesheet" href="/admin/plugins/iCheck-1.0.2/skins/all.css">
     <link rel="stylesheet" href="/admin/plugins/switchery/dist/switchery.min.css">
+    <link rel="stylesheet" href="/admin/plugins/select2/select2.min.css">
+    <style>
+        td span {
+            line-height: 23px !important;
+        }
+    </style>
 @endsection
 
 @section('content')
@@ -33,9 +40,14 @@
                 <td>
                     <select class="form-control" name="category_id">
                         @foreach($category as $v)
-                            <option value="{{ $v->id }}" @if(old('category_id')) selected="selected" @endif>{{ $v->name }}</option>
+                            <option value="{{ $v->id }}">{{ str_repeat('-', 8*$v->level) . $v->category_name }}</option>
                         @endforeach
                     </select>
+                    {{--<select class="article-category form-control" name="category_id">--}}
+                        {{--@foreach($category as $v)--}}
+                            {{--<option value="{{ $v->id }}">{{ str_repeat('-', 8*$v->level) . $v->category_name }}</option>--}}
+                        {{--@endforeach--}}
+                    {{--</select>--}}
                 </td>
             </tr>
             <tr>
@@ -50,18 +62,24 @@
                     <input class="form-control" type="text" name="author" value="@if(empty(old('author'))){{ $author }}@else{{ old('author') }}@endif">
                 </td>
             </tr>
-            <tr>
-                <th>关键词</th>
-                <td>
-                    <input class="form-control" type="text" placeholder="用英文逗号分隔" name="keywords" value="{{ old('keywords') }}">
-                </td>
-            </tr>
+            {{--<tr>--}}
+                {{--<th>关键词</th>--}}
+                {{--<td>--}}
+                    {{--<input class="form-control" type="text" placeholder="用英文逗号分隔" name="keywords" value="{{ old('keywords') }}">--}}
+                {{--</td>--}}
+            {{--</tr>--}}
             <tr>
                 <th>标签</th>
                 <td>
-                    @foreach($tag as $v)
-                        {{ $v['name'] }}&nbsp;&nbsp;<input class="syf-icheck" type="checkbox" name="tag_ids[]" value="{{ $v['id'] }}" @if(in_array($v['id'], old('tag_ids', []))) checked="checked" @endif> &emsp;
-                    @endforeach
+                    {{--@foreach($_tag as $v)--}}
+                        {{--{{ $v['name'] }}&nbsp;&nbsp;<input class="syf-icheck" type="checkbox" name="tag_ids[]" value="{{ $v['id'] }}" @if(in_array($v['id'], old('tag_ids', []))) checked="checked" @endif> &emsp;--}}
+                    {{--@endforeach--}}
+                    <select class="tag-select form-control" name="tag_ids[]" multiple="multiple">
+                        {{--<option value="">请选择标签</option>--}}
+                        @foreach($_tag as $v)
+                        <option value="{{ $v['id'] }}">{{ $v['name'] }}&nbsp;</option>
+                        @endforeach
+                    </select>
                 </td>
             </tr>
             <tr>
@@ -84,6 +102,19 @@
                     <input class="js-switch" type="checkbox" name="is_top" value="1" @if(old('is_top', 0) == 1) checked="checked" @endif>
                 </td>
             </tr>
+            <tr>
+                <th>状态</th>
+                <td>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="status" value="1" checked="checked" />发布
+                        </label>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <label>
+                            <input type="radio" name="status" value="2" />草稿
+                        </label>
+                    </div>
+                </td>
+            </tr>
 
             <tr>
                 <th></th>
@@ -102,9 +133,13 @@
     <script src="/admin/plugins/editormd/editormd.min.js"></script>
     <script src="/admin/plugins/iCheck-1.0.2/icheck.min.js"></script>
     <script src="/admin/plugins/layer-2.4/layer.js"></script>
+    <script src="/admin/plugins/select2/select2.full.min.js"></script>
     <script>
         var testEditor;
         $(function() {
+            $('.tag-select').select2({
+                placeholder: '请选择文章标签'
+            });
             layer.load(layer.open, {shade: 0.3});
             setTimeout(function () {
                 layer.closeAll('loading');

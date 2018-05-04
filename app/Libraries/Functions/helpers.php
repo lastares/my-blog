@@ -5,6 +5,7 @@ use HyperDown\Parser;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Auth;
+use \Illuminate\Support\Facades\Redis;
 
 if (!function_exists('unlinkImage')) {
     function unlinkImage($imagePath): void
@@ -134,9 +135,9 @@ if (!function_exists('send_email')) {
             }
         });
         if (count(Mail::failures()) > 0) {
-            $data = array('status_code' => 500, 'message' => '邮件发送失败');
+            $data = ['status_code' => 500, 'message' => '邮件发送失败'];
         } else {
-            $data = array('status_code' => 200, 'message' => '邮件发送成功');
+            $data = ['status_code' => 200, 'message' => '邮件发送成功'];
         }
         return $data;
     }
@@ -391,6 +392,19 @@ if (!function_exists('curl_get_contents')) {
     }
 }
 
+if(!function_exists('curl')) {
+    function curl(string $remoteUrl) {
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_URL, $remoteUrl);
+        curl_setopt($curl, CURLOPT_HEADER, 1);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);//这个是重点。
+        $data = curl_exec($curl);
+        curl_close($curl);
+        return $data;
+    }
+}
+
 if (!function_exists('redis')) {
     /**
      * redis的便捷操作方法
@@ -431,8 +445,6 @@ if (!function_exists('returnJson')) {
 }
 
 
-
-
 /**
  *
  *
@@ -451,7 +463,7 @@ function human_filesize($bytes, $decimals = 2)
     $size = ['B', 'kB', 'MB', 'GB', 'TB', 'PB'];
     $factor = floor((strlen($bytes) - 1) / 3);
 
-    return sprintf("%.{$decimals}f", $bytes / pow(1024, $factor)) .@$size[$factor];
+    return sprintf("%.{$decimals}f", $bytes / pow(1024, $factor)) . @$size[$factor];
 }
 
 /**
@@ -461,4 +473,81 @@ function is_image($mimeType)
 {
     return starts_with($mimeType, 'image/');
 }
+
+if (!function_exists('randomCode')) {
+    function randomCode()
+    {
+        $number = '1234567890';
+        $len = strlen($number);
+        $randomCode = '';
+        for ($i = 0; $i < 4; $i++) {
+            $randomCode .= $number{mt_rand(0, $len-1)};
+        }
+
+        return $randomCode;
+    }
+}
+
+
+function getCityByIp($ip = ''){
+    if(empty($ip)){
+        $ip = GetIp();
+    }
+    $res = @file_get_contents('http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js&ip=' . $ip);
+    if(empty($res)){ return false; }
+    $jsonMatches = array();
+    preg_match('#\{.+?\}#', $res, $jsonMatches);
+    if(!isset($jsonMatches[0])){ return false; }
+    $json = json_decode($jsonMatches[0], true);
+    if(isset($json['ret']) && $json['ret'] == 1){
+        $json['ip'] = $ip;
+        unset($json['ret']);
+    }else{
+        return false;
+    }
+    return $json;
+}
+
+
+function getAreaByIp(string $ip = '' ) {
+    $location = getCityByIp($ip);
+    return $location['country'] . $location['province'] . $location['city'];
+}
+
+
+
+function ismobile() {
+    // 如果有HTTP_X_WAP_PROFILE则一定是移动设备
+    if (isset ($_SERVER['HTTP_X_WAP_PROFILE']))
+        return true;
+
+    //此条摘自TPM智能切换模板引擎，适合TPM开发
+    if(isset ($_SERVER['HTTP_CLIENT']) &&'PhoneClient'==$_SERVER['HTTP_CLIENT'])
+        return true;
+    //如果via信息含有wap则一定是移动设备,部分服务商会屏蔽该信息
+    if (isset ($_SERVER['HTTP_VIA']))
+        //找不到为flase,否则为true
+        return stristr($_SERVER['HTTP_VIA'], 'wap') ? true : false;
+    //判断手机发送的客户端标志,兼容性有待提高
+    if (isset ($_SERVER['HTTP_USER_AGENT'])) {
+        $clientkeywords = array(
+            'nokia','sony','ericsson','mot','samsung','htc','sgh','lg','sharp','sie-','philips','panasonic','alcatel','lenovo','iphone','ipod','blackberry','meizu','android','netfront','symbian','ucweb','windowsce','palm','operamini','operamobi','openwave','nexusone','cldc','midp','wap','mobile'
+        );
+        //从HTTP_USER_AGENT中查找手机浏览器的关键字
+        if (preg_match("/(" . implode('|', $clientkeywords) . ")/i", strtolower($_SERVER['HTTP_USER_AGENT']))) {
+            return true;
+        }
+    }
+    //协议法，因为有可能不准确，放到最后判断
+    if (isset ($_SERVER['HTTP_ACCEPT'])) {
+        // 如果只支持wml并且不支持html那一定是移动设备
+        // 如果支持wml和html但是wml在html之前则是移动设备
+        if ((strpos($_SERVER['HTTP_ACCEPT'], 'vnd.wap.wml') !== false) && (strpos($_SERVER['HTTP_ACCEPT'], 'text/html') === false || (strpos($_SERVER['HTTP_ACCEPT'], 'vnd.wap.wml') < strpos($_SERVER['HTTP_ACCEPT'], 'text/html')))) {
+            return true;
+        }
+    }
+    return false;
+}
+
+
 

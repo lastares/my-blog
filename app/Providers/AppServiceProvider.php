@@ -2,18 +2,25 @@
 
 namespace App\Providers;
 
+use App\Http\Controllers\Admin\BaseController;
+use App\Http\Controllers\Home\IndexController;
+use App\Http\Controllers\Home\PageCountController;
 use App\Models\Article;
 use App\Models\Banner;
 use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Config;
 use App\Models\FriendshipLink;
-use App\Models\GitProject;
 use App\Models\Notice;
 use App\Models\Tag;
 use App\Observers\CacheClearObserver;
+use Appstract\LushHttp\Request\Adapter\Curl;
 use Artisan;
 use Cache;
+use Carbon\Carbon;
+use function curl_get_contents;
+use function file_get_contents;
+use function getCurl;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\ServiceProvider;
 
@@ -34,8 +41,10 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('home/*', function ($view) {
             $category = Cache::remember('common:category', 10080, function () {
                 // 获取分类导航
-                return Category::orderBy('sort', 'asc')->select('id', 'name')->get();
+                $categoryModel = new Category();
+                return $categoryModel->categories();
             });
+            $pageInfoCount = PageCountController::pageInfo();
 
             $tag = Cache::remember('common:tag', 10080, function () {
                 // 获取标签下的文章数统计
@@ -45,12 +54,17 @@ class AppServiceProvider extends ServiceProvider
 
             $topArticle = Cache::remember('common:topArticle', 10080, function () {
                 // 获取置顶推荐文章
-                return Article::select('id', 'title')
+                return Article::select('id', 'title', 'click', 'cover', 'description', 'created_at')
                     ->orderBy('click', 'desc')
-                    ->limit(8)
+                    ->limit(5)
                     ->get();
             });
-
+            if (!Cache::has('news')) {
+                IndexController::news();
+                $latestNews = Cache::get('news');
+            } else {
+                $latestNews = Cache::get('news');
+            }
             $notices = Cache::remember('common:notices', 86400, function () {
                 // 获取网站公告
                 return Notice::select('id', 'notice_title', 'notice_content', 'created_at')->orderBy('id', 'desc')->get();
@@ -59,7 +73,7 @@ class AppServiceProvider extends ServiceProvider
             $newComment = Cache::remember('common:newComment', 10080, function () {
                 // 获取最新评论
                 $commentModel = new Comment();
-                return $commentModel->getNewData();
+                return $commentModel->getNewData(5);
             });
 
             $friendshipLink = Cache::remember('common:friendshipLink', 10080, function () {
@@ -67,33 +81,41 @@ class AppServiceProvider extends ServiceProvider
                 return FriendshipLink::linkList();
             });
 
-
-            $gitProject = Cache::remember('common:gitProject', 10080, function () {
-                // 获取开源项目
-                return GitProject::select('name', 'type')->orderBy('sort')->get();
-            });
-
             // 获取banner
             $banners = Cache::remember('common:banners', 10080, function () {
-                return Banner::select('id', 'banner_path', 'banner_title')->where('status', 1)->orderBy('id', 'desc')->get();
+                $where = [
+                    'status' => 1,
+                    'type' => 4
+                ];
+                return Banner::select('id', 'banner_path', 'banner_title')->where($where)->orderBy('id', 'desc')->limit(5)->get();
             });
-            $url = str_replace('http://', '', request()->url());
+            $urlExt = env('APP_DEBUG') ? 'http://' : 'https://';
+            $url = str_replace($urlExt, '', request()->url());
             $host = request()->getHost();
             // 原创
-            $articleCreateCount = app('db')->table('articles')->where('type', 1)->count();
-            // 转载
-            $articleTransferCount = app('db')->table('articles')->where('type', 2)->count();
-            $articleData = app('db')->table('articles')->select('like', 'click')->get();
-            // 喜欢
-            $articleLikeCount = 0;
-            // 访问量
-            $articleClickCount = 0;
-            foreach($articleData as $k => $v) {
-                    $articleLikeCount += $v->like ;
-                    $articleClickCount += $v->click;
+            $articleCount = app('db')->table('articles')->count();
+            $maxTime = app('db')->table('articles')->max('created_at');
+            $latestArticle = app('db')->table('articles')->select('id', 'title', 'author', 'created_at')->where('created_at', $maxTime)->first();
+
+            // 是否是手机端访问
+            $isMobile = ismobile();
+
+            $_chats = app('db')->table('chats')->select('id', 'content', 'created_at')->orderBy('id', 'desc')->limit(5)->get();
+            foreach ($_chats as $k => &$v) {
+                $dt = Carbon::parse($v->created_at);
+                $_chats[$k]->month = $dt->month;
+                $_chats[$k]->day = $dt->day;
+            }
+
+            // 历史上的今天
+            if (app('redis')->exists('historyToday')) {
+                $historyToday = unserialize(app('redis')->get('historyToday'));
+            } else {
+                BaseController::historyToday();
+                $historyToday = unserialize(app('redis')->get('historyToday'));
             }
             // 分配数据
-            $assign = compact('category', 'tag', 'topArticle', 'newComment', 'friendshipLink', 'gitProject', 'notices', 'url', 'host', 'banners', 'articleCreateCount', 'articleTransferCount', 'articleLikeCount', 'articleClickCount');
+            $assign = compact('historyToday', 'pageInfoCount', 'latestNews', '_chats', 'isMobile', 'latestArticle', 'category', 'tag', 'topArticle', 'newComment', 'friendshipLink', 'notices', 'url', 'host', 'banners', 'articleCount');
             $view->with($assign);
         });
 

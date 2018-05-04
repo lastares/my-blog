@@ -2,6 +2,14 @@
 
 @section('title', '分类列表')
 
+@section('my-css')
+    <style>
+        .table-condensed>thead>tr>th, .table-condensed>tbody>tr>th, .table-condensed>tfoot>tr>th, .table-condensed>thead>tr>td, .table-condensed>tbody>tr>td, .table-condensed>tfoot>tr>td {
+            padding: 5px 7px;
+            text-align: left;
+        }
+    </style>
+@endsection
 @section('content')
     <ul class="breadcrumb" style="font-size: 16px;">
         <li><a href="#">首页</a></li>
@@ -11,27 +19,21 @@
     <div style="margin-bottom:10px;">
         <a class="btn btn-success" href="{{ url('admin/category/create') }}">添加分类</a>
     </div>
-    <form action="{{ url('admin/category/sort') }}" method="post">
-        {{ csrf_field() }}
         <table class="table table-bordered table-striped table-hover table-condensed">
             <tr>
                 <th>id</th>
-                <th>排序</th>
-                <th>分类名</th>
-                <th>关键字</th>
-                <th>描述</th>
+                <th>分类名称</th>
+                <th>父级分类</th>
+                <th>排序值</th>
                 <th>状态</th>
                 <th>操作</th>
             </tr>
             @foreach($data as $v)
                 <tr>
                     <td>{{ $v->id }}</td>
-                    <td width="5%">
-                        <input class="form-control" type="text" name="{{ $v->id }}" value="{{ $v->sort }}">
-                    </td>
-                    <td>{{ $v->name }}</td>
-                    <td>{{ $v->keywords }}</td>
-                    <td>{{ $v->description }}</td>
+                    <td>{{ str_repeat('-', 8*$v['level']) . $v->category_name }}</td>
+                    <td>{{ $v->parent_id }}</td>
+                    <td>@if($v->parent_id == 0) {{ $v->sort_number }} @endif</td>
                     <td>
                         @if(is_null($v->deleted_at))
                             √
@@ -51,17 +53,6 @@
                     </td>
                 </tr>
             @endforeach
-            <tr>
-                <td></td>
-                <td>
-                    <input class="btn btn-success" type="submit" value="排序">
-                </td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
         </table>
     </form>
 @endsection

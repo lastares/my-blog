@@ -6,6 +6,7 @@ use DB;
 
 class Tag extends Base
 {
+    protected $table = 'tags';
     /**
      * 获取标签下的文章数统计
      *
@@ -18,6 +19,7 @@ class Tag extends Base
             ->join('article_tags as at', 'at.tag_id', 'tags.id')
             ->rightJoin('articles as a', 'a.id', 'at.article_id')
             ->where('a.deleted_at', null)
+            ->orderBy('tags.id', 'desc')
             ->groupBy('tags.id')
             ->get();
         return $data;

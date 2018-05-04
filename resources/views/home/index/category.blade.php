@@ -1,83 +1,73 @@
-﻿@extends('layouts.home')
-@section('title', $title)
-@section('content')
-    <!--右侧框开始-->
-    <div class="right_box animated slideInRight" >
+﻿@include('home.index.common.top')
+<!--主题内容开始-->
+<div class="container">
+    <!--左侧开始-->
+    <section>
+        <h4 class="index-title">
+            <a href="/"><i class="el el-home"></i>首页 &nbsp;> </a>
+            <span class="orange-text">{{ $title }}</span>
+            <span style="float:right;margin-right:10px;">共有文章:<span class="orange-text"> {{ $total }} </span>篇</span>
+        </h4>
+        <div class="arclist">
+            <!--列表开始-->
+            <ul>
+                @foreach($article as $k => $v)
+                    <li>
+                        <!-- <li id="tuijian"id="Hot"> -->
+                        <div class="arcimg">
+                            <img  src="{{ $v->cover }}" alt="{{ $v->title }}" title="{{ $v->title }}" />
 
-        <!--文章列表开始-->
-        @foreach($article as $k => $v)
-            <a name = "{{  $v->id }}" href="{{ url('article', ['id' => $v->id]) }}">
-                <div class="right_cell">
-                    <!--圆圈日期开始-->
-                    <div  class="round-date red ">
-                        <span class="month">{{ $v->month }}月</span>
-                        <span class="day">{{ $v->day }}</span>
-                    </div>
-                    <!--圆圈日期结束-->
-                    <div class="page_title"><h2>{{ str_limit($v->title, 50) }}</h2></div>
-
-
-                    <!--书签样式开始-->
-                    <div class="ui red ribbon label lmar page_fla">
-                        @if($v->type == 1) 原创
-                        @elseif($v->type == 2) 转载
-                        @else 翻译
-                        @endif
-                    </div>
-                    <!--书签样式结束-->
-
-                    <!--描述-->
-                    <div class="page_content">
-                        <div class="page_content_left">
-                            <img src="{{ $v->cover }}">
                         </div>
-                        <div class="page_content_right">
-                            文章摘要：{{ $v->description }}
+                        <div class="arc-right">
+                            <h4 class="blue-text"><a href="/article/{{ $v->id }}" title="{{ $v->title }}">{{ $v->title }}</a></h4>
+                            <p>{{ $v->description }}</p>
+                            <ul>
+                                <li><a title="{{ $v->author }} {{ $v->created_at }}发表"><i class="el-time"></i> 2017-07-14</a></li>
+                                <li><a href="#" title="作者： {{ $v->author }}"><i class="el-user"></i>{{ $v->author }}</a></li>
+                                <li><a href="#"title="已有 0 条评论"><i class="el-comment"></i>0</a></li>
+                                <li><a title="已有 {{ $v->click }} 次浏览"><i class="el-eye-open"></i>{{ $v->click }} </a></li>
+                                <!-- <li class="mob-hidden">
+                                  <i class="el-tag"></i>
+    <a href= "Search/?s=朋友圈 ">朋友圈</a>&nbsp;
+                                </li> -->
+                                <li><a href="/category/{{ $v->id }}" title="查看分类"><i class="el-th-list"></i>{{ $v->category_name }}</a></li>
+                            </ul>
                         </div>
-
-                    </div>
-
-
-                    <!--标签-->
-                    <div class="tag_box" >
-                        <div style="display: inline-block;">
-                        <span>
-                            <span class="glyphicon glyphicon-user" style="color: #ff6e03;"></span>
-                            {{ $v->author }}
-                        </span>
-                            <span style="margin-left:30px;">
-                            <span class="glyphicon glyphicon-dashboard" style="color: #02b73b"></span>
-                                {{$v->created_at->diffForHumans()}}
-                        </span>
-                            <span style="margin-left:30px;">
-                            <span class="glyphicon glyphicon-tag" style="color: rgb(128,118,255)"></span>
-                                @foreach($v->tag as $n)
-                                    {{ $n->name }}
-                                @endforeach
-                        </span>
-                        </div>
-                        <div style="display: inline-block;margin-left: 10px;">
-                        <span class="label label-danger tag_moy">
-                            <span class="glyphicon glyphicon-eye-open" style="color: #fff"></span>
-                            &nbsp;围观&nbsp;&nbsp;{{ $v->click }}
-                        </span>
-                            <span class="label label-success tag_tag">
-                            <span class="glyphicon glyphicon-folder-open" style="color: #fff"></span>
-                            &nbsp;&nbsp;{{ $v->category_name }}</span>
-                        </div>
-                    </div>
-                </div>
-            </a>
-    @endforeach
-    <!--文章列表结束-->
-
-        <!--分页-->
-        <div class="right_carnum">
-            <nav aria-label="...">
-                {{ $article->links() }}
-            </nav>
-
+                    </li>
+                @endforeach
+            </ul>
+            <!--列表结束-->
         </div>
-    </div>
-    <!--右侧框结束-->
-@endsection
+        <!--分页-->
+
+        <!-- <div class="pagination">
+            <div class="list-page">
+                <ul class="post-data">
+                    <li ><a>第 1 - 2 页</a> <a>共 16 条</a></li>
+                </ul>
+            </div>
+            <ul>
+                <li class="active"><a>首页</a></li>
+                <li class="active"><a>上一页</a></li>
+                <li ><a href="?1+2.html">下一页</a></li>
+                <li ><a href="?1+2.html">尾页</a></li>
+            </ul>
+        </div> -->
+        <div class="page">
+            {{ $pageString }}
+        </div>
+        {{--<div class="page"><a class="first" href="/category/29/p/1.html">首页</a> <a class="prev not-allowed" href="javascript:;">上一页</a> <span class="current">1</span><a class="num" href="/category/29/p/2.html">2</a> <a class="next" href="/category/29/p/2.html">下一页</a> <a class="end" href="/category/29/p/2.html">尾页</a> <span class="rows">共 16 条记录</span></div>--}}
+    </section>
+    <!--左侧结束-->
+
+    <!--=========右侧开始==========-->
+@include('home.index.common.right')
+
+    <!--=========END右侧==========-->
+
+</div>
+<!--主题内容结束-->
+
+<!---底部开始-->
+@include('home.index.common.footer')
+<!--底部结束-->

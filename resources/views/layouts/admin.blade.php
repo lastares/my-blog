@@ -22,7 +22,7 @@
         <div class="col-md-3 left_col">
             <div class="left_col scroll-view">
                 <div class="navbar nav_title" style="border: 0;">
-                    <a href="{{ url('admin/index/index') }}" class="site_title"><i class="fa fa-paw"></i> <span>laravel-syf</span></a>
+                    <a href="{{ url('admin/index/index') }}" class="site_title"><i class="fa fa-paw"></i> <span>宋耀锋</span></a>
                 </div>
 
                 <div class="clearfix"></div>
@@ -53,21 +53,27 @@
                                 </ul>
                             </li>
                             <li>
-                                <a><i class="fa fa-th"></i> 分类管理 <span class="fa fa-chevron-down"></span></a>
+                                <a><i class="fa fa-th"></i> 顶部导航 <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="{{ url('admin/category/index') }}">分类列表</a></li>
+                                    <li><a href="{{ url('admin/category/index') }}">导航列表</a></li>
                                 </ul>
                             </li>
                             <li>
-                                <a><i class="fa fa-th"></i> 工具分类 <span class="fa fa-chevron-down"></span></a>
+                                <a><i class="fa fa-th"></i> 网址导航 <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="{{ url('admin/toolsCategory/index') }}">工具分类列表</a></li>
+                                    <li><a href="{{ url('admin/urlCategory/index') }}">导航列表</a></li>
                                 </ul>
                             </li>
+                            {{--<li>--}}
+                                {{--<a><i class="fa fa-th"></i> 工具分类 <span class="fa fa-chevron-down"></span></a>--}}
+                                {{--<ul class="nav child_menu">--}}
+                                    {{--<li><a href="{{ url('admin/toolsCategory/index') }}">工具分类列表</a></li>--}}
+                                {{--</ul>--}}
+                            {{--</li>--}}
                             <li>
-                                <a><i class="fa fa-th"></i> 网站导航 <span class="fa fa-chevron-down"></span></a>
+                                <a><i class="fa fa-th"></i> 网址大全 <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="{{ url('admin/tools/index') }}">网站导航列表</a></li>
+                                    <li><a href="{{ url('admin/tools/index') }}">网址列表</a></li>
                                 </ul>
                             </li>
                             <li>
@@ -124,6 +130,12 @@
                                 <ul class="nav child_menu">
                                     <li><a href="{{ url('admin/config/edit') }}">设置列表</a></li>
                                     <li><a href="{{ url('admin/gitProject/index') }}">开源项目</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a><i class="fa fa-cogs"></i> 视频会员 <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="{{ url('admin/videoVip/index') }}">视频会员列表</a></li>
                                 </ul>
                             </li>
                         </ul>

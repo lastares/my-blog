@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use Auth;
 use App\Models\OauthUser;
+use Cache;
+use Carbon\Carbon;
 use Socialite;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -77,9 +79,10 @@ class OAuthController extends Controller
             // 更新数据
             $oauthUserModel->updateData($editMap, $editData);
             // 组合session中要用到的数据
-            $sessionData['user']['id'] = $userId;
-            $sessionData['user']['email'] = $oldUserData->email;
-            $sessionData['user']['is_admin'] = $oldUserData->is_admin;
+            $sessionData['user'] = $oauthUserModel->getUserInfoById($userId);
+//            $sessionData['user']['id'] = $userId;
+//            $sessionData['user']['email'] = $oldUserData->email;
+//            $sessionData['user']['is_admin'] = $oldUserData->is_admin;
         } else {
             $data = [
                 'type' => $type[$service],
@@ -104,9 +107,12 @@ class OAuthController extends Controller
             ];
             $oauthUserModel->updateData($editMap, $editData);
             // 组合session中要用到的数据
-            $sessionData['user']['id'] = $userId;
-            $sessionData['user']['email'] = '';
-            $sessionData['user']['is_admin'] = 0;
+            $sessionData['user'] = $oauthUserModel->getUserInfoById($userId);
+
+//            $sessionData['user']['id'] = $userId;
+//            $sessionData['user']['email'] = '';
+//            $sessionData['user']['is_admin'] = 0;
+//            $sessionData['user']['name'] = $oauthUserModel->nickname;
         }
         // 下载最新的头像到本地
         $avatarContent = curl_get_contents($user->avatar);
@@ -120,6 +126,9 @@ class OAuthController extends Controller
         $sessionData['user']['avatar'] = url('uploads/avatar/'.$userId.'.jpg');
         // 将数据存入session
         session($sessionData);
+//        $user = $oauthUserModel->getUserInfoById($userId);
+//        $expiresAt = Carbon::now()->addMinutes(1440);
+//        Cache::put('user', $user, $expiresAt);
         // 如果session没有存储登录前的页面;则直接返回到首页
         return redirect(session('targetUrl', url('/')));
     }

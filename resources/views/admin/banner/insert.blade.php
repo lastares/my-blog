@@ -25,10 +25,11 @@
             <div class="form-group">
                 <label for="banner_title" class="col-sm-2 control-label">所属分类</label>
                 <div class="col-sm-6">
-                    <select name="type">
+                    <select id="type" name="type">
                         <option value="1">留言板</option>
                         <option value="2">文章分类</option>
                         <option value="3">左邻右舍</option>
+                        <option value="4">Banner</option>
                     </select>
                 </div>
             </div>
@@ -108,6 +109,7 @@
             } else if (that.files[0].size > 5242880) {
                 alert('', "上传的图片大于5M", 'error');
             } else {
+                // $type = $('#type[selected]').val();
                 var formData = new FormData();
                 formData.append("file", $('#banner_path')[0].files[0]);
                 formData.append("_token", "{{csrf_token()}}");
@@ -120,8 +122,13 @@
                     contentType: false,
                     cache: false,
                     success: function (data) {
-                        $('.banner_path').attr('src', data.prefix_route + data.data);
-                        $('#banner_img').val(data.data);
+                        if(data.code === 0) {
+                            $('.banner_path').attr('src', data.prefix_route + data.imgUrl);
+                            $('#banner_img').val(data.prefix_route + data.imgUrl);
+                        } else {
+                          layer.msg(data.msg);
+                        }
+
                     }
                 });
             }

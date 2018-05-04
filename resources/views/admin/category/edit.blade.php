@@ -9,36 +9,35 @@
 @section('content')
     <form class="form-horizontal">
         {{ csrf_field() }}
+        <input type="hidden" name="id" value="{{ $data['id'] }}" />
         <table class="table table-striped table-bordered table-hover">
             <tr>
-                <th>分类名</th>
+                <th>上级分类</th>
                 <td>
-                    <input class="form-control" type="text" name="name" value="{{ $data['name'] }}">
+                    <select name="parent_id" id="parent_id">
+                        <option value="0">顶级分类</option>
+                        @foreach($categories as $k => $category)
+                            <option value="{{ $category->id }}">{{ str_repeat('-', 8*$category->level) . $category->category_name }}</option>
+                        @endforeach
+                    </select>
                 </td>
             </tr>
             <tr>
-                <th>关键字</th>
+                <th>分类名称</th>
                 <td>
-                    <input class="form-control" type="text" name="keywords" value="{{ $data['keywords'] }}">
+                    <input class="form-control" type="text" name="category_name" value="{{ $data['category_name'] }}">
                 </td>
             </tr>
             <tr>
-                <th>描述</th>
+                <th>排序值</th>
                 <td>
-                    <input class="form-control" type="text" name="description" value="{{ $data['description'] }}">
-                </td>
-            </tr>
-            <tr>
-                <th>排序</th>
-                <td>
-                    <input class="form-control" type="text" name="sort" value="{{ $data['sort'] }}">
+                    <input class="form-control" type="text" name="sort_number" placeholder="0" value="{{ $data['sort_number'] }}">
                 </td>
             </tr>
             <tr>
                 <th></th>
                 <td>
-                    <button class="btn btn-success" type="button" onclick="submitBtn({{ $data['id'] }});">提交</button>
-                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <button class="btn btn-success" type="button" onclick="submitBtn({{ $data['id'] }});">提交</button>&nbsp;&nbsp;&nbsp;&nbsp;
                     <button type="button" class="btn btn-danger" onclick="history.go(-1);">返回</button>
                 </td>
             </tr>

@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://www.songyaofeng.com'),
+    'url' => env('APP_URL', 'https://www.songyaofeng.com'),
 
     /*
     |--------------------------------------------------------------------------
@@ -186,6 +186,8 @@ return [
         // 验证码
         Mews\Captcha\CaptchaServiceProvider::class,
 
+        // 七牛云
+        itbdw\QiniuStorage\QiniuFilesystemServiceProvider::class,
     ],
 
     /*
