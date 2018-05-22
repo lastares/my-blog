@@ -1,0 +1,38 @@
+[2018-03-13 15:03:57] Processing: App\Jobs\SendCommentEmail
+[2018-03-13 15:03:58] Processed:  App\Jobs\SendCommentEmail
+[2018-03-13 15:03:59] Processing: App\Jobs\SendCommentEmail
+[2018-03-13 15:04:00] Processed:  App\Jobs\SendCommentEmail
+[2018-03-13 15:04:00] Processing: App\Jobs\SendCommentEmail
+[2018-03-13 15:04:02] Processed:  App\Jobs\SendCommentEmail
+
+In Process.php line 432:
+                                                  
+  The process has been signaled with signal "1".  
+                                                  
+
+[2018-03-13 15:09:40] Processing: App\Jobs\SendCommentEmail
+[2018-03-13 15:09:41] Processed:  App\Jobs\SendCommentEmail
+[2018-03-13 15:11:16] Processing: App\Jobs\SendCommentEmail
+[2018-03-13 15:11:17] Processed:  App\Jobs\SendCommentEmail
+[2018-03-13 15:17:11] Processing: App\Jobs\SendCommentEmail
+[2018-03-13 15:17:12] Processed:  App\Jobs\SendCommentEmail
+[2018-03-13 15:35:56] Processing: App\Jobs\SendCommentEmail
+[2018-03-13 15:35:58] Processed:  App\Jobs\SendCommentEmail
+[2018-03-13 15:43:26] Processing: App\Jobs\SendCommentEmail
+[2018-03-13 15:43:27] Processed:  App\Jobs\SendCommentEmail
+[2018-03-15 15:14:59] Processing: App\Jobs\SendCommentEmail
+[2018-03-15 15:15:00] Processed:  App\Jobs\SendCommentEmail
+[2018-03-23 09:42:45] Processing: App\Jobs\SendCommentEmail
+[2018-03-23 09:42:46] Processed:  App\Jobs\SendCommentEmail
+[2018-03-24 15:15:27] Processing: App\Jobs\SendCommentEmail
+[2018-03-24 15:15:28] Processed:  App\Jobs\SendCommentEmail
+[2018-03-24 15:20:44] Processing: App\Jobs\SendCommentEmail
+[2018-03-24 15:20:45] Processed:  App\Jobs\SendCommentEmail
+
+In Process.php line 1333:
+                                                                               
+  The process "'/usr/local/php/bin/php' 'artisan' queue:work '' --once --queu  
+  e='default' --delay=0 --memory=128 --sleep=3 --tries=0" exceeded the timeou  
+  t of 60 seconds.                                                             
+                                                                               
+
