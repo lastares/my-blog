@@ -8,7 +8,7 @@
     <section>
         <article >
             <div class="mbnav"><i class="el el-home"></i><a href="/" title="">首页</a>&gt;<a href="/category/{{ $data->category_id }}" >{{ $data->category_name }}</a>&gt;正文</div>
-            <h3 class="arc-title index-title">{{ $data->title }}</h3>
+            <h3 class="arc-title index-title" style="text-align: center;">{{ $data->title }}</h3>
             <div class="post-line bg-color">
                 <ul>
                     <li><a title="{{ $data->author }}发表于{{ $data->created_at }}"><i class="el-time"></i><time>{{ $data->created_at }}</time></a></li>
