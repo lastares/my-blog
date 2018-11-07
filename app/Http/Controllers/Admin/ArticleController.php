@@ -57,7 +57,7 @@ class ArticleController extends Controller
     public function uploadImage()
     {
         $result = upload('editormd-image-file', 'uploads/article');
-        $imgRootUrl = '//admin.songyaofeng.com';
+        $imgRootUrl = 'http://admin.songyaofeng.com';
         if ($result['status_code'] === 200) {
             $data = [
                 'success' => 1,
