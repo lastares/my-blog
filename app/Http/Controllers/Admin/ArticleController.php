@@ -57,11 +57,12 @@ class ArticleController extends Controller
     public function uploadImage()
     {
         $result = upload('editormd-image-file', 'uploads/article');
+        $imgRootUrl = 'http://admin.songyaofeng.com';
         if ($result['status_code'] === 200) {
             $data = [
                 'success' => 1,
                 'message' => $result['message'],
-                'url' => $result['data']['path'] . $result['data']['new_name']
+                'url' => $imgRootUrl . $result['data']['path'] . $result['data']['new_name']
             ];
         } else {
             $data = [
